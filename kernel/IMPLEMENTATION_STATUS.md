@@ -18,15 +18,15 @@ Phase 4
 - [x] Shared identifier runtime
 - [x] Transaction utilities
 - [x] Idempotency runtime
-- [ ] Kernel audit persistence
-- [ ] Error contract
-- [ ] Structured logging
-- [ ] Health checks
-- [ ] Metrics
+- [x] Kernel audit persistence
+- [x] Error contract
+- [x] Structured logging
+- [x] Health checks
+- [x] Metrics
 - [ ] Secret reference boundary
 - [ ] Backup contract
 - [ ] Commerce primitives
 
 ## Current Next Work
 
-Implement Kernel P0 audit persistence + error/observability contracts.
+Implement Kernel P0 secret reference boundary + backup contract.
