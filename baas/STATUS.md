@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Object Storage service initialized.
+BaaS P0 Serverless Functions contract initialized.
 
 ## Foundation
 
@@ -24,8 +24,6 @@ Tenant execution context: COMPLETE
 
 Identity/session/API-key foundation: COMPLETE
 
-Concrete password/MFA/passkey providers: DEFERRED
-
 ## Database
 
 PostgreSQL Database BaaS: COMPLETE
@@ -34,25 +32,34 @@ PostgreSQL Database BaaS: COMPLETE
 
 Object Storage BaaS: COMPLETE
 
-Private bucket policy: COMPLETE
+## Functions
 
-Tenant-aware access: COMPLETE
+Serverless Functions BaaS: COMPLETE
 
-Upload/object metadata lifecycle: COMPLETE
+Tenant function descriptor: COMPLETE
 
-Signed temporary download access: COMPLETE
+Bounded timeout/memory policy: COMPLETE
 
-Retention enforcement: COMPLETE
+HTTP/event/scheduled/manual trigger contracts: COMPLETE
 
-Malware-scan state: COMPLETE
+Secret reference injection contract: COMPLETE
+
+Invocation planning: COMPLETE
+
+Audit/log context: COMPLETE
+
+Production code executor: DEFERRED
+
+Production scheduler adapter: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Serverless Functions service.
+BaaS P0 — API Gateway service.
 
 ## Governing Rule
 
-Object Storage is private by default, tenant-scoped, and Kernel-authorized.
-The BaaS control plane stores object metadata and provider references only, not
-object bytes or provider credentials. Temporary access is bounded and
-fingerprinted, and quarantined objects cannot be downloaded.
+Functions BaaS P0 manages definitions and produces bounded, tenant-scoped,
+Kernel-authorized invocation plans. It does not execute arbitrary code.
+Production execution must occur through an isolated runtime adapter with
+resource limits, secret injection at execution time, structured logs, and
+audit evidence.

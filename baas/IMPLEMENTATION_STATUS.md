@@ -14,7 +14,7 @@ Phase 5
 - [x] Service-account/API-client identity model
 - [x] PostgreSQL Database BaaS
 - [x] Object Storage
-- [ ] Serverless Functions
+- [x] Serverless Functions
 - [ ] API Gateway
 - [ ] Events
 - [ ] Webhooks
@@ -27,17 +27,27 @@ Phase 5
 - [ ] Secrets
 - [ ] Backups
 
-## Object Storage P0 Components
+## Functions P0 Components
 
-- [x] Private bucket descriptor
-- [x] Tenant-scoped bucket manager
-- [x] Upload intent
-- [x] Object metadata lifecycle
-- [x] Signed temporary download access
-- [x] Retention enforcement
-- [x] Malware-scan state
-- [x] Secret-bearing metadata rejection
+- [x] Tenant function descriptor
+- [x] HTTP trigger contract
+- [x] Event trigger contract
+- [x] Scheduled trigger metadata contract
+- [x] Manual trigger contract
+- [x] Bounded timeout and memory policy
+- [x] Secret reference injection contract
+- [x] Function lifecycle
+- [x] Invocation plan
+- [x] Audit/log context
+- [x] Kernel authorization evidence requirement
+
+## Functions Deferred Runtime
+
+- [ ] Isolated production code executor
+- [ ] Production scheduler adapter
+- [ ] Network egress policy adapter
+- [ ] Provider-native secret injection adapter
 
 ## Current Next Work
 
-Implement BaaS P0 Serverless Functions service.
+Implement BaaS P0 API Gateway service.
