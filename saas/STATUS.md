@@ -12,7 +12,7 @@ Dalizebo BaaS P0: COMPLETE
 
 ## Current Stage
 
-Commerce P0 Inventory + Customers initialized.
+Commerce P0 Cart + Checkout + Orders initialized.
 
 ## Commerce
 
@@ -30,43 +30,51 @@ Inventory: COMPLETE
 
 Customers: COMPLETE
 
-Cart: NEXT
+Cart: COMPLETE
 
-Checkout: NEXT
+Checkout: COMPLETE
 
-Orders: NEXT
+Orders: COMPLETE
 
-## Inventory
+Payments: NEXT
 
-Kernel InventoryItem authority: COMPLETE
+Discounts: NEXT
 
-On-hand/reserved invariants: COMPLETE
+Notifications: NEXT
 
-Exact-tenant Variant/Store/Branch evidence: COMPLETE
+Dashboard: NEXT
 
-Explicit inventory adjustments: COMPLETE
+## Cart + Checkout + Orders
 
-Expected-quantity atomic persistence requirement: COMPLETE
+Kernel Cart/Order/OrderItem authority: COMPLETE
 
-SaaS-owned authoritative Inventory database: NONE
+Cart lifecycle: COMPLETE
 
-## Customers
+Checkout authoritative snapshots: COMPLETE
 
-Kernel Customer authority: COMPLETE
+Inventory reservation planning: COMPLETE
 
-Customer create/update: COMPLETE
+Integer minor-unit checkout totals: COMPLETE
 
-External identity reference: COMPLETE
+Order Item price snapshots: COMPLETE
 
-Optional contact profile: COMPLETE
+Kernel Order lifecycle: COMPLETE
 
-PII policy/retention references: COMPLETE
+Atomic checkout transaction requirement: COMPLETE
 
-Contact values suppressed from audit/log metadata: COMPLETE
+Outbox-after-commit requirement: COMPLETE
 
-Production PII persistence hardening: DEFERRED
+Checkout idempotency: COMPLETE
 
-SaaS-owned authoritative Customer database: NONE
+Durable Kernel Cart Item primitive: DEFERRED
+
+Discount calculation: DEFERRED TO NEXT SLICE
+
+Tax engine: DEFERRED
+
+Payment integration: DEFERRED TO NEXT SLICE
+
+SaaS-owned authoritative Cart/Order/OrderItem database: NONE
 
 ## POS
 
@@ -74,14 +82,13 @@ P0 implementation: PENDING COMMERCE FOUNDATION
 
 ## Next Work
 
-Commerce P0 — Cart + Checkout + Orders.
+Commerce P0 — Payments + Discounts + Notifications + Dashboard.
 
 ## Governing Rule
 
-Inventory and Customers remain Kernel-authoritative shared entities. Commerce
-may plan explicit idempotent mutations only after tenant/parent authority
-validation. Inventory target quantities must satisfy Kernel invariants and
-persistence must atomically compare expected quantities. Customer contact data
-is classified as personal data and requires policy references; the current
-direct email/phone persistence model remains explicitly subject to production
-PII protection and retention hardening.
+Cart, Order, Order Item, and Inventory remain Kernel-authoritative. Checkout is
+an atomic transaction plan: inventory reservations, DRAFT Order, immutable Order
+Items, Cart conversion, and Order placement commit together or roll back
+together. Events publish only after commit. The current shared domain lacks a
+durable Cart Item primitive, so Commerce does not invent a competing Cart Item
+database; that shared-domain extension remains explicitly deferred.

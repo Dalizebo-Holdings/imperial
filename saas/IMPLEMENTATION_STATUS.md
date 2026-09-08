@@ -34,46 +34,45 @@ Phase 6 — Commerce + POS
 - [x] Pricing
 - [x] Inventory
 - [x] Customers
-- [ ] Cart
-- [ ] Checkout
-- [ ] Orders
+- [x] Cart
+- [x] Checkout
+- [x] Orders
 - [ ] Payments
 - [ ] Discounts
 - [ ] Notifications
 - [ ] Dashboard
 
-## Inventory Components
+## Cart + Checkout + Orders Components
 
-- [x] Kernel InventoryItem authority boundary
-- [x] Variant/Store/Branch authority evidence
-- [x] Initial inventory creation
-- [x] On-hand/reserved invariant validation
-- [x] Explicit before/after inventory adjustment
-- [x] Optimistic expected-quantity persistence requirement
-- [x] Cross-tenant inventory evidence rejection
-- [x] Mutation idempotency
-- [x] No SaaS-owned inventory database
+- [x] Kernel Cart authority boundary
+- [x] Cart OPEN/CONVERTED/ABANDONED lifecycle
+- [x] Cart create and abandon planning
+- [x] Authoritative checkout line snapshots
+- [x] Kernel Variant price validation
+- [x] Integer minor-unit line/subtotal calculation
+- [x] Explicit inventory reservation planning
+- [x] Expected inventory atomic compare/update requirement
+- [x] Order DRAFT creation
+- [x] Immutable Order Item price snapshots
+- [x] Kernel Order lifecycle validation
+- [x] Checkout DRAFT→PLACED transition
+- [x] Cart OPEN→CONVERTED transition
+- [x] Composite atomic checkout transaction requirement
+- [x] Outbox-after-commit requirement
+- [x] Checkout transaction idempotency
+- [x] Cross-tenant checkout evidence rejection
+- [x] No SaaS-owned Cart/Order/OrderItem database
 
-## Customer Components
+## Cart Deferred Shared-Domain Work
 
-- [x] Kernel Customer authority boundary
-- [x] Customer creation
-- [x] Customer update
-- [x] External identity reference
-- [x] Optional email/phone profile support
-- [x] Contact PII classification metadata
-- [x] PII policy reference requirement
-- [x] Retention policy reference requirement
-- [x] Contact-value audit/log suppression directive
-- [x] Cross-tenant Customer evidence rejection
-- [x] Mutation idempotency
-- [x] No SaaS-owned Customer database
+- [ ] Durable Kernel Cart Item primitive
+- [ ] Durable cross-session Cart Item persistence
 
-## Customer PII Deferred Production Hardening
+## Checkout Deferred Work
 
-- [ ] Database encryption/appropriate protection adapter
-- [ ] Retention/deletion enforcement adapter
-- [ ] Formal customer PII lifecycle policy implementation
+- [ ] Discount calculation integration
+- [ ] Tax engine integration
+- [ ] Payment authorization/capture integration
 
 ## POS P0
 
@@ -93,4 +92,4 @@ Phase 6 — Commerce + POS
 
 ## Current Next Work
 
-Commerce P0 — Cart + Checkout + Orders.
+Commerce P0 — Payments + Discounts + Notifications + Dashboard.
