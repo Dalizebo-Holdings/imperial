@@ -102,3 +102,12 @@
 - [Usage Billing](../hardening/usage-billing/README.md)
 - [Reliability](../hardening/reliability/README.md)
 - [External BaaS Readiness](../hardening/external-baas/README.md)
+
+## Second SaaS Wave
+
+- [Cross-Product Rules](../saas/CROSS_PRODUCT_RULES.md)
+- [Dalizebo CRM](../saas/crm/README.md)
+- [Dalizebo Analytics](../saas/analytics/README.md)
+- [Dalizebo Automate](../saas/automate/README.md)
+- [Dalizebo Desk](../saas/desk/README.md)
+- [Dalizebo Projects](../saas/projects/README.md)
