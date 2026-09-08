@@ -15,10 +15,10 @@ Phase 3
 - [x] Operation and scope validation
 - [x] Timeout and circuit-breaker contract
 - [x] Normalized response and error contract
-- [ ] Credential reference adapter
-- [ ] Provider adapter interface
+- [x] Credential reference adapter
+- [x] Provider adapter interface
 - [ ] Integration audit adapter
 
 ## Current Next Work
 
-Implement Integrations OS P0 credential reference adapter + provider adapter interface.
+Implement Integrations OS P0 Audit Adapter, then close Integrations OS P0 and Phase 3 P0.

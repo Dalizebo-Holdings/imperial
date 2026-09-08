@@ -10,7 +10,7 @@ Phase 2 canonical catalogue: 269 / 269 classified
 
 ## Current Stage
 
-Integrations OS P0 registry and runtime contracts complete.
+Integrations OS P0 credential and provider boundaries complete.
 
 ## Algorithm OS
 
@@ -40,18 +40,19 @@ Timeout and circuit-breaker contract: COMPLETE
 
 Normalized response and error contract: COMPLETE
 
-Credential reference adapter: PENDING
+Credential reference adapter: COMPLETE
 
-Provider adapter interface: PENDING
+Provider adapter interface: COMPLETE
 
 Integration audit adapter: PENDING
 
 ## Next Work
 
-Integrations OS P0 — credential reference adapter + provider adapter interface.
+Integrations OS P0 — Audit Adapter.
 
 ## Governing Rule
 
-Integrations OS stores no raw provider secrets and performs no external side
-effects without Algorithm OS planning, Pillars OS approval, Dalizebo Kernel
-authorization, and bounded Loop OS execution.
+Integrations OS stores credential references only. Raw provider secrets remain
+outside orchestration runtime objects. External execution still requires
+Algorithm OS planning, Pillars OS approval, Dalizebo Kernel authorization,
+bounded Loop OS execution, and a registered provider adapter.
