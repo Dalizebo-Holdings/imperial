@@ -12,11 +12,9 @@ Dalizebo BaaS P0: COMPLETE
 
 ## Current Stage
 
-Commerce P0 Cart + Checkout + Orders initialized.
+Dalizebo Commerce P0 complete.
 
 ## Commerce
-
-P0 implementation: ACTIVE
 
 Store setup: COMPLETE
 
@@ -36,59 +34,64 @@ Checkout: COMPLETE
 
 Orders: COMPLETE
 
-Payments: NEXT
+Payments: COMPLETE
 
-Discounts: NEXT
+Discounts: COMPLETE
 
-Notifications: NEXT
+Notifications: COMPLETE (event-driven P0)
 
-Dashboard: NEXT
+Dashboard: COMPLETE (read-contract P0)
 
-## Cart + Checkout + Orders
+## Payments
 
-Kernel Cart/Order/OrderItem authority: COMPLETE
+BaaS Payment Abstraction delegation: COMPLETE
 
-Cart lifecycle: COMPLETE
+Explicit Kernel Payment transitions: COMPLETE
 
-Checkout authoritative snapshots: COMPLETE
+CAPTURED → Order confirmation orchestration: COMPLETE
 
-Inventory reservation planning: COMPLETE
+Direct provider execution from Commerce: NONE
 
-Integer minor-unit checkout totals: COMPLETE
+## Discounts
 
-Order Item price snapshots: COMPLETE
+Kernel Discount validation: COMPLETE
 
-Kernel Order lifecycle: COMPLETE
+Deterministic FIXED/PERCENTAGE quoting: COMPLETE
 
-Atomic checkout transaction requirement: COMPLETE
+Checkout pre-execution discount overlay: COMPLETE
 
-Outbox-after-commit requirement: COMPLETE
+Hidden repricing after Order placement: NONE
 
-Checkout idempotency: COMPLETE
+## Notifications
 
-Durable Kernel Cart Item primitive: DEFERRED
+Post-commit Events/Webhooks intent: COMPLETE
 
-Discount calculation: DEFERRED TO NEXT SLICE
+Email delivery: DEFERRED TO BAAS P1
 
-Tax engine: DEFERRED
+## Dashboard
 
-Payment integration: DEFERRED TO NEXT SLICE
+Scoped dashboard read contract: COMPLETE
 
-SaaS-owned authoritative Cart/Order/OrderItem database: NONE
+Authoritative Dashboard database: NONE
+
+Durable analytics/read-model accelerator: DEFERRED
+
+## Commerce P0 Result
+
+DALIZEBO COMMERCE P0: COMPLETE
 
 ## POS
 
-P0 implementation: PENDING COMMERCE FOUNDATION
+P0 implementation: ACTIVE NEXT
 
 ## Next Work
 
-Commerce P0 — Payments + Discounts + Notifications + Dashboard.
+POS P0 — Branches + Staff + Roles + Product Search.
 
 ## Governing Rule
 
-Cart, Order, Order Item, and Inventory remain Kernel-authoritative. Checkout is
-an atomic transaction plan: inventory reservations, DRAFT Order, immutable Order
-Items, Cart conversion, and Order placement commit together or roll back
-together. Events publish only after commit. The current shared domain lacks a
-durable Cart Item primitive, so Commerce does not invent a competing Cart Item
-database; that shared-domain extension remains explicitly deferred.
+Commerce remains an orchestration product over Kernel/BaaS authority. Payment
+provider work stays behind Payment Abstraction; payment lifecycle edges remain
+explicit. Discounts are Kernel-validated and applied before checkout execution.
+Notifications publish only after commit through Events/Webhooks. Dashboard is a
+scoped read projection, never an authoritative business-data store.

@@ -37,42 +37,56 @@ Phase 6 — Commerce + POS
 - [x] Cart
 - [x] Checkout
 - [x] Orders
-- [ ] Payments
-- [ ] Discounts
-- [ ] Notifications
-- [ ] Dashboard
+- [x] Payments
+- [x] Discounts
+- [x] Notifications
+- [x] Dashboard
 
-## Cart + Checkout + Orders Components
+## Payments Components
 
-- [x] Kernel Cart authority boundary
-- [x] Cart OPEN/CONVERTED/ABANDONED lifecycle
-- [x] Cart create and abandon planning
-- [x] Authoritative checkout line snapshots
-- [x] Kernel Variant price validation
-- [x] Integer minor-unit line/subtotal calculation
-- [x] Explicit inventory reservation planning
-- [x] Expected inventory atomic compare/update requirement
-- [x] Order DRAFT creation
-- [x] Immutable Order Item price snapshots
-- [x] Kernel Order lifecycle validation
-- [x] Checkout DRAFT→PLACED transition
-- [x] Cart OPEN→CONVERTED transition
-- [x] Composite atomic checkout transaction requirement
-- [x] Outbox-after-commit requirement
-- [x] Checkout transaction idempotency
-- [x] Cross-tenant checkout evidence rejection
-- [x] No SaaS-owned Cart/Order/OrderItem database
+- [x] BaaS Payment Abstraction delegation
+- [x] Kernel Payment authority boundary
+- [x] Order PLACED payment-start gate
+- [x] Idempotent provider-neutral payment plan
+- [x] Shared PENDING Payment creation command
+- [x] Explicit payment transition commands
+- [x] CAPTURED payment → Order confirmation plan
+- [x] No raw payment/provider credentials in Commerce metadata
+- [x] No hidden payment transitions
 
-## Cart Deferred Shared-Domain Work
+## Discounts Components
 
-- [ ] Durable Kernel Cart Item primitive
-- [ ] Durable cross-session Cart Item persistence
+- [x] Kernel Discount validation
+- [x] FIXED discount support
+- [x] PERCENTAGE basis-points support
+- [x] Deterministic integer discount quote
+- [x] Discount may not make total negative
+- [x] Checkout DRAFT Order discount overlay
+- [x] No hidden repricing after Order placement
 
-## Checkout Deferred Work
+## Notifications Components
 
-- [ ] Discount calculation integration
-- [ ] Tax engine integration
-- [ ] Payment authorization/capture integration
+- [x] Post-commit notification intent
+- [x] BaaS Events/Webhooks boundary
+- [x] WEBHOOK channel
+- [x] INTERNAL channel
+- [x] Opaque recipient references
+- [x] Notification idempotency
+- [x] Duplicate-delivery-safe contract
+- [ ] Email delivery adapter (BaaS P1)
+
+## Dashboard Components
+
+- [x] Tenant/store scoped read plan
+- [x] Time-bounded query contract
+- [x] Currency-specific money aggregation contract
+- [x] Orders/payments/customers/inventory source plan
+- [x] No Dashboard authoritative database
+- [ ] Durable analytics/read-model accelerator
+
+## Commerce P0 Result
+
+DALIZEBO COMMERCE P0: COMPLETE
 
 ## POS P0
 
@@ -92,4 +106,4 @@ Phase 6 — Commerce + POS
 
 ## Current Next Work
 
-Commerce P0 — Payments + Discounts + Notifications + Dashboard.
+POS P0 — Branches + Staff + Roles + Product Search.
