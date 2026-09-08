@@ -7,8 +7,8 @@ Phase 3
 ## P0 Components
 
 - [x] Capability registry
-- [ ] Policy adapter
-- [ ] Dependency resolver
+- [x] Policy adapter
+- [x] Dependency resolver
 - [ ] Deterministic rule evaluator
 - [ ] Execution planner
 - [ ] Audit adapter
@@ -28,5 +28,4 @@ Phase 3
 
 ## Current Next Work
 
-Implement the P0 policy adapter and dependency resolver against the canonical
-269-capability registry.
+Implement the P0 deterministic rule evaluator and execution planner using the policy adapter and dependency resolver as mandatory planning gates.

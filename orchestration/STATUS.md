@@ -10,7 +10,7 @@ Phase 2 canonical catalogue: 269 / 269 classified
 
 ## Current Stage
 
-P0 orchestration foundation initialized.
+Algorithm OS P0 policy and dependency layer complete.
 
 ## Capability Registry
 
@@ -20,9 +20,9 @@ P0 orchestration foundation initialized.
 
 Capability registry: COMPLETE
 
-Policy adapter: PENDING
+Policy adapter: COMPLETE
 
-Dependency resolver: PENDING
+Dependency resolver: COMPLETE
 
 Deterministic rule evaluator: PENDING
 
@@ -44,9 +44,8 @@ Connector registry and runtime contracts: PENDING
 
 ## Next Work
 
-Algorithm OS P0 — policy adapter + dependency resolver.
+Algorithm OS P0 — deterministic rule evaluator + execution planner.
 
 ## Governing Rule
 
-Phase 3 may plan and model execution but may not bypass Pillars OS policy
-or the Dalizebo Kernel authorization boundary.
+Every plan must pass Pillars OS policy evaluation and the Dalizebo Kernel authorization boundary before production side effects may occur.

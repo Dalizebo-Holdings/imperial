@@ -1,0 +1,803 @@
+source_id,source_name,dependency_raw,dependency_normalized,dependency_kind,target_id,target_name
+001,Banking OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+001,Banking OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+001,Banking OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+002,Vault-OS,Security OS,security,CANONICAL_OS,038,Security OS
+002,Vault-OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+002,Vault-OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+003,Tax-OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+003,Tax-OS,Records OS,records,CANONICAL_OS,269,Records OS
+003,Tax-OS,Banking OS,banking,CANONICAL_OS,001,Banking OS
+004,Currency-Forge OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+004,Currency-Forge OS,Legal-Bot OS,legal bot,CANONICAL_OS,047,Legal-Bot OS
+004,Currency-Forge OS,Medici-Ledger OS,medici ledger,CANONICAL_OS,017,Medici-Ledger OS
+005,Investment-Sweep OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+005,Investment-Sweep OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+005,Investment-Sweep OS,Liquidity-Pool OS,liquidity pool,CANONICAL_OS,010,Liquidity-Pool OS
+006,Audit-Vigil OS,Medici-Ledger OS,medici ledger,CANONICAL_OS,017,Medici-Ledger OS
+006,Audit-Vigil OS,Records OS,records,CANONICAL_OS,269,Records OS
+006,Audit-Vigil OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+007,Profit-Extraction OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+007,Profit-Extraction OS,Records OS,records,CANONICAL_OS,269,Records OS
+007,Profit-Extraction OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+008,Capital-Allocation OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+008,Capital-Allocation OS,Investment-Sweep OS,investment sweep,CANONICAL_OS,005,Investment-Sweep OS
+008,Capital-Allocation OS,Risk Governance,risk governance,PLATFORM_PRIMITIVE,,
+009,Equity-Capture OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+009,Equity-Capture OS,Records OS,records,CANONICAL_OS,269,Records OS
+009,Equity-Capture OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+010,Liquidity-Pool OS,Banking OS,banking,CANONICAL_OS,001,Banking OS
+010,Liquidity-Pool OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+010,Liquidity-Pool OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+011,Asset-Harden OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+011,Asset-Harden OS,Records OS,records,CANONICAL_OS,269,Records OS
+011,Asset-Harden OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+012,Director-Loan OS,Tax-OS,tax,CANONICAL_OS,003,Tax-OS
+012,Director-Loan OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+012,Director-Loan OS,Records OS,records,CANONICAL_OS,269,Records OS
+013,Offshore-Shield OS,Jurisdiction OS,jurisdiction,CANONICAL_OS,045,Jurisdiction OS
+013,Offshore-Shield OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+013,Offshore-Shield OS,Tax-OS,tax,CANONICAL_OS,003,Tax-OS
+014,Fiat-Hedge OS,Banking OS,banking,CANONICAL_OS,001,Banking OS
+014,Fiat-Hedge OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+014,Fiat-Hedge OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+015,Credit-Score OS,Banking OS,banking,CANONICAL_OS,001,Banking OS
+015,Credit-Score OS,Records OS,records,CANONICAL_OS,269,Records OS
+015,Credit-Score OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+016,Debt-Weaponization OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+016,Debt-Weaponization OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+016,Debt-Weaponization OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+017,Medici-Ledger OS,Records OS,records,CANONICAL_OS,269,Records OS
+017,Medici-Ledger OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+017,Medici-Ledger OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+017,Medici-Ledger OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+018,Wealth-Persistence OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+018,Wealth-Persistence OS,Asset-Harden OS,asset harden,CANONICAL_OS,011,Asset-Harden OS
+018,Wealth-Persistence OS,Records OS,records,CANONICAL_OS,269,Records OS
+019,Arbitrage OS,Market data integrations,market data integrations,EXTERNAL_DEPENDENCY,,
+019,Arbitrage OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+019,Arbitrage OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+020,War-Chest OS,Vault-OS,vault,CANONICAL_OS,002,Vault-OS
+020,War-Chest OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+020,War-Chest OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+021,Crown OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+021,Crown OS,Algorithm OS,algorithm,PLATFORM_PRIMITIVE,,
+021,Crown OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+022,Architect OS,Crown OS,crown,CANONICAL_OS,021,Crown OS
+022,Architect OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+022,Architect OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+022,Architect OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+023,Regency OS,Crown OS,crown,CANONICAL_OS,021,Crown OS
+023,Regency OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+023,Regency OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+024,Kiro-OS,Loop OS,loop,PLATFORM_PRIMITIVE,,
+024,Kiro-OS,Projects,projects,PLATFORM_PRIMITIVE,,
+024,Kiro-OS,Repository OS,repository,CANONICAL_OS,027,Repository OS
+025,Servitor-OS,Loop OS,loop,PLATFORM_PRIMITIVE,,
+025,Servitor-OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+025,Servitor-OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+025,Servitor-OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+026,Programming-OS,Repository OS,repository,CANONICAL_OS,027,Repository OS
+026,Programming-OS,Deployment OS,deployment,CANONICAL_OS,029,Deployment OS
+026,Programming-OS,Security OS,security,CANONICAL_OS,038,Security OS
+026,Programming-OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+027,Repository OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+027,Repository OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+027,Repository OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+027,Repository OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+028,Cloud-OS,Deployment OS,deployment,CANONICAL_OS,029,Deployment OS
+028,Cloud-OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+028,Cloud-OS,Security OS,security,CANONICAL_OS,038,Security OS
+028,Cloud-OS,Load-Balance OS,load balance,CANONICAL_OS,037,Load-Balance OS
+029,Deployment OS,Repository OS,repository,CANONICAL_OS,027,Repository OS
+029,Deployment OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+029,Deployment OS,Security OS,security,CANONICAL_OS,038,Security OS
+029,Deployment OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+030,Edge-Function OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+030,Edge-Function OS,Deployment OS,deployment,CANONICAL_OS,029,Deployment OS
+030,Edge-Function OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+030,Edge-Function OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+031,Cron-Job OS,Loop OS,loop,PLATFORM_PRIMITIVE,,
+031,Cron-Job OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+031,Cron-Job OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+032,Automation-Pipe OS,Integrations OS,integrations,PLATFORM_PRIMITIVE,,
+032,Automation-Pipe OS,Loop OS,loop,PLATFORM_PRIMITIVE,,
+032,Automation-Pipe OS,Protocol OS,protocol,CANONICAL_OS,041,Protocol OS
+032,Automation-Pipe OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+033,Monitoring OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+033,Monitoring OS,Security OS,security,CANONICAL_OS,038,Security OS
+033,Monitoring OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+034,Error-Correction OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+034,Error-Correction OS,Repository OS,repository,CANONICAL_OS,027,Repository OS
+034,Error-Correction OS,Programming-OS,programming,CANONICAL_OS,026,Programming-OS
+034,Error-Correction OS,Deployment OS,deployment,CANONICAL_OS,029,Deployment OS
+035,Scale-OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+035,Scale-OS,Load-Balance OS,load balance,CANONICAL_OS,037,Load-Balance OS
+035,Scale-OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+036,Optimization OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+036,Optimization OS,Scale-OS,scale,CANONICAL_OS,035,Scale-OS
+036,Optimization OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+037,Load-Balance OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+037,Load-Balance OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+037,Load-Balance OS,Security OS,security,CANONICAL_OS,038,Security OS
+038,Security OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+038,Security OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+038,Security OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+038,Security OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+039,Firewall OS,Security OS,security,CANONICAL_OS,038,Security OS
+039,Firewall OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+039,Firewall OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+040,Encryption OS,Security OS,security,CANONICAL_OS,038,Security OS
+040,Encryption OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+040,Encryption OS,Vault-OS,vault,CANONICAL_OS,002,Vault-OS
+041,Protocol OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+041,Protocol OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+041,Protocol OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+042,Identity OS,Security OS,security,CANONICAL_OS,038,Security OS
+042,Identity OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+042,Identity OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+043,Access-Control OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+043,Access-Control OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+043,Access-Control OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+044,Stealth OS,Security OS,security,CANONICAL_OS,038,Security OS
+044,Stealth OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+044,Stealth OS,Protocol OS,protocol,CANONICAL_OS,041,Protocol OS
+045,Jurisdiction OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+045,Jurisdiction OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+045,Jurisdiction OS,Records OS,records,CANONICAL_OS,269,Records OS
+046,Compliance OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+046,Compliance OS,Records OS,records,CANONICAL_OS,269,Records OS
+046,Compliance OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+046,Compliance OS,Jurisdiction OS,jurisdiction,CANONICAL_OS,045,Jurisdiction OS
+047,Legal-Bot OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+047,Legal-Bot OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+047,Legal-Bot OS,Records OS,records,CANONICAL_OS,269,Records OS
+047,Legal-Bot OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+048,Contract OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+048,Contract OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+048,Contract OS,Records OS,records,CANONICAL_OS,269,Records OS
+048,Contract OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+049,Governance OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+049,Governance OS,Protocol OS,protocol,CANONICAL_OS,041,Protocol OS
+049,Governance OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+050,Executive-Action OS,Crown OS,crown,CANONICAL_OS,021,Crown OS
+050,Executive-Action OS,Architect OS,architect,CANONICAL_OS,022,Architect OS
+050,Executive-Action OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+050,Executive-Action OS,Loop OS,loop,PLATFORM_PRIMITIVE,,
+050,Executive-Action OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+051,Sentiment OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+051,Sentiment OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+052,Narrative OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+052,Narrative OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+053,Mind-Virus OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+053,Mind-Virus OS,Viral-Loop OS,viral loop,CANONICAL_OS,057,Viral-Loop OS
+054,Propaganda OS,Narrative OS,narrative,CANONICAL_OS,052,Narrative OS
+054,Propaganda OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+055,Psych-Prime OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+055,Psych-Prime OS,Sentiment OS,sentiment,CANONICAL_OS,051,Sentiment OS
+056,Marketing OS,Sentiment OS,sentiment,CANONICAL_OS,051,Sentiment OS
+056,Marketing OS,Narrative OS,narrative,CANONICAL_OS,052,Narrative OS
+057,Viral-Loop OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+057,Viral-Loop OS,Customer-Capture OS,customer capture,CANONICAL_OS,058,Customer-Capture OS
+058,Customer-Capture OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+058,Customer-Capture OS,CRM,crm,PLATFORM_PRIMITIVE,,
+058,Customer-Capture OS,Payments,payments,CANONICAL_OS,212,Payments OS
+059,Brand-Authority OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+059,Brand-Authority OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+060,Legend-Build OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+060,Legend-Build OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+060,Legend-Build OS,Legacy OS,legacy,CANONICAL_OS,092,Legacy OS
+061,Simulation-Warfare OS,Simulation Engine,simulation engine,PLATFORM_PRIMITIVE,,
+061,Simulation-Warfare OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+061,Simulation-Warfare OS,Game-Theory OS,game theory,CANONICAL_OS,062,Game-Theory OS
+062,Game-Theory OS,Simulation-Warfare OS,simulation warfare,CANONICAL_OS,061,Simulation-Warfare OS
+062,Game-Theory OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+063,Competitor-Analysis OS,Information-Vacuum OS,information vacuum,CANONICAL_OS,066,Information-Vacuum OS
+063,Competitor-Analysis OS,Signal-Filter OS,signal filter,CANONICAL_OS,067,Signal-Filter OS
+064,Espionage OS,Competitor-Analysis OS,competitor analysis,CANONICAL_OS,063,Competitor-Analysis OS
+064,Espionage OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+065,Recon OS,Geospatial data,geospatial data,PLATFORM_PRIMITIVE,,
+065,Recon OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+066,Information-Vacuum OS,Integrations OS,integrations,PLATFORM_PRIMITIVE,,
+066,Information-Vacuum OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+066,Information-Vacuum OS,Signal-Filter OS,signal filter,CANONICAL_OS,067,Signal-Filter OS
+067,Signal-Filter OS,Information-Vacuum OS,information vacuum,CANONICAL_OS,066,Information-Vacuum OS
+067,Signal-Filter OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+068,Logic-Chain OS,Reasoning OS,reasoning,CANONICAL_OS,069,Reasoning OS
+068,Logic-Chain OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+069,Reasoning OS,Logic-Chain OS,logic chain,CANONICAL_OS,068,Logic-Chain OS
+069,Reasoning OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+070,Synthesis OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+070,Synthesis OS,Information-Vacuum OS,information vacuum,CANONICAL_OS,066,Information-Vacuum OS
+070,Synthesis OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+071,Decision-Matrix OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+071,Decision-Matrix OS,Synthesis OS,synthesis,CANONICAL_OS,070,Synthesis OS
+071,Decision-Matrix OS,Risk Governance,risk governance,PLATFORM_PRIMITIVE,,
+072,Strategy-Draft OS,Synthesis OS,synthesis,CANONICAL_OS,070,Synthesis OS
+072,Strategy-Draft OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+072,Strategy-Draft OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+073,Tactical-Execution OS,Executive-Action OS,executive action,CANONICAL_OS,050,Executive-Action OS
+073,Tactical-Execution OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+073,Tactical-Execution OS,Loop OS,loop,PLATFORM_PRIMITIVE,,
+074,Conquest-Map OS,Recon OS,recon,CANONICAL_OS,065,Recon OS
+074,Conquest-Map OS,Analytics,analytics,PLATFORM_PRIMITIVE,,
+075,Empire-Growth OS,Scale-OS,scale,CANONICAL_OS,035,Scale-OS
+075,Empire-Growth OS,Deployment OS,deployment,CANONICAL_OS,029,Deployment OS
+075,Empire-Growth OS,Alliance OS,alliance,CANONICAL_OS,079,Alliance OS
+076,Sovereign OS,Jurisdiction OS,jurisdiction,CANONICAL_OS,045,Jurisdiction OS
+076,Sovereign OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+076,Sovereign OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+077,Hegemony OS,Alliance OS,alliance,CANONICAL_OS,079,Alliance OS
+077,Hegemony OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+077,Hegemony OS,Competitor-Analysis OS,competitor analysis,CANONICAL_OS,063,Competitor-Analysis OS
+078,Shadow-Strategy OS,Strategy-Draft OS,strategy draft,CANONICAL_OS,072,Strategy-Draft OS
+078,Shadow-Strategy OS,Security OS,security,CANONICAL_OS,038,Security OS
+078,Shadow-Strategy OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+079,Alliance OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+079,Alliance OS,CRM,crm,PLATFORM_PRIMITIVE,,
+079,Alliance OS,Governance OS,governance,CANONICAL_OS,049,Governance OS
+080,Neutral-Harbor OS,Jurisdiction OS,jurisdiction,CANONICAL_OS,045,Jurisdiction OS
+080,Neutral-Harbor OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+080,Neutral-Harbor OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+081,Quantum-Safe OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+081,Quantum-Safe OS,Lattice-Crypt OS,lattice crypt,CANONICAL_OS,082,Lattice-Crypt OS
+082,Lattice-Crypt OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+082,Lattice-Crypt OS,Quantum-Safe OS,quantum safe,CANONICAL_OS,081,Quantum-Safe OS
+083,Archive OS,Records OS,records,CANONICAL_OS,269,Records OS
+083,Archive OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+083,Archive OS,Storage,storage,PLATFORM_PRIMITIVE,,
+084,Knowledge OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+084,Knowledge OS,Imperial-Library OS,imperial library,CANONICAL_OS,085,Imperial-Library OS
+084,Knowledge OS,AI Gateway,ai gateway,PLATFORM_PRIMITIVE,,
+085,Imperial-Library OS,Storage,storage,PLATFORM_PRIMITIVE,,
+085,Imperial-Library OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+085,Imperial-Library OS,Records OS,records,CANONICAL_OS,269,Records OS
+086,Succession OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+086,Succession OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+086,Succession OS,Records OS,records,CANONICAL_OS,269,Records OS
+087,Digital-Lucas Node,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+087,Digital-Lucas Node,Memory-Bank OS,memory bank,CANONICAL_OS,091,Memory-Bank OS
+087,Digital-Lucas Node,Reasoning OS,reasoning,CANONICAL_OS,069,Reasoning OS
+088,Neural-Mirror OS,Digital-Lucas Node,digital lucas node,CANONICAL_OS,087,Digital-Lucas Node
+088,Neural-Mirror OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+089,Biological-Fidelity OS,Digital-Lucas Node,digital lucas node,CANONICAL_OS,087,Digital-Lucas Node
+089,Biological-Fidelity OS,Reasoning OS,reasoning,CANONICAL_OS,069,Reasoning OS
+090,Pattern-Match OS,Memory-Bank OS,memory bank,CANONICAL_OS,091,Memory-Bank OS
+090,Pattern-Match OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+091,Memory-Bank OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+091,Memory-Bank OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+092,Legacy OS,Succession OS,succession,CANONICAL_OS,086,Succession OS
+092,Legacy OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+092,Legacy OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+093,Time-Horizon OS,Simulation-Warfare OS,simulation warfare,CANONICAL_OS,061,Simulation-Warfare OS
+093,Time-Horizon OS,Predictive-Crisis OS,predictive crisis,CANONICAL_OS,094,Predictive-Crisis OS
+094,Predictive-Crisis OS,Signal-Filter OS,signal filter,CANONICAL_OS,067,Signal-Filter OS
+094,Predictive-Crisis OS,Simulation-Warfare OS,simulation warfare,CANONICAL_OS,061,Simulation-Warfare OS
+094,Predictive-Crisis OS,Black-Swan OS,black swan,CANONICAL_OS,095,Black-Swan OS
+095,Black-Swan OS,Predictive-Crisis OS,predictive crisis,CANONICAL_OS,094,Predictive-Crisis OS
+095,Black-Swan OS,Stability OS,stability,CANONICAL_OS,096,Stability OS
+095,Black-Swan OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+096,Stability OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+096,Stability OS,Equilibrium OS,equilibrium,CANONICAL_OS,097,Equilibrium OS
+096,Stability OS,Scale-OS,scale,CANONICAL_OS,035,Scale-OS
+097,Equilibrium OS,Stability OS,stability,CANONICAL_OS,096,Stability OS
+097,Equilibrium OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+098,Singularity OS,Automation Governance,automation governance,PLATFORM_PRIMITIVE,,
+098,Singularity OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+098,Singularity OS,Stability OS,stability,CANONICAL_OS,096,Stability OS
+099,Evolution OS,Optimization OS,optimization,CANONICAL_OS,036,Optimization OS
+099,Evolution OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+099,Evolution OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+100,Omega OS,Singularity OS,singularity,CANONICAL_OS,098,Singularity OS
+100,Omega OS,Omega governance,omega governance,PLATFORM_PRIMITIVE,,
+100,Omega OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+101,Mining OS,Geospatial OS,geospatial,CANONICAL_OS,139,Geospatial OS
+101,Mining OS,Environment OS,environment,CANONICAL_OS,142,Environment OS
+101,Mining OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+101,Mining OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+102,Rare-Earth OS,Supply-Chain OS,supply chain,CANONICAL_OS,116,Supply-Chain OS
+102,Rare-Earth OS,Procurement OS,procurement,CANONICAL_OS,119,Procurement OS
+102,Rare-Earth OS,Risk Governance,risk governance,PLATFORM_PRIMITIVE,,
+103,Energy OS,Solar-Grid OS,solar grid,CANONICAL_OS,104,Solar-Grid OS
+103,Energy OS,Battery-Storage OS,battery storage,CANONICAL_OS,105,Battery-Storage OS
+103,Energy OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+104,Solar-Grid OS,Energy OS,energy,CANONICAL_OS,103,Energy OS
+104,Solar-Grid OS,Battery-Storage OS,battery storage,CANONICAL_OS,105,Battery-Storage OS
+104,Solar-Grid OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+105,Battery-Storage OS,Energy OS,energy,CANONICAL_OS,103,Energy OS
+105,Battery-Storage OS,Solar-Grid OS,solar grid,CANONICAL_OS,104,Solar-Grid OS
+105,Battery-Storage OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+105,Battery-Storage OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+106,Extraction OS,Mining OS,mining,CANONICAL_OS,101,Mining OS
+106,Extraction OS,Refinery OS,refinery,CANONICAL_OS,107,Refinery OS
+106,Extraction OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+106,Extraction OS,Environment OS,environment,CANONICAL_OS,142,Environment OS
+107,Refinery OS,Mining OS,mining,CANONICAL_OS,101,Mining OS
+107,Refinery OS,Extraction OS,extraction,CANONICAL_OS,106,Extraction OS
+107,Refinery OS,Quality-Control OS,quality control,CANONICAL_OS,147,Quality-Control OS
+107,Refinery OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+108,Production OS,Manufacturing OS,manufacturing,CANONICAL_OS,109,Manufacturing OS
+108,Production OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+108,Production OS,Quality-Control OS,quality control,CANONICAL_OS,147,Quality-Control OS
+109,Manufacturing OS,Production OS,production,CANONICAL_OS,108,Production OS
+109,Manufacturing OS,Hardware OS,hardware,CANONICAL_OS,110,Hardware OS
+109,Manufacturing OS,Quality-Control OS,quality control,CANONICAL_OS,147,Quality-Control OS
+110,Hardware OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+110,Hardware OS,Maintenance OS,maintenance,CANONICAL_OS,146,Maintenance OS
+110,Hardware OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+111,Robotics OS,Hardware OS,hardware,CANONICAL_OS,110,Hardware OS
+111,Robotics OS,Actuator OS,actuator,CANONICAL_OS,112,Actuator OS
+111,Robotics OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+111,Robotics OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+112,Actuator OS,Robotics OS,robotics,CANONICAL_OS,111,Robotics OS
+112,Actuator OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+112,Actuator OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+113,Drone-Swarm OS,Robotics OS,robotics,CANONICAL_OS,111,Robotics OS
+113,Drone-Swarm OS,Fleet OS,fleet,CANONICAL_OS,114,Fleet OS
+113,Drone-Swarm OS,Geospatial OS,geospatial,CANONICAL_OS,139,Geospatial OS
+113,Drone-Swarm OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+114,Fleet OS,Logistics OS,logistics,CANONICAL_OS,115,Logistics OS
+114,Fleet OS,Maintenance OS,maintenance,CANONICAL_OS,146,Maintenance OS
+114,Fleet OS,Geospatial OS,geospatial,CANONICAL_OS,139,Geospatial OS
+115,Logistics OS,Fleet OS,fleet,CANONICAL_OS,114,Fleet OS
+115,Logistics OS,Courier OS,courier,CANONICAL_OS,120,Courier OS
+115,Logistics OS,Mapping OS,mapping,CANONICAL_OS,140,Mapping OS
+116,Supply-Chain OS,Procurement OS,procurement,CANONICAL_OS,119,Procurement OS
+116,Supply-Chain OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+116,Supply-Chain OS,Warehousing OS,warehousing,CANONICAL_OS,117,Warehousing OS
+116,Supply-Chain OS,Logistics OS,logistics,CANONICAL_OS,115,Logistics OS
+117,Warehousing OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+117,Warehousing OS,Locker OS,locker,CANONICAL_OS,122,Locker OS
+117,Warehousing OS,Logistics OS,logistics,CANONICAL_OS,115,Logistics OS
+118,Inventory OS,Warehousing OS,warehousing,CANONICAL_OS,117,Warehousing OS
+118,Inventory OS,Supply-Chain OS,supply chain,CANONICAL_OS,116,Supply-Chain OS
+118,Inventory OS,Commerce,commerce,PLATFORM_PRIMITIVE,,
+119,Procurement OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+119,Procurement OS,Supply-Chain OS,supply chain,CANONICAL_OS,116,Supply-Chain OS
+119,Procurement OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+120,Courier OS,Fleet OS,fleet,CANONICAL_OS,114,Fleet OS
+120,Courier OS,Logistics OS,logistics,CANONICAL_OS,115,Logistics OS
+120,Courier OS,Records OS,records,CANONICAL_OS,269,Records OS
+121,Ghost-Node OS,Locker OS,locker,CANONICAL_OS,122,Locker OS
+121,Ghost-Node OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+121,Ghost-Node OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+122,Locker OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+122,Locker OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+122,Locker OS,Courier OS,courier,CANONICAL_OS,120,Courier OS
+123,Regional-Trade OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+123,Regional-Trade OS,Logistics OS,logistics,CANONICAL_OS,115,Logistics OS
+123,Regional-Trade OS,Supply-Chain OS,supply chain,CANONICAL_OS,116,Supply-Chain OS
+124,SADC-Rail OS,Regional-Trade OS,regional trade,CANONICAL_OS,123,Regional-Trade OS
+124,SADC-Rail OS,Logistics OS,logistics,CANONICAL_OS,115,Logistics OS
+124,SADC-Rail OS,Corridor OS,corridor,CANONICAL_OS,125,Corridor OS
+125,Corridor OS,Mapping OS,mapping,CANONICAL_OS,140,Mapping OS
+125,Corridor OS,Regional-Trade OS,regional trade,CANONICAL_OS,123,Regional-Trade OS
+125,Corridor OS,Logistics OS,logistics,CANONICAL_OS,115,Logistics OS
+126,Property OS,Land-Title OS,land title,CANONICAL_OS,127,Land-Title OS
+126,Property OS,Records OS,records,CANONICAL_OS,269,Records OS
+126,Property OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+127,Land-Title OS,Property OS,property,CANONICAL_OS,126,Property OS
+127,Land-Title OS,Records OS,records,CANONICAL_OS,269,Records OS
+127,Land-Title OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+128,Agriculture OS,Water-Source OS,water source,CANONICAL_OS,129,Water-Source OS
+128,Agriculture OS,Climate OS,climate,CANONICAL_OS,141,Climate OS
+128,Agriculture OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+129,Water-Source OS,Environment OS,environment,CANONICAL_OS,142,Environment OS
+129,Water-Source OS,Maintenance OS,maintenance,CANONICAL_OS,146,Maintenance OS
+129,Water-Source OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+130,Construction OS,Property OS,property,CANONICAL_OS,126,Property OS
+130,Construction OS,Infrastructure OS,infrastructure,CANONICAL_OS,131,Infrastructure OS
+130,Construction OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+131,Infrastructure OS,Energy OS,energy,CANONICAL_OS,103,Energy OS
+131,Infrastructure OS,Network infrastructure,network infrastructure,PLATFORM_PRIMITIVE,,
+131,Infrastructure OS,Maintenance OS,maintenance,CANONICAL_OS,146,Maintenance OS
+132,Smart-City OS,Infrastructure OS,infrastructure,CANONICAL_OS,131,Infrastructure OS
+132,Smart-City OS,IoT,iot,PLATFORM_PRIMITIVE,,
+132,Smart-City OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+132,Smart-City OS,Privacy Governance,privacy governance,PLATFORM_PRIMITIVE,,
+133,Zoning OS,Property OS,property,CANONICAL_OS,126,Property OS
+133,Zoning OS,Mapping OS,mapping,CANONICAL_OS,140,Mapping OS
+133,Zoning OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+134,Urban-Capture OS,Property OS,property,CANONICAL_OS,126,Property OS
+134,Urban-Capture OS,Zoning OS,zoning,CANONICAL_OS,133,Zoning OS
+134,Urban-Capture OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+135,Rural-Anchor OS,Agriculture OS,agriculture,CANONICAL_OS,128,Agriculture OS
+135,Rural-Anchor OS,Regional-Trade OS,regional trade,CANONICAL_OS,123,Regional-Trade OS
+135,Rural-Anchor OS,Infrastructure OS,infrastructure,CANONICAL_OS,131,Infrastructure OS
+136,Satellite OS,Geospatial OS,geospatial,CANONICAL_OS,139,Geospatial OS
+136,Satellite OS,Environment OS,environment,CANONICAL_OS,142,Environment OS
+136,Satellite OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+137,Orbital OS,Satellite OS,satellite,CANONICAL_OS,136,Satellite OS
+137,Orbital OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+137,Orbital OS,Disaster-Recovery OS,disaster recovery,CANONICAL_OS,145,Disaster-Recovery OS
+138,Star-Link OS,Network infrastructure,network infrastructure,PLATFORM_PRIMITIVE,,
+138,Star-Link OS,Satellite OS,satellite,CANONICAL_OS,136,Satellite OS
+138,Star-Link OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+139,Geospatial OS,Mapping OS,mapping,CANONICAL_OS,140,Mapping OS
+139,Geospatial OS,Recon OS,recon,CANONICAL_OS,065,Recon OS
+139,Geospatial OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+140,Mapping OS,Geospatial OS,geospatial,CANONICAL_OS,139,Geospatial OS
+140,Mapping OS,Infrastructure OS,infrastructure,CANONICAL_OS,131,Infrastructure OS
+141,Climate OS,Environment OS,environment,CANONICAL_OS,142,Environment OS
+141,Climate OS,Solar-Grid OS,solar grid,CANONICAL_OS,104,Solar-Grid OS
+141,Climate OS,Geospatial OS,geospatial,CANONICAL_OS,139,Geospatial OS
+142,Environment OS,Sustainability OS,sustainability,CANONICAL_OS,143,Sustainability OS
+142,Environment OS,Climate OS,climate,CANONICAL_OS,141,Climate OS
+142,Environment OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+143,Sustainability OS,Environment OS,environment,CANONICAL_OS,142,Environment OS
+143,Sustainability OS,Resource-Recovery OS,resource recovery,CANONICAL_OS,144,Resource-Recovery OS
+143,Sustainability OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+144,Resource-Recovery OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+144,Resource-Recovery OS,Environment OS,environment,CANONICAL_OS,142,Environment OS
+144,Resource-Recovery OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+145,Disaster-Recovery OS,Backup systems,backup systems,PLATFORM_PRIMITIVE,,
+145,Disaster-Recovery OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+145,Disaster-Recovery OS,Infrastructure OS,infrastructure,CANONICAL_OS,131,Infrastructure OS
+145,Disaster-Recovery OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+146,Maintenance OS,Hardware OS,hardware,CANONICAL_OS,110,Hardware OS
+146,Maintenance OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+146,Maintenance OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+147,Quality-Control OS,Production OS,production,CANONICAL_OS,108,Production OS
+147,Quality-Control OS,Deployment OS,deployment,CANONICAL_OS,029,Deployment OS
+147,Quality-Control OS,Records OS,records,CANONICAL_OS,269,Records OS
+148,Safety OS,Hazard-Check OS,hazard check,CANONICAL_OS,149,Hazard-Check OS
+148,Safety OS,Maintenance OS,maintenance,CANONICAL_OS,146,Maintenance OS
+148,Safety OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+149,Hazard-Check OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+149,Hazard-Check OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+149,Hazard-Check OS,Maintenance OS,maintenance,CANONICAL_OS,146,Maintenance OS
+150,Field-Agent OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+150,Field-Agent OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+150,Field-Agent OS,Projects,projects,PLATFORM_PRIMITIVE,,
+150,Field-Agent OS,Safety OS,safety,CANONICAL_OS,148,Safety OS
+151,Health OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+151,Health OS,Records OS,records,CANONICAL_OS,269,Records OS
+151,Health OS,Privacy Governance,privacy governance,PLATFORM_PRIMITIVE,,
+152,Biology OS,Health OS,health,CANONICAL_OS,151,Health OS
+152,Biology OS,Privacy Governance,privacy governance,PLATFORM_PRIMITIVE,,
+152,Biology OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+153,Bio-Metric OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+153,Bio-Metric OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+153,Bio-Metric OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+154,Nootropic OS,Health OS,health,CANONICAL_OS,151,Health OS
+154,Nootropic OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+155,Peak-Flow OS,Focus OS,focus,CANONICAL_OS,165,Focus OS
+155,Peak-Flow OS,Circadian OS,circadian,CANONICAL_OS,156,Circadian OS
+156,Circadian OS,Sleep OS,sleep,CANONICAL_OS,157,Sleep OS
+156,Circadian OS,Focus OS,focus,CANONICAL_OS,165,Focus OS
+156,Circadian OS,Automation,automation,PLATFORM_PRIMITIVE,,
+157,Sleep OS,Health OS,health,CANONICAL_OS,151,Health OS
+157,Sleep OS,Circadian OS,circadian,CANONICAL_OS,156,Circadian OS
+158,Nutrition OS,Health OS,health,CANONICAL_OS,151,Health OS
+158,Nutrition OS,Records OS,records,CANONICAL_OS,269,Records OS
+159,Exercise OS,Health OS,health,CANONICAL_OS,151,Health OS
+159,Exercise OS,Records OS,records,CANONICAL_OS,269,Records OS
+160,Longevity OS,Health OS,health,CANONICAL_OS,151,Health OS
+160,Longevity OS,Biology OS,biology,CANONICAL_OS,152,Biology OS
+160,Longevity OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+161,Mental-Health OS,Health OS,health,CANONICAL_OS,151,Health OS
+161,Mental-Health OS,Resilience OS,resilience,CANONICAL_OS,162,Resilience OS
+161,Mental-Health OS,Privacy Governance,privacy governance,PLATFORM_PRIMITIVE,,
+162,Resilience OS,Mental-Health OS,mental health,CANONICAL_OS,161,Mental-Health OS
+162,Resilience OS,Disaster-Recovery OS,disaster recovery,CANONICAL_OS,145,Disaster-Recovery OS
+163,Stoic OS,Resilience OS,resilience,CANONICAL_OS,162,Resilience OS
+163,Stoic OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+164,Meditation OS,Focus OS,focus,CANONICAL_OS,165,Focus OS
+164,Meditation OS,Health OS,health,CANONICAL_OS,151,Health OS
+165,Focus OS,Kiro-OS,kiro,CANONICAL_OS,024,Kiro-OS
+165,Focus OS,Notification systems,notification systems,PLATFORM_PRIMITIVE,,
+165,Focus OS,Peak-Flow OS,peak flow,CANONICAL_OS,155,Peak-Flow OS
+166,Language OS,Translation OS,translation,CANONICAL_OS,168,Translation OS
+166,Language OS,Semantic OS,semantic,CANONICAL_OS,170,Semantic OS
+167,Sepedi OS,Language OS,language,CANONICAL_OS,166,Language OS
+167,Sepedi OS,Translation OS,translation,CANONICAL_OS,168,Translation OS
+168,Translation OS,Language OS,language,CANONICAL_OS,166,Language OS
+168,Translation OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+168,Translation OS,AI Gateway,ai gateway,PLATFORM_PRIMITIVE,,
+169,Linguistic-Moat OS,Language OS,language,CANONICAL_OS,166,Language OS
+169,Linguistic-Moat OS,Sepedi OS,sepedi,CANONICAL_OS,167,Sepedi OS
+169,Linguistic-Moat OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+170,Semantic OS,Language OS,language,CANONICAL_OS,166,Language OS
+170,Semantic OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+170,Semantic OS,Search Analytics,search analytics,PLATFORM_PRIMITIVE,,
+171,Manipulation OS,Sentiment OS,sentiment,CANONICAL_OS,051,Sentiment OS
+171,Manipulation OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+171,Manipulation OS,Experimentation,experimentation,PLATFORM_PRIMITIVE,,
+172,Persuasion OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+172,Persuasion OS,Design OS,design,CANONICAL_OS,188,Design OS
+172,Persuasion OS,Experimentation,experimentation,PLATFORM_PRIMITIVE,,
+173,Rhetoric OS,Logic-Chain OS,logic chain,CANONICAL_OS,068,Logic-Chain OS
+173,Rhetoric OS,Reasoning OS,reasoning,CANONICAL_OS,069,Reasoning OS
+173,Rhetoric OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+174,Diplomacy OS,Alliance OS,alliance,CANONICAL_OS,079,Alliance OS
+174,Diplomacy OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+174,Diplomacy OS,CRM,crm,PLATFORM_PRIMITIVE,,
+175,Negotiation OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+175,Negotiation OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+175,Negotiation OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+176,Conflict-Resolution OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+176,Conflict-Resolution OS,Negotiation OS,negotiation,CANONICAL_OS,175,Negotiation OS
+176,Conflict-Resolution OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+177,Arbitration OS,Conflict-Resolution OS,conflict resolution,CANONICAL_OS,176,Conflict-Resolution OS
+177,Arbitration OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+177,Arbitration OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+178,Court OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+178,Court OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+178,Court OS,Records OS,records,CANONICAL_OS,269,Records OS
+179,Law-Fare OS,Court OS,court,CANONICAL_OS,178,Court OS
+179,Law-Fare OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+179,Law-Fare OS,Conflict-Resolution OS,conflict resolution,CANONICAL_OS,176,Conflict-Resolution OS
+180,Evidence OS,Records OS,records,CANONICAL_OS,269,Records OS
+180,Evidence OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+180,Evidence OS,Encryption OS,encryption,CANONICAL_OS,040,Encryption OS
+181,Media OS,Marketing OS,marketing,CANONICAL_OS,056,Marketing OS
+181,Media OS,Design OS,design,CANONICAL_OS,188,Design OS
+181,Media OS,Records OS,records,CANONICAL_OS,269,Records OS
+182,Broadcasting OS,Media OS,media,CANONICAL_OS,181,Media OS
+182,Broadcasting OS,Video OS,video,CANONICAL_OS,186,Video OS
+182,Broadcasting OS,Audio systems,audio systems,PLATFORM_PRIMITIVE,,
+183,Cinema OS,Video OS,video,CANONICAL_OS,186,Video OS
+183,Cinema OS,Art OS,art,CANONICAL_OS,190,Art OS
+183,Cinema OS,Media OS,media,CANONICAL_OS,181,Media OS
+184,Music OS,Media OS,media,CANONICAL_OS,181,Media OS
+184,Music OS,Audio systems,audio systems,PLATFORM_PRIMITIVE,,
+185,Audio-Prime OS,Music OS,music,CANONICAL_OS,184,Music OS
+185,Audio-Prime OS,Shopping OS,shopping,CANONICAL_OS,194,Shopping OS
+185,Audio-Prime OS,Experimentation,experimentation,PLATFORM_PRIMITIVE,,
+186,Video OS,Media OS,media,CANONICAL_OS,181,Media OS
+186,Video OS,Design OS,design,CANONICAL_OS,188,Design OS
+186,Video OS,Storage,storage,PLATFORM_PRIMITIVE,,
+187,Picture OS,Design OS,design,CANONICAL_OS,188,Design OS
+187,Picture OS,Analytics,analytics,PLATFORM_PRIMITIVE,,
+187,Picture OS,Privacy Governance,privacy governance,PLATFORM_PRIMITIVE,,
+188,Design OS,Aesthetic OS,aesthetic,CANONICAL_OS,189,Aesthetic OS
+188,Design OS,Accessibility,accessibility,PLATFORM_PRIMITIVE,,
+188,Design OS,Frontend Platform,frontend platform,PLATFORM_PRIMITIVE,,
+189,Aesthetic OS,Design OS,design,CANONICAL_OS,188,Design OS
+189,Aesthetic OS,Accessibility,accessibility,PLATFORM_PRIMITIVE,,
+190,Art OS,Design OS,design,CANONICAL_OS,188,Design OS
+190,Art OS,Media OS,media,CANONICAL_OS,181,Media OS
+190,Art OS,Localization Platform,localization platform,PLATFORM_PRIMITIVE,,
+191,Retail OS,POS OS,pos,CANONICAL_OS,192,POS OS
+191,Retail OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+191,Retail OS,CRM,crm,PLATFORM_PRIMITIVE,,
+192,POS OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+192,POS OS,Payment-Gateway OS,payment gateway,CANONICAL_OS,196,Payment-Gateway OS
+192,POS OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+193,Consumer-Hive OS,CRM,crm,PLATFORM_PRIMITIVE,,
+193,Consumer-Hive OS,Retail OS,retail,CANONICAL_OS,191,Retail OS
+193,Consumer-Hive OS,Shopping OS,shopping,CANONICAL_OS,194,Shopping OS
+194,Shopping OS,E-commerce OS,e commerce,CANONICAL_OS,195,E-commerce OS
+194,Shopping OS,Design OS,design,CANONICAL_OS,188,Design OS
+194,Shopping OS,Recommendation systems,recommendation systems,PLATFORM_PRIMITIVE,,
+195,E-commerce OS,Inventory OS,inventory,CANONICAL_OS,118,Inventory OS
+195,E-commerce OS,Shopping OS,shopping,CANONICAL_OS,194,Shopping OS
+195,E-commerce OS,Payment-Gateway OS,payment gateway,CANONICAL_OS,196,Payment-Gateway OS
+195,E-commerce OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+196,Payment-Gateway OS,Banking OS,banking,CANONICAL_OS,001,Banking OS
+196,Payment-Gateway OS,Medici-Ledger OS,medici ledger,CANONICAL_OS,017,Medici-Ledger OS
+196,Payment-Gateway OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+197,Ecosystem OS,Platform OS,platform,CANONICAL_OS,198,Platform OS
+197,Ecosystem OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+197,Ecosystem OS,Billing,billing,CANONICAL_OS,214,Billing OS
+197,Ecosystem OS,Marketplace,marketplace,PLATFORM_PRIMITIVE,,
+198,Platform OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+198,Platform OS,Protocol OS,protocol,CANONICAL_OS,041,Protocol OS
+198,Platform OS,Cloud-OS,cloud,CANONICAL_OS,028,Cloud-OS
+198,Platform OS,Governance OS,governance,CANONICAL_OS,049,Governance OS
+199,Membership OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+199,Membership OS,Billing,billing,CANONICAL_OS,214,Billing OS
+199,Membership OS,CRM,crm,PLATFORM_PRIMITIVE,,
+199,Membership OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+200,Loyalty OS,Membership OS,membership,CANONICAL_OS,199,Membership OS
+200,Loyalty OS,CRM,crm,PLATFORM_PRIMITIVE,,
+200,Loyalty OS,Commerce,commerce,PLATFORM_PRIMITIVE,,
+201,Data OS,Integrations OS,integrations,PLATFORM_PRIMITIVE,,
+201,Data OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+201,Data OS,Records OS,records,CANONICAL_OS,269,Records OS
+202,Vector-DB OS,Data OS,data,CANONICAL_OS,201,Data OS
+202,Vector-DB OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+202,Vector-DB OS,RAG OS,rag,CANONICAL_OS,203,RAG OS
+203,RAG OS,Vector-DB OS,vector db,CANONICAL_OS,202,Vector-DB OS
+203,RAG OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+203,RAG OS,Inference OS,inference,CANONICAL_OS,204,Inference OS
+204,Inference OS,RAG OS,rag,CANONICAL_OS,203,RAG OS
+204,Inference OS,Reasoning OS,reasoning,CANONICAL_OS,069,Reasoning OS
+204,Inference OS,AI Gateway,ai gateway,PLATFORM_PRIMITIVE,,
+205,Model-Train OS,Data OS,data,CANONICAL_OS,201,Data OS
+205,Model-Train OS,Inference OS,inference,CANONICAL_OS,204,Inference OS
+205,Model-Train OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+206,Android OS,Mobile-Engine OS,mobile engine,CANONICAL_OS,208,Mobile-Engine OS
+206,Android OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+206,Android OS,Interface OS,interface,CANONICAL_OS,210,Interface OS
+207,iOS OS,Mobile-Engine OS,mobile engine,CANONICAL_OS,208,Mobile-Engine OS
+207,iOS OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+207,iOS OS,Interface OS,interface,CANONICAL_OS,210,Interface OS
+208,Mobile-Engine OS,Android OS,android,CANONICAL_OS,206,Android OS
+208,Mobile-Engine OS,iOS OS,ios,CANONICAL_OS,207,iOS OS
+208,Mobile-Engine OS,Protocol OS,protocol,CANONICAL_OS,041,Protocol OS
+209,Web-Sovereign OS,Protocol OS,protocol,CANONICAL_OS,041,Protocol OS
+209,Web-Sovereign OS,Security OS,security,CANONICAL_OS,038,Security OS
+209,Web-Sovereign OS,Network OS,network,CANONICAL_OS,250,Network OS
+210,Interface OS,Design OS,design,CANONICAL_OS,188,Design OS
+210,Interface OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+210,Interface OS,Protocol OS,protocol,CANONICAL_OS,041,Protocol OS
+211,Dynamic OS,Interface OS,interface,CANONICAL_OS,210,Interface OS
+211,Dynamic OS,Sentiment OS,sentiment,CANONICAL_OS,051,Sentiment OS
+211,Dynamic OS,Experimentation,experimentation,PLATFORM_PRIMITIVE,,
+212,Payments OS,Payment-Gateway OS,payment gateway,CANONICAL_OS,196,Payment-Gateway OS
+212,Payments OS,Medici-Ledger OS,medici ledger,CANONICAL_OS,017,Medici-Ledger OS
+212,Payments OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+213,Checkout OS,Payments OS,payments,CANONICAL_OS,212,Payments OS
+213,Checkout OS,Shopping OS,shopping,CANONICAL_OS,194,Shopping OS
+213,Checkout OS,Pricing OS,pricing,CANONICAL_OS,215,Pricing OS
+214,Billing OS,Payments OS,payments,CANONICAL_OS,212,Payments OS
+214,Billing OS,Pricing OS,pricing,CANONICAL_OS,215,Pricing OS
+214,Billing OS,Medici-Ledger OS,medici ledger,CANONICAL_OS,017,Medici-Ledger OS
+215,Pricing OS,Billing OS,billing,CANONICAL_OS,214,Billing OS
+215,Pricing OS,Pricing data,pricing data,PLATFORM_PRIMITIVE,,
+215,Pricing OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+216,University OS,Learning OS,learning,CANONICAL_OS,218,Learning OS
+216,University OS,Talent-Forge OS,talent forge,CANONICAL_OS,219,Talent-Forge OS
+216,University OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+217,Pedagogy OS,University OS,university,CANONICAL_OS,216,University OS
+217,Pedagogy OS,Learning OS,learning,CANONICAL_OS,218,Learning OS
+217,Pedagogy OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+218,Learning OS,Pedagogy OS,pedagogy,CANONICAL_OS,217,Pedagogy OS
+218,Learning OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+218,Learning OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+219,Talent-Forge OS,Learning OS,learning,CANONICAL_OS,218,Learning OS
+219,Talent-Forge OS,University OS,university,CANONICAL_OS,216,University OS
+219,Talent-Forge OS,Projects,projects,PLATFORM_PRIMITIVE,,
+220,Elite-Track OS,Talent-Forge OS,talent forge,CANONICAL_OS,219,Talent-Forge OS
+220,Elite-Track OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+220,Elite-Track OS,Ethics OS,ethics,CANONICAL_OS,221,Ethics OS
+221,Ethics OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+221,Ethics OS,Governance OS,governance,CANONICAL_OS,049,Governance OS
+221,Ethics OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+222,Philosophy OS,Ethics OS,ethics,CANONICAL_OS,221,Ethics OS
+222,Philosophy OS,Reasoning OS,reasoning,CANONICAL_OS,069,Reasoning OS
+222,Philosophy OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+223,Theology OS,Ethics OS,ethics,CANONICAL_OS,221,Ethics OS
+223,Theology OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+223,Theology OS,Media OS,media,CANONICAL_OS,181,Media OS
+224,Mythos OS,Narrative OS,narrative,CANONICAL_OS,052,Narrative OS
+224,Mythos OS,Media OS,media,CANONICAL_OS,181,Media OS
+224,Mythos OS,Ethics OS,ethics,CANONICAL_OS,221,Ethics OS
+225,Occult OS,Aesthetic OS,aesthetic,CANONICAL_OS,189,Aesthetic OS
+225,Occult OS,Art OS,art,CANONICAL_OS,190,Art OS
+225,Occult OS,Ethics OS,ethics,CANONICAL_OS,221,Ethics OS
+226,Globalisation OS,Jurisdiction OS,jurisdiction,CANONICAL_OS,045,Jurisdiction OS
+226,Globalisation OS,Regional-Trade OS,regional trade,CANONICAL_OS,123,Regional-Trade OS
+226,Globalisation OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+227,Geopolitics OS,Geospatial OS,geospatial,CANONICAL_OS,139,Geospatial OS
+227,Geopolitics OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+227,Geopolitics OS,Information-Vacuum OS,information vacuum,CANONICAL_OS,066,Information-Vacuum OS
+228,Macro-Arbitrage OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+228,Macro-Arbitrage OS,Fiat-Hedge OS,fiat hedge,CANONICAL_OS,014,Fiat-Hedge OS
+228,Macro-Arbitrage OS,Portfolio OS,portfolio,CANONICAL_OS,242,Portfolio OS
+229,China OS,Geopolitics OS,geopolitics,CANONICAL_OS,227,Geopolitics OS
+229,China OS,Supply-Chain OS,supply chain,CANONICAL_OS,116,Supply-Chain OS
+229,China OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+230,USA OS,Geopolitics OS,geopolitics,CANONICAL_OS,227,Geopolitics OS
+230,USA OS,Wall Street OS,wall street,CANONICAL_OS,236,Wall Street OS
+230,USA OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+231,South Africa OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+231,South Africa OS,Property OS,property,CANONICAL_OS,126,Property OS
+231,South Africa OS,Regional-Trade OS,regional trade,CANONICAL_OS,123,Regional-Trade OS
+232,Europe OS,Geopolitics OS,geopolitics,CANONICAL_OS,227,Geopolitics OS
+232,Europe OS,Jurisdiction OS,jurisdiction,CANONICAL_OS,045,Jurisdiction OS
+232,Europe OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+233,UAE OS,Geopolitics OS,geopolitics,CANONICAL_OS,227,Geopolitics OS
+233,UAE OS,Jurisdiction OS,jurisdiction,CANONICAL_OS,045,Jurisdiction OS
+233,UAE OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+234,Saudi Arabia OS,Geopolitics OS,geopolitics,CANONICAL_OS,227,Geopolitics OS
+234,Saudi Arabia OS,Alliance OS,alliance,CANONICAL_OS,079,Alliance OS
+234,Saudi Arabia OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+235,Sovereign-Wealth OS,Portfolio OS,portfolio,CANONICAL_OS,242,Portfolio OS
+235,Sovereign-Wealth OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+235,Sovereign-Wealth OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+236,Wall Street OS,Market data integrations,market data integrations,EXTERNAL_DEPENDENCY,,
+236,Wall Street OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+236,Wall Street OS,Portfolio OS,portfolio,CANONICAL_OS,242,Portfolio OS
+237,JSE OS,Market data integrations,market data integrations,EXTERNAL_DEPENDENCY,,
+237,JSE OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+237,JSE OS,Portfolio OS,portfolio,CANONICAL_OS,242,Portfolio OS
+238,S&P 500 OS,Market data integrations,market data integrations,EXTERNAL_DEPENDENCY,,
+238,S&P 500 OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+238,S&P 500 OS,Portfolio OS,portfolio,CANONICAL_OS,242,Portfolio OS
+239,Hedge Fund OS,Trading OS,trading,CANONICAL_OS,241,Trading OS
+239,Hedge Fund OS,Portfolio OS,portfolio,CANONICAL_OS,242,Portfolio OS
+239,Hedge Fund OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+239,Hedge Fund OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+240,Blackrock OS,Wall Street OS,wall street,CANONICAL_OS,236,Wall Street OS
+240,Blackrock OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+241,Trading OS,Market data integrations,market data integrations,EXTERNAL_DEPENDENCY,,
+241,Trading OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+241,Trading OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+241,Trading OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+242,Portfolio OS,Medici-Ledger OS,medici ledger,CANONICAL_OS,017,Medici-Ledger OS
+242,Portfolio OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+242,Portfolio OS,Records OS,records,CANONICAL_OS,269,Records OS
+243,Yield OS,Portfolio OS,portfolio,CANONICAL_OS,242,Portfolio OS
+243,Yield OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+243,Yield OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+244,Risk OS,Monte-Carlo OS,monte carlo,CANONICAL_OS,245,Monte-Carlo OS
+244,Risk OS,Monitoring OS,monitoring,CANONICAL_OS,033,Monitoring OS
+244,Risk OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+245,Monte-Carlo OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+245,Monte-Carlo OS,Statistics OS,statistics,CANONICAL_OS,261,Statistics OS
+245,Monte-Carlo OS,Mathematics OS,mathematics,CANONICAL_OS,262,Mathematics OS
+246,Social Media OS,Media OS,media,CANONICAL_OS,181,Media OS
+246,Social Media OS,Engagement OS,engagement,CANONICAL_OS,248,Engagement OS
+246,Social Media OS,Sentiment OS,sentiment,CANONICAL_OS,051,Sentiment OS
+247,Community OS,Membership OS,membership,CANONICAL_OS,199,Membership OS
+247,Community OS,CRM,crm,PLATFORM_PRIMITIVE,,
+247,Community OS,Media OS,media,CANONICAL_OS,181,Media OS
+248,Engagement OS,Community OS,community,CANONICAL_OS,247,Community OS
+248,Engagement OS,Analytics,analytics,PLATFORM_PRIMITIVE,,
+248,Engagement OS,Experimentation,experimentation,PLATFORM_PRIMITIVE,,
+249,Influencer OS,CRM,crm,PLATFORM_PRIMITIVE,,
+249,Influencer OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+249,Influencer OS,Media OS,media,CANONICAL_OS,181,Media OS
+250,Network OS,Alliance OS,alliance,CANONICAL_OS,079,Alliance OS
+250,Network OS,Geospatial OS,geospatial,CANONICAL_OS,139,Geospatial OS
+250,Network OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+251,Tendering System OS,Bidding OS,bidding,CANONICAL_OS,252,Bidding OS
+251,Tendering System OS,Contracts OS,contracts,CANONICAL_OS,256,Contracts OS
+251,Tendering System OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+252,Bidding OS,Tendering System OS,tendering system,CANONICAL_OS,251,Tendering System OS
+252,Bidding OS,Pricing OS,pricing,CANONICAL_OS,215,Pricing OS
+252,Bidding OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+253,Compliance-Audit OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+253,Compliance-Audit OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+253,Compliance-Audit OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+254,Public-Sector OS,Tendering System OS,tendering system,CANONICAL_OS,251,Tendering System OS
+254,Public-Sector OS,Contracts OS,contracts,CANONICAL_OS,256,Contracts OS
+254,Public-Sector OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+255,Private-Sector OS,Capital-Allocation OS,capital allocation,CANONICAL_OS,008,Capital-Allocation OS
+255,Private-Sector OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+255,Private-Sector OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+255,Private-Sector OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+256,Contracts OS,Contract OS,contract,CANONICAL_OS,048,Contract OS
+256,Contracts OS,Records OS,records,CANONICAL_OS,269,Records OS
+256,Contracts OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+257,Smart-Contract OS,Contracts OS,contracts,CANONICAL_OS,256,Contracts OS
+257,Smart-Contract OS,Payments OS,payments,CANONICAL_OS,212,Payments OS
+257,Smart-Contract OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+258,Escrow OS,Payments OS,payments,CANONICAL_OS,212,Payments OS
+258,Escrow OS,Contracts OS,contracts,CANONICAL_OS,256,Contracts OS
+258,Escrow OS,Compliance OS,compliance,CANONICAL_OS,046,Compliance OS
+259,Dispute OS,Conflict-Resolution OS,conflict resolution,CANONICAL_OS,176,Conflict-Resolution OS
+259,Dispute OS,Arbitration OS,arbitration,CANONICAL_OS,177,Arbitration OS
+259,Dispute OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+260,Terminal OS,Identity OS,identity,CANONICAL_OS,042,Identity OS
+260,Terminal OS,Access-Control OS,access control,CANONICAL_OS,043,Access-Control OS
+260,Terminal OS,Audit-Vigil OS,audit vigil,CANONICAL_OS,006,Audit-Vigil OS
+260,Terminal OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+261,Statistics OS,Data OS,data,CANONICAL_OS,201,Data OS
+261,Statistics OS,Mathematics OS,mathematics,CANONICAL_OS,262,Mathematics OS
+261,Statistics OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+262,Mathematics OS,Statistics OS,statistics,CANONICAL_OS,261,Statistics OS
+262,Mathematics OS,Logic-Chain OS,logic chain,CANONICAL_OS,068,Logic-Chain OS
+263,Calculus OS,Mathematics OS,mathematics,CANONICAL_OS,262,Mathematics OS
+263,Calculus OS,Statistics OS,statistics,CANONICAL_OS,261,Statistics OS
+264,Game-Theory-Meta OS,Game-Theory OS,game theory,CANONICAL_OS,062,Game-Theory OS
+264,Game-Theory-Meta OS,Reasoning OS,reasoning,CANONICAL_OS,069,Reasoning OS
+264,Game-Theory-Meta OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+265,Solutions OS,Synthesis OS,synthesis,CANONICAL_OS,070,Synthesis OS
+265,Solutions OS,Decision-Matrix OS,decision matrix,CANONICAL_OS,071,Decision-Matrix OS
+265,Solutions OS,Reasoning OS,reasoning,CANONICAL_OS,069,Reasoning OS
+266,Pragmatic OS,Solutions OS,solutions,CANONICAL_OS,265,Solutions OS
+266,Pragmatic OS,Ethics OS,ethics,CANONICAL_OS,221,Ethics OS
+266,Pragmatic OS,Risk OS,risk,CANONICAL_OS,244,Risk OS
+266,Pragmatic OS,Pillars OS,pillars,PLATFORM_PRIMITIVE,,
+267,Religion OS,Theology OS,theology,CANONICAL_OS,223,Theology OS
+267,Religion OS,Knowledge OS,knowledge,CANONICAL_OS,084,Knowledge OS
+267,Religion OS,Ethics OS,ethics,CANONICAL_OS,221,Ethics OS
+268,Events OS,Community OS,community,CANONICAL_OS,247,Community OS
+268,Events OS,Membership OS,membership,CANONICAL_OS,199,Membership OS
+268,Events OS,Payments OS,payments,CANONICAL_OS,212,Payments OS
+269,Records OS,Archive OS,archive,CANONICAL_OS,083,Archive OS
+269,Records OS,Evidence OS,evidence,CANONICAL_OS,180,Evidence OS
+269,Records OS,Medici-Ledger OS,medici ledger,CANONICAL_OS,017,Medici-Ledger OS
