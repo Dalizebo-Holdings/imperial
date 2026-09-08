@@ -12,10 +12,10 @@ Phase 3
 - [x] Timeout evaluation
 - [x] Dead-letter transition
 - [x] Idempotency fingerprint
-- [ ] Queue adapter
-- [ ] Worker execution contract
+- [x] Queue adapter
+- [x] Worker execution contract
 - [ ] Loop audit adapter
 
 ## Current Next Work
 
-Implement Loop OS P0 queue adapter + worker execution contract.
+Implement Loop OS P0 Audit Adapter, then close Loop OS P0.

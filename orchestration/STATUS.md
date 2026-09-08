@@ -10,7 +10,7 @@ Phase 2 canonical catalogue: 269 / 269 classified
 
 ## Current Stage
 
-Loop OS P0 runtime schema and state machine complete.
+Loop OS P0 queue and worker contract complete.
 
 ## Algorithm OS
 
@@ -30,9 +30,9 @@ Dead-letter transition: COMPLETE
 
 Idempotency fingerprint: COMPLETE
 
-Queue adapter: PENDING
+Queue adapter: COMPLETE
 
-Worker execution contract: PENDING
+Worker execution contract: COMPLETE
 
 Loop audit adapter: PENDING
 
@@ -44,10 +44,10 @@ Connector registry and runtime contracts: PENDING
 
 ## Next Work
 
-Loop OS P0 — queue adapter + worker execution contract.
+Loop OS P0 — Audit Adapter.
 
 ## Governing Rule
 
-Loop OS execution remains bounded, observable, idempotent, timeout-controlled,
-and subject to upstream Algorithm OS, Pillars OS, and Kernel authorization
-boundaries.
+Loop OS workers may invoke handlers only after explicit Pillars OS approval and
+Dalizebo Kernel authorization. Retries remain bounded and duplicate execution
+must remain safe.
