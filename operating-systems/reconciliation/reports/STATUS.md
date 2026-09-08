@@ -14,25 +14,29 @@ OS-001 → OS-269
 
 ## Canonical Classification
 
-200 / 269 complete
+269 / 269 complete
 
 ## Current Stage
 
-Cluster E classified.
+Phase 2 complete.
 
 ## Completed Canonical Range
 
-OS-001 → OS-200
+OS-001 → OS-269
 
-## Next Work
+## Catalogue Status
 
-OS-201 → OS-269 — Advanced, Meta & Terminal.
+CANONICALLY CLASSIFIED
+
+## Next Phase
+
+Phase 3 — Algorithm OS + Loop OS + Integrations OS.
 
 ## Governing Rule
 
 Source statements remain preserved.
 
-Unsafe, unlawful, deceptive, coercive, privacy-invasive, or medically
-unsupported source concepts are retired or canonically reframed.
+Unsafe or unlawful source concepts remain retired, research-bounded,
+or canonically reframed.
 
 Canonical implementation decisions are recorded separately from source history.
