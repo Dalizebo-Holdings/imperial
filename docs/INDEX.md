@@ -193,3 +193,15 @@
 - [Regional Support](../regional/support/README.md)
 - [Cross-Region Disaster Recovery](../regional/disaster-recovery/README.md)
 - [Region Registry](../regional/REGION_REGISTRY.md)
+
+## 269 OS Activation
+
+- [Activation Framework](../operating-systems/activation/README.md)
+- [Lifecycle](../operating-systems/activation/lifecycle/README.md)
+- [Registry Schema](../operating-systems/activation/registry/SCHEMA.md)
+- [Ownership](../operating-systems/activation/ownership/README.md)
+- [Dependencies](../operating-systems/activation/dependencies/README.md)
+- [Maturity Model](../operating-systems/activation/maturity/README.md)
+- [Activation Gates](../operating-systems/activation/gates/README.md)
+- [Metrics](../operating-systems/activation/metrics/README.md)
+- [Reviews](../operating-systems/activation/reviews/README.md)
