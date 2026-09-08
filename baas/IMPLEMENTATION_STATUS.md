@@ -21,35 +21,38 @@ Phase 5
 - [x] Background Jobs
 - [x] Audit
 - [x] Logging
-- [ ] Usage Metering
+- [x] Usage Metering
 - [ ] Subscription Billing
 - [ ] Payment Abstraction
 - [ ] Secrets
 - [ ] Backups
 
-## Logging P0 Components
+## Usage Metering P0 Components
 
-- [x] Kernel Structured Logging authority boundary
-- [x] Tenant log-stream policy
-- [x] Structured log ingestion
-- [x] Correlation/actor/trace propagation
-- [x] Kernel recursive redaction preservation
-- [x] Minimum-level filtering
-- [x] Bounded field payload
-- [x] Tenant-scoped log query
-- [x] Level/service/event/actor/correlation/trace/time filters
-- [x] Deterministic sequence pagination
-- [x] Retention cutoff metadata
-- [x] Audit/log separation preserved
+- [x] Canonical initial metered-resource registry
+- [x] Tenant-attributed usage events
+- [x] Timestamped immutable raw usage records
+- [x] Decimal quantity normalization
+- [x] Idempotent ingestion
+- [x] Idempotency conflict detection
+- [x] Record hashing
+- [x] Secret-bearing dimension rejection
+- [x] Auditable ingestion evidence
+- [x] Deterministic period aggregation
+- [x] Unit-safe aggregation
+- [x] Aggregate source hashing
+- [x] Aggregate audit evidence
+- [x] Reconciliation verification
+- [x] No raw usage mutation/delete API
 
-## Logging Deferred Runtime
+## Usage Metering Deferred Runtime
 
-- [ ] OpenTelemetry/log exporter
-- [ ] Durable log index/search backend
-- [ ] Retention/deletion worker
-- [ ] Alert routing
-- [ ] Trace backend
+- [ ] Durable raw usage ledger adapter
+- [ ] Durable aggregate/read-model adapter
+- [ ] Streaming/event ingestion adapter
+- [ ] Rating/pricing engine
+- [ ] Pricing versioning
 
 ## Current Next Work
 
-Implement BaaS P0 Usage Metering service.
+Implement BaaS P0 Subscription Billing service.

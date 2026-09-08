@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Logging service initialized.
+BaaS P0 Usage Metering service initialized.
 
 ## Foundation
 
@@ -60,33 +60,39 @@ Audit BaaS: COMPLETE
 
 Logging BaaS: COMPLETE
 
-Kernel Structured Logging authority boundary: COMPLETE
+## Usage Metering
 
-Tenant log-stream policy: COMPLETE
+Usage Metering BaaS: COMPLETE
 
-Structured ingestion + redaction: COMPLETE
+Canonical initial metrics: COMPLETE
 
-Correlation/actor/trace propagation: COMPLETE
+Tenant attribution + timestamps: COMPLETE
 
-Minimum-level + field-size bounds: COMPLETE
+Immutable raw usage records: COMPLETE
 
-Tenant query/filter/pagination: COMPLETE
+Idempotent ingestion + conflict detection: COMPLETE
 
-Retention cutoff metadata: COMPLETE
+Decimal/unit-safe quantities: COMPLETE
 
-Audit/log separation: COMPLETE
+Auditable raw usage: COMPLETE
 
-Production log exporter/index: DEFERRED
+Deterministic aggregation: COMPLETE
 
-Retention worker: DEFERRED
+Source-hash reconciliation: COMPLETE
+
+Raw usage mutation/delete API: NONE
+
+Durable usage ledger: DEFERRED
+
+Rating/pricing engine: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Usage Metering service.
+BaaS P0 — Subscription Billing service.
 
 ## Governing Rule
 
-BaaS Logging preserves the Kernel structured-log schema and recursive redaction.
-It never replaces Kernel Audit. Tenant-aware records are organization-scoped,
-correlation-aware, size-bounded, query-isolated, and retained only according to
-explicit stream policy. Production log shipping/indexing remains an adapter.
+Usage Metering records immutable, tenant-attributed, timestamped usage before
+billing. Ingestion is idempotent, aggregation is unit-safe and auditable, and
+reconciliation recomputes from raw usage evidence. Rating, pricing, invoices,
+credits, entitlements, and payment retries remain Billing BaaS responsibilities.
