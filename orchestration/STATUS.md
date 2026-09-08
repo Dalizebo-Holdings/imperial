@@ -10,7 +10,7 @@ Phase 2 canonical catalogue: 269 / 269 classified
 
 ## Current Stage
 
-Algorithm OS P0 policy and dependency layer complete.
+Algorithm OS P0 deterministic planning layer complete.
 
 ## Capability Registry
 
@@ -24,9 +24,9 @@ Policy adapter: COMPLETE
 
 Dependency resolver: COMPLETE
 
-Deterministic rule evaluator: PENDING
+Deterministic rule evaluator: COMPLETE
 
-Execution planner: PENDING
+Execution planner: COMPLETE
 
 Audit adapter: PENDING
 
@@ -44,8 +44,8 @@ Connector registry and runtime contracts: PENDING
 
 ## Next Work
 
-Algorithm OS P0 — deterministic rule evaluator + execution planner.
+Algorithm OS P0 — Audit Adapter.
 
 ## Governing Rule
 
-Every plan must pass Pillars OS policy evaluation and the Dalizebo Kernel authorization boundary before production side effects may occur.
+Algorithm OS produces planning decisions only. Production side effects require Pillars OS policy approval and the Dalizebo Kernel authorization boundary.

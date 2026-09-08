@@ -9,8 +9,8 @@ Phase 3
 - [x] Capability registry
 - [x] Policy adapter
 - [x] Dependency resolver
-- [ ] Deterministic rule evaluator
-- [ ] Execution planner
+- [x] Deterministic rule evaluator
+- [x] Execution planner
 - [ ] Audit adapter
 
 ## P1 Components
@@ -28,4 +28,4 @@ Phase 3
 
 ## Current Next Work
 
-Implement the P0 deterministic rule evaluator and execution planner using the policy adapter and dependency resolver as mandatory planning gates.
+Implement the P0 Audit Adapter, then complete the Algorithm OS P0 validation boundary.
