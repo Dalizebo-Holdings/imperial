@@ -22,37 +22,39 @@ Phase 5
 - [x] Audit
 - [x] Logging
 - [x] Usage Metering
-- [ ] Subscription Billing
+- [x] Subscription Billing
 - [ ] Payment Abstraction
 - [ ] Secrets
 - [ ] Backups
 
-## Usage Metering P0 Components
+## Subscription Billing P0 Components
 
-- [x] Canonical initial metered-resource registry
-- [x] Tenant-attributed usage events
-- [x] Timestamped immutable raw usage records
-- [x] Decimal quantity normalization
-- [x] Idempotent ingestion
-- [x] Idempotency conflict detection
-- [x] Record hashing
-- [x] Secret-bearing dimension rejection
-- [x] Auditable ingestion evidence
-- [x] Deterministic period aggregation
-- [x] Unit-safe aggregation
-- [x] Aggregate source hashing
-- [x] Aggregate audit evidence
-- [x] Reconciliation verification
-- [x] No raw usage mutation/delete API
+- [x] Immutable versioned plan pricing
+- [x] Subscription lifecycle
+- [x] Subscription + metered-usage billing model
+- [x] Integer minor-unit money
+- [x] Decimal usage rating with explicit rounding
+- [x] Usage Metering aggregate evidence boundary
+- [x] Tenant-safe credits
+- [x] Deterministic invoice generation
+- [x] Draft/open invoice lifecycle
+- [x] Pricing-version retention on invoices
+- [x] Entitlement resolution
+- [x] Billing event metadata
+- [x] Payment retry intent metadata
+- [x] Payment-provider execution boundary
+- [x] Invoice/source-hash reconciliation
+- [x] Kernel authorization evidence requirement
 
-## Usage Metering Deferred Runtime
+## Subscription Billing Deferred Runtime
 
-- [ ] Durable raw usage ledger adapter
-- [ ] Durable aggregate/read-model adapter
-- [ ] Streaming/event ingestion adapter
-- [ ] Rating/pricing engine
-- [ ] Pricing versioning
+- [ ] Durable billing ledger adapter
+- [ ] Tax engine
+- [ ] Proration engine
+- [ ] Dunning scheduler
+- [ ] Invoice document renderer
+- [ ] Provider payment execution
 
 ## Current Next Work
 
-Implement BaaS P0 Subscription Billing service.
+Implement BaaS P0 Payment Abstraction service.

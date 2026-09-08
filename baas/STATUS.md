@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Usage Metering service initialized.
+BaaS P0 Subscription Billing service initialized.
 
 ## Foundation
 
@@ -64,35 +64,42 @@ Logging BaaS: COMPLETE
 
 Usage Metering BaaS: COMPLETE
 
-Canonical initial metrics: COMPLETE
+## Subscription Billing
 
-Tenant attribution + timestamps: COMPLETE
+Subscription Billing BaaS: COMPLETE
 
-Immutable raw usage records: COMPLETE
+Versioned plan pricing: COMPLETE
 
-Idempotent ingestion + conflict detection: COMPLETE
+Subscription lifecycle: COMPLETE
 
-Decimal/unit-safe quantities: COMPLETE
+Recurring + metered rating: COMPLETE
 
-Auditable raw usage: COMPLETE
+Integer minor-unit money: COMPLETE
 
-Deterministic aggregation: COMPLETE
+Credits: COMPLETE
 
-Source-hash reconciliation: COMPLETE
+Deterministic invoices: COMPLETE
 
-Raw usage mutation/delete API: NONE
+Entitlement resolution: COMPLETE
 
-Durable usage ledger: DEFERRED
+Billing events: COMPLETE
 
-Rating/pricing engine: DEFERRED
+Payment retry intents: COMPLETE
+
+Invoice reconciliation: COMPLETE
+
+Provider payment execution: DEFERRED
+
+Tax/proration/dunning/document rendering: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Subscription Billing service.
+BaaS P0 — Payment Abstraction service.
 
 ## Governing Rule
 
-Usage Metering records immutable, tenant-attributed, timestamped usage before
-billing. Ingestion is idempotent, aggregation is unit-safe and auditable, and
-reconciliation recomputes from raw usage evidence. Rating, pricing, invoices,
-credits, entitlements, and payment retries remain Billing BaaS responsibilities.
+Billing consumes immutable Usage Metering aggregate evidence and exact versioned
+pricing. Money is integer minor units, invoices are deterministic and
+reconcilable, credits cannot make totals negative, and payment retry output is
+intent metadata only. Provider charging and payment state transitions remain
+behind Payments BaaS and Kernel commerce invariants.
