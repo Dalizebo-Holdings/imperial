@@ -10,7 +10,7 @@ Phase 2 canonical catalogue: 269 / 269 classified
 
 ## Current Stage
 
-Algorithm OS P0 deterministic planning layer complete.
+Algorithm OS P0 complete.
 
 ## Capability Registry
 
@@ -28,7 +28,9 @@ Deterministic rule evaluator: COMPLETE
 
 Execution planner: COMPLETE
 
-Audit adapter: PENDING
+Audit adapter: COMPLETE
+
+P0 status: COMPLETE
 
 ## Loop OS
 
@@ -44,8 +46,10 @@ Connector registry and runtime contracts: PENDING
 
 ## Next Work
 
-Algorithm OS P0 — Audit Adapter.
+Loop OS P0 — runtime schema + state machine.
 
 ## Governing Rule
 
-Algorithm OS produces planning decisions only. Production side effects require Pillars OS policy approval and the Dalizebo Kernel authorization boundary.
+Algorithm OS produces governed, auditable planning decisions only. Production
+side effects still require Pillars OS policy approval and Dalizebo Kernel
+authorization.
