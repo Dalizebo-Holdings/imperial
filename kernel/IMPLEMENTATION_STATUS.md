@@ -27,8 +27,12 @@ Phase 4
 - [x] Backup contract
 - [x] PostgreSQL persistence boundary
 - [x] Migration framework
-- [ ] Commerce primitives
+- [x] Commerce primitives
+
+## P0 Status
+
+COMPLETE
 
 ## Current Next Work
 
-Implement Kernel P0 commerce primitives, then close Kernel P0.
+Proceed to Phase 5 — Dalizebo BaaS.

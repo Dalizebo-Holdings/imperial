@@ -10,7 +10,7 @@ Phase 3 P0: COMPLETE
 
 ## Current Stage
 
-Kernel P0 PostgreSQL persistence and migrations initialized.
+Kernel P0 complete.
 
 ## Trust Boundary
 
@@ -52,17 +52,23 @@ Migration framework: COMPLETE
 
 Baseline Kernel schema migration: COMPLETE
 
+Commerce schema migration: COMPLETE
+
 ## Domain
 
-Commerce primitives: PENDING
+Shared commerce primitives: COMPLETE
+
+## P0 Status
+
+COMPLETE
 
 ## Next Work
 
-Kernel P0 — commerce primitives.
+Phase 5 — Dalizebo BaaS.
 
 ## Governing Rule
 
-PostgreSQL credentials remain behind secret references. Tenant-aware database
-work executes inside explicit transactions with transaction-local tenant
-context. Migration history is ordered and checksummed; checksum drift fails
-closed. Business state, audit evidence, and outbox rows remain atomic.
+The Kernel remains the smallest trusted shared execution layer. Commerce and
+POS reuse the same authoritative commerce primitives. No SaaS product may
+duplicate authoritative Kernel models. Side effects remain tenant-scoped,
+authorized, idempotent, transactional, auditable, observable, and recoverable.
