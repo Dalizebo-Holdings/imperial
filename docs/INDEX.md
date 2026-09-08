@@ -177,3 +177,19 @@
 - [Advanced Audit](../enterprise/advanced-audit/README.md)
 - [Enterprise Support](../enterprise/support/README.md)
 - [Private Deployments](../enterprise/private-deployments/README.md)
+
+## Regional Platform
+
+- [Regional Platform Overview](../regional/README.md)
+- [Global Control Plane](../regional/control-plane/README.md)
+- [Regional Data Planes](../regional/data-planes/README.md)
+- [Market Configuration](../regional/market-config/README.md)
+- [Currencies](../regional/currencies/README.md)
+- [Tax](../regional/tax/README.md)
+- [Payments](../regional/payments/README.md)
+- [Languages](../regional/languages/README.md)
+- [Logistics](../regional/logistics/README.md)
+- [Data Residency](../regional/residency/README.md)
+- [Regional Support](../regional/support/README.md)
+- [Cross-Region Disaster Recovery](../regional/disaster-recovery/README.md)
+- [Region Registry](../regional/REGION_REGISTRY.md)
