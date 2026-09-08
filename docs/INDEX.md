@@ -89,3 +89,16 @@
 - [Release Gates](../validation/release-gates/README.md)
 - [Incident Management](../validation/incidents/README.md)
 - [Public MVP Criteria](../validation/PUBLIC_MVP_CRITERIA.md)
+
+## Platform Hardening
+
+- [Hardening Overview](../hardening/README.md)
+- [Transactional Outbox](../hardening/outbox/README.md)
+- [Webhook Reliability](../hardening/webhooks/README.md)
+- [Realtime](../hardening/realtime/README.md)
+- [Rate Limiting](../hardening/rate-limits/README.md)
+- [Observability](../hardening/observability/README.md)
+- [Disaster Recovery](../hardening/disaster-recovery/README.md)
+- [Usage Billing](../hardening/usage-billing/README.md)
+- [Reliability](../hardening/reliability/README.md)
+- [External BaaS Readiness](../hardening/external-baas/README.md)
