@@ -18,7 +18,7 @@ Phase 5
 - [x] API Gateway
 - [x] Events
 - [x] Webhooks
-- [ ] Background Jobs
+- [x] Background Jobs
 - [ ] Audit
 - [ ] Logging
 - [ ] Usage Metering
@@ -27,27 +27,31 @@ Phase 5
 - [ ] Secrets
 - [ ] Backups
 
-## Webhooks P0 Components
+## Background Jobs P0 Components
 
-- [x] Tenant webhook endpoint registry
-- [x] HTTPS-only endpoint policy
-- [x] HMAC-SHA256 signing contract
-- [x] Secret-reference signing boundary
-- [x] Deterministic delivery identity
-- [x] Bounded timeout/retry policy
-- [x] Delivery state tracking
-- [x] Dead-letter state
-- [x] Replay with linked delivery identity
-- [x] Signing-secret rotation metadata
-- [x] Duplicate-delivery/idempotency contract
-- [x] Audit/log context
+- [x] Tenant job definition registry
+- [x] Queued jobs
+- [x] Delayed jobs
+- [x] Scheduled job metadata
+- [x] Deterministic idempotent submission
+- [x] Bounded execution timeout
+- [x] Bounded retry/backoff metadata
+- [x] Dead-letter terminal state
+- [x] Job cancellation boundary
+- [x] Job observability
+- [x] Loop OS handoff plan
+- [x] Kernel authorization evidence requirement
+- [x] Pillars approval evidence requirement
+- [x] Secret-bearing payload rejection
 
-## Webhooks Deferred Runtime
+## Background Jobs Deferred Runtime
 
-- [ ] Production outbound HTTPS adapter
-- [ ] DNS rebinding/connect-time network policy enforcement
-- [ ] Durable delivery ledger adapter
+- [ ] Production queue adapter
+- [ ] Production scheduler adapter
+- [ ] Loop OS authorization evidence resolver
+- [ ] Durable job ledger adapter
+- [ ] Runtime cancellation adapter
 
 ## Current Next Work
 
-Implement BaaS P0 Background Jobs service.
+Implement BaaS P0 Audit service.

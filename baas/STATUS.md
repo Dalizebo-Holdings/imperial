@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Webhooks contract initialized.
+BaaS P0 Background Jobs contract initialized.
 
 ## Foundation
 
@@ -48,33 +48,39 @@ Events BaaS: COMPLETE
 
 Webhooks BaaS: COMPLETE
 
-HTTPS-only endpoint policy: COMPLETE
+## Background Jobs
 
-Signed payload contract: COMPLETE
+Background Jobs BaaS: COMPLETE
 
-Secret-reference signing boundary: COMPLETE
+Queued jobs: COMPLETE
 
-Deterministic delivery identity: COMPLETE
+Delayed jobs: COMPLETE
 
-Bounded retries/timeouts: COMPLETE
+Scheduled job metadata: COMPLETE
 
-Delivery/dead-letter tracking: COMPLETE
+Idempotent submission: COMPLETE
 
-Replay metadata: COMPLETE
+Bounded timeout/retries: COMPLETE
 
-Secret rotation metadata: COMPLETE
+Dead-letter handling: COMPLETE
 
-Production outbound HTTPS adapter: DEFERRED
+Job observability: COMPLETE
 
-Durable delivery ledger: DEFERRED
+Loop OS handoff planning: COMPLETE
+
+Production queue/scheduler: DEFERRED
+
+Loop OS authorization evidence resolver: DEFERRED
+
+Durable job ledger: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Background Jobs service.
+BaaS P0 — Audit service.
 
 ## Governing Rule
 
-Webhook consumers must assume duplicate delivery and implement idempotency.
-Webhooks are HTTPS-only, tenant-scoped, Kernel-authorized, signed using
-transient secret material, bounded by timeout/retry policy, and never perform
-network delivery inside the P0 control-plane runtime.
+Background Jobs BaaS is a tenant-facing control plane above Loop OS, not a
+competing worker runtime. Jobs are idempotent, timeout-bounded, retry-bounded,
+observable, and dead-lettered on exhaustion. Loop OS execution is permitted
+only after an adapter verifies Pillars and Kernel authorization evidence.
