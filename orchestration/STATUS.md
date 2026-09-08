@@ -10,7 +10,7 @@ Phase 2 canonical catalogue: 269 / 269 classified
 
 ## Current Stage
 
-Loop OS P0 queue and worker contract complete.
+Loop OS P0 complete.
 
 ## Algorithm OS
 
@@ -34,20 +34,24 @@ Queue adapter: COMPLETE
 
 Worker execution contract: COMPLETE
 
-Loop audit adapter: PENDING
+Loop audit adapter: COMPLETE
+
+P0 status: COMPLETE
 
 ## Integrations OS
 
 Connector standard: DEFINED
 
-Connector registry and runtime contracts: PENDING
+Connector registry: PENDING
+
+Runtime contracts: PENDING
 
 ## Next Work
 
-Loop OS P0 — Audit Adapter.
+Integrations OS P0 — connector registry + runtime contracts.
 
 ## Governing Rule
 
-Loop OS workers may invoke handlers only after explicit Pillars OS approval and
-Dalizebo Kernel authorization. Retries remain bounded and duplicate execution
-must remain safe.
+External effects remain governed by Algorithm OS planning, Pillars OS policy,
+Dalizebo Kernel authorization, Loop OS bounded execution, and explicit
+Integrations OS connector contracts.
