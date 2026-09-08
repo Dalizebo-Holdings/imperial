@@ -12,7 +12,7 @@ Phase 5
 - [x] Session invalidation
 - [x] API key lifecycle
 - [x] Service-account/API-client identity model
-- [ ] PostgreSQL Database BaaS
+- [x] PostgreSQL Database BaaS
 - [ ] Object Storage
 - [ ] Serverless Functions
 - [ ] API Gateway
@@ -27,6 +27,17 @@ Phase 5
 - [ ] Secrets
 - [ ] Backups
 
+## Database BaaS P0 Components
+
+- [x] Managed database descriptor
+- [x] Tenant database manager
+- [x] Connection policy
+- [x] Database lifecycle
+- [x] Migration intent validation
+- [x] Restore intent validation
+- [x] Query observation contract
+- [x] Kernel authorization evidence requirement
+
 ## Authentication Deferred Components
 
 - [ ] Password credential provider
@@ -36,4 +47,4 @@ Phase 5
 
 ## Current Next Work
 
-Implement BaaS P0 PostgreSQL Database service contract + tenant database manager.
+Implement BaaS P0 Object Storage service.
