@@ -14,19 +14,19 @@ OS-001 → OS-269
 
 ## Canonical Classification
 
-20 / 269 complete
+50 / 269 complete
 
 ## Current Stage
 
-Cluster A classified.
+Cluster B classified.
 
 ## Completed Canonical Range
 
-OS-001 → OS-020
+OS-001 → OS-050
 
 ## Next Work
 
-OS-021 → OS-050 — Command, Control & Automation.
+OS-051 → OS-100 — Intelligence, Strategy & Influence.
 
 ## Governing Rule
 
