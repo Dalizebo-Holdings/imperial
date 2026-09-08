@@ -10,106 +10,78 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Secrets service initialized.
+Dalizebo BaaS P0 complete.
 
-## Foundation
+## P0 Services
 
-Shared service/request contract: COMPLETE
+Authentication: COMPLETE
 
-Kernel authorization reference requirement: COMPLETE
+PostgreSQL Database: COMPLETE
 
-Tenant execution context: COMPLETE
+Object Storage: COMPLETE
 
-## Authentication
+Serverless Functions: COMPLETE
 
-Identity/session/API-key foundation: COMPLETE
+API Gateway: COMPLETE
 
-## Database
+Events: COMPLETE
 
-PostgreSQL Database BaaS: COMPLETE
+Webhooks: COMPLETE
 
-## Storage
+Background Jobs: COMPLETE
 
-Object Storage BaaS: COMPLETE
+Audit: COMPLETE
 
-## Functions
+Logging: COMPLETE
 
-Serverless Functions BaaS: COMPLETE
+Usage Metering: COMPLETE
 
-## API Gateway
+Subscription Billing: COMPLETE
 
-API Gateway BaaS: COMPLETE
+Payment Abstraction: COMPLETE
 
-## Events
+Secrets: COMPLETE
 
-Events BaaS: COMPLETE
+Backups: COMPLETE
 
-## Webhooks
+## Backups
 
-Webhooks BaaS: COMPLETE
+Kernel Backup authority boundary: COMPLETE
 
-## Background Jobs
+Tenant/resource policy: COMPLETE
 
-Background Jobs BaaS: COMPLETE
+Production encryption/immutable/offsite rules: COMPLETE
 
-## Audit
+Retention/frequency/RPO/RTO: COMPLETE
 
-Audit BaaS: COMPLETE
+Automated-backup due calculation: COMPLETE
 
-## Logging
+Backup evidence: COMPLETE
 
-Logging BaaS: COMPLETE
+Restore testing: COMPLETE
 
-## Usage Metering
+Restore-test staleness enforcement: COMPLETE
 
-Usage Metering BaaS: COMPLETE
+Trusted recovery gate: COMPLETE
 
-## Subscription Billing
+Restore planning: COMPLETE
 
-Subscription Billing BaaS: COMPLETE
+Provider execution: DEFERRED
 
-## Payment Abstraction
+Operational RPO/RTO measurement: DEFERRED
 
-Payment Abstraction BaaS: COMPLETE
+## Phase 5 Result
 
-## Secrets
-
-Secrets BaaS: COMPLETE
-
-Kernel Secret Reference boundary: COMPLETE
-
-Full BaaS tenant/environment scope: COMPLETE
-
-Provider-neutral secret-manager policy: COMPLETE
-
-Opaque reference registration: COMPLETE
-
-Consumer allowlists: COMPLETE
-
-Reference-only access planning: COMPLETE
-
-Access audit evidence: COMPLETE
-
-Disablement: COMPLETE
-
-Rotation due/planning/confirmation: COMPLETE
-
-Secret-value field/API: NONE
-
-Production secret-manager adapter: DEFERRED
-
-Physical encryption/retrieval/injection: DEFERRED
-
-Automatic rotation execution: DEFERRED
+DALIZEBO BAAS P0: COMPLETE
 
 ## Next Work
 
-BaaS P0 — Backups service.
+Phase 6 — Commerce + POS foundation.
 
 ## Governing Rule
 
-BaaS Secrets extends the Kernel Secret Reference Boundary without becoming a
-vault. Raw secret values never enter BaaS control-plane state. Access resolves
-only opaque references, consumer allowlists fail closed, rotation is explicit
-and adapter-driven, and physical encryption/retrieval belongs to approved
-production secret-manager adapters.
+Dalizebo BaaS extends the Kernel without replacing Kernel authority. Backup and
+restore operations remain provider-neutral and adapter-driven; production
+backups are not trusted until restoration has been successfully verified within
+the configured restore-test interval. All BaaS P0 service boundaries remain
+tenant-scoped, Kernel-authorized, auditable, and reference-safe.

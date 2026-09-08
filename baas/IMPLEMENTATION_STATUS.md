@@ -25,36 +25,43 @@ Phase 5
 - [x] Subscription Billing
 - [x] Payment Abstraction
 - [x] Secrets
-- [ ] Backups
+- [x] Backups
 
-## Secrets P0 Components
+## Backups P0 Components
 
-- [x] Kernel Secret Reference authority boundary
-- [x] Tenant/workspace/project/environment secret scope
-- [x] Provider-neutral secret-manager registry
-- [x] Encryption-at-rest provider requirement
-- [x] Opaque secret references only
-- [x] Explicit consumer allowlists
-- [x] Kernel-backed reference registration
-- [x] Reference-only access planning
-- [x] Access audit evidence
-- [x] Secret disablement
-- [x] Rotation due calculation
-- [x] Rotation planning
-- [x] Rotation confirmation with old-reference disablement
-- [x] Secret-bearing metadata rejection
+- [x] Kernel Backup authority boundary
+- [x] Tenant/resource backup policies
+- [x] Provider-neutral backup registry
+- [x] Secret-reference provider credentials
+- [x] Production encryption/immutable/offsite requirements
+- [x] Retention/frequency/RPO/RTO policy
+- [x] Automated-backup due calculation
+- [x] Backup execution planning
+- [x] Strict opaque backup references
+- [x] Timezone-aware backup evidence
+- [x] Successful-backup checksum requirement
+- [x] Restore-test planning
+- [x] Restore verification through Kernel registry
+- [x] Secret-safe restore notes
+- [x] Restore-test staleness enforcement
+- [x] Trusted recovery gate
+- [x] Restore execution planning
+- [x] Audit evidence
 - [x] Kernel authorization evidence requirement
-- [x] No secret-value field/API
 
-## Secrets Deferred Runtime
+## Backups Deferred Runtime
 
-- [ ] Production Vault/KMS/cloud secret-manager adapter
-- [ ] Physical encryption-at-rest implementation
-- [ ] Secret generation
-- [ ] Runtime secret value retrieval/injection
-- [ ] Automatic rotation execution
-- [ ] Rotation scheduler
+- [ ] Production PostgreSQL backup/PITR adapter
+- [ ] Production object-storage backup adapter
+- [ ] Cross-region/immutable-copy provider adapter
+- [ ] Restore executor
+- [ ] Backup scheduler
+- [ ] Operational RPO/RTO measurement
+
+## Phase 5 P0 Result
+
+DALIZEBO BAAS P0: COMPLETE
 
 ## Current Next Work
 
-Implement BaaS P0 Backups service.
+Phase 6 — Commerce + POS foundation.
