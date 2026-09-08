@@ -10,42 +10,29 @@ Phase 3 P0: COMPLETE
 
 ## Current Stage
 
-Kernel P0 trust boundary initialized.
+Kernel P0 transaction safety primitives initialized.
 
-## Identity
+## Trust Boundary
 
-Identity context: COMPLETE
+Identity + tenancy + authorization: COMPLETE
 
-## Tenancy
+## Data Safety
 
-Verified tenant context: COMPLETE
+Shared identifiers: COMPLETE
 
-Tenant hierarchy enforcement: COMPLETE
+Transaction utilities: COMPLETE
 
-Cross-tenant detection: COMPLETE
+Idempotency runtime: COMPLETE
 
-## Authorization
-
-Permission registry: COMPLETE
-
-Role registry: COMPLETE
-
-RBAC evaluation: COMPLETE
-
-Policy gate: COMPLETE
-
-Privileged cross-tenant rule: COMPLETE
-
-Deterministic authorization reference: COMPLETE
-
-Authorization audit event: COMPLETE
+Transactional outbox contract: COMPLETE
 
 ## Next Work
 
-Kernel P0 — shared identifiers + transaction/idempotency primitives.
+Kernel P0 — audit persistence + error/observability contracts.
 
 ## Governing Rule
 
-Kernel authorization fails closed. No production side effect may bypass verified
-identity, tenant context, permission evaluation, upstream policy approval, and
-Kernel authorization.
+Kernel state changes requiring atomicity must commit business state, audit
+evidence, and outbox events together. Idempotent operations reject reuse of the
+same key with a different request hash. Events are never publishable before
+transaction commit.

@@ -15,9 +15,9 @@ Phase 4
 - [x] Cross-tenant privileged access rule
 - [x] Deterministic authorization reference
 - [x] Authorization audit event
-- [ ] Shared identifier runtime
-- [ ] Transaction utilities
-- [ ] Idempotency runtime
+- [x] Shared identifier runtime
+- [x] Transaction utilities
+- [x] Idempotency runtime
 - [ ] Kernel audit persistence
 - [ ] Error contract
 - [ ] Structured logging
@@ -29,4 +29,4 @@ Phase 4
 
 ## Current Next Work
 
-Implement Kernel P0 shared identifiers + transaction/idempotency primitives.
+Implement Kernel P0 audit persistence + error/observability contracts.
