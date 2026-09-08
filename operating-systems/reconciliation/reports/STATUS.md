@@ -14,22 +14,24 @@ OS-001 → OS-269
 
 ## Canonical Classification
 
-50 / 269 complete
+100 / 269 complete
 
 ## Current Stage
 
-Cluster B classified.
+Cluster C classified.
 
 ## Completed Canonical Range
 
-OS-001 → OS-050
+OS-001 → OS-100
 
 ## Next Work
 
-OS-051 → OS-100 — Intelligence, Strategy & Influence.
+OS-101 → OS-150 — Physical, Logistical & Environmental.
 
 ## Governing Rule
 
 Source statements remain preserved.
+
+Unsafe or unlawful source concepts are retired or canonically reframed.
 
 Canonical implementation decisions are recorded separately from source history.
