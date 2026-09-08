@@ -13,7 +13,7 @@ Phase 5
 - [x] API key lifecycle
 - [x] Service-account/API-client identity model
 - [x] PostgreSQL Database BaaS
-- [ ] Object Storage
+- [x] Object Storage
 - [ ] Serverless Functions
 - [ ] API Gateway
 - [ ] Events
@@ -27,24 +27,17 @@ Phase 5
 - [ ] Secrets
 - [ ] Backups
 
-## Database BaaS P0 Components
+## Object Storage P0 Components
 
-- [x] Managed database descriptor
-- [x] Tenant database manager
-- [x] Connection policy
-- [x] Database lifecycle
-- [x] Migration intent validation
-- [x] Restore intent validation
-- [x] Query observation contract
-- [x] Kernel authorization evidence requirement
-
-## Authentication Deferred Components
-
-- [ ] Password credential provider
-- [ ] Password recovery delivery
-- [ ] MFA provider
-- [ ] Passkey/WebAuthn provider
+- [x] Private bucket descriptor
+- [x] Tenant-scoped bucket manager
+- [x] Upload intent
+- [x] Object metadata lifecycle
+- [x] Signed temporary download access
+- [x] Retention enforcement
+- [x] Malware-scan state
+- [x] Secret-bearing metadata rejection
 
 ## Current Next Work
 
-Implement BaaS P0 Object Storage service.
+Implement BaaS P0 Serverless Functions service.

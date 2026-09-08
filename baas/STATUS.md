@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Database service initialized.
+BaaS P0 Object Storage service initialized.
 
 ## Foundation
 
@@ -30,25 +30,29 @@ Concrete password/MFA/passkey providers: DEFERRED
 
 PostgreSQL Database BaaS: COMPLETE
 
-Managed database descriptor: COMPLETE
+## Storage
 
-Tenant database manager: COMPLETE
+Object Storage BaaS: COMPLETE
 
-Connection policy: COMPLETE
+Private bucket policy: COMPLETE
 
-Migration intent validation: COMPLETE
+Tenant-aware access: COMPLETE
 
-Restore intent validation: COMPLETE
+Upload/object metadata lifecycle: COMPLETE
 
-Query observation contract: COMPLETE
+Signed temporary download access: COMPLETE
+
+Retention enforcement: COMPLETE
+
+Malware-scan state: COMPLETE
 
 ## Next Work
 
-BaaS P0 — Object Storage service.
+BaaS P0 — Serverless Functions service.
 
 ## Governing Rule
 
-Database BaaS is a tenant-scoped control plane above the Kernel PostgreSQL
-boundary. It stores secret references only, requires Kernel authorization
-evidence, uses Kernel transaction semantics for multi-record changes, and does
-not expose raw SQL credentials or query payloads through observability records.
+Object Storage is private by default, tenant-scoped, and Kernel-authorized.
+The BaaS control plane stores object metadata and provider references only, not
+object bytes or provider credentials. Temporary access is bounded and
+fingerprinted, and quarantined objects cannot be downloaded.
