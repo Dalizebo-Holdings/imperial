@@ -17,7 +17,7 @@ Phase 5
 - [x] Serverless Functions
 - [x] API Gateway
 - [x] Events
-- [ ] Webhooks
+- [x] Webhooks
 - [ ] Background Jobs
 - [ ] Audit
 - [ ] Logging
@@ -27,27 +27,27 @@ Phase 5
 - [ ] Secrets
 - [ ] Backups
 
-## Events P0 Components
+## Webhooks P0 Components
 
-- [x] Kernel event envelope preservation
-- [x] COMMITTED outbox publication gate
-- [x] Tenant-scoped event subscriptions
-- [x] Exact/wildcard event matching
+- [x] Tenant webhook endpoint registry
+- [x] HTTPS-only endpoint policy
+- [x] HMAC-SHA256 signing contract
+- [x] Secret-reference signing boundary
 - [x] Deterministic delivery identity
-- [x] Delivery planning
-- [x] Delivery success tracking
-- [x] Bounded retry metadata
-- [x] Dead-letter terminal state
-- [x] Event-id conflict detection
+- [x] Bounded timeout/retry policy
+- [x] Delivery state tracking
+- [x] Dead-letter state
+- [x] Replay with linked delivery identity
+- [x] Signing-secret rotation metadata
+- [x] Duplicate-delivery/idempotency contract
 - [x] Audit/log context
-- [x] Secret-bearing payload rejection
 
-## Events Deferred Runtime
+## Webhooks Deferred Runtime
 
-- [ ] Production message broker adapter
-- [ ] Production event worker
+- [ ] Production outbound HTTPS adapter
+- [ ] DNS rebinding/connect-time network policy enforcement
 - [ ] Durable delivery ledger adapter
 
 ## Current Next Work
 
-Implement BaaS P0 Webhooks service.
+Implement BaaS P0 Background Jobs service.

@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Events contract initialized.
+BaaS P0 Webhooks contract initialized.
 
 ## Foundation
 
@@ -44,31 +44,37 @@ API Gateway BaaS: COMPLETE
 
 Events BaaS: COMPLETE
 
-Kernel event envelope: COMPLETE
+## Webhooks
 
-COMMITTED outbox publication gate: COMPLETE
+Webhooks BaaS: COMPLETE
 
-Tenant subscriptions: COMPLETE
+HTTPS-only endpoint policy: COMPLETE
+
+Signed payload contract: COMPLETE
+
+Secret-reference signing boundary: COMPLETE
 
 Deterministic delivery identity: COMPLETE
 
-Delivery/retry/dead-letter tracking: COMPLETE
+Bounded retries/timeouts: COMPLETE
 
-Audit/log context: COMPLETE
+Delivery/dead-letter tracking: COMPLETE
 
-Production message broker: DEFERRED
+Replay metadata: COMPLETE
 
-Production event worker: DEFERRED
+Secret rotation metadata: COMPLETE
+
+Production outbound HTTPS adapter: DEFERRED
 
 Durable delivery ledger: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Webhooks service.
+BaaS P0 — Background Jobs service.
 
 ## Governing Rule
 
-Events BaaS never publishes before transaction commit. Only COMMITTED Kernel
-outbox events enter delivery planning. Delivery identities are deterministic,
-retries are bounded, cross-tenant subscriptions fail closed, and production
-broker/worker execution remains an adapter responsibility.
+Webhook consumers must assume duplicate delivery and implement idempotency.
+Webhooks are HTTPS-only, tenant-scoped, Kernel-authorized, signed using
+transient secret material, bounded by timeout/retry policy, and never perform
+network delivery inside the P0 control-plane runtime.
