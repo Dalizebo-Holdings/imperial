@@ -77,3 +77,15 @@
 - [Commerce Checkout](../saas/commerce/checkout/README.md)
 - [Dalizebo POS](../saas/pos/README.md)
 - [POS Checkout](../saas/pos/checkout/README.md)
+
+## Product-Market Validation
+
+- [Validation Overview](../validation/README.md)
+- [Design Partners](../validation/design-partners/README.md)
+- [Merchant Onboarding](../validation/onboarding/README.md)
+- [Pilot Plan](../validation/pilots/PILOT_PLAN.md)
+- [Validation Metrics](../validation/metrics/METRICS.md)
+- [Pilot Support](../validation/support/README.md)
+- [Release Gates](../validation/release-gates/README.md)
+- [Incident Management](../validation/incidents/README.md)
+- [Public MVP Criteria](../validation/PUBLIC_MVP_CRITERIA.md)
