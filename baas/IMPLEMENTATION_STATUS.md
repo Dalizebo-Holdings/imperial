@@ -24,36 +24,37 @@ Phase 5
 - [x] Usage Metering
 - [x] Subscription Billing
 - [x] Payment Abstraction
-- [ ] Secrets
+- [x] Secrets
 - [ ] Backups
 
-## Payment Abstraction P0 Components
+## Secrets P0 Components
 
-- [x] Kernel payment authority boundary
-- [x] Provider-neutral registry
-- [x] Secret-reference provider credentials
-- [x] Currency/capability validation
-- [x] Idempotent payment planning
-- [x] Provider adapter operation plan
-- [x] Explicit Kernel payment transition sequences
-- [x] Immediate-capture explicit AUTHORIZED→CAPTURED path
-- [x] Safe provider-result contract
-- [x] Refund planning
-- [x] Kernel refund validation boundary
-- [x] Payment reconciliation
-- [x] Audit/payment event metadata
-- [x] Cross-tenant payment isolation
-- [x] Billing/payment boundary
-- [x] Current invoice-source Kernel limitation documented
+- [x] Kernel Secret Reference authority boundary
+- [x] Tenant/workspace/project/environment secret scope
+- [x] Provider-neutral secret-manager registry
+- [x] Encryption-at-rest provider requirement
+- [x] Opaque secret references only
+- [x] Explicit consumer allowlists
+- [x] Kernel-backed reference registration
+- [x] Reference-only access planning
+- [x] Access audit evidence
+- [x] Secret disablement
+- [x] Rotation due calculation
+- [x] Rotation planning
+- [x] Rotation confirmation with old-reference disablement
+- [x] Secret-bearing metadata rejection
+- [x] Kernel authorization evidence requirement
+- [x] No secret-value field/API
 
-## Payment Abstraction Deferred Runtime
+## Secrets Deferred Runtime
 
-- [ ] Licensed provider adapter implementation
-- [ ] Provider webhook/callback adapter
-- [ ] Durable payment orchestration ledger
-- [ ] Kernel generic payment-source extension for invoice-backed payments
-- [ ] Production settlement reconciliation adapter
+- [ ] Production Vault/KMS/cloud secret-manager adapter
+- [ ] Physical encryption-at-rest implementation
+- [ ] Secret generation
+- [ ] Runtime secret value retrieval/injection
+- [ ] Automatic rotation execution
+- [ ] Rotation scheduler
 
 ## Current Next Work
 
-Implement BaaS P0 Secrets service.
+Implement BaaS P0 Backups service.

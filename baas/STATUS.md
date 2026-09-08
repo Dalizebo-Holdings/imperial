@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Payment Abstraction service initialized.
+BaaS P0 Secrets service initialized.
 
 ## Foundation
 
@@ -72,33 +72,44 @@ Subscription Billing BaaS: COMPLETE
 
 Payment Abstraction BaaS: COMPLETE
 
-Kernel payment authority boundary: COMPLETE
+## Secrets
 
-Provider-neutral registry: COMPLETE
+Secrets BaaS: COMPLETE
 
-Secret-reference credentials: COMPLETE
+Kernel Secret Reference boundary: COMPLETE
 
-Idempotent operation planning: COMPLETE
+Full BaaS tenant/environment scope: COMPLETE
 
-Explicit Kernel transition planning: COMPLETE
+Provider-neutral secret-manager policy: COMPLETE
 
-Refund validation/planning: COMPLETE
+Opaque reference registration: COMPLETE
 
-Payment reconciliation: COMPLETE
+Consumer allowlists: COMPLETE
 
-Licensed provider adapters: DEFERRED
+Reference-only access planning: COMPLETE
 
-Provider network execution: DEFERRED
+Access audit evidence: COMPLETE
 
-Invoice-backed Kernel payment-source extension: DEFERRED
+Disablement: COMPLETE
+
+Rotation due/planning/confirmation: COMPLETE
+
+Secret-value field/API: NONE
+
+Production secret-manager adapter: DEFERRED
+
+Physical encryption/retrieval/injection: DEFERRED
+
+Automatic rotation execution: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Secrets service.
+BaaS P0 — Backups service.
 
 ## Governing Rule
 
-Payments BaaS orchestrates providers but does not own authoritative payment
-state. Every lifecycle edge is explicitly validated against Kernel payment
-rules, provider credentials remain opaque references, payment/refund requests
-are idempotent, and network/provider execution remains behind licensed adapters.
+BaaS Secrets extends the Kernel Secret Reference Boundary without becoming a
+vault. Raw secret values never enter BaaS control-plane state. Access resolves
+only opaque references, consumer allowlists fail closed, rotation is explicit
+and adapter-driven, and physical encryption/retrieval belongs to approved
+production secret-manager adapters.
