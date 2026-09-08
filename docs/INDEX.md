@@ -165,3 +165,15 @@
 - [Billing](../marketplace/billing/README.md)
 - [Revenue Share](../marketplace/revenue-share/README.md)
 - [Ratings](../marketplace/ratings/README.md)
+
+## Enterprise Platform
+
+- [Enterprise Overview](../enterprise/README.md)
+- [Enterprise SSO](../enterprise/sso/README.md)
+- [Private Networking](../enterprise/private-networking/README.md)
+- [Dedicated Databases](../enterprise/dedicated-databases/README.md)
+- [Compliance](../enterprise/compliance/README.md)
+- [Data Residency](../enterprise/data-residency/README.md)
+- [Advanced Audit](../enterprise/advanced-audit/README.md)
+- [Enterprise Support](../enterprise/support/README.md)
+- [Private Deployments](../enterprise/private-deployments/README.md)
