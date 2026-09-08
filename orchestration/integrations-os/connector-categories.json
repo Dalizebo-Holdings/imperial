@@ -1,0 +1,18 @@
+{
+  "version": "phase3-integrations-categories-v1",
+  "categories": [
+    "Payments",
+    "Banking",
+    "Accounting",
+    "Email",
+    "SMS",
+    "WhatsApp",
+    "Logistics",
+    "E-commerce",
+    "Cloud",
+    "Developer tools",
+    "Analytics",
+    "Government services",
+    "IoT"
+  ]
+}

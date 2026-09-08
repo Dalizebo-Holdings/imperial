@@ -10,7 +10,7 @@ Phase 2 canonical catalogue: 269 / 269 classified
 
 ## Current Stage
 
-Loop OS P0 complete.
+Integrations OS P0 registry and runtime contracts complete.
 
 ## Algorithm OS
 
@@ -18,40 +18,40 @@ P0 status: COMPLETE
 
 ## Loop OS
 
-Runtime job schema: COMPLETE
-
-Deterministic state machine: COMPLETE
-
-Bounded retry rules: COMPLETE
-
-Timeout evaluation: COMPLETE
-
-Dead-letter transition: COMPLETE
-
-Idempotency fingerprint: COMPLETE
-
-Queue adapter: COMPLETE
-
-Worker execution contract: COMPLETE
-
-Loop audit adapter: COMPLETE
-
 P0 status: COMPLETE
 
 ## Integrations OS
 
-Connector standard: DEFINED
+Connector standard: COMPLETE
 
-Connector registry: PENDING
+Connector definition model: COMPLETE
 
-Runtime contracts: PENDING
+Connector registry: COMPLETE
+
+Runtime request contract: COMPLETE
+
+Authorization gate: COMPLETE
+
+Version compatibility: COMPLETE
+
+Operation and scope validation: COMPLETE
+
+Timeout and circuit-breaker contract: COMPLETE
+
+Normalized response and error contract: COMPLETE
+
+Credential reference adapter: PENDING
+
+Provider adapter interface: PENDING
+
+Integration audit adapter: PENDING
 
 ## Next Work
 
-Integrations OS P0 — connector registry + runtime contracts.
+Integrations OS P0 — credential reference adapter + provider adapter interface.
 
 ## Governing Rule
 
-External effects remain governed by Algorithm OS planning, Pillars OS policy,
-Dalizebo Kernel authorization, Loop OS bounded execution, and explicit
-Integrations OS connector contracts.
+Integrations OS stores no raw provider secrets and performs no external side
+effects without Algorithm OS planning, Pillars OS approval, Dalizebo Kernel
+authorization, and bounded Loop OS execution.
