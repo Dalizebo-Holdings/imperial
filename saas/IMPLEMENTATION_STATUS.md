@@ -28,10 +28,10 @@ Phase 6 — Commerce + POS
 
 ## Commerce P0
 
-- [ ] Store setup
-- [ ] Product catalogue
-- [ ] Variants
-- [ ] Pricing
+- [x] Store setup
+- [x] Product catalogue
+- [x] Variants
+- [x] Pricing
 - [ ] Inventory
 - [ ] Customers
 - [ ] Cart
@@ -41,6 +41,22 @@ Phase 6 — Commerce + POS
 - [ ] Discounts
 - [ ] Notifications
 - [ ] Dashboard
+
+## Store + Catalogue Components
+
+- [x] Kernel STORE authority boundary
+- [x] Store setup command
+- [x] Store ACTIVE/INACTIVE lifecycle
+- [x] Product DRAFT/ACTIVE/ARCHIVED lifecycle
+- [x] Product create command
+- [x] Kernel ProductVariant validation
+- [x] Product Variant create command
+- [x] Integer minor-unit pricing
+- [x] Variant price update command
+- [x] Kernel authority evidence for existing parents
+- [x] Cross-tenant authority evidence rejection
+- [x] Platform mutation idempotency
+- [x] No SaaS-owned Store/Product/Variant database
 
 ## POS P0
 
@@ -60,4 +76,4 @@ Phase 6 — Commerce + POS
 
 ## Current Next Work
 
-Commerce P0 — Store + Catalogue.
+Commerce P0 — Inventory + Customers.

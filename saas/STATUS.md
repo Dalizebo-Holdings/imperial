@@ -12,7 +12,7 @@ Dalizebo BaaS P0: COMPLETE
 
 ## Current Stage
 
-Commerce + POS shared foundation initialized.
+Commerce P0 Store + Catalogue initialized.
 
 ## Shared Foundation
 
@@ -38,7 +38,35 @@ Duplicate authoritative commerce models: NONE
 
 P0 implementation: ACTIVE
 
-Store + Catalogue: NEXT
+Store setup: COMPLETE
+
+Product catalogue: COMPLETE
+
+Variants: COMPLETE
+
+Pricing: COMPLETE
+
+Inventory: NEXT
+
+Customers: NEXT
+
+## Store + Catalogue
+
+Kernel STORE/Product/ProductVariant authority: COMPLETE
+
+Store lifecycle: COMPLETE
+
+Product lifecycle: COMPLETE
+
+Kernel ProductVariant validation: COMPLETE
+
+Integer minor-unit pricing: COMPLETE
+
+Existing-parent authority evidence: COMPLETE
+
+Cross-tenant evidence rejection: COMPLETE
+
+SaaS-owned authoritative Store/Product/Variant database: NONE
 
 ## POS
 
@@ -46,13 +74,12 @@ P0 implementation: PENDING COMMERCE FOUNDATION
 
 ## Next Work
 
-Commerce P0 — Store + Catalogue.
+Commerce P0 — Inventory + Customers.
 
 ## Governing Rule
 
-Commerce and POS are product orchestration layers above Dalizebo Backend and
-Dalizebo Kernel. They consume one shared authoritative commerce model. Product
-commands are tenant-scoped, Kernel-authorized, idempotent for mutations, and
-routed to platform authorities; products cannot choose competing databases or
-duplicate authoritative Product, Inventory, Customer, Order, Payment, Refund,
-Store, Branch, Discount, or Audit state.
+Commerce Store and Catalogue remain orchestration layers over the shared Kernel
+commerce model. Store, Product, Product Variant, and Variant price persist only
+through platform authorities. Existing-parent operations require exact-tenant
+Kernel authority evidence, mutations remain idempotent, and Commerce does not
+create competing authoritative catalogue state.
