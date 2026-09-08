@@ -23,10 +23,12 @@ Phase 4
 - [x] Structured logging
 - [x] Health checks
 - [x] Metrics
-- [ ] Secret reference boundary
-- [ ] Backup contract
+- [x] Secret reference boundary
+- [x] Backup contract
+- [ ] PostgreSQL persistence boundary
+- [ ] Migration framework
 - [ ] Commerce primitives
 
 ## Current Next Work
 
-Implement Kernel P0 secret reference boundary + backup contract.
+Implement Kernel P0 PostgreSQL persistence boundary + migration framework.
