@@ -1,13 +1,21 @@
-# PILLAR COMPLIANCE
+# Pillar Compliance
 
-## Purpose
+## Compliance Levels
 
-## Overview
+- Mandatory
+- Recommended
+- Optional
 
-## Responsibilities
+## Validation
 
-## Dependencies
+- Automated
+- Manual
+- Audit
 
-## Implementation
+## Reporting
 
-## Future Enhancements
+- Compliance Status
+- Exceptions
+- Risk Assessment
+- Remediation
+

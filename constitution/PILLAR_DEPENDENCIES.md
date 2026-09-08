@@ -1,13 +1,12 @@
-# PILLAR DEPENDENCIES
+# Pillar Dependencies
 
-## Purpose
+Every Pillar should document:
 
-## Overview
+- Upstream Dependencies
+- Downstream Dependencies
+- Related Operating Systems
+- Related Policies
+- Related Kernel Components
+- Related BaaS Services
+- Related SaaS Products
 
-## Responsibilities
-
-## Dependencies
-
-## Implementation
-
-## Future Enhancements
