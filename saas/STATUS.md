@@ -12,27 +12,7 @@ Dalizebo BaaS P0: COMPLETE
 
 ## Current Stage
 
-Commerce P0 Store + Catalogue initialized.
-
-## Shared Foundation
-
-Product execution context: COMPLETE
-
-Tenant execution context: COMPLETE
-
-Kernel authorization evidence: COMPLETE
-
-Shared authoritative entities: COMPLETE
-
-Kernel/BaaS authority routing: COMPLETE
-
-Mutation idempotency: COMPLETE
-
-Store/branch scope rules: COMPLETE
-
-Direct product-to-product database coupling: PROHIBITED
-
-Duplicate authoritative commerce models: NONE
+Commerce P0 Inventory + Customers initialized.
 
 ## Commerce
 
@@ -46,27 +26,47 @@ Variants: COMPLETE
 
 Pricing: COMPLETE
 
-Inventory: NEXT
+Inventory: COMPLETE
 
-Customers: NEXT
+Customers: COMPLETE
 
-## Store + Catalogue
+Cart: NEXT
 
-Kernel STORE/Product/ProductVariant authority: COMPLETE
+Checkout: NEXT
 
-Store lifecycle: COMPLETE
+Orders: NEXT
 
-Product lifecycle: COMPLETE
+## Inventory
 
-Kernel ProductVariant validation: COMPLETE
+Kernel InventoryItem authority: COMPLETE
 
-Integer minor-unit pricing: COMPLETE
+On-hand/reserved invariants: COMPLETE
 
-Existing-parent authority evidence: COMPLETE
+Exact-tenant Variant/Store/Branch evidence: COMPLETE
 
-Cross-tenant evidence rejection: COMPLETE
+Explicit inventory adjustments: COMPLETE
 
-SaaS-owned authoritative Store/Product/Variant database: NONE
+Expected-quantity atomic persistence requirement: COMPLETE
+
+SaaS-owned authoritative Inventory database: NONE
+
+## Customers
+
+Kernel Customer authority: COMPLETE
+
+Customer create/update: COMPLETE
+
+External identity reference: COMPLETE
+
+Optional contact profile: COMPLETE
+
+PII policy/retention references: COMPLETE
+
+Contact values suppressed from audit/log metadata: COMPLETE
+
+Production PII persistence hardening: DEFERRED
+
+SaaS-owned authoritative Customer database: NONE
 
 ## POS
 
@@ -74,12 +74,14 @@ P0 implementation: PENDING COMMERCE FOUNDATION
 
 ## Next Work
 
-Commerce P0 — Inventory + Customers.
+Commerce P0 — Cart + Checkout + Orders.
 
 ## Governing Rule
 
-Commerce Store and Catalogue remain orchestration layers over the shared Kernel
-commerce model. Store, Product, Product Variant, and Variant price persist only
-through platform authorities. Existing-parent operations require exact-tenant
-Kernel authority evidence, mutations remain idempotent, and Commerce does not
-create competing authoritative catalogue state.
+Inventory and Customers remain Kernel-authoritative shared entities. Commerce
+may plan explicit idempotent mutations only after tenant/parent authority
+validation. Inventory target quantities must satisfy Kernel invariants and
+persistence must atomically compare expected quantities. Customer contact data
+is classified as personal data and requires policy references; the current
+direct email/phone persistence model remains explicitly subject to production
+PII protection and retention hardening.

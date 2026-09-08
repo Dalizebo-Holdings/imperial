@@ -32,8 +32,8 @@ Phase 6 — Commerce + POS
 - [x] Product catalogue
 - [x] Variants
 - [x] Pricing
-- [ ] Inventory
-- [ ] Customers
+- [x] Inventory
+- [x] Customers
 - [ ] Cart
 - [ ] Checkout
 - [ ] Orders
@@ -42,21 +42,38 @@ Phase 6 — Commerce + POS
 - [ ] Notifications
 - [ ] Dashboard
 
-## Store + Catalogue Components
+## Inventory Components
 
-- [x] Kernel STORE authority boundary
-- [x] Store setup command
-- [x] Store ACTIVE/INACTIVE lifecycle
-- [x] Product DRAFT/ACTIVE/ARCHIVED lifecycle
-- [x] Product create command
-- [x] Kernel ProductVariant validation
-- [x] Product Variant create command
-- [x] Integer minor-unit pricing
-- [x] Variant price update command
-- [x] Kernel authority evidence for existing parents
-- [x] Cross-tenant authority evidence rejection
-- [x] Platform mutation idempotency
-- [x] No SaaS-owned Store/Product/Variant database
+- [x] Kernel InventoryItem authority boundary
+- [x] Variant/Store/Branch authority evidence
+- [x] Initial inventory creation
+- [x] On-hand/reserved invariant validation
+- [x] Explicit before/after inventory adjustment
+- [x] Optimistic expected-quantity persistence requirement
+- [x] Cross-tenant inventory evidence rejection
+- [x] Mutation idempotency
+- [x] No SaaS-owned inventory database
+
+## Customer Components
+
+- [x] Kernel Customer authority boundary
+- [x] Customer creation
+- [x] Customer update
+- [x] External identity reference
+- [x] Optional email/phone profile support
+- [x] Contact PII classification metadata
+- [x] PII policy reference requirement
+- [x] Retention policy reference requirement
+- [x] Contact-value audit/log suppression directive
+- [x] Cross-tenant Customer evidence rejection
+- [x] Mutation idempotency
+- [x] No SaaS-owned Customer database
+
+## Customer PII Deferred Production Hardening
+
+- [ ] Database encryption/appropriate protection adapter
+- [ ] Retention/deletion enforcement adapter
+- [ ] Formal customer PII lifecycle policy implementation
 
 ## POS P0
 
@@ -76,4 +93,4 @@ Phase 6 — Commerce + POS
 
 ## Current Next Work
 
-Commerce P0 — Inventory + Customers.
+Commerce P0 — Cart + Checkout + Orders.
