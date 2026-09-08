@@ -25,10 +25,10 @@ Phase 4
 - [x] Metrics
 - [x] Secret reference boundary
 - [x] Backup contract
-- [ ] PostgreSQL persistence boundary
-- [ ] Migration framework
+- [x] PostgreSQL persistence boundary
+- [x] Migration framework
 - [ ] Commerce primitives
 
 ## Current Next Work
 
-Implement Kernel P0 PostgreSQL persistence boundary + migration framework.
+Implement Kernel P0 commerce primitives, then close Kernel P0.

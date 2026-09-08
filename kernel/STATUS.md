@@ -10,7 +10,7 @@ Phase 3 P0: COMPLETE
 
 ## Current Stage
 
-Kernel P0 secret and recovery boundaries initialized.
+Kernel P0 PostgreSQL persistence and migrations initialized.
 
 ## Trust Boundary
 
@@ -46,9 +46,11 @@ Backup contract: COMPLETE
 
 ## Persistence
 
-PostgreSQL persistence boundary: PENDING
+PostgreSQL persistence boundary: COMPLETE
 
-Migration framework: PENDING
+Migration framework: COMPLETE
+
+Baseline Kernel schema migration: COMPLETE
 
 ## Domain
 
@@ -56,11 +58,11 @@ Commerce primitives: PENDING
 
 ## Next Work
 
-Kernel P0 — PostgreSQL persistence boundary + migration framework.
+Kernel P0 — commerce primitives.
 
 ## Governing Rule
 
-Kernel stores secret references only, not raw secret values. Production backup
-policies require encryption, immutable and offsite copies, and auditable restore
-verification. Kernel P0 cannot close until the PostgreSQL/migration requirements
-from the canonical Kernel architecture are implemented.
+PostgreSQL credentials remain behind secret references. Tenant-aware database
+work executes inside explicit transactions with transaction-local tenant
+context. Migration history is ordered and checksummed; checksum drift fails
+closed. Business state, audit evidence, and outbox rows remain atomic.
