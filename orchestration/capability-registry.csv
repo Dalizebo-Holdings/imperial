@@ -1,0 +1,270 @@
+canonical_id,name,domain,owner,priority,implementation_type,security_level,dependencies,disposition,roadmap_phase
+001,Banking OS,Finance & Capital,Finance Platform,P1,INTEGRATION,HIGH,Identity OS;Access-Control OS;Audit-Vigil OS,REFRAME,8
+002,Vault-OS,Finance & Capital,Treasury Governance,P1,SHARED_SERVICE,CRITICAL,Security OS;Encryption OS;Audit-Vigil OS,REFRAME,8
+003,Tax-OS,Finance & Capital,Tax & Finance Governance,P1,SHARED_SERVICE,HIGH,Compliance OS;Records OS;Banking OS,REFRAME,8
+004,Currency-Forge OS,Payments & Billing,Finance Governance,R&D,R&D,CRITICAL,Compliance OS;Legal-Bot OS;Medici-Ledger OS,R&D,18
+005,Investment-Sweep OS,Finance & Capital,Treasury Governance,P2,AUTOMATION,HIGH,Capital-Allocation OS;Audit-Vigil OS;Liquidity-Pool OS,REFRAME,12
+006,Audit-Vigil OS,Governance & Audit,Finance Governance,P0,SHARED_SERVICE,CRITICAL,Medici-Ledger OS;Records OS;Monitoring OS,KEEP,5
+007,Profit-Extraction OS,Finance & Capital,Finance Governance,P2,POLICY,HIGH,Capital-Allocation OS;Records OS;Audit-Vigil OS,REFRAME,12
+008,Capital-Allocation OS,Finance & Capital,Capital Allocation,P1,SHARED_SERVICE,HIGH,Audit-Vigil OS;Investment-Sweep OS;Risk Governance,KEEP,8
+009,Equity-Capture OS,Finance & Capital,Corporate Governance,P2,SHARED_SERVICE,HIGH,Contract OS;Records OS;Compliance OS,REFRAME,12
+010,Liquidity-Pool OS,Finance & Capital,Treasury Governance,P2,SHARED_SERVICE,CRITICAL,Banking OS;Capital-Allocation OS;Audit-Vigil OS,REFRAME,12
+011,Asset-Harden OS,Finance & Capital,Capital Allocation,P3,POLICY,HIGH,Capital-Allocation OS;Records OS;Compliance OS,REFRAME,15
+012,Director-Loan OS,Finance & Capital,Finance Governance,P3,POLICY,HIGH,Tax-OS;Contract OS;Records OS,REFRAME,15
+013,Offshore-Shield OS,Finance & Capital,Legal & Finance Governance,P3,POLICY,CRITICAL,Jurisdiction OS;Compliance OS;Tax-OS,REFRAME,15
+014,Fiat-Hedge OS,Finance & Capital,Treasury Governance,P2,SHARED_SERVICE,CRITICAL,Banking OS;Capital-Allocation OS;Compliance OS,REFRAME,12
+015,Credit-Score OS,Finance & Capital,Risk Governance,P2,DATA_PRODUCT,HIGH,Banking OS;Records OS;Compliance OS,REFRAME,12
+016,Debt-Weaponization OS,Finance & Capital,Risk Governance,P3,RETIRED_REFRAMED,HIGH,Capital-Allocation OS;Contract OS;Compliance OS,REFRAME,15
+017,Medici-Ledger OS,Finance & Capital,Platform Architecture,P0,CORE,CRITICAL,Records OS;Audit-Vigil OS;Identity OS;Access-Control OS,REFRAME,4
+018,Wealth-Persistence OS,Finance & Capital,Finance Governance,P3,POLICY,HIGH,Capital-Allocation OS;Asset-Harden OS;Records OS,KEEP,15
+019,Arbitrage OS,Finance & Capital,Risk Governance,P3,DATA_PRODUCT,HIGH,Market data integrations;Capital-Allocation OS;Compliance OS,REFRAME,15
+020,War-Chest OS,Finance & Capital,Treasury Governance,P1,SHARED_SERVICE,CRITICAL,Vault-OS;Audit-Vigil OS;Capital-Allocation OS,REFRAME,8
+021,Crown OS,Governance & Audit,Executive Governance,P1,POLICY,CRITICAL,Pillars OS;Algorithm OS;Audit-Vigil OS,REFRAME,3
+022,Architect OS,Developer Platform,Executive Governance,P1,SHARED_SERVICE,CRITICAL,Crown OS;Identity OS;Access-Control OS;Audit-Vigil OS,REFRAME,3
+023,Regency OS,Governance & Audit,Partner Governance,P2,POLICY,HIGH,Crown OS;Contract OS;Access-Control OS,REFRAME,12
+024,Kiro-OS,Automation & Workflow,Operations Governance,P1,AUTOMATION,MEDIUM,Loop OS;Projects;Repository OS,KEEP,8
+025,Servitor-OS,Automation & Workflow,Automation Governance,P1,AUTOMATION,HIGH,Loop OS;Identity OS;Access-Control OS;Monitoring OS,REFRAME,8
+026,Programming-OS,Developer Platform,Engineering Governance,P2,SHARED_SERVICE,HIGH,Repository OS;Deployment OS;Security OS;Audit-Vigil OS,REFRAME,10
+027,Repository OS,Developer Platform,Engineering Governance,P1,SHARED_SERVICE,HIGH,Identity OS;Access-Control OS;Audit-Vigil OS;Encryption OS,KEEP,8
+028,Cloud-OS,Infrastructure & Cloud,Platform Architecture,P0,CORE,CRITICAL,Deployment OS;Monitoring OS;Security OS;Load-Balance OS,REFRAME,5
+029,Deployment OS,Developer Platform,Platform Engineering,P0,CORE,CRITICAL,Repository OS;Cloud-OS;Security OS;Monitoring OS,KEEP,5
+030,Edge-Function OS,Infrastructure & Cloud,Platform Engineering,P1,CORE,HIGH,Cloud-OS;Deployment OS;Identity OS;Monitoring OS,REFRAME,5
+031,Cron-Job OS,Automation & Workflow,Platform Engineering,P1,CORE,HIGH,Loop OS;Monitoring OS;Audit-Vigil OS,KEEP,5
+032,Automation-Pipe OS,Automation & Workflow,Platform Engineering,P2,SHARED_SERVICE,HIGH,Integrations OS;Loop OS;Protocol OS;Monitoring OS,REFRAME,8
+033,Monitoring OS,Infrastructure & Cloud,Reliability Engineering,P0,CORE,CRITICAL,Cloud-OS;Security OS;Audit-Vigil OS,KEEP,4
+034,Error-Correction OS,Developer Platform,Engineering Governance,P1,AUTOMATION,HIGH,Monitoring OS;Repository OS;Programming-OS;Deployment OS,REFRAME,8
+035,Scale-OS,Infrastructure & Cloud,Platform Architecture,P2,SHARED_SERVICE,HIGH,Monitoring OS;Load-Balance OS;Cloud-OS,REFRAME,8
+036,Optimization OS,Infrastructure & Cloud,Platform Architecture,P2,AUTOMATION,HIGH,Monitoring OS;Scale-OS;Audit-Vigil OS,REFRAME,8
+037,Load-Balance OS,Infrastructure & Cloud,Platform Engineering,P1,CORE,CRITICAL,Cloud-OS;Monitoring OS;Security OS,KEEP,5
+038,Security OS,Identity & Security,Security Architecture,P0,CORE,CRITICAL,Identity OS;Access-Control OS;Encryption OS;Monitoring OS,REFRAME,4
+039,Firewall OS,Identity & Security,Security Engineering,P0,CORE,CRITICAL,Security OS;Monitoring OS;Cloud-OS,REFRAME,5
+040,Encryption OS,Identity & Security,Security Architecture,P0,CORE,CRITICAL,Security OS;Identity OS;Vault-OS,REFRAME,4
+041,Protocol OS,Developer Platform,Platform Architecture,P0,CORE,HIGH,Identity OS;Access-Control OS;Audit-Vigil OS,KEEP,4
+042,Identity OS,Identity & Security,Identity Platform,P0,CORE,CRITICAL,Security OS;Encryption OS;Audit-Vigil OS,REFRAME,4
+043,Access-Control OS,Identity & Security,Identity Platform,P0,CORE,CRITICAL,Identity OS;Pillars OS;Audit-Vigil OS,KEEP,4
+044,Stealth OS,Identity & Security,Security Governance,P2,RETIRED_REFRAMED,HIGH,Security OS;Encryption OS;Protocol OS,REFRAME,8
+045,Jurisdiction OS,Legal & Compliance,Legal & Compliance,P2,SHARED_SERVICE,CRITICAL,Compliance OS;Cloud-OS;Records OS,REFRAME,14
+046,Compliance OS,Governance & Audit,Legal & Compliance,P1,SHARED_SERVICE,CRITICAL,Pillars OS;Records OS;Audit-Vigil OS;Jurisdiction OS,REFRAME,8
+047,Legal-Bot OS,Legal & Compliance,Legal Governance,P2,SHARED_SERVICE,CRITICAL,Contract OS;Compliance OS;Records OS;Identity OS,REFRAME,10
+048,Contract OS,Legal & Compliance,Legal Governance,P1,SHARED_SERVICE,CRITICAL,Identity OS;Access-Control OS;Records OS;Audit-Vigil OS,KEEP,8
+049,Governance OS,Governance & Audit,Pillars OS,P0,POLICY,CRITICAL,Pillars OS;Protocol OS;Audit-Vigil OS,REFRAME,3
+050,Executive-Action OS,Automation & Workflow,Executive Governance,P1,AUTOMATION,CRITICAL,Crown OS;Architect OS;Pillars OS;Loop OS;Audit-Vigil OS,REFRAME,3
+051,Sentiment OS,Marketing & Customer,Marketing Governance,P1,DATA_PRODUCT,HIGH,Marketing OS;Knowledge OS,KEEP,9
+052,Narrative OS,Marketing & Customer,Brand Governance,P2,SHARED_SERVICE,MEDIUM,Marketing OS;Knowledge OS,REFRAME,9
+053,Mind-Virus OS,Marketing & Customer,Marketing Governance,P3,RETIRED_REFRAMED,HIGH,Marketing OS;Viral-Loop OS,REFRAME,9
+054,Propaganda OS,Marketing & Customer,Communications Governance,P3,RETIRED_REFRAMED,HIGH,Narrative OS;Marketing OS,REFRAME,9
+055,Psych-Prime OS,Marketing & Customer,Product Governance,P3,RETIRED_REFRAMED,HIGH,Marketing OS;Sentiment OS,REFRAME,9
+056,Marketing OS,Marketing & Customer,Marketing Governance,P1,PRODUCT,HIGH,Sentiment OS;Narrative OS,REFRAME,9
+057,Viral-Loop OS,Marketing & Customer,Growth Governance,P2,AUTOMATION,HIGH,Marketing OS;Customer-Capture OS,REFRAME,9
+058,Customer-Capture OS,Marketing & Customer,Growth Governance,P1,PRODUCT,HIGH,Marketing OS;CRM;Payments,REFRAME,9
+059,Brand-Authority OS,Marketing & Customer,Brand Governance,P2,SHARED_SERVICE,MEDIUM,Marketing OS;Knowledge OS,REFRAME,9
+060,Legend-Build OS,Data & Knowledge,Knowledge Governance,P3,DATA_PRODUCT,MEDIUM,Archive OS;Knowledge OS;Legacy OS,REFRAME,17
+061,Simulation-Warfare OS,AI & Intelligence,Strategy,P2,DATA_PRODUCT,HIGH,Simulation Engine;Decision-Matrix OS;Game-Theory OS,REFRAME,10
+062,Game-Theory OS,AI & Intelligence,Strategy,P2,DATA_PRODUCT,HIGH,Simulation-Warfare OS;Decision-Matrix OS,REFRAME,10
+063,Competitor-Analysis OS,AI & Intelligence,Strategy,P1,DATA_PRODUCT,HIGH,Information-Vacuum OS;Signal-Filter OS,REFRAME,10
+064,Espionage OS,AI & Intelligence,Legal & Compliance,P3,RETIRED_REFRAMED,CRITICAL,Competitor-Analysis OS;Compliance OS,REFRAME,10
+065,Recon OS,Operations & Logistics,Operations Governance,P2,DATA_PRODUCT,HIGH,Geospatial data;Compliance OS,REFRAME,15
+066,Information-Vacuum OS,Data & Knowledge,Data Governance,P1,SHARED_SERVICE,CRITICAL,Integrations OS;Knowledge OS;Signal-Filter OS,REFRAME,10
+067,Signal-Filter OS,AI & Intelligence,Data Governance,P1,DATA_PRODUCT,HIGH,Information-Vacuum OS;Knowledge OS,REFRAME,10
+068,Logic-Chain OS,AI & Intelligence,AI Governance,P1,SHARED_SERVICE,HIGH,Reasoning OS;Knowledge OS,KEEP,10
+069,Reasoning OS,AI & Intelligence,AI Governance,P1,SHARED_SERVICE,HIGH,Logic-Chain OS;Knowledge OS,REFRAME,10
+070,Synthesis OS,AI & Intelligence,AI Governance,P1,SHARED_SERVICE,CRITICAL,Knowledge OS;Information-Vacuum OS;Decision-Matrix OS,REFRAME,10
+071,Decision-Matrix OS,AI & Intelligence,Executive Governance,P1,SHARED_SERVICE,CRITICAL,Pillars OS;Synthesis OS;Risk Governance,KEEP,10
+072,Strategy-Draft OS,AI & Intelligence,Executive Governance,P2,SHARED_SERVICE,HIGH,Synthesis OS;Decision-Matrix OS;Knowledge OS,REFRAME,10
+073,Tactical-Execution OS,Automation & Workflow,Executive Governance,P1,AUTOMATION,CRITICAL,Executive-Action OS;Pillars OS;Loop OS,REFRAME,10
+074,Conquest-Map OS,Data & Knowledge,Strategy,P3,RETIRED_REFRAMED,HIGH,Recon OS;Analytics,REFRAME,15
+075,Empire-Growth OS,Governance & Audit,Corporate Strategy,P2,SHARED_SERVICE,HIGH,Scale-OS;Deployment OS;Alliance OS,REFRAME,15
+076,Sovereign OS,Governance & Audit,Executive Governance,P3,RETIRED_REFRAMED,CRITICAL,Jurisdiction OS;Cloud-OS;Compliance OS,REFRAME,15
+077,Hegemony OS,Marketing & Customer,Corporate Strategy,P3,RETIRED_REFRAMED,HIGH,Alliance OS;Marketing OS;Competitor-Analysis OS,REFRAME,15
+078,Shadow-Strategy OS,Governance & Audit,Executive Governance,P3,RETIRED_REFRAMED,CRITICAL,Strategy-Draft OS;Security OS;Compliance OS,REFRAME,15
+079,Alliance OS,Marketing & Customer,Partner Governance,P2,SHARED_SERVICE,HIGH,Contract OS;CRM;Governance OS,REFRAME,17
+080,Neutral-Harbor OS,Infrastructure & Cloud,Business Continuity,P3,POLICY,CRITICAL,Jurisdiction OS;Cloud-OS;Archive OS,REFRAME,15
+081,Quantum-Safe OS,Identity & Security,Security Architecture,R&D,R&D,CRITICAL,Encryption OS;Lattice-Crypt OS,R&D,18
+082,Lattice-Crypt OS,Identity & Security,Security Architecture,R&D,R&D,CRITICAL,Encryption OS;Quantum-Safe OS,R&D,18
+083,Archive OS,Data & Knowledge,Knowledge Governance,P1,CORE,CRITICAL,Records OS;Encryption OS;Storage,REFRAME,5
+084,Knowledge OS,Data & Knowledge,Knowledge Governance,P0,CORE,HIGH,Archive OS;Imperial-Library OS;AI Gateway,REFRAME,5
+085,Imperial-Library OS,Data & Knowledge,Data Governance,P0,CORE,CRITICAL,Storage;Knowledge OS;Records OS,REFRAME,5
+086,Succession OS,Governance & Audit,Corporate Governance,P2,POLICY,CRITICAL,Identity OS;Access-Control OS;Records OS,REFRAME,14
+087,Digital-Lucas Node,AI & Intelligence,AI Governance,R&D,R&D,CRITICAL,Knowledge OS;Memory-Bank OS;Reasoning OS,REFRAME,18
+088,Neural-Mirror OS,AI & Intelligence,AI Governance,R&D,R&D,CRITICAL,Digital-Lucas Node;Knowledge OS,REFRAME,18
+089,Biological-Fidelity OS,AI & Intelligence,AI Governance,R&D,RETIRED_REFRAMED,HIGH,Digital-Lucas Node;Reasoning OS,REFRAME,18
+090,Pattern-Match OS,AI & Intelligence,Strategy,P2,DATA_PRODUCT,HIGH,Memory-Bank OS;Knowledge OS,REFRAME,10
+091,Memory-Bank OS,Data & Knowledge,Knowledge Governance,P1,SHARED_SERVICE,HIGH,Knowledge OS;Archive OS,REFRAME,10
+092,Legacy OS,Governance & Audit,Corporate Governance,P3,POLICY,HIGH,Succession OS;Archive OS;Knowledge OS,REFRAME,17
+093,Time-Horizon OS,AI & Intelligence,Strategy,P3,DATA_PRODUCT,HIGH,Simulation-Warfare OS;Predictive-Crisis OS,REFRAME,18
+094,Predictive-Crisis OS,AI & Intelligence,Risk Governance,P2,DATA_PRODUCT,HIGH,Signal-Filter OS;Simulation-Warfare OS;Black-Swan OS,REFRAME,10
+095,Black-Swan OS,Governance & Audit,Business Continuity,P1,POLICY,CRITICAL,Predictive-Crisis OS;Stability OS;Archive OS,REFRAME,8
+096,Stability OS,Infrastructure & Cloud,Reliability Engineering,P1,SHARED_SERVICE,CRITICAL,Monitoring OS;Equilibrium OS;Scale-OS,REFRAME,8
+097,Equilibrium OS,AI & Intelligence,Risk Governance,P2,DATA_PRODUCT,HIGH,Stability OS;Decision-Matrix OS,REFRAME,10
+098,Singularity OS,AI & Intelligence,AI Governance,R&D,R&D,CRITICAL,Automation Governance;Pillars OS;Stability OS,REFRAME,18
+099,Evolution OS,Automation & Workflow,Platform Architecture,P3,AUTOMATION,CRITICAL,Optimization OS;Monitoring OS;Pillars OS,REFRAME,16
+100,Omega OS,AI & Intelligence,AI Governance,R&D,R&D,CRITICAL,Singularity OS;Omega governance;Pillars OS,REFRAME,18
+101,Mining OS,Operations & Logistics,Industrial Governance,P3,DATA_PRODUCT,CRITICAL,Geospatial OS;Environment OS;Safety OS;Compliance OS,REFRAME,15
+102,Rare-Earth OS,Operations & Logistics,Supply Chain Governance,P3,DATA_PRODUCT,HIGH,Supply-Chain OS;Procurement OS;Risk Governance,REFRAME,15
+103,Energy OS,Infrastructure & Cloud,Infrastructure Engineering,P1,SHARED_SERVICE,CRITICAL,Solar-Grid OS;Battery-Storage OS;Monitoring OS,REFRAME,15
+104,Solar-Grid OS,Infrastructure & Cloud,Infrastructure Engineering,P2,SHARED_SERVICE,CRITICAL,Energy OS;Battery-Storage OS;Monitoring OS,KEEP,15
+105,Battery-Storage OS,Infrastructure & Cloud,Infrastructure Engineering,P2,SHARED_SERVICE,CRITICAL,Energy OS;Solar-Grid OS;Monitoring OS;Safety OS,REFRAME,15
+106,Extraction OS,Operations & Logistics,Industrial Governance,P3,RETIRED_REFRAMED,CRITICAL,Mining OS;Refinery OS;Safety OS;Environment OS,REFRAME,15
+107,Refinery OS,Operations & Logistics,Industrial Governance,P3,RETIRED_REFRAMED,CRITICAL,Mining OS;Extraction OS;Quality-Control OS;Safety OS,REFRAME,15
+108,Production OS,Operations & Logistics,Manufacturing Operations,P2,SHARED_SERVICE,HIGH,Manufacturing OS;Inventory OS;Quality-Control OS,REFRAME,12
+109,Manufacturing OS,Operations & Logistics,Manufacturing Operations,P2,SHARED_SERVICE,HIGH,Production OS;Hardware OS;Quality-Control OS,REFRAME,12
+110,Hardware OS,Infrastructure & Cloud,Hardware Engineering,P2,SHARED_SERVICE,HIGH,Inventory OS;Maintenance OS;Safety OS,KEEP,12
+111,Robotics OS,Automation & Workflow,Robotics Governance,R&D,R&D,CRITICAL,Hardware OS;Actuator OS;Safety OS;Monitoring OS,REFRAME,18
+112,Actuator OS,Automation & Workflow,Robotics Governance,R&D,R&D,CRITICAL,Robotics OS;Safety OS;Monitoring OS,REFRAME,18
+113,Drone-Swarm OS,Automation & Workflow,Robotics Governance,R&D,R&D,CRITICAL,Robotics OS;Fleet OS;Geospatial OS;Safety OS,REFRAME,18
+114,Fleet OS,Operations & Logistics,Logistics Operations,P1,PRODUCT,HIGH,Logistics OS;Maintenance OS;Geospatial OS,REFRAME,6
+115,Logistics OS,Operations & Logistics,Logistics Operations,P0,PRODUCT,HIGH,Fleet OS;Courier OS;Mapping OS,REFRAME,6
+116,Supply-Chain OS,Operations & Logistics,Supply Chain Governance,P1,PRODUCT,HIGH,Procurement OS;Inventory OS;Warehousing OS;Logistics OS,REFRAME,6
+117,Warehousing OS,Operations & Logistics,Warehouse Operations,P1,PRODUCT,HIGH,Inventory OS;Locker OS;Logistics OS,REFRAME,6
+118,Inventory OS,Commerce & Retail,Commerce Platform,P0,PRODUCT,HIGH,Warehousing OS;Supply-Chain OS;Commerce,KEEP,6
+119,Procurement OS,Operations & Logistics,Procurement Governance,P1,PRODUCT,HIGH,Inventory OS;Supply-Chain OS;Contract OS,REFRAME,9
+120,Courier OS,Operations & Logistics,Logistics Operations,P1,PRODUCT,HIGH,Fleet OS;Logistics OS;Records OS,KEEP,6
+121,Ghost-Node OS,Operations & Logistics,Logistics Operations,P2,RETIRED_REFRAMED,HIGH,Locker OS;Access-Control OS;Monitoring OS,REFRAME,9
+122,Locker OS,Operations & Logistics,Commerce Platform,P1,PRODUCT,HIGH,Identity OS;Access-Control OS;Courier OS,KEEP,9
+123,Regional-Trade OS,Operations & Logistics,Trade Governance,P2,DATA_PRODUCT,CRITICAL,Compliance OS;Logistics OS;Supply-Chain OS,REFRAME,15
+124,SADC-Rail OS,Operations & Logistics,Logistics Strategy,P3,DATA_PRODUCT,HIGH,Regional-Trade OS;Logistics OS;Corridor OS,REFRAME,15
+125,Corridor OS,Operations & Logistics,Logistics Strategy,P2,DATA_PRODUCT,HIGH,Mapping OS;Regional-Trade OS;Logistics OS,REFRAME,15
+126,Property OS,Operations & Logistics,Property Governance,P2,PRODUCT,HIGH,Land-Title OS;Records OS;Compliance OS,REFRAME,12
+127,Land-Title OS,Data & Knowledge,Property Governance,P2,DATA_PRODUCT,CRITICAL,Property OS;Records OS;Compliance OS,REFRAME,12
+128,Agriculture OS,Operations & Logistics,Agriculture Operations,P3,R&D,HIGH,Water-Source OS;Climate OS;Safety OS,REFRAME,18
+129,Water-Source OS,Operations & Logistics,Infrastructure Engineering,P2,SHARED_SERVICE,CRITICAL,Environment OS;Maintenance OS;Safety OS,REFRAME,15
+130,Construction OS,Operations & Logistics,Infrastructure Engineering,P2,SHARED_SERVICE,CRITICAL,Property OS;Infrastructure OS;Safety OS,REFRAME,15
+131,Infrastructure OS,Infrastructure & Cloud,Infrastructure Engineering,P1,SHARED_SERVICE,CRITICAL,Energy OS;Network infrastructure;Maintenance OS,REFRAME,15
+132,Smart-City OS,Infrastructure & Cloud,Infrastructure Governance,R&D,R&D,CRITICAL,Infrastructure OS;IoT;Identity OS;Privacy Governance,REFRAME,18
+133,Zoning OS,Legal & Compliance,Property Governance,P2,DATA_PRODUCT,CRITICAL,Property OS;Mapping OS;Compliance OS,REFRAME,15
+134,Urban-Capture OS,Operations & Logistics,Property Governance,P3,RETIRED_REFRAMED,HIGH,Property OS;Zoning OS;Capital-Allocation OS,REFRAME,15
+135,Rural-Anchor OS,Operations & Logistics,Regional Strategy,P3,RETIRED_REFRAMED,HIGH,Agriculture OS;Regional-Trade OS;Infrastructure OS,REFRAME,15
+136,Satellite OS,Frontier R&D,R&D Governance,R&D,R&D,CRITICAL,Geospatial OS;Environment OS;Compliance OS,R&D,18
+137,Orbital OS,Frontier R&D,R&D Governance,R&D,R&D,CRITICAL,Satellite OS;Archive OS;Disaster-Recovery OS,R&D,18
+138,Star-Link OS,Infrastructure & Cloud,Infrastructure Engineering,P3,INTEGRATION,HIGH,Network infrastructure;Satellite OS;Monitoring OS,REFRAME,15
+139,Geospatial OS,Data & Knowledge,Geospatial Governance,P2,DATA_PRODUCT,CRITICAL,Mapping OS;Recon OS;Compliance OS,REFRAME,15
+140,Mapping OS,Data & Knowledge,Geospatial Governance,P2,DATA_PRODUCT,HIGH,Geospatial OS;Infrastructure OS,REFRAME,15
+141,Climate OS,Data & Knowledge,Sustainability Governance,P2,DATA_PRODUCT,HIGH,Environment OS;Solar-Grid OS;Geospatial OS,REFRAME,15
+142,Environment OS,Governance & Audit,Sustainability Governance,P2,DATA_PRODUCT,HIGH,Sustainability OS;Climate OS;Compliance OS,REFRAME,15
+143,Sustainability OS,Governance & Audit,Sustainability Governance,P2,POLICY,HIGH,Environment OS;Resource-Recovery OS;Compliance OS,REFRAME,15
+144,Resource-Recovery OS,Operations & Logistics,Sustainability Governance,P3,SHARED_SERVICE,CRITICAL,Inventory OS;Environment OS;Safety OS,REFRAME,15
+145,Disaster-Recovery OS,Governance & Audit,Business Continuity,P0,POLICY,CRITICAL,Backup systems;Archive OS;Infrastructure OS;Monitoring OS,KEEP,8
+146,Maintenance OS,Operations & Logistics,Reliability Engineering,P1,SHARED_SERVICE,HIGH,Hardware OS;Inventory OS;Monitoring OS,REFRAME,12
+147,Quality-Control OS,Governance & Audit,Quality Governance,P1,SHARED_SERVICE,HIGH,Production OS;Deployment OS;Records OS,REFRAME,8
+148,Safety OS,Governance & Audit,Safety Governance,P0,POLICY,CRITICAL,Hazard-Check OS;Maintenance OS;Compliance OS,REFRAME,8
+149,Hazard-Check OS,Operations & Logistics,Safety Governance,P1,AUTOMATION,CRITICAL,Safety OS;Monitoring OS;Maintenance OS,REFRAME,8
+150,Field-Agent OS,Operations & Logistics,Regional Operations,P2,AUTOMATION,CRITICAL,Identity OS;Access-Control OS;Projects;Safety OS,REFRAME,15
+151,Health OS,Data & Knowledge,Wellness Governance,P3,DATA_PRODUCT,CRITICAL,Identity OS;Records OS;Privacy Governance,REFRAME,17
+152,Biology OS,Frontier R&D,Wellness Governance,R&D,R&D,CRITICAL,Health OS;Privacy Governance;Evidence OS,REFRAME,18
+153,Bio-Metric OS,Identity & Security,Identity Platform,P1,CORE,CRITICAL,Identity OS;Access-Control OS;Encryption OS,REFRAME,4
+154,Nootropic OS,Data & Knowledge,Wellness Governance,P3,RETIRED_REFRAMED,CRITICAL,Health OS;Evidence OS,REFRAME,17
+155,Peak-Flow OS,Automation & Workflow,Productivity Platform,P2,PRODUCT,MEDIUM,Focus OS;Circadian OS,REFRAME,9
+156,Circadian OS,Data & Knowledge,Wellness Governance,P2,DATA_PRODUCT,HIGH,Sleep OS;Focus OS;Automation,REFRAME,9
+157,Sleep OS,Data & Knowledge,Wellness Governance,P2,DATA_PRODUCT,HIGH,Health OS;Circadian OS,REFRAME,9
+158,Nutrition OS,Data & Knowledge,Wellness Governance,P2,DATA_PRODUCT,HIGH,Health OS;Records OS,REFRAME,9
+159,Exercise OS,Data & Knowledge,Wellness Governance,P2,DATA_PRODUCT,HIGH,Health OS;Records OS,REFRAME,9
+160,Longevity OS,Frontier R&D,Wellness Governance,R&D,R&D,CRITICAL,Health OS;Biology OS;Evidence OS,REFRAME,18
+161,Mental-Health OS,Data & Knowledge,Wellness Governance,P2,DATA_PRODUCT,CRITICAL,Health OS;Resilience OS;Privacy Governance,REFRAME,9
+162,Resilience OS,Data & Knowledge,Wellness Governance,P2,DATA_PRODUCT,HIGH,Mental-Health OS;Disaster-Recovery OS,REFRAME,9
+163,Stoic OS,Data & Knowledge,Learning Governance,P3,DATA_PRODUCT,MEDIUM,Resilience OS;Knowledge OS,REFRAME,17
+164,Meditation OS,Data & Knowledge,Wellness Governance,P3,DATA_PRODUCT,MEDIUM,Focus OS;Health OS,REFRAME,17
+165,Focus OS,Automation & Workflow,Productivity Platform,P1,PRODUCT,MEDIUM,Kiro-OS;Notification systems;Peak-Flow OS,KEEP,9
+166,Language OS,Data & Knowledge,Localization Platform,P1,SHARED_SERVICE,HIGH,Translation OS;Semantic OS,REFRAME,9
+167,Sepedi OS,Data & Knowledge,Localization Platform,P2,SHARED_SERVICE,HIGH,Language OS;Translation OS,KEEP,9
+168,Translation OS,AI & Intelligence,Localization Platform,P1,SHARED_SERVICE,HIGH,Language OS;Knowledge OS;AI Gateway,REFRAME,10
+169,Linguistic-Moat OS,Data & Knowledge,Localization Platform,P3,RETIRED_REFRAMED,HIGH,Language OS;Sepedi OS;Access-Control OS,REFRAME,9
+170,Semantic OS,Marketing & Customer,Marketing Governance,P2,DATA_PRODUCT,HIGH,Language OS;Marketing OS;Search Analytics,REFRAME,9
+171,Manipulation OS,Marketing & Customer,Product Governance,P3,RETIRED_REFRAMED,CRITICAL,Sentiment OS;Marketing OS;Experimentation,REFRAME,9
+172,Persuasion OS,Marketing & Customer,Product Governance,P2,RETIRED_REFRAMED,HIGH,Marketing OS;Design OS;Experimentation,REFRAME,9
+173,Rhetoric OS,Data & Knowledge,Communications Governance,P2,SHARED_SERVICE,HIGH,Logic-Chain OS;Reasoning OS;Evidence OS,REFRAME,10
+174,Diplomacy OS,Marketing & Customer,Partner Governance,P2,SHARED_SERVICE,HIGH,Alliance OS;Contract OS;CRM,REFRAME,17
+175,Negotiation OS,Legal & Compliance,Legal Governance,P2,SHARED_SERVICE,HIGH,Contract OS;Decision-Matrix OS;Evidence OS,REFRAME,10
+176,Conflict-Resolution OS,Legal & Compliance,Partner Governance,P1,SHARED_SERVICE,HIGH,Contract OS;Negotiation OS;Evidence OS,KEEP,9
+177,Arbitration OS,Legal & Compliance,Legal Governance,P2,SHARED_SERVICE,CRITICAL,Conflict-Resolution OS;Contract OS;Evidence OS,REFRAME,10
+178,Court OS,Legal & Compliance,Legal Governance,P2,SHARED_SERVICE,CRITICAL,Evidence OS;Contract OS;Records OS,REFRAME,10
+179,Law-Fare OS,Legal & Compliance,Legal Governance,P3,RETIRED_REFRAMED,CRITICAL,Court OS;Contract OS;Conflict-Resolution OS,REFRAME,10
+180,Evidence OS,Governance & Audit,Legal Governance,P0,CORE,CRITICAL,Records OS;Audit-Vigil OS;Encryption OS,KEEP,5
+181,Media OS,Marketing & Customer,Media Platform,P1,PRODUCT,HIGH,Marketing OS;Design OS;Records OS,REFRAME,9
+182,Broadcasting OS,Marketing & Customer,Media Platform,P2,PRODUCT,HIGH,Media OS;Video OS;Audio systems,REFRAME,9
+183,Cinema OS,Marketing & Customer,Media Platform,P3,PRODUCT,MEDIUM,Video OS;Art OS;Media OS,REFRAME,17
+184,Music OS,Marketing & Customer,Media Platform,P3,PRODUCT,MEDIUM,Media OS;Audio systems,REFRAME,17
+185,Audio-Prime OS,Marketing & Customer,Product Governance,P3,RETIRED_REFRAMED,HIGH,Music OS;Shopping OS;Experimentation,REFRAME,9
+186,Video OS,Marketing & Customer,Media Platform,P1,PRODUCT,HIGH,Media OS;Design OS;Storage,KEEP,9
+187,Picture OS,Marketing & Customer,Product Governance,P2,DATA_PRODUCT,CRITICAL,Design OS;Analytics;Privacy Governance,REFRAME,9
+188,Design OS,Developer Platform,Design Platform,P0,SHARED_SERVICE,HIGH,Aesthetic OS;Accessibility;Frontend Platform,KEEP,5
+189,Aesthetic OS,Developer Platform,Design Platform,P1,POLICY,MEDIUM,Design OS;Accessibility,REFRAME,5
+190,Art OS,Marketing & Customer,Media Platform,P3,PRODUCT,MEDIUM,Design OS;Media OS;Localization Platform,REFRAME,17
+191,Retail OS,Commerce & Retail,Commerce Platform,P0,PRODUCT,HIGH,POS OS;Inventory OS;CRM,REFRAME,6
+192,POS OS,Commerce & Retail,Commerce Platform,P0,PRODUCT,CRITICAL,Inventory OS;Payment-Gateway OS;Identity OS,REFRAME,6
+193,Consumer-Hive OS,Commerce & Retail,Product Governance,P3,RETIRED_REFRAMED,HIGH,CRM;Retail OS;Shopping OS,REFRAME,9
+194,Shopping OS,Commerce & Retail,Product Governance,P0,PRODUCT,HIGH,E-commerce OS;Design OS;Recommendation systems,REFRAME,6
+195,E-commerce OS,Commerce & Retail,Commerce Platform,P0,PRODUCT,CRITICAL,Inventory OS;Shopping OS;Payment-Gateway OS;Identity OS,KEEP,6
+196,Payment-Gateway OS,Payments & Billing,Payments Platform,P0,CORE,CRITICAL,Banking OS;Medici-Ledger OS;Compliance OS,REFRAME,5
+197,Ecosystem OS,Developer Platform,Platform Architecture,P2,SHARED_SERVICE,HIGH,Platform OS;Identity OS;Billing;Marketplace,REFRAME,17
+198,Platform OS,Developer Platform,Platform Architecture,P1,CORE,CRITICAL,Identity OS;Protocol OS;Cloud-OS;Governance OS,REFRAME,12
+199,Membership OS,Marketing & Customer,Customer Platform,P2,PRODUCT,HIGH,Identity OS;Billing;CRM;Contract OS,REFRAME,9
+200,Loyalty OS,Marketing & Customer,Customer Platform,P2,PRODUCT,HIGH,Membership OS;CRM;Commerce,REFRAME,9
+201,Data OS,Data & Knowledge,Data Platform,P0,CORE,CRITICAL,Integrations OS;Knowledge OS;Records OS,KEEP,4
+202,Vector-DB OS,Data & Knowledge,AI Platform,P1,SHARED_SERVICE,HIGH,Data OS;Knowledge OS;RAG OS,KEEP,10
+203,RAG OS,AI & Intelligence,AI Platform,P1,SHARED_SERVICE,HIGH,Vector-DB OS;Knowledge OS;Inference OS,REFRAME,10
+204,Inference OS,AI & Intelligence,AI Platform,P1,SHARED_SERVICE,CRITICAL,RAG OS;Reasoning OS;AI Gateway,REFRAME,10
+205,Model-Train OS,AI & Intelligence,AI Governance,R&D,R&D,CRITICAL,Data OS;Inference OS;Evidence OS,REFRAME,18
+206,Android OS,Developer Platform,Mobile Platform,P1,PRODUCT,HIGH,Mobile-Engine OS;Identity OS;Interface OS,REFRAME,9
+207,iOS OS,Developer Platform,Mobile Platform,P1,PRODUCT,HIGH,Mobile-Engine OS;Identity OS;Interface OS,REFRAME,9
+208,Mobile-Engine OS,Developer Platform,Mobile Platform,P1,SHARED_SERVICE,HIGH,Android OS;iOS OS;Protocol OS,KEEP,9
+209,Web-Sovereign OS,Developer Platform,Platform Architecture,P3,R&D,HIGH,Protocol OS;Security OS;Network OS,REFRAME,17
+210,Interface OS,Developer Platform,Design Platform,P0,SHARED_SERVICE,HIGH,Design OS;Identity OS;Protocol OS,REFRAME,5
+211,Dynamic OS,Developer Platform,Product Governance,P2,AUTOMATION,HIGH,Interface OS;Sentiment OS;Experimentation,REFRAME,9
+212,Payments OS,Payments & Billing,Payments Platform,P0,CORE,CRITICAL,Payment-Gateway OS;Medici-Ledger OS;Compliance OS,REFRAME,5
+213,Checkout OS,Commerce & Retail,Commerce Platform,P0,PRODUCT,CRITICAL,Payments OS;Shopping OS;Pricing OS,REFRAME,6
+214,Billing OS,Payments & Billing,Billing Platform,P0,CORE,CRITICAL,Payments OS;Pricing OS;Medici-Ledger OS,REFRAME,5
+215,Pricing OS,Commerce & Retail,Commerce Platform,P1,PRODUCT,HIGH,Billing OS;Pricing data;Compliance OS,REFRAME,6
+216,University OS,Data & Knowledge,Learning Platform,P3,PRODUCT,HIGH,Learning OS;Talent-Forge OS;Identity OS,REFRAME,17
+217,Pedagogy OS,Data & Knowledge,Learning Platform,P3,POLICY,HIGH,University OS;Learning OS;Knowledge OS,REFRAME,17
+218,Learning OS,Data & Knowledge,Learning Platform,P2,PRODUCT,HIGH,Pedagogy OS;Knowledge OS;Identity OS,KEEP,17
+219,Talent-Forge OS,Data & Knowledge,Talent Platform,P2,PRODUCT,HIGH,Learning OS;University OS;Projects,REFRAME,17
+220,Elite-Track OS,Data & Knowledge,Talent Platform,P2,POLICY,CRITICAL,Talent-Forge OS;Evidence OS;Ethics OS,REFRAME,17
+221,Ethics OS,Governance & Audit,Ethics Governance,P0,POLICY,CRITICAL,Pillars OS;Governance OS;Compliance OS,KEEP,3
+222,Philosophy OS,Governance & Audit,Ethics Governance,P3,POLICY,HIGH,Ethics OS;Reasoning OS;Knowledge OS,REFRAME,17
+223,Theology OS,Data & Knowledge,Cultural Governance,P3,RETIRED_REFRAMED,HIGH,Ethics OS;Knowledge OS;Media OS,REFRAME,17
+224,Mythos OS,Marketing & Customer,Brand Governance,P3,RETIRED_REFRAMED,HIGH,Narrative OS;Media OS;Ethics OS,REFRAME,17
+225,Occult OS,Marketing & Customer,Brand Governance,P3,RETIRED_REFRAMED,HIGH,Aesthetic OS;Art OS;Ethics OS,REFRAME,17
+226,Globalisation OS,Governance & Audit,Corporate Strategy,P3,SHARED_SERVICE,HIGH,Jurisdiction OS;Regional-Trade OS;Compliance OS,REFRAME,17
+227,Geopolitics OS,Data & Knowledge,Strategy,P3,DATA_PRODUCT,HIGH,Geospatial OS;Risk OS;Information-Vacuum OS,REFRAME,17
+228,Macro-Arbitrage OS,Finance & Capital,Treasury Governance,P3,DATA_PRODUCT,CRITICAL,Risk OS;Fiat-Hedge OS;Portfolio OS,REFRAME,15
+229,China OS,Data & Knowledge,International Strategy,P3,DATA_PRODUCT,HIGH,Geopolitics OS;Supply-Chain OS;Compliance OS,REFRAME,17
+230,USA OS,Data & Knowledge,International Strategy,P3,DATA_PRODUCT,HIGH,Geopolitics OS;Wall Street OS;Compliance OS,REFRAME,17
+231,South Africa OS,Legal & Compliance,Regional Strategy,P1,DATA_PRODUCT,CRITICAL,Compliance OS;Property OS;Regional-Trade OS,REFRAME,8
+232,Europe OS,Legal & Compliance,International Strategy,P3,DATA_PRODUCT,HIGH,Geopolitics OS;Jurisdiction OS;Compliance OS,REFRAME,17
+233,UAE OS,Legal & Compliance,International Strategy,P3,DATA_PRODUCT,HIGH,Geopolitics OS;Jurisdiction OS;Compliance OS,REFRAME,17
+234,Saudi Arabia OS,Data & Knowledge,International Strategy,P3,DATA_PRODUCT,HIGH,Geopolitics OS;Alliance OS;Compliance OS,REFRAME,17
+235,Sovereign-Wealth OS,Finance & Capital,Treasury Governance,R&D,R&D,CRITICAL,Portfolio OS;Risk OS;Compliance OS,REFRAME,18
+236,Wall Street OS,Finance & Capital,Capital Markets,P3,DATA_PRODUCT,HIGH,Market data integrations;Risk OS;Portfolio OS,REFRAME,15
+237,JSE OS,Finance & Capital,Capital Markets,P2,DATA_PRODUCT,HIGH,Market data integrations;Risk OS;Portfolio OS,REFRAME,15
+238,S&P 500 OS,Finance & Capital,Capital Markets,P2,DATA_PRODUCT,HIGH,Market data integrations;Risk OS;Portfolio OS,REFRAME,15
+239,Hedge Fund OS,Finance & Capital,Capital Markets,R&D,R&D,CRITICAL,Trading OS;Portfolio OS;Risk OS;Compliance OS,REFRAME,18
+240,Blackrock OS,Finance & Capital,Capital Markets,P3,DATA_PRODUCT,HIGH,Wall Street OS;Knowledge OS,REFRAME,15
+241,Trading OS,Finance & Capital,Capital Markets,R&D,R&D,CRITICAL,Market data integrations;Risk OS;Compliance OS;Audit-Vigil OS,REFRAME,18
+242,Portfolio OS,Finance & Capital,Treasury Governance,P2,PRODUCT,CRITICAL,Medici-Ledger OS;Risk OS;Records OS,KEEP,12
+243,Yield OS,Finance & Capital,Treasury Governance,P2,DATA_PRODUCT,HIGH,Portfolio OS;Risk OS;Capital-Allocation OS,REFRAME,12
+244,Risk OS,Governance & Audit,Risk Governance,P1,CORE,CRITICAL,Monte-Carlo OS;Monitoring OS;Decision-Matrix OS,KEEP,8
+245,Monte-Carlo OS,AI & Intelligence,Risk Governance,P2,DATA_PRODUCT,HIGH,Risk OS;Statistics OS;Mathematics OS,KEEP,10
+246,Social Media OS,Marketing & Customer,Media Platform,P2,PRODUCT,HIGH,Media OS;Engagement OS;Sentiment OS,REFRAME,9
+247,Community OS,Marketing & Customer,Community Platform,P2,PRODUCT,HIGH,Membership OS;CRM;Media OS,REFRAME,9
+248,Engagement OS,Marketing & Customer,Product Governance,P2,DATA_PRODUCT,HIGH,Community OS;Analytics;Experimentation,REFRAME,9
+249,Influencer OS,Marketing & Customer,Partner Marketing,P2,PRODUCT,HIGH,CRM;Contract OS;Media OS,REFRAME,9
+250,Network OS,Data & Knowledge,Strategy,P2,DATA_PRODUCT,CRITICAL,Alliance OS;Geospatial OS;Knowledge OS,REFRAME,15
+251,Tendering System OS,Legal & Compliance,Public-Sector Governance,P2,PRODUCT,CRITICAL,Bidding OS;Contracts OS;Compliance OS,REFRAME,14
+252,Bidding OS,Legal & Compliance,Public-Sector Governance,P2,DATA_PRODUCT,CRITICAL,Tendering System OS;Pricing OS;Risk OS,REFRAME,14
+253,Compliance-Audit OS,Governance & Audit,Compliance Governance,P1,SHARED_SERVICE,CRITICAL,Compliance OS;Audit-Vigil OS;Evidence OS,KEEP,8
+254,Public-Sector OS,Legal & Compliance,Public-Sector Governance,P3,RETIRED_REFRAMED,CRITICAL,Tendering System OS;Contracts OS;Compliance OS,REFRAME,14
+255,Private-Sector OS,Finance & Capital,Corporate Development,P3,DATA_PRODUCT,CRITICAL,Capital-Allocation OS;Contract OS;Risk OS;Compliance OS,REFRAME,15
+256,Contracts OS,Legal & Compliance,Legal Governance,P1,SHARED_SERVICE,CRITICAL,Contract OS;Records OS;Evidence OS,REFRAME,8
+257,Smart-Contract OS,Legal & Compliance,Legal Governance,R&D,R&D,CRITICAL,Contracts OS;Payments OS;Compliance OS,REFRAME,18
+258,Escrow OS,Payments & Billing,Payments Platform,P2,INTEGRATION,CRITICAL,Payments OS;Contracts OS;Compliance OS,REFRAME,12
+259,Dispute OS,Legal & Compliance,Legal Governance,P2,RETIRED_REFRAMED,CRITICAL,Conflict-Resolution OS;Arbitration OS;Evidence OS,REFRAME,10
+260,Terminal OS,Developer Platform,Platform Engineering,P0,CORE,CRITICAL,Identity OS;Access-Control OS;Audit-Vigil OS;Pillars OS,REFRAME,4
+261,Statistics OS,Data & Knowledge,Data Platform,P1,SHARED_SERVICE,HIGH,Data OS;Mathematics OS;Evidence OS,KEEP,10
+262,Mathematics OS,Data & Knowledge,Data Platform,P2,SHARED_SERVICE,HIGH,Statistics OS;Logic-Chain OS,REFRAME,10
+263,Calculus OS,Data & Knowledge,Data Platform,P3,DATA_PRODUCT,HIGH,Mathematics OS;Statistics OS,REFRAME,17
+264,Game-Theory-Meta OS,AI & Intelligence,Strategy,P3,DATA_PRODUCT,HIGH,Game-Theory OS;Reasoning OS;Decision-Matrix OS,REFRAME,17
+265,Solutions OS,AI & Intelligence,AI Platform,P2,SHARED_SERVICE,HIGH,Synthesis OS;Decision-Matrix OS;Reasoning OS,REFRAME,10
+266,Pragmatic OS,Governance & Audit,Executive Governance,P2,POLICY,CRITICAL,Solutions OS;Ethics OS;Risk OS;Pillars OS,REFRAME,10
+267,Religion OS,Data & Knowledge,Cultural Governance,P3,RETIRED_REFRAMED,HIGH,Theology OS;Knowledge OS;Ethics OS,REFRAME,17
+268,Events OS,Marketing & Customer,Events Platform,P2,PRODUCT,HIGH,Community OS;Membership OS;Payments OS,REFRAME,9
+269,Records OS,Data & Knowledge,Records Governance,P0,CORE,CRITICAL,Archive OS;Evidence OS;Medici-Ledger OS,KEEP,4
