@@ -20,33 +20,36 @@ Phase 5
 - [x] Webhooks
 - [x] Background Jobs
 - [x] Audit
-- [ ] Logging
+- [x] Logging
 - [ ] Usage Metering
 - [ ] Subscription Billing
 - [ ] Payment Abstraction
 - [ ] Secrets
 - [ ] Backups
 
-## Audit P0 Components
+## Logging P0 Components
 
-- [x] Kernel Audit authority boundary
-- [x] Full source-chain verification before access
-- [x] Tenant-scoped audit query
-- [x] Action/actor/resource/correlation/time filters
+- [x] Kernel Structured Logging authority boundary
+- [x] Tenant log-stream policy
+- [x] Structured log ingestion
+- [x] Correlation/actor/trace propagation
+- [x] Kernel recursive redaction preservation
+- [x] Minimum-level filtering
+- [x] Bounded field payload
+- [x] Tenant-scoped log query
+- [x] Level/service/event/actor/correlation/trace/time filters
 - [x] Deterministic sequence pagination
-- [x] Defensive metadata redaction
-- [x] Tamper-evident export manifest
-- [x] Export selection verification
-- [x] Query/export access audit planning
-- [x] No audit mutation/delete API
-- [x] Kernel authorization evidence requirement
+- [x] Retention cutoff metadata
+- [x] Audit/log separation preserved
 
-## Audit Deferred Runtime
+## Logging Deferred Runtime
 
-- [ ] Durable Audit query index/read model
-- [ ] Large export object-storage adapter
-- [ ] Compliance retention/legal-hold policy adapter
+- [ ] OpenTelemetry/log exporter
+- [ ] Durable log index/search backend
+- [ ] Retention/deletion worker
+- [ ] Alert routing
+- [ ] Trace backend
 
 ## Current Next Work
 
-Implement BaaS P0 Logging service.
+Implement BaaS P0 Usage Metering service.

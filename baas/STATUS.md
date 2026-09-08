@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Audit service initialized.
+BaaS P0 Logging service initialized.
 
 ## Foundation
 
@@ -56,29 +56,37 @@ Background Jobs BaaS: COMPLETE
 
 Audit BaaS: COMPLETE
 
-Kernel Audit authority boundary: COMPLETE
+## Logging
 
-Source-chain verification before access: COMPLETE
+Logging BaaS: COMPLETE
+
+Kernel Structured Logging authority boundary: COMPLETE
+
+Tenant log-stream policy: COMPLETE
+
+Structured ingestion + redaction: COMPLETE
+
+Correlation/actor/trace propagation: COMPLETE
+
+Minimum-level + field-size bounds: COMPLETE
 
 Tenant query/filter/pagination: COMPLETE
 
-Tamper-evident export manifest: COMPLETE
+Retention cutoff metadata: COMPLETE
 
-Query/export access audit planning: COMPLETE
+Audit/log separation: COMPLETE
 
-Audit mutation/delete API: NONE
+Production log exporter/index: DEFERRED
 
-Durable query index/read model: DEFERRED
-
-Large export adapter: DEFERRED
+Retention worker: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Logging service.
+BaaS P0 — Usage Metering service.
 
 ## Governing Rule
 
-Kernel Audit remains the authoritative audit ledger. BaaS Audit verifies the
-Kernel chain before every query/export, fails closed on tampering, never rewrites
-or deletes authoritative evidence, enforces tenant scope, redacts sensitive
-metadata defensively, and emits access-audit evidence for its own reads/exports.
+BaaS Logging preserves the Kernel structured-log schema and recursive redaction.
+It never replaces Kernel Audit. Tenant-aware records are organization-scoped,
+correlation-aware, size-bounded, query-isolated, and retained only according to
+explicit stream policy. Production log shipping/indexing remains an adapter.
