@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Serverless Functions contract initialized.
+BaaS P0 API Gateway contract initialized.
 
 ## Foundation
 
@@ -36,30 +36,39 @@ Object Storage BaaS: COMPLETE
 
 Serverless Functions BaaS: COMPLETE
 
-Tenant function descriptor: COMPLETE
+## API Gateway
 
-Bounded timeout/memory policy: COMPLETE
+API Gateway BaaS: COMPLETE
 
-HTTP/event/scheduled/manual trigger contracts: COMPLETE
+/api/v1 route registry: COMPLETE
 
-Secret reference injection contract: COMPLETE
+Authentication/authorization gates: COMPLETE
 
-Invocation planning: COMPLETE
+Request validation: COMPLETE
 
-Audit/log context: COMPLETE
+Payload limits: COMPLETE
 
-Production code executor: DEFERRED
+Timeout budget: COMPLETE
 
-Production scheduler adapter: DEFERRED
+Reference rate-limit guard: COMPLETE
+
+Correlation/request IDs: COMPLETE
+
+Safe structured errors: COMPLETE
+
+Dispatch planning: COMPLETE
+
+Production reverse proxy: DEFERRED
+
+Distributed rate limiting: DEFERRED
 
 ## Next Work
 
-BaaS P0 — API Gateway service.
+BaaS P0 — Events service.
 
 ## Governing Rule
 
-Functions BaaS P0 manages definitions and produces bounded, tenant-scoped,
-Kernel-authorized invocation plans. It does not execute arbitrary code.
-Production execution must occur through an isolated runtime adapter with
-resource limits, secret injection at execution time, structured logs, and
-audit evidence.
+The API Gateway fails closed on invalid, unauthenticated, unauthorized,
+oversized, unknown, disabled, or reference-rate-limited requests. It produces
+safe dispatch metadata only; production network proxying and distributed rate
+limiting remain adapter responsibilities.

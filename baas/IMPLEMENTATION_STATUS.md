@@ -15,7 +15,7 @@ Phase 5
 - [x] PostgreSQL Database BaaS
 - [x] Object Storage
 - [x] Serverless Functions
-- [ ] API Gateway
+- [x] API Gateway
 - [ ] Events
 - [ ] Webhooks
 - [ ] Background Jobs
@@ -27,27 +27,27 @@ Phase 5
 - [ ] Secrets
 - [ ] Backups
 
-## Functions P0 Components
+## API Gateway P0 Components
 
-- [x] Tenant function descriptor
-- [x] HTTP trigger contract
-- [x] Event trigger contract
-- [x] Scheduled trigger metadata contract
-- [x] Manual trigger contract
-- [x] Bounded timeout and memory policy
-- [x] Secret reference injection contract
-- [x] Function lifecycle
-- [x] Invocation plan
+- [x] /api/v1 route registry
+- [x] Request validation
+- [x] Authentication gate
+- [x] Kernel authorization evidence gate
+- [x] Permission evidence gate
+- [x] Payload limits
+- [x] Timeout budget
+- [x] Reference rate-limit guard
+- [x] Correlation/request identifiers
+- [x] Safe structured errors
+- [x] Dispatch plan
 - [x] Audit/log context
-- [x] Kernel authorization evidence requirement
 
-## Functions Deferred Runtime
+## API Gateway Deferred Runtime
 
-- [ ] Isolated production code executor
-- [ ] Production scheduler adapter
-- [ ] Network egress policy adapter
-- [ ] Provider-native secret injection adapter
+- [ ] Production reverse proxy adapter
+- [ ] Distributed rate-limit adapter
+- [ ] WAF/provider edge integration
 
 ## Current Next Work
 
-Implement BaaS P0 API Gateway service.
+Implement BaaS P0 Events service.
