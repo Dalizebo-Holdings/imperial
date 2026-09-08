@@ -23,38 +23,37 @@ Phase 5
 - [x] Logging
 - [x] Usage Metering
 - [x] Subscription Billing
-- [ ] Payment Abstraction
+- [x] Payment Abstraction
 - [ ] Secrets
 - [ ] Backups
 
-## Subscription Billing P0 Components
+## Payment Abstraction P0 Components
 
-- [x] Immutable versioned plan pricing
-- [x] Subscription lifecycle
-- [x] Subscription + metered-usage billing model
-- [x] Integer minor-unit money
-- [x] Decimal usage rating with explicit rounding
-- [x] Usage Metering aggregate evidence boundary
-- [x] Tenant-safe credits
-- [x] Deterministic invoice generation
-- [x] Draft/open invoice lifecycle
-- [x] Pricing-version retention on invoices
-- [x] Entitlement resolution
-- [x] Billing event metadata
-- [x] Payment retry intent metadata
-- [x] Payment-provider execution boundary
-- [x] Invoice/source-hash reconciliation
-- [x] Kernel authorization evidence requirement
+- [x] Kernel payment authority boundary
+- [x] Provider-neutral registry
+- [x] Secret-reference provider credentials
+- [x] Currency/capability validation
+- [x] Idempotent payment planning
+- [x] Provider adapter operation plan
+- [x] Explicit Kernel payment transition sequences
+- [x] Immediate-capture explicit AUTHORIZED→CAPTURED path
+- [x] Safe provider-result contract
+- [x] Refund planning
+- [x] Kernel refund validation boundary
+- [x] Payment reconciliation
+- [x] Audit/payment event metadata
+- [x] Cross-tenant payment isolation
+- [x] Billing/payment boundary
+- [x] Current invoice-source Kernel limitation documented
 
-## Subscription Billing Deferred Runtime
+## Payment Abstraction Deferred Runtime
 
-- [ ] Durable billing ledger adapter
-- [ ] Tax engine
-- [ ] Proration engine
-- [ ] Dunning scheduler
-- [ ] Invoice document renderer
-- [ ] Provider payment execution
+- [ ] Licensed provider adapter implementation
+- [ ] Provider webhook/callback adapter
+- [ ] Durable payment orchestration ledger
+- [ ] Kernel generic payment-source extension for invoice-backed payments
+- [ ] Production settlement reconciliation adapter
 
 ## Current Next Work
 
-Implement BaaS P0 Payment Abstraction service.
+Implement BaaS P0 Secrets service.

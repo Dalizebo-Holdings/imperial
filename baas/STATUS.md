@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Subscription Billing service initialized.
+BaaS P0 Payment Abstraction service initialized.
 
 ## Foundation
 
@@ -68,38 +68,37 @@ Usage Metering BaaS: COMPLETE
 
 Subscription Billing BaaS: COMPLETE
 
-Versioned plan pricing: COMPLETE
+## Payment Abstraction
 
-Subscription lifecycle: COMPLETE
+Payment Abstraction BaaS: COMPLETE
 
-Recurring + metered rating: COMPLETE
+Kernel payment authority boundary: COMPLETE
 
-Integer minor-unit money: COMPLETE
+Provider-neutral registry: COMPLETE
 
-Credits: COMPLETE
+Secret-reference credentials: COMPLETE
 
-Deterministic invoices: COMPLETE
+Idempotent operation planning: COMPLETE
 
-Entitlement resolution: COMPLETE
+Explicit Kernel transition planning: COMPLETE
 
-Billing events: COMPLETE
+Refund validation/planning: COMPLETE
 
-Payment retry intents: COMPLETE
+Payment reconciliation: COMPLETE
 
-Invoice reconciliation: COMPLETE
+Licensed provider adapters: DEFERRED
 
-Provider payment execution: DEFERRED
+Provider network execution: DEFERRED
 
-Tax/proration/dunning/document rendering: DEFERRED
+Invoice-backed Kernel payment-source extension: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Payment Abstraction service.
+BaaS P0 — Secrets service.
 
 ## Governing Rule
 
-Billing consumes immutable Usage Metering aggregate evidence and exact versioned
-pricing. Money is integer minor units, invoices are deterministic and
-reconcilable, credits cannot make totals negative, and payment retry output is
-intent metadata only. Provider charging and payment state transitions remain
-behind Payments BaaS and Kernel commerce invariants.
+Payments BaaS orchestrates providers but does not own authoritative payment
+state. Every lifecycle edge is explicitly validated against Kernel payment
+rules, provider credentials remain opaque references, payment/refund requests
+are idempotent, and network/provider execution remains behind licensed adapters.
