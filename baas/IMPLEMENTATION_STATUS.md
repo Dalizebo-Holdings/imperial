@@ -19,7 +19,7 @@ Phase 5
 - [x] Events
 - [x] Webhooks
 - [x] Background Jobs
-- [ ] Audit
+- [x] Audit
 - [ ] Logging
 - [ ] Usage Metering
 - [ ] Subscription Billing
@@ -27,31 +27,26 @@ Phase 5
 - [ ] Secrets
 - [ ] Backups
 
-## Background Jobs P0 Components
+## Audit P0 Components
 
-- [x] Tenant job definition registry
-- [x] Queued jobs
-- [x] Delayed jobs
-- [x] Scheduled job metadata
-- [x] Deterministic idempotent submission
-- [x] Bounded execution timeout
-- [x] Bounded retry/backoff metadata
-- [x] Dead-letter terminal state
-- [x] Job cancellation boundary
-- [x] Job observability
-- [x] Loop OS handoff plan
+- [x] Kernel Audit authority boundary
+- [x] Full source-chain verification before access
+- [x] Tenant-scoped audit query
+- [x] Action/actor/resource/correlation/time filters
+- [x] Deterministic sequence pagination
+- [x] Defensive metadata redaction
+- [x] Tamper-evident export manifest
+- [x] Export selection verification
+- [x] Query/export access audit planning
+- [x] No audit mutation/delete API
 - [x] Kernel authorization evidence requirement
-- [x] Pillars approval evidence requirement
-- [x] Secret-bearing payload rejection
 
-## Background Jobs Deferred Runtime
+## Audit Deferred Runtime
 
-- [ ] Production queue adapter
-- [ ] Production scheduler adapter
-- [ ] Loop OS authorization evidence resolver
-- [ ] Durable job ledger adapter
-- [ ] Runtime cancellation adapter
+- [ ] Durable Audit query index/read model
+- [ ] Large export object-storage adapter
+- [ ] Compliance retention/legal-hold policy adapter
 
 ## Current Next Work
 
-Implement BaaS P0 Audit service.
+Implement BaaS P0 Logging service.

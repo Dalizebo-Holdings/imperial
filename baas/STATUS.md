@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 Background Jobs contract initialized.
+BaaS P0 Audit service initialized.
 
 ## Foundation
 
@@ -52,35 +52,33 @@ Webhooks BaaS: COMPLETE
 
 Background Jobs BaaS: COMPLETE
 
-Queued jobs: COMPLETE
+## Audit
 
-Delayed jobs: COMPLETE
+Audit BaaS: COMPLETE
 
-Scheduled job metadata: COMPLETE
+Kernel Audit authority boundary: COMPLETE
 
-Idempotent submission: COMPLETE
+Source-chain verification before access: COMPLETE
 
-Bounded timeout/retries: COMPLETE
+Tenant query/filter/pagination: COMPLETE
 
-Dead-letter handling: COMPLETE
+Tamper-evident export manifest: COMPLETE
 
-Job observability: COMPLETE
+Query/export access audit planning: COMPLETE
 
-Loop OS handoff planning: COMPLETE
+Audit mutation/delete API: NONE
 
-Production queue/scheduler: DEFERRED
+Durable query index/read model: DEFERRED
 
-Loop OS authorization evidence resolver: DEFERRED
-
-Durable job ledger: DEFERRED
+Large export adapter: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Audit service.
+BaaS P0 — Logging service.
 
 ## Governing Rule
 
-Background Jobs BaaS is a tenant-facing control plane above Loop OS, not a
-competing worker runtime. Jobs are idempotent, timeout-bounded, retry-bounded,
-observable, and dead-lettered on exhaustion. Loop OS execution is permitted
-only after an adapter verifies Pillars and Kernel authorization evidence.
+Kernel Audit remains the authoritative audit ledger. BaaS Audit verifies the
+Kernel chain before every query/export, fails closed on tampering, never rewrites
+or deletes authoritative evidence, enforces tenant scope, redacts sensitive
+metadata defensively, and emits access-audit evidence for its own reads/exports.
