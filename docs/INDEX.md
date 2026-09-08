@@ -111,3 +111,17 @@
 - [Dalizebo Automate](../saas/automate/README.md)
 - [Dalizebo Desk](../saas/desk/README.md)
 - [Dalizebo Projects](../saas/projects/README.md)
+
+## AI & Intelligence
+
+- [AI Overview](../ai/README.md)
+- [AI Gateway](../ai/gateway/README.md)
+- [Model Routing](../ai/model-routing/README.md)
+- [RAG](../ai/rag/README.md)
+- [Vector Search](../ai/vector-search/README.md)
+- [Extraction](../ai/extraction/README.md)
+- [Forecasting](../ai/forecasting/README.md)
+- [Recommendations](../ai/recommendations/README.md)
+- [Governed Agents](../ai/agents/README.md)
+- [AI Governance](../ai/governance/README.md)
+- [AI Observability](../ai/observability/README.md)
