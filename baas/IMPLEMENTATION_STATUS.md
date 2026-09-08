@@ -16,7 +16,7 @@ Phase 5
 - [x] Object Storage
 - [x] Serverless Functions
 - [x] API Gateway
-- [ ] Events
+- [x] Events
 - [ ] Webhooks
 - [ ] Background Jobs
 - [ ] Audit
@@ -27,27 +27,27 @@ Phase 5
 - [ ] Secrets
 - [ ] Backups
 
-## API Gateway P0 Components
+## Events P0 Components
 
-- [x] /api/v1 route registry
-- [x] Request validation
-- [x] Authentication gate
-- [x] Kernel authorization evidence gate
-- [x] Permission evidence gate
-- [x] Payload limits
-- [x] Timeout budget
-- [x] Reference rate-limit guard
-- [x] Correlation/request identifiers
-- [x] Safe structured errors
-- [x] Dispatch plan
+- [x] Kernel event envelope preservation
+- [x] COMMITTED outbox publication gate
+- [x] Tenant-scoped event subscriptions
+- [x] Exact/wildcard event matching
+- [x] Deterministic delivery identity
+- [x] Delivery planning
+- [x] Delivery success tracking
+- [x] Bounded retry metadata
+- [x] Dead-letter terminal state
+- [x] Event-id conflict detection
 - [x] Audit/log context
+- [x] Secret-bearing payload rejection
 
-## API Gateway Deferred Runtime
+## Events Deferred Runtime
 
-- [ ] Production reverse proxy adapter
-- [ ] Distributed rate-limit adapter
-- [ ] WAF/provider edge integration
+- [ ] Production message broker adapter
+- [ ] Production event worker
+- [ ] Durable delivery ledger adapter
 
 ## Current Next Work
 
-Implement BaaS P0 Events service.
+Implement BaaS P0 Webhooks service.

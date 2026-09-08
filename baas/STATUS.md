@@ -10,7 +10,7 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-BaaS P0 API Gateway contract initialized.
+BaaS P0 Events contract initialized.
 
 ## Foundation
 
@@ -40,35 +40,35 @@ Serverless Functions BaaS: COMPLETE
 
 API Gateway BaaS: COMPLETE
 
-/api/v1 route registry: COMPLETE
+## Events
 
-Authentication/authorization gates: COMPLETE
+Events BaaS: COMPLETE
 
-Request validation: COMPLETE
+Kernel event envelope: COMPLETE
 
-Payload limits: COMPLETE
+COMMITTED outbox publication gate: COMPLETE
 
-Timeout budget: COMPLETE
+Tenant subscriptions: COMPLETE
 
-Reference rate-limit guard: COMPLETE
+Deterministic delivery identity: COMPLETE
 
-Correlation/request IDs: COMPLETE
+Delivery/retry/dead-letter tracking: COMPLETE
 
-Safe structured errors: COMPLETE
+Audit/log context: COMPLETE
 
-Dispatch planning: COMPLETE
+Production message broker: DEFERRED
 
-Production reverse proxy: DEFERRED
+Production event worker: DEFERRED
 
-Distributed rate limiting: DEFERRED
+Durable delivery ledger: DEFERRED
 
 ## Next Work
 
-BaaS P0 — Events service.
+BaaS P0 — Webhooks service.
 
 ## Governing Rule
 
-The API Gateway fails closed on invalid, unauthenticated, unauthorized,
-oversized, unknown, disabled, or reference-rate-limited requests. It produces
-safe dispatch metadata only; production network proxying and distributed rate
-limiting remain adapter responsibilities.
+Events BaaS never publishes before transaction commit. Only COMMITTED Kernel
+outbox events enter delivery planning. Delivery identities are deterministic,
+retries are bounded, cross-tenant subscriptions fail closed, and production
+broker/worker execution remains an adapter responsibility.
