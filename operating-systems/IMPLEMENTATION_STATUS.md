@@ -1,11 +1,40 @@
-# IMPLEMENTATION STATUS
+# Operating Systems Implementation Status
 
-## Purpose
+## Status Lifecycle
 
-## Classification
+DEFINED
+→ CLASSIFIED
+→ MODELLED
+→ PROTOTYPED
+→ IMPLEMENTED
+→ INTEGRATED
+→ AUTOMATED
+→ MEASURED
+→ OPTIMIZED
 
-## Dependencies
+---
 
-## Status
+## Priority Levels
 
-## Notes
+| Priority | Meaning |
+|----------|---------|
+| P0 | Required for foundation or MVP |
+| P1 | Required after validation |
+| P2 | Scale or platform expansion |
+| P3 | Strategic / long-term |
+| R&D | Research only |
+| RETIRED | Not implemented |
+
+---
+
+## Initial Rule
+
+No Operating System may enter implementation until it has:
+
+- Clear purpose
+- Owner
+- Classification
+- Dependencies
+- Security level
+- Roadmap phase
+- Compliance review

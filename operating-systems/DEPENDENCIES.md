@@ -1,11 +1,22 @@
-# DEPENDENCIES
+# Operating Systems Dependencies
 
-## Purpose
+## Dependency Types
 
-## Classification
+- Pillar Dependency
+- Policy Dependency
+- Kernel Dependency
+- BaaS Dependency
+- SaaS Dependency
+- Data Dependency
+- Integration Dependency
+- Security Dependency
+- Compliance Dependency
+- Business Dependency
 
-## Dependencies
+---
 
-## Status
+## Dependency Rule
 
-## Notes
+Every Operating System must declare what it depends on and what depends on it.
+
+No OS may be activated if its critical upstream dependencies are missing.
