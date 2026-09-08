@@ -140,3 +140,14 @@
 - [Usage](../developer-cloud/usage/README.md)
 - [Deployments](../developer-cloud/deployments/README.md)
 - [Developer Onboarding](../developer-cloud/onboarding/README.md)
+
+## Multi-Product Platform
+
+- [Platform Overview](../platform/README.md)
+- [Enterprise IAM](../platform/enterprise-iam/README.md)
+- [Advanced Billing](../platform/advanced-billing/README.md)
+- [Integration Hub](../platform/integration-hub/README.md)
+- [Advanced Analytics](../platform/advanced-analytics/README.md)
+- [Cross-Product Audit](../platform/cross-product-audit/README.md)
+- [Dedicated Environments](../platform/dedicated-environments/README.md)
+- [ERP Foundation](../platform/erp-foundation/README.md)
