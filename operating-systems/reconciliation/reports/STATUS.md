@@ -14,24 +14,25 @@ OS-001 → OS-269
 
 ## Canonical Classification
 
-150 / 269 complete
+200 / 269 complete
 
 ## Current Stage
 
-Cluster D classified.
+Cluster E classified.
 
 ## Completed Canonical Range
 
-OS-001 → OS-150
+OS-001 → OS-200
 
 ## Next Work
 
-OS-151 → OS-200 — Specialized & Domain Dominance.
+OS-201 → OS-269 — Advanced, Meta & Terminal.
 
 ## Governing Rule
 
 Source statements remain preserved.
 
-Unsafe or unlawful source concepts are retired or canonically reframed.
+Unsafe, unlawful, deceptive, coercive, privacy-invasive, or medically
+unsupported source concepts are retired or canonically reframed.
 
 Canonical implementation decisions are recorded separately from source history.
