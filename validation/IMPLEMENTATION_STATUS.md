@@ -229,6 +229,21 @@
 - [ ] Real Release Gate 2 proof ingested
 - [ ] Gate 3 durable derivation from real pilot evidence
 
+## Technical Attestation Execution
+
+- [x] Canonical Gate 1/2 requirement listing
+- [x] REAL_OPERATIONAL provenance
+- [x] Explicit satisfied yes/no
+- [x] Explicit evidence reference
+- [x] Placeholder evidence-reference rejection
+- [x] Timezone-aware observed_at
+- [x] Optional valid_until validation
+- [x] Canonical TechnicalAttestation validation
+- [x] Canonical evidence-envelope validation
+- [x] Owner-only inbox artifact
+- [x] No automatic gate PASS claim
+- [ ] First real technical attestation ingested
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
