@@ -293,11 +293,9 @@ status = (
 
 for phrase in [
     "- [x] Events",
-    "- [x] COMMITTED outbox publication gate",
-    "- [x] Deterministic delivery identity",
-    "- [x] Bounded retry metadata",
-    "- [x] Dead-letter terminal state",
-    "- [ ] Webhooks",
+    "- [x] Webhooks",
+    "- [x] Background Jobs",
+    "DALIZEBO BAAS P0: COMPLETE",
 ]:
     if phrase not in status:
         raise SystemExit(

@@ -527,10 +527,10 @@ class EventsManager:
             )
 
             if existing is not None:
-                if (
-                    existing.state
-                    == "DELIVERED"
-                ):
+                if existing.state in {
+                    "DELIVERED",
+                    "DEAD_LETTER",
+                }:
                     continue
 
                 plans.append(
