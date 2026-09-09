@@ -13,10 +13,9 @@ const navigation = [
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
   { href: "/phase9", label: "Phase 9", exact: false },
-  { href: "/realtime", label: "Realtime", exact: false },
 ];
 
-export default function POSPage() {
+export default function RealtimePage() {
   const pathname = usePathname();
 
   return (
@@ -34,12 +33,12 @@ export default function POSPage() {
               ? pathname === item.href
               : pathname.startsWith(item.href);
             const isPending = [
+              "/pos",
               "/backend",
               "/operations",
               "/validation",
               "/settings",
               "/phase9",
-              "/realtime",
             ].includes(item.href);
 
             return (
@@ -59,88 +58,108 @@ export default function POSPage() {
 
       <main className="container">
         <header className="page-header">
-          <h1 className="page-title">POS</h1>
+          <h1 className="page-title">Realtime</h1>
           <p className="page-subtitle">
-            Branches, staff, product search, barcode/SKU, cart, payments, receipts, returns, daily summaries
+            Database change subscriptions, inventory updates, order updates, presence, application events
           </p>
         </header>
 
         <div className="grid">
           <div className="card">
-            <h3 className="card-title">Branches & Staff</h3>
+            <h3 className="card-title">Subscription Types</h3>
             <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
-              Multi-branch management with staff roles and permissions.
+              Real-time event subscriptions with filtering and cursor-based pagination.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <span className="status-badge pending">Branches: PENDING</span>
-              <span className="status-badge pending">Staff: PENDING</span>
-              <span className="status-badge pending">Roles: PENDING</span>
+              <span className="status-badge complete">Database Changes: COMPLETE</span>
+              <span className="status-badge complete">Inventory Updates: COMPLETE</span>
+              <span className="status-badge complete">Order Updates: COMPLETE</span>
+              <span className="status-badge complete">Presence: COMPLETE</span>
+              <span className="status-badge complete">Application Events: COMPLETE</span>
             </div>
           </div>
 
           <div className="card">
-            <h3 className="card-title">POS Terminal</h3>
+            <h3 className="card-title">Filter Operators</h3>
             <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
-              Product search, barcode/SKU lookup, cart, and checkout.
+              Rich filtering for precise event selection.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <span className="status-badge pending">Product Search: PENDING</span>
-              <span className="status-badge pending">Barcode/SKU: PENDING</span>
-              <span className="status-badge pending">Cart: PENDING</span>
-              <span className="status-badge pending">Payments: PENDING</span>
+              <span className="status-badge complete">EQUALS</span>
+              <span className="status-badge complete">NOT_EQUALS</span>
+              <span className="status-badge complete">IN</span>
+              <span className="status-badge complete">NOT_IN</span>
+              <span className="status-badge complete">GT</span>
+              <span className="status-badge complete">GTE</span>
+              <span className="status-badge complete">LT</span>
+              <span className="status-badge complete">LTE</span>
+              <span className="status-badge complete">LIKE</span>
+              <span className="status-badge complete">ILIKE</span>
             </div>
           </div>
 
           <div className="card">
-            <h3 className="card-title">Receipts & Returns</h3>
+            <h3 className="card-title">Advanced Features</h3>
             <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
-              Receipt generation, return processing, and daily summaries.
+              Cursor-based pagination and connection lifecycle.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <span className="status-badge pending">Receipts: PENDING</span>
-              <span className="status-badge pending">Returns: PENDING</span>
-              <span className="status-badge pending">Daily Summaries: PENDING</span>
+              <span className="status-badge complete">Cursor Filtering</span>
+              <span className="status-badge complete">Connection Lifecycle</span>
+              <span className="status-badge complete">Tenant Isolation</span>
+              <span className="status-badge complete">Kernel Auth</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Integration Status</h3>
             <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-              <li><strong>Kernel:</strong> Commerce P0 complete</li>
+              <li><strong>Kernel:</strong> Authorization evidence required</li>
               <li><strong>BaaS:</strong> Events, Webhooks, Jobs, Audit, Logging complete</li>
-              <li><strong>SaaS:</strong> POS P0 complete (Phase 6)</li>
+              <li><strong>Realtime:</strong> <strong style={{ color: "var(--color-status-complete)" }}>COMPLETE</strong> (Phase 8)</li>
               <li><strong>UI:</strong> <strong style={{ color: "var(--color-status-pending)" }}>PENDING</strong> — Next.js implementation</li>
             </ul>
           </div>
         </div>
 
         <section className="section">
-          <h2 className="section-title">Implementation Plan</h2>
+          <h2 className="section-title">Implementation Summary</h2>
           <div className="grid">
             <div className="card">
-              <h3 className="card-title">Phase 1: Branch & Staff Setup</h3>
+              <h3 className="card-title">Subscription Management</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Branch list and creation</li>
-                <li>Staff management with roles</li>
-                <li>Branch-specific settings</li>
+                <li>Create subscriptions with kind, resource_type, filters, cursor</li>
+                <li>Delete subscriptions (cleans up connections)</li>
+                <li>List subscriptions (tenant-scoped)</li>
+                <li>Get subscription details</li>
+                <li>Connection stats</li>
               </ul>
             </div>
             <div className="card">
-              <h3 className="card-title">Phase 2: POS Terminal</h3>
+              <h3 className="card-title">Connection Lifecycle</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Product search with barcode/SKU</li>
-                <li>Cart with quantity controls</li>
-                <li>Payment method selection</li>
-                <li>Receipt preview/print</li>
+                <li>Connect to subscription (one connection per subscription)</li>
+                <li>Duplicate connection rejection</li>
+                <li>Disconnect</li>
+                <li>Auto-cleanup on subscription deletion</li>
               </ul>
             </div>
             <div className="card">
-              <h3 className="card-title">Phase 3: Returns & Reporting</h3>
+              <h3 className="card-title">Broadcast & Filtering</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Return initiation from history</li>
-                <li>Daily summary dashboard</li>
-                <li>Branch performance comparison</li>
-                <li>Shift handoff</li>
+                <li>Broadcast to matching subscriptions by kind + resource_type</li>
+                <li>Field-level filters (10 operators)</li>
+                <li>Cursor-based filtering (only newer events)</li>
+                <li>Cross-tenant isolation enforced</li>
+              </ul>
+            </div>
+            <div className="card">
+              <h3 className="card-title">Security</h3>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
+                <li>Kernel authorization evidence required (kernel_auth_*)</li>
+                <li>Tenant isolation at subscription, connection, broadcast levels</li>
+                <li>Cross-tenant access denied at all levels</li>
+                <li>Filter operator validation</li>
               </ul>
             </div>
           </div>

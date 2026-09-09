@@ -13,6 +13,7 @@ const navigation = [
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
   { href: "/phase9", label: "Phase 9", exact: false },
+  { href: "/realtime", label: "Realtime", exact: false },
 ];
 
 export default function DashboardPage() {
@@ -40,6 +41,7 @@ export default function DashboardPage() {
               "/validation",
               "/settings",
               "/phase9",
+              "/realtime",
             ].includes(item.href);
 
             return (

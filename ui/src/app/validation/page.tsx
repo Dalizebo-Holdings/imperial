@@ -13,6 +13,7 @@ const navigation = [
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
   { href: "/phase9", label: "Phase 9", exact: false },
+  { href: "/realtime", label: "Realtime", exact: false },
 ];
 
 export default function ValidationPage() {
@@ -32,7 +33,7 @@ export default function ValidationPage() {
             const isActive = item.exact
               ? pathname === item.href
               : pathname.startsWith(item.href);
-            const isPending = ["/settings", "/phase9"].includes(item.href);
+            const isPending = ["/settings", "/phase9", "/realtime"].includes(item.href);
 
             return (
               <Link
