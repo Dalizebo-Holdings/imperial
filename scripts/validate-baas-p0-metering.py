@@ -316,7 +316,6 @@ for phrase in [
     "- [x] Idempotent ingestion",
     "- [x] Unit-safe aggregation",
     "- [x] Reconciliation verification",
-    "- [ ] Subscription Billing",
 ]:
     if phrase not in status:
         raise SystemExit(

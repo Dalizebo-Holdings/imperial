@@ -37,10 +37,11 @@ Phase 8
 - [x] Kernel recursive redaction preservation
 - [x] Tenant-scoped log query
 - [x] Retention cutoff metadata
-- [x] Realtime
 - [ ] Usage Metering
-- [x] Subscription Billing
+- [ ] Subscription Billing
+- [x] Realtime
 - [x] Payment Abstraction
+- [x] Currency Conversion
 - [x] Secrets
 - [x] Backups
 
