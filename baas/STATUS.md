@@ -2,7 +2,7 @@
 
 ## Phase
 
-Phase 5 — Dalizebo BaaS
+Phase 8 — Platform Hardening
 
 ## Prerequisite
 
@@ -10,78 +10,45 @@ Kernel P0: COMPLETE
 
 ## Current Stage
 
-Dalizebo BaaS P0 complete.
+Phase 8 outbox processing durability foundations installed.
 
-## P0 Services
+## Outbox
 
-Authentication: COMPLETE
+Kernel outbox event state: COMPLETE
+Committed-only publish handoff: COMPLETE
+Durable delivery hardening migration: COMPLETE
+Bounded outbox processing loop: COMPLETE
+Lease ownership and expiry: COMPLETE
+Atomic claim semantics: COMPLETE
+Exponential retry scheduling: COMPLETE
+Durable publish acknowledgement: COMPLETE
+DEAD_LETTER terminal persistence: COMPLETE
+Crash/expired-lease recovery: COMPLETE
+Tenant/correlation preservation: COMPLETE
+Concurrency validation: COMPLETE
+PostgreSQL integration validation: COMPLETE
 
-PostgreSQL Database: COMPLETE
+## Outbox Observability
 
-Object Storage: COMPLETE
+Outbox observability contract: COMPLETE
+Claimed/published/retry/scheduled/dead-letter events: COMPLETE
+Identity binding to emitter: COMPLETE
+Signed source-service allowlist: COMPLETE
+Leaked-payload guardrails: COMPLETE
+Delivery rate-limit envelope: COMPLETE
 
-Serverless Functions: COMPLETE
+## Deferred Runtime
 
-API Gateway: COMPLETE
-
-Events: COMPLETE
-
-Webhooks: COMPLETE
-
-Background Jobs: COMPLETE
-
-Audit: COMPLETE
-
-Logging: COMPLETE
-
-Usage Metering: COMPLETE
-
-Subscription Billing: COMPLETE
-
-Payment Abstraction: COMPLETE
-
-Secrets: COMPLETE
-
-Backups: COMPLETE
-
-## Backups
-
-Kernel Backup authority boundary: COMPLETE
-
-Tenant/resource policy: COMPLETE
-
-Production encryption/immutable/offsite rules: COMPLETE
-
-Retention/frequency/RPO/RTO: COMPLETE
-
-Automated-backup due calculation: COMPLETE
-
-Backup evidence: COMPLETE
-
-Restore testing: COMPLETE
-
-Restore-test staleness enforcement: COMPLETE
-
-Trusted recovery gate: COMPLETE
-
-Restore planning: COMPLETE
-
-Provider execution: DEFERRED
-
-Operational RPO/RTO measurement: DEFERRED
-
-## Phase 5 Result
-
-DALIZEBO BAAS P0: COMPLETE
+Production outbox worker scheduler: DEFERRED
+Operational observability pipeline: DEFERRED
 
 ## Next Work
 
-Phase 6 — Commerce + POS foundation.
+Phase 8 outbox observability guardrails and delivery rate-limit envelope review.
 
 ## Governing Rule
 
-Dalizebo BaaS extends the Kernel without replacing Kernel authority. Backup and
-restore operations remain provider-neutral and adapter-driven; production
-backups are not trusted until restoration has been successfully verified within
-the configured restore-test interval. All BaaS P0 service boundaries remain
-tenant-scoped, Kernel-authorized, auditable, and reference-safe.
+Kernel remains authoritative for outbox event state. BaaS provides
+orchestration and delivery planning only. Outbox processing never
+publishes before transaction commit and never duplicates Kernel event
+authority.

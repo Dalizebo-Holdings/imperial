@@ -2,7 +2,7 @@
 
 ## Phase
 
-Phase 5
+Phase 8
 
 ## P0 Services
 
@@ -18,58 +18,52 @@ Phase 5
 - [x] API Gateway
 - [x] Events
 - [x] Webhooks
-- [x] HMAC-SHA256 signing contract
-- [x] Bounded timeout/retry policy
-- [x] Replay with linked delivery identity
-- [x] Signing-secret rotation metadata
 - [x] Background Jobs
 - [x] Audit
 - [x] Logging
-- [x] Kernel Structured Logging authority boundary
-- [x] Kernel recursive redaction preservation
-- [x] Tenant-scoped log query
-- [x] Retention cutoff metadata
 - [ ] Usage Metering
 - [x] Subscription Billing
 - [x] Payment Abstraction
 - [x] Secrets
 - [x] Backups
 
-## Backups P0 Components
+## Outbox Processing
 
-- [x] Kernel Backup authority boundary
-- [x] Tenant/resource backup policies
-- [x] Provider-neutral backup registry
-- [x] Secret-reference provider credentials
-- [x] Production encryption/immutable/offsite requirements
-- [x] Retention/frequency/RPO/RTO policy
-- [x] Automated-backup due calculation
-- [x] Backup execution planning
-- [x] Strict opaque backup references
-- [x] Timezone-aware backup evidence
-- [x] Successful-backup checksum requirement
-- [x] Restore-test planning
-- [x] Restore verification through Kernel registry
-- [x] Secret-safe restore notes
-- [x] Restore-test staleness enforcement
-- [x] Trusted recovery gate
-- [x] Restore execution planning
-- [x] Audit evidence
-- [x] Kernel authorization evidence requirement
+- [x] Kernel outbox event state remains authoritative
+- [x] Committed-only publish handoff from Kernel to BaaS events
+- [x] Durable outbox delivery hardening migration
+- [x] Bounded outbox processing loop with worker leasing
+- [x] Lease ownership and expiry
+- [x] Atomic claim semantics via FOR UPDATE SKIP LOCKED
+- [x] Exponential retry scheduling inside Kernel bounds
+- [x] Durable publish acknowledgement persistence
+- [x] DEAD_LETTER terminal persistence
+- [x] Crash and expired-lease recovery
+- [x] Tenant and correlation context preservation
+- [x] Out-of-process concurrency validation
+- [x] PostgreSQL integration validation
 
-## Backups Deferred Runtime
+## Outbox Observability
 
-- [ ] Production PostgreSQL backup/PITR adapter
-- [ ] Production object-storage backup adapter
-- [ ] Cross-region/immutable-copy provider adapter
-- [ ] Restore executor
-- [ ] Backup scheduler
-- [ ] Operational RPO/RTO measurement
+- [x] Outbox observability structured log contract
+- [x] Claimed / published / retry_scheduled / dead_letter events
+- [x] Identity binding to emitter, not runtime correlation
+- [x] Signed source-service allowlist
+- [x] Leaked-payload guardrails
+- [x] Delivery rate-limit envelope
 
-## Phase 5 P0 Result
+## Runtime Status
+
+Kernel outbox runtime: INSTALLED
+Kernel outbox processor: INSTALLED
+Kernel outbox observability: INSTALLED
+PostgreSQL worker integration: VALIDATED
+
+## Deferred Runtime
+
+Production outbox worker scheduler: DEFERRED
+Operational observability pipeline: DEFERRED
+
+## Phase 5 Result
 
 DALIZEBO BAAS P0: COMPLETE
-
-## Current Next Work
-
-Phase 6 — Commerce + POS foundation.
