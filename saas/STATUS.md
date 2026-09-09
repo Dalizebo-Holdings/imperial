@@ -14,7 +14,7 @@ Dalizebo Commerce P0: COMPLETE
 
 ## Current Stage
 
-Dalizebo POS P0 complete.
+Phase 6 Commerce + POS MVP complete.
 
 ## POS
 
@@ -82,15 +82,37 @@ Commerce P0: COMPLETE
 
 POS P0: COMPLETE
 
-MVP acceptance/integration closure: NEXT
+MVP acceptance/integration closure: COMPLETE
+
+PHASE 6: COMPLETE
+
+## Commerce Refund Closure
+
+Auditable provider refund orchestration: COMPLETE
+
+Kernel Refund cumulative cap: COMPLETE
+
+BaaS Payment Abstraction refund delegation: COMPLETE
+
+Partial refund preserves CAPTURED Payment: COMPLETE
+
+Full cumulative refund CAPTURED→REFUNDED: COMPLETE
+
+## MVP Acceptance
+
+Commerce criteria: PASS
+
+POS criteria: PASS
+
+Platform criteria: PASS
 
 ## Next Work
 
-Phase 6 — Commerce + POS MVP Acceptance & Integration Closure.
+Phase 7 — Product-Market Validation.
 
 ## Governing Rule
 
-POS Returns use the shared Kernel Refund invariant and BaaS Payment Abstraction
+Phase 6 completion is an MVP/P0 implementation milestone, not a declaration of full production hardening. POS Returns use the shared Kernel Refund invariant and BaaS Payment Abstraction
 for external card refunds. Returned quantities may not exceed sold quantities,
 cumulative refunds may not exceed captured payment value, inventory restock is
 atomic with Refund recording, and only a full cumulative refund may transition

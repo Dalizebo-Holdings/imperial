@@ -87,14 +87,38 @@ DALIZEBO POS P0: COMPLETE
 - [ ] Staff reporting
 - [ ] Purchase history
 
+## Commerce Refund Closure
+
+- [x] Provider refund planning through BaaS Payment Abstraction
+- [x] Shared Kernel Refund validation
+- [x] Auditable shared REFUND command
+- [x] Partial refund preserves CAPTURED Payment
+- [x] Full cumulative refund explicitly transitions CAPTURED→REFUNDED
+- [x] Cross-tenant refund evidence rejection
+- [x] Refund idempotency
+
+## Phase 6 MVP Acceptance
+
+- [x] Commerce acceptance criteria
+- [x] POS acceptance criteria
+- [x] No cross-tenant exposure gate
+- [x] No duplicated authoritative SaaS SQL models
+- [x] Critical-operation idempotency
+- [x] Audit evidence
+- [x] Payment reconciliation
+- [x] Logging + metrics platform evidence
+- [x] Backup restore-test platform evidence
+
 ## Phase 6 State
 
 Commerce P0: COMPLETE
 
 POS P0: COMPLETE
 
-MVP acceptance/integration sweep: NEXT
+MVP acceptance/integration sweep: COMPLETE
+
+PHASE 6: COMPLETE
 
 ## Current Next Work
 
-Phase 6 — Commerce + POS MVP Acceptance & Integration Closure.
+Phase 7 — Product-Market Validation.
