@@ -7,11 +7,7 @@ import json
 from types import TracebackType
 from typing import Any, Callable, Mapping, Sequence, Self
 
-from kernel.observability.logging import (
-    InMemoryStructuredLogSink,
-    StructuredLogRecord,
-    redact,
-)
+from kernel.observability.logging import InMemoryStructuredLogSink, redact
 
 
 class OutboxObservabilityError(ValueError):
