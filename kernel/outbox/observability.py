@@ -7,14 +7,22 @@ import json
 from types import TracebackType
 from typing import Any, Callable, Mapping, Sequence, Self
 
-from kernel.observability.logging import InMemoryStructuredLogSink, redact
+from kernel.observability.logging import InMemoryStructuredLogSink
 
 
 class OutboxObservabilityError(ValueError):
     pass
 
 
-OBSERVABLE_SOURCE_SERVICE = "outbox_worker"
+OBSERVABLE_SOURCE_SERVICE = "kernel.outbox"
+OBSERVABLE_KNOWN_SERVICES = frozenset({
+    "kernel.outbox",
+    "kernel.outbox.worker",
+    "kernel.outbox.processor",
+    "baas.outbox",
+})
+
+_VALIDABLE_SERVICE_NAMES: frozenset[str] = frozenset()
 
 DELIVERED_EVENT = "outbox.published"
 RETRY_SCHEDULED_EVENT = "outbox.retry_scheduled"
@@ -46,6 +54,8 @@ SENSITIVE_OUTBOX_FIELDS = {
 
 
 def _safe_outbox_fields(fields: Mapping[str, Any]) -> dict[str, Any]:
+    from kernel.observability.logging import redact
+
     return redact(dict(fields))
 
 
@@ -93,9 +103,11 @@ class OutboxObservabilityEmitter:
             raise OutboxObservabilityError("worker_id required")
         if self.lease_seconds < 1:
             raise OutboxObservabilityError("lease_seconds must be >= 1")
-        if self.source_service.strip() != OBSERVABLE_SOURCE_SERVICE:
+        if not self.source_service.strip():
+            raise OutboxObservabilityError("source_service must not be empty")
+        if self.source_service not in OBSERVABLE_KNOWN_SERVICES:
             raise OutboxObservabilityError(
-                f"source_service must be {OBSERVABLE_SOURCE_SERVICE}"
+                f"source_service must be one of: {', '.join(sorted(OBSERVABLE_KNOWN_SERVICES))}"
             )
 
     def emit_claimed(
@@ -105,17 +117,21 @@ class OutboxObservabilityEmitter:
         worker_id: str | None = None,
     ) -> dict[str, Any]:
         self.validate()
+        effective_worker_id = worker_id or self.worker_id
         return self.sink.emit(
             level="INFO",
             event=CLAIMED_EVENT,
             correlation_id=self.correlation_id,
             organization_id=self.organization_id,
-            actor_id=worker_id or self.worker_id,
+            actor_id=effective_worker_id,
             fields={
                 "event_id": fact.event_id,
+                "correlation_id": self.correlation_id,
+                "organization_id": self.organization_id,
+                "actor_id": effective_worker_id,
                 "attempt_count": fact.attempt_count,
                 "max_attempts": fact.max_attempts,
-                "lock_owner": worker_id or self.worker_id,
+                "lock_owner": effective_worker_id,
                 "lock_expires_at": (
                     fact.lock_expires_at
                     if isinstance(fact.lock_expires_at, str)
@@ -217,6 +233,9 @@ class OutboxObservabilityEmitter:
             actor_id=self.worker_id,
             fields={
                 "event_id": fact.event_id,
+                "correlation_id": self.correlation_id,
+                "organization_id": self.organization_id,
+                "actor_id": self.worker_id,
                 "delivery_id": fact.delivery_id,
                 "subscription_id": fact.subscription_id,
                 "attempt_count": fact.attempt_count,
@@ -226,6 +245,9 @@ class OutboxObservabilityEmitter:
                 "resource_id": fact.resource_id,
                 "outbox_status": "PUBLISHED",
                 "outcome": "published",
+                "correlation_id": self.correlation_id,
+                "organization_id": self.organization_id,
+                "actor_id": self.worker_id,
             },
         )
 
