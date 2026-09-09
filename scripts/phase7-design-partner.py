@@ -10,10 +10,7 @@ import uuid
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
-    sys.path.insert(
-        0,
-        str(ROOT),
-    )
+    sys.path.insert(0, str(ROOT))
 
 from validation.evidence.collection import (  # noqa: E402
     DEFAULT_INBOX,
@@ -25,126 +22,101 @@ from validation.evidence.store import (  # noqa: E402
     EvidenceStoreError,
 )
 
+CRITERIA = (
+    "active_retail_operations",
+    "real_inventory",
+    "real_customers",
+    "transaction_volume_confirmed",
+    "willingness_to_test",
+    "structured_feedback_available",
+)
 
-def _real_interviews(
-    store: DurableEvidenceStore,
-) -> list[dict]:
-    result = []
 
+def _read_ledger_rows(store: DurableEvidenceStore) -> list[dict]:
     if not store.path.exists():
-        return result
+        return []
 
-    with store.path.open(
-        "r",
-        encoding="utf-8",
-    ) as handle:
-        for raw in handle:
+    rows: list[dict] = []
+    with store.path.open("r", encoding="utf-8") as handle:
+        for line_number, raw in enumerate(handle, start=1):
             raw = raw.strip()
             if not raw:
                 continue
-
-            value = json.loads(
-                raw
-            )
-
-            if (
-                str(
-                    value.get(
-                        "origin",
-                        "",
-                    )
-                ).strip().upper()
-                != "REAL_MERCHANT"
-            ):
-                continue
-
-            if (
-                str(
-                    value.get(
-                        "evidence_type",
-                        "",
-                    )
-                ).strip().upper()
-                != "DISCOVERY_INTERVIEW"
-            ):
-                continue
-
-            payload = value.get(
-                "payload",
-                {}
-            )
-
-            if not isinstance(
-                payload,
-                dict,
-            ):
-                continue
-
-            merchant_ref = str(
-                payload.get(
-                    "merchant_ref",
-                    "",
+            try:
+                value = json.loads(raw)
+            except json.JSONDecodeError as exc:
+                raise EvidenceStoreError(
+                    f"invalid JSON at ledger line {line_number}"
+                ) from exc
+            if not isinstance(value, dict):
+                raise EvidenceStoreError(
+                    f"ledger line {line_number} is not an object"
                 )
-            ).strip()
+            rows.append(value)
+    return rows
 
-            if not merchant_ref.startswith(
-                "merchant://"
-            ):
-                continue
 
-            result.append({
-                "merchant_ref": merchant_ref,
-                "interview_id": str(
-                    payload.get(
-                        "interview_id",
-                        "",
-                    )
-                ),
-                "merchant_segment": str(
-                    payload.get(
-                        "merchant_segment",
-                        "",
-                    )
-                ),
-                "products": list(
-                    payload.get(
-                        "products",
-                        [],
-                    )
-                ),
-                "core_problem_material": bool(
-                    payload.get(
-                        "core_problem_material",
-                        False,
-                    )
-                ),
-                "willingness_to_test": bool(
-                    payload.get(
-                        "willingness_to_test",
-                        False,
-                    )
-                ),
-                "structured_feedback_available": bool(
-                    payload.get(
-                        "structured_feedback_available",
-                        False,
-                    )
-                ),
-                "interview_evidence_ref": str(
-                    value.get(
-                        "evidence_ref",
-                        "",
-                    )
-                ),
-            })
+def _real_interviews(store: DurableEvidenceStore) -> list[dict]:
+    result: list[dict] = []
+
+    for value in _read_ledger_rows(store):
+        if str(value.get("origin", "")).strip().upper() != "REAL_MERCHANT":
+            continue
+        if (
+            str(value.get("evidence_type", "")).strip().upper()
+            != "DISCOVERY_INTERVIEW"
+        ):
+            continue
+
+        payload = value.get("payload", {})
+        if not isinstance(payload, dict):
+            continue
+
+        merchant_ref = str(payload.get("merchant_ref", "")).strip()
+        if not merchant_ref.startswith("merchant://"):
+            continue
+
+        metadata = payload.get("metadata", {})
+        if not isinstance(metadata, dict):
+            metadata = {}
+
+        item = {
+            "merchant_ref": merchant_ref,
+            "interview_id": str(payload.get("interview_id", "")),
+            "merchant_segment": str(payload.get("merchant_segment", "")),
+            "products": list(payload.get("products", [])),
+            "core_problem_material": bool(
+                payload.get("core_problem_material", False)
+            ),
+            "active_retail_operations": bool(
+                metadata.get("active_retail_operations", False)
+            ),
+            "real_inventory": bool(metadata.get("real_inventory", False)),
+            "real_customers": bool(metadata.get("real_customers", False)),
+            "transaction_volume_confirmed": bool(
+                metadata.get("transaction_volume_confirmed", False)
+            ),
+            "willingness_to_test": bool(
+                payload.get("willingness_to_test", False)
+            ),
+            "structured_feedback_available": bool(
+                payload.get("structured_feedback_available", False)
+            ),
+            "interview_evidence_ref": str(value.get("evidence_ref", "")),
+        }
+
+        missing = [
+            criterion
+            for criterion in CRITERIA
+            if item[criterion] is not True
+        ]
+        item["eligible"] = not missing
+        item["missing_criteria"] = missing
+        result.append(item)
 
     result.sort(
-        key=lambda item: (
-            item["interview_id"],
-            item["merchant_ref"],
-        )
+        key=lambda item: (item["interview_id"], item["merchant_ref"])
     )
-
     return result
 
 
@@ -153,324 +125,153 @@ def _existing_commitment_merchants(
 ) -> set[str]:
     merchants: set[str] = set()
 
-    if not store.path.exists():
-        return merchants
+    for value in _read_ledger_rows(store):
+        if str(value.get("origin", "")).strip().upper() == "TEST_FIXTURE":
+            continue
+        if (
+            str(value.get("evidence_type", "")).strip().upper()
+            != "DESIGN_PARTNER_COMMITMENT"
+        ):
+            continue
 
-    with store.path.open(
-        "r",
-        encoding="utf-8",
-    ) as handle:
-        for raw in handle:
-            raw = raw.strip()
-            if not raw:
-                continue
+        payload = value.get("payload", {})
+        if not isinstance(payload, dict):
+            continue
 
-            value = json.loads(
-                raw
-            )
-
-            if (
-                str(
-                    value.get(
-                        "origin",
-                        "",
-                    )
-                ).strip().upper()
-                == "TEST_FIXTURE"
-            ):
-                continue
-
-            if (
-                str(
-                    value.get(
-                        "evidence_type",
-                        "",
-                    )
-                ).strip().upper()
-                != "DESIGN_PARTNER_COMMITMENT"
-            ):
-                continue
-
-            payload = value.get(
-                "payload",
-                {}
-            )
-
-            if isinstance(
-                payload,
-                dict,
-            ):
-                merchant_ref = str(
-                    payload.get(
-                        "merchant_ref",
-                        "",
-                    )
-                ).strip()
-                if merchant_ref:
-                    merchants.add(
-                        merchant_ref
-                    )
+        merchant_ref = str(payload.get("merchant_ref", "")).strip()
+        if merchant_ref:
+            merchants.add(merchant_ref)
 
     return merchants
 
 
-def _eligible(
-    store: DurableEvidenceStore,
-) -> list[dict]:
-    committed = (
-        _existing_commitment_merchants(
-            store
-        )
-    )
+def _triage(store: DurableEvidenceStore) -> dict:
+    committed = _existing_commitment_merchants(store)
 
-    return [
-        item
-        for item in _real_interviews(
-            store
+    eligible: list[dict] = []
+    discovery_only: list[dict] = []
+    already_committed: list[dict] = []
+
+    for item in _real_interviews(store):
+        if item["merchant_ref"] in committed:
+            already_committed.append(item)
+        elif item["eligible"]:
+            eligible.append(item)
+        else:
+            discovery_only.append(item)
+
+    missing_frequency = {
+        criterion: 0
+        for criterion in CRITERIA
+    }
+
+    for item in discovery_only:
+        for criterion in item["missing_criteria"]:
+            missing_frequency[criterion] += 1
+
+    recruitment_priority = [
+        criterion
+        for criterion, count in sorted(
+            missing_frequency.items(),
+            key=lambda pair: (-pair[1], pair[0]),
         )
-        if item["merchant_ref"]
-        not in committed
+        if count
     ]
 
-
-def _yes_no(
-    prompt: str,
-) -> bool:
-    while True:
-        raw = input(
-            f"{prompt} [y/n]: "
-        ).strip().lower()
-
-        if raw in {
-            "y",
-            "yes",
-        }:
-            return True
-
-        if raw in {
-            "n",
-            "no",
-        }:
-            return False
-
-        print(
-            "Enter y or n."
-        )
+    return {
+        "eligible_count": len(eligible),
+        "eligible": eligible,
+        "discovery_only_count": len(discovery_only),
+        "discovery_only": discovery_only,
+        "already_committed_count": len(already_committed),
+        "already_committed": already_committed,
+        "recruitment_priority_missing_criteria": recruitment_priority,
+        "discovery_target_deferred_not_waived": True,
+    }
 
 
-def _select(
-    candidates: list[dict],
-) -> dict:
+def _select(candidates: list[dict]) -> dict:
     if not candidates:
         raise SystemExit(
-            "ERROR: no eligible ingested REAL_MERCHANT discovery interviews found"
+            "ERROR: no design-partner-eligible interviewed merchants found; "
+            "review `list` and recruit against missing criteria"
         )
 
-    print(
-        "Eligible interviewed merchants:"
-    )
-
-    for index, item in enumerate(
-        candidates,
-        start=1,
-    ):
+    print("Eligible interviewed merchants:")
+    for index, item in enumerate(candidates, start=1):
         print(
-            f"{index}. "
-            f"{item['merchant_segment']} | "
+            f"{index}. {item['merchant_segment']} | "
             f"{item['merchant_ref']} | "
-            f"material={str(item['core_problem_material']).lower()} | "
-            f"test={str(item['willingness_to_test']).lower()} | "
-            f"feedback={str(item['structured_feedback_available']).lower()}"
+            f"material={str(item['core_problem_material']).lower()}"
         )
 
     while True:
-        raw = input(
-            "Select merchant number: "
-        ).strip()
-
+        raw = input("Select merchant number: ").strip()
         try:
-            selected = int(
-                raw
-            )
+            selected = int(raw)
         except ValueError:
-            print(
-                "Enter a valid number."
-            )
+            print("Enter a valid number.")
             continue
 
-        if (
-            1
-            <= selected
-            <= len(
-                candidates
-            )
-        ):
-            return candidates[
-                selected - 1
-            ]
-
-        print(
-            "Selection is out of range."
-        )
+        if 1 <= selected <= len(candidates):
+            return candidates[selected - 1]
+        print("Selection is out of range.")
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
         description=(
-            "Create a real Phase 7 design-partner candidate "
-            "from an already-ingested merchant discovery interview."
+            "Triage real Phase 7 discovery interviews and create "
+            "design-partner commitments only for canonically eligible merchants."
         )
     )
-    parser.add_argument(
-        "--ledger",
-        help="override durable evidence ledger path",
-    )
+    parser.add_argument("--ledger", help="override durable evidence ledger path")
     parser.add_argument(
         "--inbox",
-        default=str(
-            DEFAULT_INBOX
-        ),
+        default=str(DEFAULT_INBOX),
         help="active evidence inbox",
     )
 
-    sub = parser.add_subparsers(
-        dest="command",
-        required=True,
-    )
-
-    sub.add_parser(
-        "list",
-    )
-    sub.add_parser(
-        "create",
-    )
+    sub = parser.add_subparsers(dest="command", required=True)
+    sub.add_parser("list")
+    sub.add_parser("create")
 
     args = parser.parse_args()
-    store = DurableEvidenceStore(
-        args.ledger
-    )
+    store = DurableEvidenceStore(args.ledger)
 
     try:
-        candidates = _eligible(
-            store
-        )
+        triage = _triage(store)
     except EvidenceStoreError as exc:
-        print(
-            f"ERROR: {exc}",
-            file=sys.stderr,
-        )
+        print(f"ERROR: {exc}", file=sys.stderr)
         return 2
 
     if args.command == "list":
-        print(
-            json.dumps(
-                {
-                    "eligible_count": len(
-                        candidates
-                    ),
-                    "candidates": candidates,
-                    "discovery_target_deferred_not_waived": True,
-                },
-                indent=2,
-                sort_keys=True,
-            )
-        )
+        print(json.dumps(triage, indent=2, sort_keys=True))
         return 0
 
-    merchant = _select(
-        candidates
-    )
-
-    print()
-    print(
-        "Confirm canonical design-partner selection criteria."
-    )
-
-    active_retail_operations = _yes_no(
-        "Does this merchant have active retail operations?"
-    )
-    real_inventory = _yes_no(
-        "Does this merchant manage real inventory?"
-    )
-    real_customers = _yes_no(
-        "Does this merchant serve real customers?"
-    )
-    transaction_volume_confirmed = _yes_no(
-        "Is recurring transaction volume confirmed?"
-    )
-
-    willingness_to_test = bool(
-        merchant[
-            "willingness_to_test"
-        ]
-    )
-    structured_feedback_available = bool(
-        merchant[
-            "structured_feedback_available"
-        ]
-    )
-
-    checks = {
-        "active_retail_operations": (
-            active_retail_operations
-        ),
-        "real_inventory": real_inventory,
-        "real_customers": real_customers,
-        "transaction_volume_confirmed": (
-            transaction_volume_confirmed
-        ),
-        "willingness_to_test": (
-            willingness_to_test
-        ),
-        "structured_feedback_available": (
-            structured_feedback_available
-        ),
-    }
+    merchant = _select(triage["eligible"])
 
     failed = [
-        name
-        for name, passed in checks.items()
-        if passed is not True
+        criterion
+        for criterion in CRITERIA
+        if merchant[criterion] is not True
     ]
-
     if failed:
         print(
-            "NOT ELIGIBLE: merchant does not satisfy canonical design-partner criteria: "
-            + ", ".join(
-                failed
-            ),
+            "ERROR: merchant eligibility changed or is invalid: "
+            + ", ".join(failed),
             file=sys.stderr,
         )
         return 3
 
     now = datetime.now().astimezone()
     commitment_uuid = uuid.uuid4().hex
-    commitment_id = (
-        "commitment_"
-        + commitment_uuid
-    )
-
-    domain_evidence_ref = (
-        "evidence://phase7/design-partner/"
-        + commitment_uuid
-    )
-    envelope_evidence_ref = (
-        "evidence://phase7/design-partner-envelope/"
-        + commitment_uuid
-    )
+    commitment_id = "commitment_" + commitment_uuid
 
     payload = {
         "commitment_id": commitment_id,
-        "merchant_ref": (
-            merchant[
-                "merchant_ref"
-            ]
-        ),
-        "products": list(
-            merchant[
-                "products"
-            ]
-        ),
+        "merchant_ref": merchant["merchant_ref"],
+        "products": list(merchant["products"]),
         "committed_at": now.isoformat(),
         "active_retail_operations": True,
         "real_inventory": True,
@@ -480,46 +281,36 @@ def main() -> int:
         "structured_feedback_available": True,
         "pilot_status": "CANDIDATE",
         "evidence_ref": (
-            domain_evidence_ref
+            "evidence://phase7/design-partner/" + commitment_uuid
         ),
         "metadata": {
-            "linked_interview_id": (
-                merchant[
-                    "interview_id"
-                ]
-            ),
-            "linked_interview_evidence_ref": (
-                merchant[
-                    "interview_evidence_ref"
-                ]
-            ),
+            "linked_interview_id": merchant["interview_id"],
+            "linked_interview_evidence_ref": merchant[
+                "interview_evidence_ref"
+            ],
+            "eligibility_source": "INGESTED_DISCOVERY_INTERVIEW",
             "discovery_target_deferred_not_waived": True,
         },
     }
 
     envelope = {
         "envelope_id": (
-            "design-partner-envelope-"
-            + commitment_uuid
+            "design-partner-envelope-" + commitment_uuid
         ),
-        "evidence_type": (
-            "DESIGN_PARTNER_COMMITMENT"
-        ),
+        "evidence_type": "DESIGN_PARTNER_COMMITMENT",
         "origin": "REAL_MERCHANT",
         "observed_at": now.isoformat(),
         "evidence_ref": (
-            envelope_evidence_ref
+            "evidence://phase7/design-partner-envelope/" + commitment_uuid
         ),
         "source_system_ref": (
-            "source://validation/design-partner-execution"
+            "source://validation/design-partner-eligibility-triage"
         ),
         "payload": payload,
     }
 
     try:
-        envelope_from_input(
-            envelope
-        )
+        envelope_from_input(envelope)
     except EvidenceCollectionError as exc:
         print(
             f"ERROR: generated commitment evidence is invalid: {exc}",
@@ -527,18 +318,9 @@ def main() -> int:
         )
         return 2
 
-    inbox = Path(
-        args.inbox
-    ).expanduser().resolve()
-    inbox.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    target = (
-        inbox
-        / f"{commitment_id}.json"
-    )
+    inbox = Path(args.inbox).expanduser().resolve()
+    inbox.mkdir(parents=True, exist_ok=True)
+    target = inbox / f"{commitment_id}.json"
 
     if target.exists():
         print(
@@ -548,54 +330,28 @@ def main() -> int:
         return 2
 
     target.write_text(
-        json.dumps(
-            envelope,
-            indent=2,
-            sort_keys=True,
-        )
-        + "\n",
+        json.dumps(envelope, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-    target.chmod(
-        0o600
-    )
+    target.chmod(0o600)
 
     print(
         json.dumps(
             {
-                "created": str(
-                    target
-                ),
-                "merchant_ref": (
-                    merchant[
-                        "merchant_ref"
-                    ]
-                ),
-                "commitment_id": (
-                    commitment_id
-                ),
-                "pilot_status": (
-                    "CANDIDATE"
-                ),
-                "state": (
-                    "READY_FOR_INBOX_PREFLIGHT"
-                ),
-                "discovery_gate": (
-                    "STILL_PENDING"
-                ),
-                "phase8": (
-                    "BLOCKED"
-                ),
+                "created": str(target),
+                "merchant_ref": merchant["merchant_ref"],
+                "commitment_id": commitment_id,
+                "pilot_status": "CANDIDATE",
+                "state": "READY_FOR_INBOX_PREFLIGHT",
+                "discovery_gate": "STILL_PENDING",
+                "phase8": "BLOCKED",
             },
             indent=2,
             sort_keys=True,
         )
     )
-
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(
-        main()
-    )
+    raise SystemExit(main())

@@ -274,6 +274,22 @@ Phase 8 bypass: PROHIBITED
 
 Actual design-partner commitment: EVIDENCE COLLECTION PENDING
 
+## Design-Partner Eligibility Triage
+
+Pre-selection canonical eligibility classification: COMPLETE
+
+Eligible vs discovery-only separation: COMPLETE
+
+Missing-criteria reporting: COMPLETE
+
+Recruitment-priority derivation: COMPLETE
+
+Ineligible merchant selection: PROHIBITED
+
+Existing discovery evidence mutation for eligibility: PROHIBITED
+
+Actual design-partner commitment: EVIDENCE COLLECTION PENDING
+
 ## Durable Discovery Gate Derivation
 
 Durable ledger -> canonical Discovery registry reconstruction: COMPLETE

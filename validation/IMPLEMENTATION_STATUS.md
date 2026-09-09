@@ -201,6 +201,18 @@
 - [x] Deferred target cannot be waived
 - [ ] Real discovery GATE_PROOF ingested
 
+## Design-Partner Eligibility Triage
+
+- [x] Canonical six-criterion pre-selection classification
+- [x] Eligible merchant list
+- [x] Discovery-only merchant list
+- [x] Missing-criteria reporting
+- [x] Already-committed exclusion
+- [x] Recruitment-priority derivation
+- [x] Ineligible selection prevention
+- [x] Existing interview evidence remains immutable
+- [ ] First eligible design-partner commitment ingested
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
