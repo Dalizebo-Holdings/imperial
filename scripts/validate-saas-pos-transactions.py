@@ -567,8 +567,10 @@ for phrase in [
     "- [x] Card payment recording",
     "- [x] Receipts",
     "- [x] Inventory deduction",
-    "- [ ] Returns",
-    "POS P0 — Returns + Daily Summaries.",
+    "- [x] Returns",
+    "- [x] Daily summaries",
+    "DALIZEBO POS P0: COMPLETE",
+    "PHASE 6: COMPLETE",
 ]:
     if phrase not in status:
         raise SystemExit(

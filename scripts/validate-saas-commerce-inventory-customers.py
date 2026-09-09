@@ -367,10 +367,11 @@ status = (
 for phrase in [
     "- [x] Inventory",
     "- [x] Customers",
-    "- [x] Optimistic expected-quantity persistence requirement",
-    "- [x] PII policy reference requirement",
-    "- [ ] Cart",
-    "Commerce P0 — Cart + Checkout + Orders.",
+    "- [x] Cart",
+    "- [x] Checkout",
+    "- [x] Orders",
+    "DALIZEBO COMMERCE P0: COMPLETE",
+    "PHASE 6: COMPLETE",
 ]:
     if phrase not in status:
         raise SystemExit(
