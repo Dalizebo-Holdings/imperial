@@ -36,6 +36,26 @@ Failure/training/support tracking: COMPLETE
 
 Actual merchants onboarded: EVIDENCE COLLECTION PENDING
 
+## Durable Pilot Onboarding Event Evidence
+
+PILOT_ONBOARDING_EVENT evidence type: COMPLETE
+
+Real onboarding linkage enforcement: COMPLETE
+
+Canonical onboarding-step validation: COMPLETE
+
+Failure/retry evidence support: COMPLETE
+
+Training/support intervention evidence support: COMPLETE
+
+Owner-only private inbox execution: COMPLETE
+
+Automatic onboarding completion claim: PROHIBITED
+
+Automatic Gate 3 PASS claim: PROHIBITED
+
+Actual onboarding event evidence: EVIDENCE COLLECTION PENDING
+
 ## Pilot Metrics
 
 Activation metrics: COMPLETE

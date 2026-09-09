@@ -256,6 +256,21 @@
 - [x] No gate override
 - [x] No Phase 8 authorization
 
+## Durable Pilot Onboarding Event Evidence
+
+- [x] PILOT_ONBOARDING_EVENT collection template
+- [x] REAL_MERCHANT provenance
+- [x] Ingested PILOT_ONBOARDING linkage
+- [x] Merchant identity inherited from onboarding
+- [x] Canonical onboarding step validation
+- [x] SUCCESS/FAILED event support
+- [x] Failure-code validation
+- [x] Training/support intervention evidence
+- [x] Owner-only inbox artifact
+- [x] No automatic onboarding completion claim
+- [x] No automatic Gate 3 PASS claim
+- [ ] First real onboarding event ingested
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
