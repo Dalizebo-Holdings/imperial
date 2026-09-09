@@ -286,7 +286,7 @@ for phrase in [
     "- [x] Structured logging",
     "- [x] Health checks",
     "- [x] Metrics",
-    "- [ ] Secret reference boundary",
+    "- [x] Secret reference boundary",
 ]:
     if phrase not in status:
         raise SystemExit(
