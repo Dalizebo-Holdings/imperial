@@ -18,12 +18,29 @@ Phase 8
 - [x] API Gateway
 - [x] Events
 - [x] Webhooks
+- [x] HMAC-SHA256 signing contract
+- [x] Bounded timeout/retry policy
+- [x] Replay with linked delivery identity
+- [x] Signing-secret rotation metadata
 - [x] Background Jobs
+- [x] Deterministic idempotent submission
+- [x] Bounded retry/backoff metadata
+- [x] Dead-letter terminal state
+- [x] Loop OS handoff plan
 - [x] Audit
+- [x] Full source-chain verification before access
+- [x] Tenant-scoped audit query
+- [x] Tamper-evident export manifest
+- [x] No audit mutation/delete API
 - [x] Logging
+- [x] Kernel Structured Logging authority boundary
+- [x] Kernel recursive redaction preservation
+- [x] Tenant-scoped log query
+- [x] Retention cutoff metadata
 - [ ] Usage Metering
 - [x] Subscription Billing
 - [x] Payment Abstraction
+- [x] Currency Conversion
 - [x] Secrets
 - [x] Backups
 
@@ -51,6 +68,24 @@ Phase 8
 - [x] Signed source-service allowlist
 - [x] Leaked-payload guardrails
 - [x] Delivery rate-limit envelope
+
+## Currency Conversion
+
+Kernel and existing BaaS surfaces own payment intent state, refund authority,
+invoice line semantics, credit grants, event delivery planning, and background
+job scheduling. Currency Conversion BaaS owns the conversion ledger, settlement
+invariants, conversion-fee caps, escrow feedback ordering, failed-transaction
+recovery orchestration, and apology-credit path metadata.
+
+- [x] Balanced conversion accounting invariant
+- [x] Conversion fee cap enforcement
+- [x] Fee-on-confirmed-only settlement rule
+- [x] Confirmation/void-only callback discipline
+- [x] Escrow feedback before resolution ordering
+- [x] Failed transaction recovery path
+- [x] Apology credit path
+- [x] Conversion idempotency
+- [x] Currency Conversion P0 plan/confirm/void/failed-recovery/resolve/reconcile closed
 
 ## Runtime Status
 

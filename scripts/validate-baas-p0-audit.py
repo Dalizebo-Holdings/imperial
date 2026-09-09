@@ -320,7 +320,7 @@ for phrase in [
     "- [x] Tenant-scoped audit query",
     "- [x] Tamper-evident export manifest",
     "- [x] No audit mutation/delete API",
-    "- [ ] Logging",
+    "- [x] Logging",
 ]:
     if phrase not in status:
         raise SystemExit(

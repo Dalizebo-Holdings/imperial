@@ -17,6 +17,7 @@ P0_SERVICES = {
     "usage_metering",
     "subscription_billing",
     "payments",
+    "currency_conversion",
     "secrets",
     "backups",
 }

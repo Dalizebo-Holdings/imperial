@@ -331,7 +331,7 @@ for phrase in [
     "- [x] Bounded retry/backoff metadata",
     "- [x] Dead-letter terminal state",
     "- [x] Loop OS handoff plan",
-    "- [ ] Audit",
+    "- [x] Audit",
 ]:
     if phrase not in status:
         raise SystemExit(
