@@ -310,6 +310,28 @@ Discovery threshold waiver: PROHIBITED
 
 Actual discovery GATE_PROOF: PENDING REAL EVIDENCE
 
+## Durable Release Gate 1/2 Derivation
+
+REAL_OPERATIONAL technical-attestation reconstruction: COMPLETE
+
+TEST_FIXTURE exclusion: COMPLETE
+
+Canonical Gate 1 derivation: COMPLETE
+
+Canonical Gate 2 derivation: COMPLETE
+
+Evidence-expiry enforcement: CANONICAL RUNTIME
+
+PASS-only release-gate proof emission: COMPLETE
+
+Gate 1 Discovery dependency: ENFORCED
+
+Gate 3 derivation: DEFERRED — REAL PILOT METRICS REQUIRED
+
+Actual Release Gate 1 proof: PENDING REAL EVIDENCE
+
+Actual Release Gate 2 proof: PENDING REAL EVIDENCE
+
 ## Phase 7 Closure State
 
 PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED

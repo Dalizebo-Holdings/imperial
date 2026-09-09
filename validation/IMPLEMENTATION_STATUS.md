@@ -213,6 +213,22 @@
 - [x] Existing interview evidence remains immutable
 - [ ] First eligible design-partner commitment ingested
 
+## Durable Release Gate 1/2 Derivation
+
+- [x] REAL_OPERATIONAL technical-attestation filtering
+- [x] TEST_FIXTURE exclusion
+- [x] TechnicalAttestation canonical validation
+- [x] PilotValidationRegistry reconstruction
+- [x] Canonical Gate 1 derivation
+- [x] Canonical Gate 2 derivation
+- [x] Gate 1 canonical Discovery dependency
+- [x] Canonical expiry handling retained
+- [x] PASS-only release_gate_1 proof emission
+- [x] PASS-only release_gate_2 proof emission
+- [ ] Real Release Gate 1 proof ingested
+- [ ] Real Release Gate 2 proof ingested
+- [ ] Gate 3 durable derivation from real pilot evidence
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
