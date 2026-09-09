@@ -208,6 +208,24 @@ Default evidence storage outside Git: COMPLETE
 
 Actual real evidence imported: PENDING
 
+## Real Evidence Collection Kit
+
+Private evidence inbox: COMPLETE
+
+Domain evidence templates: COMPLETE
+
+Placeholder rejection: COMPLETE
+
+Batch preflight validation: COMPLETE
+
+Replay-safe batch ingestion: COMPLETE
+
+Evidence progress reporting: COMPLETE
+
+Real evidence auto-fabrication: PROHIBITED
+
+Actual real evidence imported: PENDING
+
 ## Phase 7 Closure State
 
 PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED
@@ -216,7 +234,7 @@ Product-market fit: NOT YET ESTABLISHED
 
 ## Next Work
 
-Use the durable evidence CLI to collect/import real Phase 7 evidence and execute the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
+Initialize the private evidence inbox, replace template placeholders with real source-backed evidence, batch-ingest it, then execute the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
 
 ## Governing Rule
 

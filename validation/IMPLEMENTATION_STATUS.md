@@ -122,6 +122,26 @@
 - [x] Real evidence stored outside Git by default
 - [ ] Real Phase 7 evidence imported
 
+## Real Evidence Collection Kit
+
+- [x] Private non-Git evidence inbox
+- [x] Discovery interview template
+- [x] Design-partner commitment template
+- [x] Pilot onboarding template
+- [x] Pilot metric snapshot template
+- [x] Capacity snapshot template
+- [x] Technical attestation template
+- [x] Merchant feedback template
+- [x] Support evidence template
+- [x] Incident evidence template
+- [x] Public MVP 90-day template
+- [x] Gate-proof template
+- [x] Placeholder rejection
+- [x] Whole-inbox preflight
+- [x] Replay-safe batch ingestion
+- [x] Evidence progress report
+- [ ] Real Phase 7 evidence imported
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
@@ -167,4 +187,4 @@ ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION
 
 ## Current Next Work
 
-Use the durable evidence CLI to collect/import real Phase 7 evidence and run the PMF closure gate; Phase 8 remains blocked.
+Initialize the private evidence inbox, ingest real source-backed evidence, and run the PMF closure gate; Phase 8 remains blocked.
