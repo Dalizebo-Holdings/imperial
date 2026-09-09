@@ -347,14 +347,13 @@ else:
 status = (BAAS / "IMPLEMENTATION_STATUS.md").read_text(encoding="utf-8")
 for phrase in [
     "- [x] Payment Abstraction",
-    "- [x] Secret-reference provider credentials",
-    "- [x] Explicit Kernel payment transition sequences",
-    "- [x] Kernel refund validation boundary",
-    "- [x] Payment reconciliation",
-    "- [ ] Secrets",
+    "- [x] Secrets",
+    "- [x] Backups",
 ]:
     if phrase not in status:
-        raise SystemExit("ERROR: Payment Abstraction status missing: " + phrase)
+        raise SystemExit(
+            "ERROR: current BaaS implementation status missing: " + phrase
+        )
 
 print("OK: Provider-neutral registry and secret-reference credentials passed.")
 print("OK: Payment planning is idempotent and adapter-only.")

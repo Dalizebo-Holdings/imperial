@@ -63,7 +63,7 @@ def _gate_report(
     for requirement in requirements:
         passed = bool(
             checks.get(
-                requirement,
+                requirement.lower(),
                 False,
             )
         )
