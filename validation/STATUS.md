@@ -56,6 +56,28 @@ Automatic ACTIVE promotion: PROHIBITED
 
 Actual ACTIVE pilot transition: EVIDENCE COLLECTION PENDING
 
+## Pilot Onboarding Start Execution
+
+ACTIVE design-partner eligibility reconstruction: COMPLETE
+
+Canonical PILOT_ONBOARDING writer: COMPLETE
+
+Merchant/product inheritance from commitment: COMPLETE
+
+One-onboarding-per-merchant enforcement: COMPLETE
+
+Explicit real onboarding-start evidence reference: COMPLETE
+
+Owner-only private inbox execution: COMPLETE
+
+Automatic ACTIVE promotion: PROHIBITED
+
+Automatic onboarding completion claim: PROHIBITED
+
+Automatic Gate 3 PASS claim: PROHIBITED
+
+Actual pilot onboarding start: EVIDENCE COLLECTION PENDING
+
 ## Durable Pilot Onboarding Event Evidence
 
 PILOT_ONBOARDING_EVENT evidence type: COMPLETE

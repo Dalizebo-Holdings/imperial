@@ -302,6 +302,21 @@
 - [x] PASS-only release_gate_3 proof emission
 - [ ] Real Release Gate 3 proof ingested
 
+## Pilot Onboarding Start Execution
+
+- [x] Durable current pilot-state reconstruction
+- [x] ACTIVE-only onboarding start enforcement
+- [x] Merchant/product inheritance
+- [x] One onboarding per merchant
+- [x] Explicit real evidence reference
+- [x] Canonical PilotOnboarding validation
+- [x] Canonical PilotValidationRegistry.start_onboarding validation
+- [x] Owner-only inbox artifact
+- [x] No automatic ACTIVE promotion
+- [x] No automatic onboarding completion
+- [x] No automatic Gate 3 PASS
+- [ ] First real pilot onboarding start ingested
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
