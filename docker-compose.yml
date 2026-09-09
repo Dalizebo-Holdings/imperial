@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: imperial
+      POSTGRES_PASSWORD: imperial
+      POSTGRES_DB: imperial
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./kernel/migrations/sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U imperial -d imperial"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  baas-api:
+    build:
+      context: .
+      dockerfile: baas/Dockerfile
+    environment:
+      DATABASE_URL: postgresql://imperial:imperial@postgres:5432/imperial
+      KERNEL_AUTH_SECRET: dev-secret-change-in-production
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8080
+    ports:
+      - "3000:3000"
+    depends_on:
+      baas-api:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
