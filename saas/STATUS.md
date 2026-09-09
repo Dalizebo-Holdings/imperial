@@ -10,88 +10,81 @@ Kernel P0: COMPLETE
 
 Dalizebo BaaS P0: COMPLETE
 
+Dalizebo Commerce P0: COMPLETE
+
 ## Current Stage
 
-Dalizebo Commerce P0 complete.
-
-## Commerce
-
-Store setup: COMPLETE
-
-Product catalogue: COMPLETE
-
-Variants: COMPLETE
-
-Pricing: COMPLETE
-
-Inventory: COMPLETE
-
-Customers: COMPLETE
-
-Cart: COMPLETE
-
-Checkout: COMPLETE
-
-Orders: COMPLETE
-
-Payments: COMPLETE
-
-Discounts: COMPLETE
-
-Notifications: COMPLETE (event-driven P0)
-
-Dashboard: COMPLETE (read-contract P0)
-
-## Payments
-
-BaaS Payment Abstraction delegation: COMPLETE
-
-Explicit Kernel Payment transitions: COMPLETE
-
-CAPTURED → Order confirmation orchestration: COMPLETE
-
-Direct provider execution from Commerce: NONE
-
-## Discounts
-
-Kernel Discount validation: COMPLETE
-
-Deterministic FIXED/PERCENTAGE quoting: COMPLETE
-
-Checkout pre-execution discount overlay: COMPLETE
-
-Hidden repricing after Order placement: NONE
-
-## Notifications
-
-Post-commit Events/Webhooks intent: COMPLETE
-
-Email delivery: DEFERRED TO BAAS P1
-
-## Dashboard
-
-Scoped dashboard read contract: COMPLETE
-
-Authoritative Dashboard database: NONE
-
-Durable analytics/read-model accelerator: DEFERRED
-
-## Commerce P0 Result
-
-DALIZEBO COMMERCE P0: COMPLETE
+POS P0 Branches + Staff + Roles + Product Search initialized.
 
 ## POS
 
-P0 implementation: ACTIVE NEXT
+Branches: COMPLETE
+
+Staff: COMPLETE (P0 control-plane assignment)
+
+Roles: COMPLETE
+
+Product search: COMPLETE
+
+Barcode and SKU lookup: COMPLETE
+
+Cart: NEXT
+
+Checkout: NEXT
+
+Cash payment recording: NEXT
+
+Card payment recording: NEXT
+
+Receipts: NEXT
+
+Inventory deduction: PENDING
+
+Returns: PENDING
+
+Daily summaries: PENDING
+
+## Branches
+
+Kernel Branch authority: COMPLETE
+
+ACTIVE Store prerequisite: COMPLETE
+
+Branch lifecycle: COMPLETE
+
+## Staff + Roles
+
+BaaS HUMAN_USER identity boundary: COMPLETE
+
+Kernel RBAC authority: COMPLETE
+
+POS permission catalogue: COMPLETE
+
+Branch staff assignment: COMPLETE
+
+Durable production staff-assignment adapter: DEFERRED
+
+## Product Search
+
+Branch-scoped read plan: COMPLETE
+
+SKU lookup: COMPLETE
+
+Canonical Kernel Variant barcode field: COMPLETE
+
+Barcode lookup: COMPLETE
+
+POS-owned Product/Variant search authority: NONE
 
 ## Next Work
 
-POS P0 — Branches + Staff + Roles + Product Search.
+POS P0 — Cart + Checkout + Payments + Receipts.
 
 ## Governing Rule
 
-Commerce remains an orchestration product over Kernel/BaaS authority. Payment
-provider work stays behind Payment Abstraction; payment lifecycle edges remain
-explicit. Discounts are Kernel-validated and applied before checkout execution.
-Notifications publish only after commit through Events/Webhooks. Dashboard is a
-scoped read projection, never an authoritative business-data store.
+POS reuses shared Branch, User, Role, Product, Product Variant, and Inventory
+authority. Staff assignments bind an existing BaaS HUMAN_USER identity to an
+existing Kernel role and branch without creating a second identity or RBAC
+system. Product lookup is branch-scoped and read-only. Barcode is implemented as
+a shared nullable Product Variant identifier with organization uniqueness, not
+as a POS-owned mapping table.

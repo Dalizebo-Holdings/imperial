@@ -42,59 +42,17 @@ Phase 6 — Commerce + POS
 - [x] Notifications
 - [x] Dashboard
 
-## Payments Components
-
-- [x] BaaS Payment Abstraction delegation
-- [x] Kernel Payment authority boundary
-- [x] Order PLACED payment-start gate
-- [x] Idempotent provider-neutral payment plan
-- [x] Shared PENDING Payment creation command
-- [x] Explicit payment transition commands
-- [x] CAPTURED payment → Order confirmation plan
-- [x] No raw payment/provider credentials in Commerce metadata
-- [x] No hidden payment transitions
-
-## Discounts Components
-
-- [x] Kernel Discount validation
-- [x] FIXED discount support
-- [x] PERCENTAGE basis-points support
-- [x] Deterministic integer discount quote
-- [x] Discount may not make total negative
-- [x] Checkout DRAFT Order discount overlay
-- [x] No hidden repricing after Order placement
-
-## Notifications Components
-
-- [x] Post-commit notification intent
-- [x] BaaS Events/Webhooks boundary
-- [x] WEBHOOK channel
-- [x] INTERNAL channel
-- [x] Opaque recipient references
-- [x] Notification idempotency
-- [x] Duplicate-delivery-safe contract
-- [ ] Email delivery adapter (BaaS P1)
-
-## Dashboard Components
-
-- [x] Tenant/store scoped read plan
-- [x] Time-bounded query contract
-- [x] Currency-specific money aggregation contract
-- [x] Orders/payments/customers/inventory source plan
-- [x] No Dashboard authoritative database
-- [ ] Durable analytics/read-model accelerator
-
 ## Commerce P0 Result
 
 DALIZEBO COMMERCE P0: COMPLETE
 
 ## POS P0
 
-- [ ] Branches
-- [ ] Staff
-- [ ] Roles
-- [ ] Product search
-- [ ] Barcode and SKU lookup
+- [x] Branches
+- [x] Staff
+- [x] Roles
+- [x] Product search
+- [x] Barcode and SKU lookup
 - [ ] Cart
 - [ ] Checkout
 - [ ] Cash payment recording
@@ -104,6 +62,40 @@ DALIZEBO COMMERCE P0: COMPLETE
 - [ ] Returns
 - [ ] Daily summaries
 
+## POS Branch Components
+
+- [x] Kernel Branch authority boundary
+- [x] Exact-tenant ACTIVE Store prerequisite
+- [x] Branch creation
+- [x] Branch ACTIVE/INACTIVE lifecycle
+- [x] POS store/branch execution context
+
+## POS Staff + Roles Components
+
+- [x] BaaS HUMAN_USER identity prerequisite
+- [x] No duplicate POS User authority
+- [x] Kernel PermissionDefinition authority
+- [x] Kernel RoleDefinition authority
+- [x] POS P0 permission catalogue
+- [x] Tenant-scoped Kernel roles
+- [x] Branch-scoped staff assignment relationship
+- [x] Staff role change
+- [x] Staff deactivation
+- [x] Disabled identity rejection
+- [x] Cross-scope staff assignment rejection
+- [ ] Durable production POS staff-assignment adapter
+
+## POS Product Search Components
+
+- [x] Branch-scoped active product search
+- [x] Exact SKU lookup
+- [x] Shared canonical Product Variant barcode extension
+- [x] Exact barcode lookup
+- [x] Organization barcode uniqueness
+- [x] Branch inventory source scope
+- [x] Bounded read plan
+- [x] No POS-owned Product search authority
+
 ## Current Next Work
 
-POS P0 — Branches + Staff + Roles + Product Search.
+POS P0 — Cart + Checkout + Payments + Receipts.
