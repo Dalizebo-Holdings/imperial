@@ -387,12 +387,12 @@ status = (
 )
 
 for phrase in [
-    "ACTIVE — DISCOVERY EVIDENCE COLLECTION",
+    "ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION",
     "- [ ] 20+ discovery interviews recorded",
     "- [ ] >=80% problem-material confirmation",
     "- [ ] 5+ design partner commitments",
     "- [ ] 3+ active pilot merchants",
-    "Pilot onboarding + validation metrics + release-gate evidence.",
+    "run the PMF closure gate; Phase 8 remains blocked",
 ]:
     if phrase not in status:
         raise SystemExit(

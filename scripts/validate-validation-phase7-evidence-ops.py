@@ -371,9 +371,9 @@ status = (
 
 for phrase in [
     "Durable evidence ledger: COMPLETE",
-    "Actual real evidence imported: PENDING",
+    "Actual real evidence imported: IN PROGRESS",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
-    "Use the durable evidence CLI to collect/import real Phase 7 evidence",
+    "Phase 8 remains blocked until `PHASE7_COMPLETE`",
 ]:
     if phrase not in status:
         raise SystemExit(

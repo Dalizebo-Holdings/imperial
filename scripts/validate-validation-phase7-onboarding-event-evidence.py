@@ -37,7 +37,7 @@ for phrase in [
     "Real onboarding linkage enforcement: COMPLETE",
     "Automatic onboarding completion claim: PROHIBITED",
     "Automatic Gate 3 PASS claim: PROHIBITED",
-    "Actual onboarding event evidence: EVIDENCE COLLECTION PENDING",
+    "Actual onboarding event evidence: RECORDED FOR 1 PILOT",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
 ]:
     if phrase not in status:

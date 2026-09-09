@@ -54,7 +54,7 @@ Transition evidence mutation: PROHIBITED
 
 Automatic ACTIVE promotion: PROHIBITED
 
-Actual ACTIVE pilot transition: EVIDENCE COLLECTION PENDING
+Actual ACTIVE pilot transitions: 1 RECORDED — MINIMUM 3 STILL PENDING
 
 ## Pilot Onboarding Start Execution
 
@@ -76,7 +76,7 @@ Automatic onboarding completion claim: PROHIBITED
 
 Automatic Gate 3 PASS claim: PROHIBITED
 
-Actual pilot onboarding start: EVIDENCE COLLECTION PENDING
+Actual pilot onboarding starts: 1 RECORDED — MINIMUM 5 STILL PENDING
 
 ## Durable Pilot Onboarding Event Evidence
 
@@ -96,7 +96,7 @@ Automatic onboarding completion claim: PROHIBITED
 
 Automatic Gate 3 PASS claim: PROHIBITED
 
-Actual onboarding event evidence: EVIDENCE COLLECTION PENDING
+Actual onboarding event evidence: RECORDED FOR 1 PILOT
 
 ## Pilot Metrics
 
@@ -112,7 +112,7 @@ Support metrics: COMPLETE
 
 Pilot exit gate: COMPLETE
 
-Actual KPI thresholds: EVIDENCE COLLECTION PENDING
+Actual KPI snapshots: 1 RECORDED — PILOT EXIT THRESHOLDS PENDING
 
 ## Release Gates
 
@@ -126,7 +126,7 @@ Evidence expiry handling: COMPLETE
 
 Actual Gate 1 passage: PENDING REAL EVIDENCE
 
-Actual Gate 2 passage: PENDING REAL EVIDENCE
+Actual Gate 2 passage: PASS — REAL EVIDENCE DIGEST BOUND
 
 Actual Gate 3 passage: PENDING REAL EVIDENCE
 
@@ -268,7 +268,7 @@ PMF proof-manifest evaluator CLI: COMPLETE
 
 Default evidence storage outside Git: COMPLETE
 
-Actual real evidence imported: PENDING
+Actual real evidence imported: IN PROGRESS — 32 DECISION-ELIGIBLE RECORDS
 
 ## Real Evidence Collection Kit
 
@@ -286,7 +286,7 @@ Evidence progress reporting: COMPLETE
 
 Real evidence auto-fabrication: PROHIBITED
 
-Actual real evidence imported: PENDING
+Actual real evidence imported: IN PROGRESS — 32 DECISION-ELIGIBLE RECORDS
 
 ## Evidence Inbox Workflow
 
@@ -300,7 +300,7 @@ Template library excluded from active preflight: COMPLETE
 
 Incremental evidence collection: COMPLETE
 
-Actual real evidence imported: PENDING
+Actual real evidence imported: IN PROGRESS — 32 DECISION-ELIGIBLE RECORDS
 
 ## Merchant Discovery Execution
 
@@ -316,7 +316,7 @@ Sensitive credential/payment material rejection: COMPLETE
 
 Real interview evidence auto-generation without interview: PROHIBITED
 
-Actual discovery interviews: EVIDENCE COLLECTION PENDING
+Actual discovery interviews: 4 OF 20 RECORDED
 
 ## Parallel Validation Execution
 
@@ -334,7 +334,7 @@ Discovery Gate bypass: PROHIBITED
 
 Phase 8 bypass: PROHIBITED
 
-Actual design-partner commitment: EVIDENCE COLLECTION PENDING
+Actual design-partner commitments: 1 OF 5 RECORDED
 
 ## Design-Partner Eligibility Triage
 
@@ -350,7 +350,7 @@ Ineligible merchant selection: PROHIBITED
 
 Existing discovery evidence mutation for eligibility: PROHIBITED
 
-Actual design-partner commitment: EVIDENCE COLLECTION PENDING
+Actual eligible design-partner commitments: 1 OF 5 RECORDED
 
 ## Durable Discovery Gate Derivation
 
@@ -390,7 +390,7 @@ Owner-only private inbox write: COMPLETE
 
 Automatic gate PASS claim: PROHIBITED
 
-Actual technical attestations: EVIDENCE COLLECTION PENDING
+Actual technical attestations: 13 RECORDED
 
 ## Release Gate Readiness Dashboard
 
@@ -430,7 +430,7 @@ Gate 3 derivation: COMPLETE — REAL PILOT EVIDENCE REQUIRED FOR PASS
 
 Actual Release Gate 1 proof: PENDING REAL EVIDENCE
 
-Actual Release Gate 2 proof: PENDING REAL EVIDENCE
+Actual Release Gate 2 proof: PASS — REAL EVIDENCE DIGEST BOUND
 
 ## Append-only Evidence Void
 

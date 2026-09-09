@@ -586,7 +586,7 @@ for phrase in [
     "- [ ] >=99.5% payment reconciliation",
     "- [ ] 2+ merchants willing to pay",
     "- [ ] Release Gate 3 passed with evidence",
-    "Feedback + Support + Incident evidence system.",
+    "run the PMF closure gate; Phase 8 remains blocked",
 ]:
     if phrase not in status:
         raise SystemExit(

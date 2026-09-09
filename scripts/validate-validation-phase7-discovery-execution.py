@@ -80,7 +80,7 @@ status = (
 for phrase in [
     "Recruitment playbook: COMPLETE",
     "Live interview evidence runner: COMPLETE",
-    "Actual discovery interviews: EVIDENCE COLLECTION PENDING",
+    "Actual discovery interviews: 4 OF 20 RECORDED",
 ]:
     if phrase not in status:
         raise SystemExit(

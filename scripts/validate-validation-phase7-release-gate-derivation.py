@@ -56,9 +56,9 @@ for phrase in [
     "Canonical Gate 1 derivation: COMPLETE",
     "Canonical Gate 2 derivation: COMPLETE",
     "Gate 1 Discovery dependency: ENFORCED",
-    "Gate 3 derivation: DEFERRED — REAL PILOT METRICS REQUIRED",
+    "Gate 3 derivation: COMPLETE — REAL PILOT EVIDENCE REQUIRED FOR PASS",
     "Actual Release Gate 1 proof: PENDING REAL EVIDENCE",
-    "Actual Release Gate 2 proof: PENDING REAL EVIDENCE",
+    "Actual Release Gate 2 proof: PASS — REAL EVIDENCE DIGEST BOUND",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
 ]:
     if phrase not in status:

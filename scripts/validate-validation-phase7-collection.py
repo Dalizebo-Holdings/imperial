@@ -59,7 +59,9 @@ template_names = set(
 expected_templates = {
     "discovery-interview",
     "design-partner-commitment",
+    "pilot-status-transition",
     "pilot-onboarding",
+    "pilot-onboarding-event",
     "pilot-metric-snapshot",
     "capacity-snapshot",
     "technical-attestation",
@@ -81,6 +83,7 @@ with TemporaryDirectory() as temp_dir:
     )
     ledger = temp / "ledger.jsonl"
     inbox = temp / "inbox"
+    template_library = temp / "templates"
 
     store = store_module.DurableEvidenceStore(
         ledger
@@ -88,17 +91,25 @@ with TemporaryDirectory() as temp_dir:
     store.initialize()
 
     result = collection.initialize_inbox(
-        inbox
+        inbox,
+        template_library=template_library,
     )
 
     if len(
-        result["created"]
+        result["created_templates"]
     ) != len(
         expected_templates
     ):
         raise SystemExit(
             "ERROR: inbox templates were not created"
         )
+
+    collection.create_record(
+        template_type="discovery-interview",
+        record_name="placeholder-interview",
+        inbox=inbox,
+        template_library=template_library,
+    )
 
     # Placeholder templates must not pass preflight.
     initial = collection.preflight_inbox(
@@ -297,9 +308,9 @@ status = (
 for phrase in [
     "Private evidence inbox: COMPLETE",
     "Batch preflight validation: COMPLETE",
-    "Actual real evidence imported: PENDING",
+    "Actual real evidence imported: IN PROGRESS",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
-    "Initialize the private evidence inbox",
+    "Initialize the empty private inbox",
 ]:
     if phrase not in status:
         raise SystemExit(
@@ -307,7 +318,7 @@ for phrase in [
             + phrase
         )
 
-print("OK: 11 private evidence templates installed.")
+print("OK: 13 private evidence templates installed.")
 print("OK: Placeholder evidence fails closed.")
 print("OK: Whole-inbox preflight passed valid fixtures.")
 print("OK: Batch ingestion/replay idempotency passed.")

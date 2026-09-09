@@ -62,9 +62,9 @@ with TemporaryDirectory() as temp_dir:
 
     if len(
         initialized["created_templates"]
-    ) != 11:
+    ) != len(collection.templates()):
         raise SystemExit(
-            "ERROR: separate template library did not receive 11 templates"
+            "ERROR: separate template library did not receive every template"
         )
 
     workspace = collection.workspace_status(
@@ -74,7 +74,7 @@ with TemporaryDirectory() as temp_dir:
 
     if (
         workspace["inbox_count"] != 0
-        or workspace["template_count"] != 11
+        or workspace["template_count"] != len(collection.templates())
     ):
         raise SystemExit(
             "ERROR: workspace separation failed"
@@ -246,7 +246,7 @@ with TemporaryDirectory() as temp_dir:
         cli_result["inbox_json_count"] != 0
         or len(
             cli_result["created_templates"]
-        ) != 11
+        ) != len(collection.templates())
     ):
         raise SystemExit(
             "ERROR: init-inbox CLI did not separate inbox/templates"
@@ -297,7 +297,7 @@ for phrase in [
     "Empty active inbox initialization: COMPLETE",
     "Separate private template library: COMPLETE",
     "Incremental evidence collection: COMPLETE",
-    "Actual real evidence imported: PENDING",
+    "Actual real evidence imported: IN PROGRESS",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
 ]:
     if phrase not in status:
@@ -307,7 +307,7 @@ for phrase in [
         )
 
 print("OK: init-inbox creates an empty active inbox.")
-print("OK: 11 placeholder templates are isolated in a private template library.")
+print("OK: placeholder templates are isolated in a private template library.")
 print("OK: Empty inbox preflight passes.")
 print("OK: `new` creates exactly one placeholder-bearing active record.")
 print("OK: Placeholder active evidence still fails closed.")

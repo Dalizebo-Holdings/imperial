@@ -49,7 +49,7 @@ for phrase in [
     "Explicit supporting evidence reference requirement: COMPLETE",
     "Placeholder evidence-reference rejection: COMPLETE",
     "Automatic gate PASS claim: PROHIBITED",
-    "Actual technical attestations: EVIDENCE COLLECTION PENDING",
+    "Actual technical attestations: 13 RECORDED",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
 ]:
     if phrase not in status:

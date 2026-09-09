@@ -37,8 +37,8 @@ for phrase in [
     '"DESIGN_PARTNER_COMMITMENT"',
     '"REAL_MERCHANT"',
     '"pilot_status": "CANDIDATE"',
-    '"discovery_gate": (',
-    '"phase8": (',
+    '"discovery_gate": "STILL_PENDING"',
+    '"phase8": "BLOCKED"',
     "willingness_to_test",
     "structured_feedback_available",
     "active_retail_operations",
@@ -63,7 +63,7 @@ for phrase in [
     "Discovery interview target: DEFERRED — NOT WAIVED",
     "Discovery Gate bypass: PROHIBITED",
     "Phase 8 bypass: PROHIBITED",
-    "Actual design-partner commitment: EVIDENCE COLLECTION PENDING",
+    "Actual design-partner commitments: 1 OF 5 RECORDED",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
 ]:
     if phrase not in status:

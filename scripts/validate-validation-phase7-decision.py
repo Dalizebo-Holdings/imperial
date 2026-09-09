@@ -373,7 +373,7 @@ for phrase in [
     "Evidence ingestion + PMF decision/closure gate initialized.",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
     "Product-market fit: NOT YET ESTABLISHED",
-    "Collect/import real Phase 7 evidence and run the PMF closure gate.",
+    "Continue validation in parallel.",
 ]:
     if phrase not in status:
         raise SystemExit(

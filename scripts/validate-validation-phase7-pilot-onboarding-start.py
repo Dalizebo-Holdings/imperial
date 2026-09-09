@@ -47,7 +47,7 @@ for phrase in [
     "Canonical PILOT_ONBOARDING writer: COMPLETE",
     "Automatic ACTIVE promotion: PROHIBITED",
     "Automatic onboarding completion claim: PROHIBITED",
-    "Actual pilot onboarding start: EVIDENCE COLLECTION PENDING",
+    "Actual pilot onboarding starts: 1 RECORDED — MINIMUM 5 STILL PENDING",
     "PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED",
 ]:
     if phrase not in status:

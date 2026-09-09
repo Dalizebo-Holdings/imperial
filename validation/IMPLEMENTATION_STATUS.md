@@ -120,7 +120,7 @@
 - [x] Public MVP 90-day snapshot evaluator CLI
 - [x] PMF proof-manifest evaluator CLI
 - [x] Real evidence stored outside Git by default
-- [ ] Real Phase 7 evidence imported
+- [x] Real Phase 7 evidence import active
 
 ## Real Evidence Collection Kit
 
@@ -140,7 +140,7 @@
 - [x] Whole-inbox preflight
 - [x] Replay-safe batch ingestion
 - [x] Evidence progress report
-- [ ] Real Phase 7 evidence imported
+- [x] Real Phase 7 evidence import active
 
 ## Evidence Inbox Workflow
 
@@ -153,7 +153,7 @@
 - [x] Template library excluded from preflight
 - [x] Empty inbox valid
 - [x] Incremental evidence collection
-- [ ] Real Phase 7 evidence imported
+- [x] Real Phase 7 evidence import active
 
 ## Merchant Discovery Execution
 
@@ -168,7 +168,7 @@
 - [x] Non-sensitive operational context
 - [x] Canonical inbox-envelope validation
 - [x] Owner-only evidence record permissions
-- [ ] First real discovery interview recorded
+- [x] First real discovery interview recorded
 - [ ] 20+ real discovery interviews recorded
 - [ ] >=80% material-problem confirmation
 
@@ -183,7 +183,7 @@
 - [x] Candidate-only initial pilot status
 - [x] Discovery Gate remains authoritative
 - [x] Phase 8 remains blocked
-- [ ] First real design-partner commitment ingested
+- [x] First real design-partner commitment ingested
 
 ## Durable Discovery Gate Derivation
 
@@ -211,7 +211,7 @@
 - [x] Recruitment-priority derivation
 - [x] Ineligible selection prevention
 - [x] Existing interview evidence remains immutable
-- [ ] First eligible design-partner commitment ingested
+- [x] First eligible design-partner commitment ingested
 
 ## Durable Release Gate 1/2 Derivation
 
@@ -226,7 +226,7 @@
 - [x] PASS-only release_gate_1 proof emission
 - [x] PASS-only release_gate_2 proof emission
 - [ ] Real Release Gate 1 proof ingested
-- [ ] Real Release Gate 2 proof ingested
+- [x] Real Release Gate 2 proof ingested
 - [ ] Gate 3 durable derivation from real pilot evidence
 
 ## Technical Attestation Execution
@@ -242,7 +242,7 @@
 - [x] Canonical evidence-envelope validation
 - [x] Owner-only inbox artifact
 - [x] No automatic gate PASS claim
-- [ ] First real technical attestation ingested
+- [x] First real technical attestation ingested
 
 ## Release Gate Readiness Dashboard
 
@@ -269,7 +269,7 @@
 - [x] Owner-only inbox artifact
 - [x] No automatic onboarding completion claim
 - [x] No automatic Gate 3 PASS claim
-- [ ] First real onboarding event ingested
+- [x] First real onboarding event ingested
 
 ## Durable Pilot Status Transitions
 
@@ -283,7 +283,7 @@
 - [x] Discovery derivation transition replay
 - [x] Active-pilot count reflects replayed status
 - [x] No automatic ACTIVE promotion
-- [ ] First real CANDIDATE -> ACTIVE transition ingested
+- [x] First real CANDIDATE -> ACTIVE transition ingested
 
 ## Durable Release Gate 3 Derivation
 
@@ -315,7 +315,7 @@
 - [x] No automatic ACTIVE promotion
 - [x] No automatic onboarding completion
 - [x] No automatic Gate 3 PASS
-- [ ] First real pilot onboarding start ingested
+- [x] First real pilot onboarding start ingested
 
 ## Append-only Evidence Void
 
@@ -333,7 +333,7 @@
 - [ ] Discovery gate PASS with real evidence
 - [ ] Pilot Exit PASS with real evidence
 - [ ] Release Gate 1 PASS with real evidence
-- [ ] Release Gate 2 PASS with real evidence
+- [x] Release Gate 2 PASS with real evidence
 - [ ] Release Gate 3 PASS with real evidence
 - [ ] Operational Readiness evidence available
 - [ ] Public MVP First-90-Day Gate PASS
@@ -364,7 +364,7 @@
 - [ ] 2+ merchants willing to pay
 - [ ] No critical cross-tenant exposure
 - [ ] Release Gate 1 passed with evidence
-- [ ] Release Gate 2 passed with evidence
+- [x] Release Gate 2 passed with evidence
 - [ ] Release Gate 3 passed with evidence
 
 ## Phase 7 Result

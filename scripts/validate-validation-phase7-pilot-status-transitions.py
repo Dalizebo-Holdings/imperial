@@ -14,7 +14,7 @@ for phrase in ['ProductMarketValidationRegistry()', 'registry.transition_pilot_s
 for phrase in ['def _pilot_status_transition(', '"PILOT_STATUS_TRANSITION": 0', 'elif evidence_type == "PILOT_STATUS_TRANSITION":', 'registry.transition_pilot_status(', 'pilot status transition from_status does not match current status']:
     if phrase not in derive: raise SystemExit('ERROR: derive replay missing: ' + phrase)
 status = (V/'STATUS.md').read_text(encoding='utf-8')
-for phrase in ['Canonical pilot state-machine replay: COMPLETE','Discovery active-pilot count transition replay: COMPLETE','Automatic ACTIVE promotion: PROHIBITED','Actual ACTIVE pilot transition: EVIDENCE COLLECTION PENDING','PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED']:
+for phrase in ['Canonical pilot state-machine replay: COMPLETE','Discovery active-pilot count transition replay: COMPLETE','Automatic ACTIVE promotion: PROHIBITED','Actual ACTIVE pilot transitions: 1 RECORDED — MINIMUM 3 STILL PENDING','PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED']:
     if phrase not in status: raise SystemExit('ERROR: status missing: ' + phrase)
 print('OK: pilot-status CLI syntax valid.')
 print('OK: append-only PILOT_STATUS_TRANSITION schema present.')

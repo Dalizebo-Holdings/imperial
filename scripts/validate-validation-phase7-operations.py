@@ -457,7 +457,7 @@ for phrase in [
     "- [x] Material tenant-isolation defect tracking",
     "- [ ] Actual P1 response SLA measured",
     "- [ ] Operational evidence attached to release gates",
-    "Phase 7 evidence ingestion + PMF decision/closure gate.",
+    "ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION",
 ]:
     if phrase not in status:
         raise SystemExit(
