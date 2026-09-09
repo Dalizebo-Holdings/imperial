@@ -81,6 +81,43 @@
 - [x] Operational readiness evidence digest
 - [x] Sensitive credential/payment metadata rejection
 
+## Evidence Ingestion + PMF Decision
+
+- [x] Append-only evidence envelope ledger
+- [x] Canonical payload SHA-256 verification
+- [x] Evidence chain digest verification
+- [x] REAL vs TEST_FIXTURE origin separation
+- [x] Fixture evidence excluded from decisions
+- [x] Gate proof → evidence digest binding
+- [x] Public MVP 90-day evaluator
+- [x] 50 activated organizations threshold
+- [x] 30 monthly transacting organizations threshold
+- [x] 20 active for three consecutive months threshold
+- [x] Monthly logo churn <5%
+- [x] First transaction <=24h >=30%
+- [x] Weekly active usage >=60%
+- [x] Payment reconciliation >=99.5%
+- [x] Uptime >=99.5%
+- [x] P95 core API latency <500ms
+- [x] Checkout API P95 <1.5s
+- [x] 10+ paying customers
+- [x] 3+ customer references
+- [x] Tenant-isolation blocker
+- [x] Backup restore-test gate
+- [x] Phase 7 closure proof aggregation
+- [x] Phase 8 authorization only on PHASE7_COMPLETE
+
+## Closure Evidence — Not Fabricated
+
+- [ ] Discovery gate PASS with real evidence
+- [ ] Pilot Exit PASS with real evidence
+- [ ] Release Gate 1 PASS with real evidence
+- [ ] Release Gate 2 PASS with real evidence
+- [ ] Release Gate 3 PASS with real evidence
+- [ ] Operational Readiness evidence available
+- [ ] Public MVP First-90-Day Gate PASS
+- [ ] PHASE7_COMPLETE decision
+
 ## External Operational Evidence — Not Fabricated
 
 - [ ] Merchant feedback recorded
@@ -115,4 +152,4 @@ ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION
 
 ## Current Next Work
 
-Phase 7 evidence ingestion + PMF decision/closure gate.
+Collect/import real Phase 7 evidence and run the PMF closure gate; Phase 8 remains blocked.

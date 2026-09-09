@@ -10,7 +10,7 @@ Phase 6 Commerce + POS MVP: COMPLETE
 
 ## Current Stage
 
-Feedback + Support + Incident evidence system initialized.
+Evidence ingestion + PMF decision/closure gate initialized.
 
 ## Discovery
 
@@ -128,9 +128,75 @@ Unresolved material tenant-isolation blocker: COMPLETE
 
 Release-gate attestation still requires real evidence references: ENFORCED
 
+## Evidence Ingestion
+
+Append-only evidence ledger: COMPLETE
+
+Canonical payload SHA-256 verification: COMPLETE
+
+Evidence chain digest: COMPLETE
+
+Fixture-vs-real provenance separation: COMPLETE
+
+Fixture evidence excluded from PMF decisions: COMPLETE
+
+Gate-result evidence binding: COMPLETE
+
+Independent third-party provenance verification: NOT CLAIMED
+
+## Public MVP 90-Day Gate
+
+50 activated organizations evaluator: COMPLETE
+
+30 monthly transacting organizations evaluator: COMPLETE
+
+20 active for 3 consecutive months evaluator: COMPLETE
+
+Monthly logo churn <5% evaluator: COMPLETE
+
+First transaction <=24h >=30% evaluator: COMPLETE
+
+Weekly active usage >=60% evaluator: COMPLETE
+
+Payment reconciliation >=99.5% evaluator: COMPLETE
+
+Uptime >=99.5% evaluator: COMPLETE
+
+P95 core API <500ms evaluator: COMPLETE
+
+Checkout API <1.5s evaluator: COMPLETE
+
+10+ paying customers evaluator: COMPLETE
+
+3+ customer references evaluator: COMPLETE
+
+Critical tenant-isolation blocker: COMPLETE
+
+Backup restore-test requirement: COMPLETE
+
+## PMF Decision / Closure Gate
+
+Discovery proof binding: COMPLETE
+
+Pilot Exit proof binding: COMPLETE
+
+Release Gate 1/2/3 proof binding: COMPLETE
+
+Operational readiness proof binding: COMPLETE
+
+Public MVP 90-day proof binding: COMPLETE
+
+Phase 8 authorization on complete real evidence: COMPLETE
+
+## Phase 7 Closure State
+
+PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED
+
+Product-market fit: NOT YET ESTABLISHED
+
 ## Next Work
 
-Phase 7 evidence ingestion + PMF decision/closure gate.
+Collect/import real Phase 7 evidence and run the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
 
 ## Governing Rule
 
