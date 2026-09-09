@@ -112,13 +112,15 @@ try:
 
     setup = ""
     for statement in (
-        "CREATE TABLE kernel.worker_validation_events (event_id text PRIMARY KEY, note text NOT NULL);",
-        "INSERT INTO kernel.organizations (id, name) VALUES ('org-integration', 'validation');",
+            "CREATE TABLE kernel.worker_validation_events (event_id text PRIMARY KEY, note text NOT NULL);",
+            "INSERT INTO kernel.organizations (id, name) VALUES ('org-integration', 'validation');",
+            "INSERT INTO kernel.organizations (id, name) VALUES ('org-expired', 'validation-expired');",
         "INSERT INTO kernel.outbox_events (event_id, event_type, event_version, organization_id, workspace_id, project_id, environment_id, resource_type, resource_id, occurred_at, correlation_id, actor_type, actor_id, payload) VALUES",
         "('evt-ack', 'order.created', '1', 'org-integration', 'ws-integration', 'proj-integration', 'env-integration', 'ORDER', 'order-ack', now(), 'corr-ack', 'SYSTEM', 'integration', '{\"kind\":\"ack\"}'),",
         "('evt-dead', 'order.created', '1', 'org-integration', 'ws-integration', 'proj-integration', 'env-integration', 'ORDER', 'order-dead', now(), 'corr-dead', 'SYSTEM', 'integration', '{\"kind\":\"dead\"}');",
-        "INSERT INTO kernel.outbox_events (event_id, event_type, event_version, organization_id, workspace_id, project_id, environment_id, resource_type, resource_id, occurred_at, correlation_id, actor_type, actor_id, payload, max_attempts) VALUES ('evt-terminal', 'order.created', '1', 'org-integration', 'ws-integration', 'proj-integration', 'env-integration', 'ORDER', 'order-terminal', now(), 'corr-terminal', 'SYSTEM', 'integration', '{\"kind\":\"terminal\"}', 1);",
-        "UPDATE kernel.outbox_events SET next_attempt_at = now() + interval '1 hour' WHERE event_id IN ('evt-dead', 'evt-terminal');",
+            "INSERT INTO kernel.outbox_events (event_id, event_type, event_version, organization_id, workspace_id, project_id, environment_id, resource_type, resource_id, occurred_at, correlation_id, actor_type, actor_id, payload, max_attempts) VALUES ('evt-terminal', 'order.created', '1', 'org-integration', 'ws-integration', 'proj-integration', 'env-integration', 'ORDER', 'order-terminal', now(), 'corr-terminal', 'SYSTEM', 'integration', '{\"kind\":\"terminal\"}', 1);",
+            "UPDATE kernel.outbox_events SET next_attempt_at = now() + interval '1 hour' WHERE event_id IN ('evt-dead', 'evt-terminal');",
+            "INSERT INTO kernel.outbox_events (event_id, event_type, event_version, organization_id, workspace_id, project_id, environment_id, resource_type, resource_id, occurred_at, correlation_id, actor_type, actor_id, payload, attempt_count, lock_owner, locked_at, lock_expires_at) VALUES ('evt-expired', 'order.created', '1', 'org-expired', 'ws-expired', 'proj-expired', 'env-expired', 'ORDER', 'order-expired', now(), 'corr-expired', 'SYSTEM', 'crashed-worker', '{\"kind\":\"expired\"}', 1, 'crashed-worker', now() - interval '10 minutes', now() - interval '1 minute');",
     ):
         setup += f"{statement}\n"
     _ = psql(MIGRATIONS + "\n" + setup)
@@ -140,6 +142,16 @@ try:
     )
     if second:
         raise SystemExit("ERROR: PostgreSQL lease allowed a double claim")
+
+    expired = execute_prepared(
+        "claim_expired",
+        worker.CLAIM_SQL,
+        "'worker-recovery', 60, 'org-expired', 1",
+    )
+    if not expired.startswith("evt-expired|") or "|worker-recovery|" not in expired:
+        raise SystemExit("ERROR: PostgreSQL expired lease was not reclaimed")
+    if psql("SELECT lock_owner || '|' || attempt_count::text FROM kernel.outbox_events WHERE event_id = 'evt-expired';") != "worker-recovery|2":
+        raise SystemExit("ERROR: PostgreSQL expired lease recovery state was not durable")
 
     acknowledged = execute_prepared(
         "ack_one",
@@ -191,6 +203,7 @@ try:
 
     print("OK: PostgreSQL migrations applied in an ephemeral container")
     print("OK: PostgreSQL FOR UPDATE SKIP LOCKED claim is exclusive")
+    print("OK: PostgreSQL expired lease is reclaimed after worker crash")
     print("OK: PostgreSQL tenant and correlation context is preserved")
     print("OK: PostgreSQL publish acknowledgement is durable")
     print("OK: PostgreSQL retry schedule is persisted")
