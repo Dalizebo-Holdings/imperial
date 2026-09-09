@@ -253,6 +253,21 @@ def templates() -> dict[str, dict[str, Any]]:
                 "metadata": {},
             },
         ),
+        "pilot-status-transition": _template(
+            evidence_type="PILOT_STATUS_TRANSITION",
+            origin="REAL_MERCHANT",
+            source_system_ref="source://validation/pilot-status",
+            payload={
+                "transition_id": "__REPLACE__",
+                "commitment_id": "__REPLACE__",
+                "merchant_ref": "__REPLACE__",
+                "from_status": "__REPLACE__",
+                "to_status": "__REPLACE__",
+                "changed_at": "__REPLACE__",
+                "evidence_ref": "__REPLACE__",
+                "metadata": {},
+            },
+        ),
         "pilot-onboarding": _template(
             evidence_type="PILOT_ONBOARDING",
             origin="REAL_MERCHANT",

@@ -271,6 +271,20 @@
 - [x] No automatic Gate 3 PASS claim
 - [ ] First real onboarding event ingested
 
+## Durable Pilot Status Transitions
+
+- [x] PILOT_STATUS_TRANSITION collection template
+- [x] Append-only real merchant provenance
+- [x] Canonical transition state machine
+- [x] Current-state reconstruction from ledger
+- [x] Merchant/commitment linkage
+- [x] Derived from_status
+- [x] Explicit real transition evidence reference
+- [x] Discovery derivation transition replay
+- [x] Active-pilot count reflects replayed status
+- [x] No automatic ACTIVE promotion
+- [ ] First real CANDIDATE -> ACTIVE transition ingested
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence

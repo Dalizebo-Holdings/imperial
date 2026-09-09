@@ -280,6 +280,34 @@ def _design_partner_commitment(
     return commitment
 
 
+
+
+def _pilot_status_transition(
+    payload: dict[str, Any],
+) -> dict[str, Any]:
+    required = {
+        "transition_id", "commitment_id", "merchant_ref",
+        "from_status", "to_status", "changed_at", "evidence_ref",
+    }
+    missing = required - set(payload)
+    if missing:
+        raise EvidenceDerivationError(
+            "PILOT_STATUS_TRANSITION payload missing fields: "
+            + ", ".join(sorted(missing))
+        )
+    result = {
+        "transition_id": str(payload["transition_id"]).strip(),
+        "commitment_id": str(payload["commitment_id"]).strip(),
+        "merchant_ref": str(payload["merchant_ref"]).strip(),
+        "from_status": str(payload["from_status"]).strip().upper(),
+        "to_status": str(payload["to_status"]).strip().upper(),
+        "changed_at": str(payload["changed_at"]).strip(),
+        "evidence_ref": str(payload["evidence_ref"]).strip(),
+        "metadata": _mapping("metadata", payload.get("metadata", {})),
+    }
+    if not result["transition_id"]:
+        raise EvidenceDerivationError("PILOT_STATUS_TRANSITION transition_id must not be empty")
+    return result
 def derive_discovery_gate(
     store: DurableEvidenceStore,
 ) -> dict[str, Any]:
@@ -305,12 +333,14 @@ def derive_discovery_gate(
         )
 
     registry = ProductMarketValidationRegistry()
+    current_commitments: dict[str, DesignPartnerCommitment] = {}
 
     source_evidence_refs: list[str] = []
     source_envelope_ids: list[str] = []
     counts = {
         "DISCOVERY_INTERVIEW": 0,
         "DESIGN_PARTNER_COMMITMENT": 0,
+        "PILOT_STATUS_TRANSITION": 0,
     }
 
     try:
@@ -330,11 +360,33 @@ def derive_discovery_gate(
                         )
                     )
                 elif evidence_type == "DESIGN_PARTNER_COMMITMENT":
-                    registry.record_commitment(
-                        _design_partner_commitment(
-                            envelope.payload
-                        )
+                    commitment = _design_partner_commitment(
+                        envelope.payload
                     )
+                    registry.record_commitment(commitment)
+                    current_commitments[commitment.commitment_id] = commitment
+                elif evidence_type == "PILOT_STATUS_TRANSITION":
+                    transition = _pilot_status_transition(envelope.payload)
+                    current = current_commitments.get(transition["commitment_id"])
+                    if current is None:
+                        raise EvidenceDerivationError(
+                            "pilot status transition references missing commitment"
+                        )
+                    if current.merchant_ref != transition["merchant_ref"]:
+                        raise EvidenceDerivationError(
+                            "pilot status transition merchant_ref mismatch"
+                        )
+                    if current.pilot_status != transition["from_status"]:
+                        raise EvidenceDerivationError(
+                            "pilot status transition from_status does not match current status"
+                        )
+                    updated = registry.transition_pilot_status(
+                        commitment_id=transition["commitment_id"],
+                        target_status=transition["to_status"],
+                        changed_at=transition["changed_at"],
+                        evidence_ref=transition["evidence_ref"],
+                    )
+                    current_commitments[updated.commitment_id] = updated
                 else:
                     continue
 

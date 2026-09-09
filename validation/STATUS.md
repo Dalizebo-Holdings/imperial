@@ -36,6 +36,26 @@ Failure/training/support tracking: COMPLETE
 
 Actual merchants onboarded: EVIDENCE COLLECTION PENDING
 
+## Durable Pilot Status Transitions
+
+PILOT_STATUS_TRANSITION evidence type: COMPLETE
+
+Canonical pilot state-machine replay: COMPLETE
+
+CANDIDATE -> ACTIVE evidence path: COMPLETE
+
+PAUSED/WITHDRAWN transitions: COMPLETE
+
+Merchant/commitment linkage enforcement: COMPLETE
+
+Discovery active-pilot count transition replay: COMPLETE
+
+Transition evidence mutation: PROHIBITED
+
+Automatic ACTIVE promotion: PROHIBITED
+
+Actual ACTIVE pilot transition: EVIDENCE COLLECTION PENDING
+
 ## Durable Pilot Onboarding Event Evidence
 
 PILOT_ONBOARDING_EVENT evidence type: COMPLETE
