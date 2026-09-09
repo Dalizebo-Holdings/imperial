@@ -468,8 +468,10 @@ for phrase in [
     "- [x] Roles",
     "- [x] Product search",
     "- [x] Barcode and SKU lookup",
-    "- [ ] Cart",
-    "POS P0 — Cart + Checkout + Payments + Receipts.",
+    "- [x] Cart",
+    "- [x] Checkout",
+    "DALIZEBO POS P0: COMPLETE",
+    "PHASE 6: COMPLETE",
 ]:
     if phrase not in status:
         raise SystemExit(

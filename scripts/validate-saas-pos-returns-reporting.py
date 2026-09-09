@@ -733,8 +733,8 @@ for phrase in [
     "- [x] Returns",
     "- [x] Daily summaries",
     "DALIZEBO POS P0: COMPLETE",
-    "MVP acceptance/integration sweep: NEXT",
-    "Phase 6 — Commerce + POS MVP Acceptance & Integration Closure.",
+    "MVP acceptance/integration sweep: COMPLETE",
+    "PHASE 6: COMPLETE",
 ]:
     if phrase not in status:
         raise SystemExit(
