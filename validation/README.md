@@ -10,8 +10,9 @@ Validate real merchant demand, activation, engagement, reliability, willingness
 to pay, and operating support requirements before Platform Hardening and broader
 product expansion.
 
-Phase 7 records evidence. It must not fabricate interviews, merchants,
-transactions, payments, retention, or product-market fit.
+Evidence systems may validate structure, consistency, and gate mathematics.
+They may not fabricate interviews, merchants, transactions, retention,
+reliability, commercial outcomes, or product-market fit.
 
 ## Canonical Sequence
 
@@ -26,15 +27,50 @@ Discovery
 
 ## Discovery + Design Partners
 
-Target:
+Control plane: COMPLETE
 
-- 20–30 discovery interviews
-- 5–10 design partner commitments
-- minimum 3 active pilot merchants
-- at least 80% confirm the core problem is material
+External evidence: PENDING REAL EVIDENCE
 
-The runtime enforces canonical partner-selection evidence and computes the
-Discovery + Design Partner gate from actual recorded evidence.
+Gate:
+
+- 20+ interviews
+- >=80% core-problem confirmation
+- 5+ commitments
+- 3+ active pilot merchants
+
+## Pilot Onboarding
+
+Evidence control plane: COMPLETE
+
+Canonical product-aware onboarding sequence: COMPLETE
+
+24-hour first-sale measurement: COMPLETE
+
+Import/payment failures, training and support interventions: TRACKED
+
+Actual merchant onboarding outcomes: PENDING REAL EVIDENCE
+
+## Pilot Metrics
+
+Activation/engagement/reliability/commercial/support schema: COMPLETE
+
+Pilot exit gate computation: COMPLETE
+
+Actual KPI results: PENDING REAL EVIDENCE
+
+## Release Gates
+
+Gate 1 evaluator: COMPLETE
+
+Gate 2 evaluator: COMPLETE
+
+Gate 3 evaluator: COMPLETE
+
+Technical/operational evidence attestations: COMPLETE
+
+Expired evidence rejection: COMPLETE
+
+Actual gate passage: PENDING REAL EVIDENCE
 
 ## Controlled Public MVP Capacity
 
@@ -42,29 +78,16 @@ Discovery + Design Partner gate from actual recorded evidence.
 - 250 POS branches
 - 10,000 monthly orders
 
-These are caps, not growth targets.
-
-## Evidence Areas
-
-- Design Partners
-- Onboarding
-- Pilots
-- Metrics
-- Feedback
-- Support
-- Incidents
-- Release Gates
+Capacity expansion: NOT AUTHORIZED
 
 ## Governing Rule
 
 No Phase 7 business outcome becomes COMPLETE from code or documentation alone.
-External merchant, transaction, reliability, commercial, and support outcomes
-require recorded evidence.
 
 ## Current Work
 
-Discovery + Design Partner evidence collection.
+Controlled pilot evidence collection.
 
 ## Next Work
 
-Pilot onboarding + validation metrics + release-gate evidence.
+Feedback + Support + Incident evidence system.

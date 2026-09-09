@@ -10,7 +10,7 @@ Phase 6 Commerce + POS MVP: COMPLETE
 
 ## Current Stage
 
-Discovery + Design Partner evidence system initialized.
+Pilot onboarding + validation metrics + release-gate evidence system initialized.
 
 ## Discovery
 
@@ -24,15 +24,49 @@ Commitment target 5–10: EVIDENCE COLLECTION PENDING
 
 Minimum 3 active pilot merchants: EVIDENCE COLLECTION PENDING
 
-Canonical selection criteria enforcement: COMPLETE
-
-Evidence immutability/idempotency: COMPLETE
-
-Opaque merchant/evidence references: COMPLETE
-
-Sensitive/direct-contact metadata rejection: COMPLETE
-
 Discovery gate computation: COMPLETE
+
+## Pilot Onboarding
+
+Product-aware onboarding workflow: COMPLETE
+
+24-hour first-sale calculation: COMPLETE
+
+Failure/training/support tracking: COMPLETE
+
+Actual merchants onboarded: EVIDENCE COLLECTION PENDING
+
+## Pilot Metrics
+
+Activation metrics: COMPLETE
+
+Engagement metrics: COMPLETE
+
+Reliability metrics: COMPLETE
+
+Commercial metrics: COMPLETE
+
+Support metrics: COMPLETE
+
+Pilot exit gate: COMPLETE
+
+Actual KPI thresholds: EVIDENCE COLLECTION PENDING
+
+## Release Gates
+
+Gate 1 evaluator: COMPLETE
+
+Gate 2 evaluator: COMPLETE
+
+Gate 3 evaluator: COMPLETE
+
+Evidence expiry handling: COMPLETE
+
+Actual Gate 1 passage: PENDING REAL EVIDENCE
+
+Actual Gate 2 passage: PENDING REAL EVIDENCE
+
+Actual Gate 3 passage: PENDING REAL EVIDENCE
 
 ## Controlled Capacity
 
@@ -42,20 +76,22 @@ POS branches cap: 250
 
 Monthly orders cap: 10,000
 
+Capacity gate: COMPLETE
+
 Capacity expansion: NOT AUTHORIZED
 
 ## Business Outcome
 
 Product-market fit: NOT YET ESTABLISHED
 
-Discovery gate: PENDING REAL EVIDENCE
+Phase 7: ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION
 
 ## Next Work
 
-Pilot onboarding + validation metrics + release-gate evidence.
+Feedback + Support + Incident evidence system.
 
 ## Governing Rule
 
-Code may validate evidence structure and gate mathematics, but it may not mark
-merchant interviews, commitments, transactions, retention, willingness to pay,
-or product-market fit as achieved without real evidence.
+External merchant, transaction, reliability, support, commercial, regulatory,
+and release-gate outcomes require real evidence. Validator test fixtures never
+count as business evidence.
