@@ -59,7 +59,10 @@ def _read_rows(
     if not store.path.exists():
         return []
 
-    rows: list[dict[str, Any]] = []
+    ordered_rows: list[dict[str, Any]] = []
+    prior_by_envelope_id: dict[str, dict[str, Any]] = {}
+    voided_envelope_ids: set[str] = set()
+
     with store.path.open(
         "r",
         encoding="utf-8",
@@ -89,10 +92,110 @@ def _read_rows(
             ):
                 continue
 
-            rows.append(value)
+            envelope_id = str(
+                value.get("envelope_id", "")
+            ).strip()
+            evidence_type = str(
+                value.get("evidence_type", "")
+            ).strip().upper()
 
-    return rows
+            if not envelope_id:
+                raise Gate3DerivationError(
+                    f"ledger line {line_number} missing envelope_id"
+                )
 
+            if envelope_id in prior_by_envelope_id:
+                raise Gate3DerivationError(
+                    f"duplicate envelope_id at ledger line {line_number}"
+                )
+
+            if evidence_type == "EVIDENCE_VOID":
+                payload = value.get("payload", {})
+                if not isinstance(payload, dict):
+                    raise Gate3DerivationError(
+                        "EVIDENCE_VOID payload must be an object"
+                    )
+
+                target_envelope_id = str(
+                    payload.get("target_envelope_id", "")
+                ).strip()
+                target_type = str(
+                    payload.get("target_evidence_type", "")
+                ).strip().upper()
+                target_event_id = str(
+                    payload.get("target_event_id", "")
+                ).strip()
+                target_digest = str(
+                    payload.get("target_content_sha256", "")
+                ).strip().lower()
+
+                target = prior_by_envelope_id.get(
+                    target_envelope_id
+                )
+                if target is None:
+                    raise Gate3DerivationError(
+                        "EVIDENCE_VOID target must reference a prior envelope"
+                    )
+
+                if target_envelope_id in voided_envelope_ids:
+                    raise Gate3DerivationError(
+                        "duplicate EVIDENCE_VOID for target envelope"
+                    )
+
+                actual_type = str(
+                    target.get("evidence_type", "")
+                ).strip().upper()
+                if (
+                    target_type != "PILOT_ONBOARDING_EVENT"
+                    or actual_type != target_type
+                ):
+                    raise Gate3DerivationError(
+                        "EVIDENCE_VOID may only target PILOT_ONBOARDING_EVENT"
+                    )
+
+                actual_digest = str(
+                    target.get("content_sha256", "")
+                ).strip().lower()
+                if (
+                    len(target_digest) != 64
+                    or target_digest != actual_digest
+                ):
+                    raise Gate3DerivationError(
+                        "EVIDENCE_VOID target content digest mismatch"
+                    )
+
+                target_payload = target.get("payload", {})
+                if not isinstance(target_payload, dict):
+                    raise Gate3DerivationError(
+                        "void target payload must be an object"
+                    )
+
+                actual_event_id = str(
+                    target_payload.get("event_id", "")
+                ).strip()
+                if (
+                    not target_event_id
+                    or target_event_id != actual_event_id
+                ):
+                    raise Gate3DerivationError(
+                        "EVIDENCE_VOID target event_id mismatch"
+                    )
+
+                voided_envelope_ids.add(
+                    target_envelope_id
+                )
+                prior_by_envelope_id[envelope_id] = value
+                continue
+
+            prior_by_envelope_id[envelope_id] = value
+            ordered_rows.append(value)
+
+    return [
+        row
+        for row in ordered_rows
+        if str(row.get("envelope_id", "")).strip()
+        not in voided_envelope_ids
+    ]
 
 def _commitment(
     payload: dict[str, Any],

@@ -432,6 +432,24 @@ Actual Release Gate 1 proof: PENDING REAL EVIDENCE
 
 Actual Release Gate 2 proof: PENDING REAL EVIDENCE
 
+## Append-only Evidence Void
+
+EVIDENCE_VOID correction envelope: COMPLETE
+
+Original evidence preservation: COMPLETE
+
+Target envelope/content digest binding: COMPLETE
+
+Gate 3 void-aware replay: COMPLETE
+
+TEST_FIXTURE exclusion: COMPLETE
+
+Direct ledger mutation/deletion: PROHIBITED
+
+Automatic Gate PASS claim: PROHIBITED
+
+Actual void records: PRIVATE DURABLE EVIDENCE ONLY
+
 ## Durable Release Gate 3 Derivation
 
 Design-partner current-state replay: COMPLETE

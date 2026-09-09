@@ -317,6 +317,17 @@
 - [x] No automatic Gate 3 PASS
 - [ ] First real pilot onboarding start ingested
 
+## Append-only Evidence Void
+
+- [x] Append-only EVIDENCE_VOID writer
+- [x] Existing target/event verification
+- [x] Target payload digest binding
+- [x] Duplicate void rejection
+- [x] Gate 3 replay excludes only verified void targets
+- [x] Original durable evidence retained
+- [x] No direct ledger rewrite/delete
+- [x] No automatic Gate PASS or Phase 8 authorization
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
