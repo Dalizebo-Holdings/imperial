@@ -18,6 +18,7 @@ P0_SERVICES = {
     "subscription_billing",
     "payments",
     "currency_conversion",
+    "realtime",
     "secrets",
     "backups",
 }

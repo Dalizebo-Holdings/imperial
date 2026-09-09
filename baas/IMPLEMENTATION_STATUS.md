@@ -37,11 +37,30 @@ Phase 8
 - [x] Kernel recursive redaction preservation
 - [x] Tenant-scoped log query
 - [x] Retention cutoff metadata
+- [x] Realtime
 - [ ] Usage Metering
-- [ ] Subscription Billing
+- [x] Subscription Billing
 - [x] Payment Abstraction
 - [x] Secrets
 - [x] Backups
+
+## Usage Metering
+
+- [x] Usage Metering
+- [x] Timestamped immutable raw usage records
+- [x] Idempotent ingestion
+- [x] Unit-safe aggregation
+- [x] Reconciliation verification
+- [ ] Subscription Billing
+
+## Subscription Billing
+
+- [x] Subscription Billing
+- [x] Immutable versioned plan pricing
+- [x] Deterministic invoice generation
+- [x] Payment-provider execution boundary
+- [x] Invoice/source-hash reconciliation
+- [ ] Payment Abstraction
 
 ## Outbox Processing
 
@@ -85,6 +104,21 @@ recovery orchestration, and apology-credit path metadata.
 - [x] Apology credit path
 - [x] Conversion idempotency
 - [x] Currency Conversion P0 plan/confirm/void/failed-recovery/resolve/reconcile closed
+
+## Realtime
+
+- [x] Database change subscriptions
+- [x] Inventory updates
+- [x] Order updates
+- [x] Presence
+- [x] Application events
+- [x] Subscription filters (EQUALS, NOT_EQUALS, IN, NOT_IN, GT, GTE, LT, LTE, LIKE, ILIKE)
+- [x] Cursor-based filtering
+- [x] Tenant isolation enforced
+- [x] Kernel authorization required
+- [x] Cross-tenant access denied
+- [x] Connection lifecycle (create, connect, disconnect, delete)
+- [x] Broadcast delivery with filtering
 
 ## Runtime Status
 
