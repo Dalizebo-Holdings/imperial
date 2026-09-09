@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import importlib.util
+import importlib
 import py_compile
 import sys
 
@@ -9,20 +9,28 @@ SAAS = ROOT / "saas"
 KERNEL = ROOT / "kernel"
 BAAS = ROOT / "baas"
 
+# The validator executes from scripts/, but Kernel modules use package-relative
+# imports (for example kernel.authorization.runtime -> ..identity.context).
+# Add the repository root to sys.path and import by dotted package name so
+# Python preserves the package context required by those relative imports.
+root_text = str(ROOT)
+if root_text not in sys.path:
+    sys.path.insert(0, root_text)
+
 MODULES = {
-    "saas_product_context": (
+    "saas.runtime.product_context": (
         SAAS / "runtime/product_context.py"
     ),
-    "pos_foundation": (
+    "saas.pos.foundation.runtime": (
         SAAS / "pos/foundation/runtime.py"
     ),
-    "kernel_authorization": (
+    "kernel.authorization.runtime": (
         KERNEL / "authorization/runtime.py"
     ),
-    "kernel_variant_identifiers": (
+    "kernel.commerce.variant_identifiers": (
         KERNEL / "commerce/variant_identifiers.py"
     ),
-    "baas_auth": (
+    "baas.auth.runtime": (
         BAAS / "auth/runtime.py"
     ),
 }
@@ -38,42 +46,29 @@ for path in MODULES.values():
     )
 
 
-def load_module(name, path):
-    spec = importlib.util.spec_from_file_location(
-        name,
-        path,
-    )
-    if spec is None or spec.loader is None:
+def load_module(module_name):
+    try:
+        return importlib.import_module(module_name)
+    except Exception as exc:
         raise SystemExit(
-            f"ERROR: unable to load module: {path}"
-        )
-    module = importlib.util.module_from_spec(
-        spec
-    )
-    sys.modules[name] = module
-    spec.loader.exec_module(module)
-    return module
+            f"ERROR: unable to import package module {module_name}: {exc}"
+        ) from exc
 
 
 foundation = load_module(
-    "saas_product_context",
-    MODULES["saas_product_context"],
+    "saas.runtime.product_context"
 )
 pos = load_module(
-    "pos_foundation",
-    MODULES["pos_foundation"],
+    "saas.pos.foundation.runtime"
 )
 authorization = load_module(
-    "kernel_authorization",
-    MODULES["kernel_authorization"],
+    "kernel.authorization.runtime"
 )
 identifiers = load_module(
-    "kernel_variant_identifiers",
-    MODULES["kernel_variant_identifiers"],
+    "kernel.commerce.variant_identifiers"
 )
 auth = load_module(
-    "baas_auth",
-    MODULES["baas_auth"],
+    "baas.auth.runtime"
 )
 
 auth_registry = auth.AuthenticationRegistry()
