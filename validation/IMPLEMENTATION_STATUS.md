@@ -185,6 +185,22 @@
 - [x] Phase 8 remains blocked
 - [ ] First real design-partner commitment ingested
 
+## Durable Discovery Gate Derivation
+
+- [x] Durable evidence reconstruction
+- [x] Decision-eligible-only filtering
+- [x] TEST_FIXTURE exclusion
+- [x] DiscoveryInterview canonical payload validation
+- [x] DesignPartnerCommitment canonical payload validation
+- [x] Existing ProductMarketValidationRegistry reuse
+- [x] Canonical discovery_gate computation
+- [x] PASS-only GATE_PROOF emission
+- [x] Evidence digest binding
+- [x] Ledger head binding
+- [x] Source evidence reference binding
+- [x] Deferred target cannot be waived
+- [ ] Real discovery GATE_PROOF ingested
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence

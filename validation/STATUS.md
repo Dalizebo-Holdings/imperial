@@ -274,6 +274,26 @@ Phase 8 bypass: PROHIBITED
 
 Actual design-partner commitment: EVIDENCE COLLECTION PENDING
 
+## Durable Discovery Gate Derivation
+
+Durable ledger -> canonical Discovery registry reconstruction: COMPLETE
+
+Decision-eligible evidence filtering: COMPLETE
+
+TEST_FIXTURE exclusion: COMPLETE
+
+Discovery/design-partner payload validation: COMPLETE
+
+Canonical Discovery Gate derivation: COMPLETE
+
+PASS-only discovery GATE_PROOF emission: COMPLETE
+
+Evidence-digest + ledger-head + source-reference binding: COMPLETE
+
+Discovery threshold waiver: PROHIBITED
+
+Actual discovery GATE_PROOF: PENDING REAL EVIDENCE
+
 ## Phase 7 Closure State
 
 PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED
@@ -282,7 +302,7 @@ Product-market fit: NOT YET ESTABLISHED
 
 ## Next Work
 
-Continue merchant discovery when practical. In parallel, eligible interviewed merchants may enter the design-partner candidate flow with `scripts/phase7-design-partner.py`; the Discovery target remains deferred, not waived.
+Continue validation in parallel. Use `scripts/phase7-evidence-derive.py discovery` to inspect the durable real-evidence Discovery Gate. A discovery GATE_PROOF may be emitted only when the canonical gate returns PASS; the target remains deferred, not waived.
 
 Initialize the empty private inbox, create one evidence record at a time with `phase7-evidence-collect.py new`, replace placeholders with real source-backed values, ingest validated records, then execute the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
 
