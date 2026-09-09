@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-import importlib.util
 import py_compile
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 KERNEL = ROOT / "kernel"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 MODULES = {
     "kernel_postgres": KERNEL / "persistence/runtime.py",
@@ -20,31 +21,10 @@ for path in MODULES.values():
         raise SystemExit(
             f"ERROR: missing Kernel persistence runtime file: {path}"
         )
-    py_compile.compile(str(path), doraise=True)
+    _ = py_compile.compile(str(path), doraise=True)
 
-
-def load_module(name: str, path: Path):
-    spec = importlib.util.spec_from_file_location(name, path)
-
-    if spec is None or spec.loader is None:
-        raise SystemExit(
-            f"ERROR: unable to load module: {path}"
-        )
-
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[name] = module
-    spec.loader.exec_module(module)
-    return module
-
-
-postgres = load_module(
-    "kernel_postgres",
-    MODULES["kernel_postgres"],
-)
-migrations = load_module(
-    "kernel_migrations",
-    MODULES["kernel_migrations"],
-)
+from kernel.migrations import runtime as migrations
+from kernel.persistence import runtime as postgres
 
 prod = postgres.PostgresConfig(
     dsn_ref="vault://kernel/production/postgres",
@@ -171,7 +151,7 @@ if migrations.plan_migrations(
 
 checksum_drift_rejected = False
 try:
-    migrations.plan_migrations(
+    _ = migrations.plan_migrations(
         available=available,
         applied=[
             migrations.AppliedMigration(

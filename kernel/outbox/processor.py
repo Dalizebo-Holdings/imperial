@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Protocol, assert_never, override
+from typing import Protocol, override
 
 from kernel.outbox.runtime import ClaimedOutboxEvent
 
@@ -131,27 +131,24 @@ class OutboxProcessor:
                     "claimed event is outside the worker tenant scope",
                 )
             outcome = self.adapter.publish(event)
-            match outcome:
-                case DeliveryAcknowledgement(publish_ack_ref=publish_ack_ref):
-                    outcome.validate()
-                    self.store.acknowledge(
-                        event_id=event.event_id,
-                        organization_id=event.organization_id,
-                        worker_id=self.settings.worker_id,
-                        publish_ack_ref=publish_ack_ref,
-                    )
-                    acknowledged += 1
-                case DeliveryFailure(error_code=error_code):
-                    outcome.validate()
-                    self.store.fail(
-                        event_id=event.event_id,
-                        organization_id=event.organization_id,
-                        worker_id=self.settings.worker_id,
-                        error_code=error_code,
-                    )
-                    failed += 1
-                case _ as unreachable:
-                    assert_never(unreachable)
+            if isinstance(outcome, DeliveryAcknowledgement):
+                outcome.validate()
+                self.store.acknowledge(
+                    event_id=event.event_id,
+                    organization_id=event.organization_id,
+                    worker_id=self.settings.worker_id,
+                    publish_ack_ref=outcome.publish_ack_ref,
+                )
+                acknowledged += 1
+            else:
+                outcome.validate()
+                self.store.fail(
+                    event_id=event.event_id,
+                    organization_id=event.organization_id,
+                    worker_id=self.settings.worker_id,
+                    error_code=outcome.error_code,
+                )
+                failed += 1
 
         return ProcessingSummary(
             claimed=len(events),

@@ -1,24 +1,21 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import importlib.util
 import sys
 import threading
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from types import TracebackType
-from typing import Self
+from typing import Self, final
 
 ROOT = Path(__file__).resolve().parent.parent
 WORKER_PATH = ROOT / "kernel/outbox/runtime.py"
 MIGRATION = ROOT / "kernel/migrations/sql/0004_phase8_outbox_delivery_hardening.sql"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-spec = importlib.util.spec_from_file_location("kernel_outbox", WORKER_PATH)
-if spec is None or spec.loader is None:
-    raise SystemExit("ERROR: unable to load outbox worker runtime")
-worker = importlib.util.module_from_spec(spec)
-sys.modules[spec.name] = worker
-spec.loader.exec_module(worker)
+from kernel.outbox import runtime as worker
+
 RowValue = str | int | datetime | None
 
 
@@ -56,6 +53,7 @@ def _timestamp(row: dict[str, RowValue], name: str) -> datetime:
     return value
 
 
+@final
 class FakeCursor:
     def __init__(self, connection: FakeConnection) -> None:
         self.connection = connection
@@ -132,6 +130,7 @@ class FakeCursor:
         return self.rows
 
 
+@final
 class FakeConnection:
     def __init__(self) -> None:
         self.state_lock = threading.Lock()
@@ -182,7 +181,7 @@ claimed: list[tuple[str, ...]] = [(), ()]
 
 
 def claim(index: int) -> None:
-    barrier.wait()
+    _ = barrier.wait()
     result = workers[index].claim(
         worker_id=f"worker-{index}",
         organization_id="org-worker",

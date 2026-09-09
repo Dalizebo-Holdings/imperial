@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import importlib.util
 import subprocess
 import sys
 import time
@@ -10,6 +9,11 @@ from uuid import uuid4
 
 ROOT = Path(__file__).resolve().parent.parent
 RUNTIME = ROOT / "kernel/outbox/runtime.py"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from kernel.outbox import runtime as worker
+
 MIGRATIONS = "\n".join(
     (ROOT / "kernel/migrations/sql" / name).read_text(encoding="utf-8")
     for name in (
@@ -18,13 +22,6 @@ MIGRATIONS = "\n".join(
         "0005_phase8_outbox_publish_acknowledgement.sql",
     )
 )
-
-spec = importlib.util.spec_from_file_location("kernel_outbox", RUNTIME)
-if spec is None or spec.loader is None:
-    raise SystemExit("ERROR: unable to load outbox worker runtime")
-worker = importlib.util.module_from_spec(spec)
-sys.modules[spec.name] = worker
-spec.loader.exec_module(worker)
 
 container = f"imperial-outbox-{uuid4().hex[:12]}"
 
