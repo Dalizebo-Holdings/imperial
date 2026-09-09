@@ -142,6 +142,36 @@
 - [x] Evidence progress report
 - [ ] Real Phase 7 evidence imported
 
+## Evidence Inbox Workflow
+
+- [x] Empty active inbox initialization
+- [x] Separate private template library
+- [x] 11 templates remain available
+- [x] Single-record `new` workflow
+- [x] Simple-file-name validation
+- [x] Existing-record overwrite rejection
+- [x] Template library excluded from preflight
+- [x] Empty inbox valid
+- [x] Incremental evidence collection
+- [ ] Real Phase 7 evidence imported
+
+## Merchant Discovery Execution
+
+- [x] Recruitment playbook
+- [x] Interview guide
+- [x] Interactive live interview runner
+- [x] Opaque merchant reference generation
+- [x] Opaque evidence reference generation
+- [x] Material-problem classification prompt
+- [x] Willingness-to-test prompt
+- [x] Structured-feedback prompt
+- [x] Non-sensitive operational context
+- [x] Canonical inbox-envelope validation
+- [x] Owner-only evidence record permissions
+- [ ] First real discovery interview recorded
+- [ ] 20+ real discovery interviews recorded
+- [ ] >=80% material-problem confirmation
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
@@ -187,4 +217,4 @@ ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION
 
 ## Current Next Work
 
-Initialize the private evidence inbox, ingest real source-backed evidence, and run the PMF closure gate; Phase 8 remains blocked.
+Initialize the empty private inbox, create and ingest real source-backed records incrementally, and run the PMF closure gate; Phase 8 remains blocked.

@@ -226,6 +226,36 @@ Real evidence auto-fabrication: PROHIBITED
 
 Actual real evidence imported: PENDING
 
+## Evidence Inbox Workflow
+
+Empty active inbox initialization: COMPLETE
+
+Separate private template library: COMPLETE
+
+Single-record `new <type> <name>` workflow: COMPLETE
+
+Template library excluded from active preflight: COMPLETE
+
+Incremental evidence collection: COMPLETE
+
+Actual real evidence imported: PENDING
+
+## Merchant Discovery Execution
+
+Recruitment playbook: COMPLETE
+
+Interview guide: COMPLETE
+
+Live interview evidence runner: COMPLETE
+
+Automatic opaque merchant references: COMPLETE
+
+Sensitive credential/payment material rejection: COMPLETE
+
+Real interview evidence auto-generation without interview: PROHIBITED
+
+Actual discovery interviews: EVIDENCE COLLECTION PENDING
+
 ## Phase 7 Closure State
 
 PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED
@@ -234,7 +264,9 @@ Product-market fit: NOT YET ESTABLISHED
 
 ## Next Work
 
-Initialize the private evidence inbox, replace template placeholders with real source-backed evidence, batch-ingest it, then execute the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
+Conduct real merchant discovery interviews with `scripts/phase7-discovery-interview.py`, ingest validated evidence, and continue until the canonical Discovery Gate is satisfied.
+
+Initialize the empty private inbox, create one evidence record at a time with `phase7-evidence-collect.py new`, replace placeholders with real source-backed values, ingest validated records, then execute the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
 
 ## Governing Rule
 
