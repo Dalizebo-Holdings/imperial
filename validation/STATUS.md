@@ -10,7 +10,7 @@ Phase 6 Commerce + POS MVP: COMPLETE
 
 ## Current Stage
 
-Pilot onboarding + validation metrics + release-gate evidence system initialized.
+Feedback + Support + Incident evidence system initialized.
 
 ## Discovery
 
@@ -86,9 +86,51 @@ Product-market fit: NOT YET ESTABLISHED
 
 Phase 7: ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION
 
+## Feedback
+
+Canonical feedback categories: COMPLETE
+
+Structured classification contract: COMPLETE
+
+Evidence-backed product decisions: COMPLETE
+
+Actual merchant feedback: EVIDENCE COLLECTION PENDING
+
+## Support
+
+P0–P3 support evidence registry: COMPLETE
+
+P1 first-response <=1 business day calculation: COMPLETE
+
+Ticket lifecycle + resolution evidence: COMPLETE
+
+Actual support SLA outcomes: EVIDENCE COLLECTION PENDING
+
+## Incidents
+
+Production incident evidence registry: COMPLETE
+
+Critical incident owner enforcement: COMPLETE
+
+Recovery validation + corrective-action closure: COMPLETE
+
+Material tenant-isolation defect tracking: COMPLETE
+
+Actual incident/recovery outcomes: EVIDENCE COLLECTION PENDING
+
+## Operational Evidence
+
+Support process evidence derivation: COMPLETE
+
+Recovery evidence derivation: COMPLETE
+
+Unresolved material tenant-isolation blocker: COMPLETE
+
+Release-gate attestation still requires real evidence references: ENFORCED
+
 ## Next Work
 
-Feedback + Support + Incident evidence system.
+Phase 7 evidence ingestion + PMF decision/closure gate.
 
 ## Governing Rule
 

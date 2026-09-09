@@ -62,6 +62,34 @@
 - [x] Tenant-isolation linkage
 - [x] Controlled-capacity linkage
 
+## Feedback + Support + Incidents
+
+- [x] Canonical feedback categories
+- [x] Feedback classification contract
+- [x] Evidence-backed product decision changes
+- [x] Feedback immutability/idempotency
+- [x] P0/P1/P2/P3 support severity
+- [x] Support ownership
+- [x] Support first-response evidence
+- [x] P1 <=1 business-day calculation
+- [x] Support resolution evidence
+- [x] Production incident evidence
+- [x] Critical incident owner enforcement
+- [x] Incident mitigation lifecycle
+- [x] Root-cause/resolution/recovery/corrective-action closure
+- [x] Material tenant-isolation defect tracking
+- [x] Operational readiness evidence digest
+- [x] Sensitive credential/payment metadata rejection
+
+## External Operational Evidence — Not Fabricated
+
+- [ ] Merchant feedback recorded
+- [ ] Actual P1 response SLA measured
+- [ ] Support process demonstrated
+- [ ] Recovery procedure demonstrated
+- [ ] No unresolved material tenant-isolation defect
+- [ ] Operational evidence attached to release gates
+
 ## External Evidence — Not Fabricated
 
 - [ ] 20+ discovery interviews recorded
@@ -87,4 +115,4 @@ ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION
 
 ## Current Next Work
 
-Feedback + Support + Incident evidence system.
+Phase 7 evidence ingestion + PMF decision/closure gate.
