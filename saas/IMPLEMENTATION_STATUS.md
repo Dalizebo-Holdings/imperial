@@ -2,114 +2,9 @@
 
 ## Phase
 
-Phase 6 — Commerce + POS
+Phase 9 — CRM + Analytics + Automate + Desk + Projects
 
-## Commerce P0
-
-- [x] Store setup
-- [x] Product catalogue
-- [x] Variants
-- [x] Pricing
-- [x] Inventory
-- [x] Customers
-- [x] Cart
-- [x] Checkout
-- [x] Orders
-- [x] Payments
-- [x] Discounts
-- [x] Notifications
-- [x] Dashboard
-
-## Commerce P0 Result
-
-DALIZEBO COMMERCE P0: COMPLETE
-
-## POS P0
-
-- [x] Branches
-- [x] Staff
-- [x] Roles
-- [x] Product search
-- [x] Barcode and SKU lookup
-- [x] Cart
-- [x] Checkout
-- [x] Cash payment recording
-- [x] Card payment recording
-- [x] Receipts
-- [x] Inventory deduction
-- [x] Returns
-- [x] Daily summaries
-
-## POS Returns Components
-
-- [x] Kernel Refund authority boundary
-- [x] Completed Order / captured Payment prerequisites
-- [x] Returned quantity bounded by sold quantity
-- [x] Deterministic line refund calculation
-- [x] Cumulative refund cap
-- [x] Cash refund orchestration
-- [x] Card refund delegation to BaaS Payment Abstraction
-- [x] Card refund completion evidence matching
-- [x] Branch inventory restock
-- [x] Partial refund preserves CAPTURED Payment
-- [x] Full refund explicitly transitions Payment CAPTURED→REFUNDED
-- [x] Atomic return settlement requirement
-- [x] Return audit metadata
-- [x] Return receipt planning
-- [x] Return idempotency
-- [x] Cross-tenant return rejection
-
-## POS Daily Summary Components
-
-- [x] Branch-scoped business-day query
-- [x] IANA timezone boundary
-- [x] Currency-specific aggregation contract
-- [x] Gross sales
-- [x] Cash sales
-- [x] Card sales
-- [x] Refund totals
-- [x] Net sales
-- [x] Items sold
-- [x] Items returned
-- [x] Read-only Kernel source plan
-- [x] No authoritative reporting database
-
-## POS P0 Result
-
-DALIZEBO POS P0: COMPLETE
-
-## Deferred POS P1
-
-- [ ] Offline queue
-- [ ] Receipt printers
-- [ ] Cash drawer reconciliation
-- [ ] Stock transfers
-- [ ] Staff reporting
-- [ ] Purchase history
-
-## Commerce Refund Closure
-
-- [x] Provider refund planning through BaaS Payment Abstraction
-- [x] Shared Kernel Refund validation
-- [x] Auditable shared REFUND command
-- [x] Partial refund preserves CAPTURED Payment
-- [x] Full cumulative refund explicitly transitions CAPTURED→REFUNDED
-- [x] Cross-tenant refund evidence rejection
-- [x] Refund idempotency
-
-## Phase 6 MVP Acceptance
-
-- [x] Commerce acceptance criteria
-- [x] POS acceptance criteria
-- [x] No cross-tenant exposure gate
-- [x] No duplicated authoritative SaaS SQL models
-- [x] Critical-operation idempotency
-- [x] Audit evidence
-- [x] Payment reconciliation
-- [x] Logging + metrics platform evidence
-- [x] Backup restore-test platform evidence
-
-## Phase 6 State
+## Phase 6 State (Complete)
 
 Commerce P0: COMPLETE
 
@@ -119,6 +14,76 @@ MVP acceptance/integration sweep: COMPLETE
 
 PHASE 6: COMPLETE
 
-## Current Next Work
+## Phase 7 State (Engineering Closure)
 
-Phase 7 — Product-Market Validation.
+PHASE7_IMPLEMENTATION_COMPLETE
+EXTERNAL_EVIDENCE_PENDING
+PRODUCTION_AUTHORIZATION_BLOCKED
+
+## Phase 8 State (Development Only)
+
+Phase 8 Platform Hardening: OUTBOX PROCESSING COMPLETE
+Webhook network policy: COMPLETE
+Observability guardrails: COMPLETE
+Rate-limit envelope: COMPLETE
+Remaining: Realtime, DR, Usage billing, External BaaS readiness (DEFERRED)
+
+## Phase 9 — CRM + Analytics + Automate + Desk + Projects
+
+### CRM P0
+
+- [ ] Customers (shared with Commerce)
+- [ ] Contacts
+- [ ] Activities (calls, meetings, emails, notes)
+- [ ] Pipeline (deals, stages, forecasting)
+- [ ] Campaigns
+- [ ] Segments
+- [ ] Reports
+- [ ] Cross-product customer context
+
+### Analytics P0
+
+- [ ] Warehouse (shared data model)
+- [ ] Metrics (definitions, computation)
+- [ ] Dashboards (pre-built, custom)
+- [ ] Reports (scheduled, ad-hoc)
+- [ ] Exports
+- [ ] Cross-product event ingestion
+
+### Automate P0
+
+- [ ] Triggers (event, schedule, webhook)
+- [ ] Workflows (DAG, conditional logic)
+- [ ] Actions (API, function, notification)
+- [ ] Runs (execution, retry, observability)
+- [ ] Templates
+
+### Desk P0
+
+- [ ] Tickets (creation, assignment, SLA)
+- [ ] Queues (routing, prioritization)
+- [ ] Knowledge (articles, search)
+- [ ] Reports (volume, SLA, CSAT)
+- [ ] Customer context integration
+
+### Projects P0
+
+- [ ] Projects (creation, hierarchy)
+- [ ] Tasks (assignment, dependencies, timeline)
+- [ ] Teams (membership, roles)
+- [ ] Reports (progress, capacity)
+- [ ] Timeline (Gantt, milestones)
+
+## Phase 9 Acceptance Criteria
+
+- Customers can use Commerce/POS with CRM
+- Analytics reports across shared data
+- Automate can react to platform events
+- Desk can access customer context
+- Projects can reuse organization identity
+- No duplicate customer authority
+- No duplicate order authority
+- No duplicate payment authority
+- APIs remain versioned
+- Cross-product events are documented
+- Audit context is preserved

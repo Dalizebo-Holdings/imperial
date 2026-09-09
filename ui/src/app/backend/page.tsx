@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Logo } from "@/components/Logo";
 
 const navigation = [
   { href: "/", label: "Dashboard", exact: true },
@@ -11,17 +12,19 @@ const navigation = [
   { href: "/operations", label: "Operations", exact: false },
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
+  { href: "/phase9", label: "Phase 9", exact: false },
 ];
 
 export default function BackendPage() {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-fade-in">
       <nav className="nav" role="navigation" aria-label="Main navigation">
         <div className="nav-brand">
-          <Link href="/" style={{ textDecoration: "none" }}>
-            Dalizebo Platform <span className="beta-badge">Beta 0.1</span>
+          <Link href="/" className="nav-brand-link" aria-label="Dalizebo Platform Home">
+            <Logo size="medium" />
+            <span className="beta-badge">Beta 0.1</span>
           </Link>
         </div>
         <div className="nav-links">
@@ -29,7 +32,7 @@ export default function BackendPage() {
             const isActive = item.exact
               ? pathname === item.href
               : pathname.startsWith(item.href);
-            const isPending = ["/operations", "/validation", "/settings"].includes(item.href);
+            const isPending = ["/operations", "/validation", "/settings", "/phase9"].includes(item.href);
 
             return (
               <Link
@@ -57,73 +60,49 @@ export default function BackendPage() {
         <div className="grid">
           <div className="card">
             <h3 className="card-title">Data & Storage</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               PostgreSQL databases, object storage, and data management.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Database: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Storage: PENDING
-              </button>
+              <span className="status-badge pending">Database: PENDING</span>
+              <span className="status-badge pending">Storage: PENDING</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Compute & API</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Serverless functions, API gateway, and API management.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Functions: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                API Gateway: PENDING
-              </button>
+              <span className="status-badge pending">Functions: PENDING</span>
+              <span className="status-badge pending">API Gateway: PENDING</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Events & Integration</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Event streams, webhooks, background jobs, and integrations.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Events: COMPLETE
-              </button>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Webhooks: COMPLETE
-              </button>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Jobs: COMPLETE
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Integrations: PENDING
-              </button>
+              <span className="status-badge complete">Events: COMPLETE</span>
+              <span className="status-badge complete">Webhooks: COMPLETE</span>
+              <span className="status-badge complete">Jobs: COMPLETE</span>
+              <span className="status-badge pending">Integrations: PENDING</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Security & Operations</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Secrets management, backups, usage metering, and billing.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Secrets: COMPLETE
-              </button>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Backups: COMPLETE
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Usage: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Billing: PENDING
-              </button>
+              <span className="status-badge complete">Secrets: COMPLETE</span>
+              <span className="status-badge complete">Backups: COMPLETE</span>
+              <span className="status-badge pending">Usage: PENDING</span>
+              <span className="status-badge pending">Billing: PENDING</span>
             </div>
           </div>
         </div>
@@ -133,7 +112,7 @@ export default function BackendPage() {
           <div className="grid">
             <div className="card">
               <h3 className="card-title">Complete Services</h3>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>✓ PostgreSQL Database BaaS</li>
                 <li>✓ Object Storage</li>
                 <li>✓ Serverless Functions</li>
@@ -152,7 +131,7 @@ export default function BackendPage() {
             </div>
             <div className="card">
               <h3 className="card-title">Deferred</h3>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>□ Usage Metering</li>
                 <li>□ Realtime subscriptions</li>
                 <li>□ Disaster recovery procedures</li>

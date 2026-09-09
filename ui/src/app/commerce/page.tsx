@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Logo } from "@/components/Logo";
 
 const navigation = [
   { href: "/", label: "Dashboard", exact: true },
@@ -11,17 +12,19 @@ const navigation = [
   { href: "/operations", label: "Operations", exact: false },
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
+  { href: "/phase9", label: "Phase 9", exact: false },
 ];
 
 export default function CommercePage() {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-fade-in">
       <nav className="nav" role="navigation" aria-label="Main navigation">
         <div className="nav-brand">
-          <Link href="/" style={{ textDecoration: "none" }}>
-            Dalizebo Platform <span className="beta-badge">Beta 0.1</span>
+          <Link href="/" className="nav-brand-link" aria-label="Dalizebo Platform Home">
+            <Logo size="medium" />
+            <span className="beta-badge">Beta 0.1</span>
           </Link>
         </div>
         <div className="nav-links">
@@ -35,15 +38,14 @@ export default function CommercePage() {
               "/operations",
               "/validation",
               "/settings",
+              "/phase9",
             ].includes(item.href);
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`nav-link ${isActive ? "active" : ""} ${
-                  isPending ? "pending" : ""
-                }`}
+                className={`nav-link ${isActive ? "active" : ""} ${isPending ? "pending" : ""}`}
                 aria-current={isActive ? "page" : undefined}
               >
                 {item.label}
@@ -65,70 +67,46 @@ export default function CommercePage() {
         <div className="grid">
           <div className="card">
             <h3 className="card-title">Products & Variants</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Manage product catalogue with variants, pricing, and attributes.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Products: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Variants: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Inventory: PENDING
-              </button>
+              <span className="status-badge pending">Products: PENDING</span>
+              <span className="status-badge pending">Variants: PENDING</span>
+              <span className="status-badge pending">Inventory: PENDING</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Customers & Cart</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Customer profiles, shopping cart, and session management.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Customers: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Cart: PENDING
-              </button>
+              <span className="status-badge pending">Customers: PENDING</span>
+              <span className="status-badge pending">Cart: PENDING</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Checkout & Orders</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Checkout flow, order management, and fulfillment tracking.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Checkout: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Orders: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Refunds: PENDING
-              </button>
+              <span className="status-badge pending">Checkout: PENDING</span>
+              <span className="status-badge pending">Orders: PENDING</span>
+              <span className="status-badge pending">Refunds: PENDING</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Integration Status</h3>
-            <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
-              <li>
-                <strong>Kernel:</strong> Commerce P0 complete
-              </li>
-              <li>
-                <strong>BaaS:</strong> Events, Webhooks, Jobs, Audit, Logging complete
-              </li>
-              <li>
-                <strong>SaaS:</strong> Commerce P0 complete (Phase 6)
-              </li>
-              <li>
-                <strong>UI:</strong> <strong>PENDING</strong> — Next.js implementation
-              </li>
+            <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
+              <li><strong>Kernel:</strong> Commerce P0 complete</li>
+              <li><strong>BaaS:</strong> Events, Webhooks, Jobs, Audit, Logging complete</li>
+              <li><strong>SaaS:</strong> Commerce P0 complete (Phase 6)</li>
+              <li><strong>UI:</strong> <strong style={{ color: "var(--color-status-pending)" }}>PENDING</strong> — Next.js implementation</li>
             </ul>
           </div>
         </div>
@@ -138,7 +116,7 @@ export default function CommercePage() {
           <div className="grid">
             <div className="card">
               <h3 className="card-title">Phase 1: Core Commerce UI</h3>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>Product list with search/filter</li>
                 <li>Product detail with variants</li>
                 <li>Inventory display</li>
@@ -147,7 +125,7 @@ export default function CommercePage() {
             </div>
             <div className="card">
               <h3 className="card-title">Phase 2: Cart & Checkout</h3>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>Cart drawer/sidebar</li>
                 <li>Multi-step checkout</li>
                 <li>Payment integration (sandbox)</li>
@@ -156,7 +134,7 @@ export default function CommercePage() {
             </div>
             <div className="card">
               <h3 className="card-title">Phase 3: Orders & Refunds</h3>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>Order list with status</li>
                 <li>Order detail timeline</li>
                 <li>Refund initiation</li>

@@ -38,9 +38,8 @@ Phase 8
 - [x] Tenant-scoped log query
 - [x] Retention cutoff metadata
 - [ ] Usage Metering
-- [x] Subscription Billing
+- [ ] Subscription Billing
 - [x] Payment Abstraction
-- [x] Currency Conversion
 - [x] Secrets
 - [x] Backups
 

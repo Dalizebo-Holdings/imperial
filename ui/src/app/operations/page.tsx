@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Logo } from "@/components/Logo";
 
 const navigation = [
   { href: "/", label: "Dashboard", exact: true },
@@ -11,17 +12,19 @@ const navigation = [
   { href: "/operations", label: "Operations", exact: false },
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
+  { href: "/phase9", label: "Phase 9", exact: false },
 ];
 
 export default function OperationsPage() {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-fade-in">
       <nav className="nav" role="navigation" aria-label="Main navigation">
         <div className="nav-brand">
-          <Link href="/" style={{ textDecoration: "none" }}>
-            Dalizebo Platform <span className="beta-badge">Beta 0.1</span>
+          <Link href="/" className="nav-brand-link" aria-label="Dalizebo Platform Home">
+            <Logo size="medium" />
+            <span className="beta-badge">Beta 0.1</span>
           </Link>
         </div>
         <div className="nav-links">
@@ -29,7 +32,7 @@ export default function OperationsPage() {
             const isActive = item.exact
               ? pathname === item.href
               : pathname.startsWith(item.href);
-            const isPending = ["/validation", "/settings"].includes(item.href);
+            const isPending = ["/validation", "/settings", "/phase9"].includes(item.href);
 
             return (
               <Link
@@ -57,73 +60,49 @@ export default function OperationsPage() {
         <div className="grid">
           <div className="card">
             <h3 className="card-title">Observability</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Structured logs, metrics, and distributed traces.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Logs: COMPLETE
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Metrics: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Traces: PENDING
-              </button>
+              <span className="status-badge complete">Logs: COMPLETE</span>
+              <span className="status-badge pending">Metrics: PENDING</span>
+              <span className="status-badge pending">Traces: PENDING</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Audit & Compliance</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Kernel-authoritative audit trail with tamper evidence.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Audit: COMPLETE
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Compliance: PENDING
-              </button>
+              <span className="status-badge complete">Audit: COMPLETE</span>
+              <span className="status-badge pending">Compliance: PENDING</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">Outbox Operations</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Transactional outbox monitoring and debugging.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Outbox: COMPLETE
-              </button>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Retries: COMPLETE
-              </button>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Dead Letters: COMPLETE
-              </button>
-              <button className="status-badge complete" style={{ cursor: "default" }}>
-                Rate Limits: COMPLETE
-              </button>
+              <span className="status-badge complete">Outbox: COMPLETE</span>
+              <span className="status-badge complete">Retries: COMPLETE</span>
+              <span className="status-badge complete">Dead Letters: COMPLETE</span>
+              <span className="status-badge complete">Rate Limits: COMPLETE</span>
             </div>
           </div>
 
           <div className="card">
             <h3 className="card-title">System Health</h3>
-            <p style={{ opacity: 0.7, fontSize: "14px", marginBottom: "16px" }}>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", marginBottom: "16px" }}>
               Health checks, capacity, and operational readiness.
             </p>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Health: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                Capacity: PENDING
-              </button>
-              <button className="status-badge pending" style={{ cursor: "default" }}>
-                DR: PENDING
-              </button>
+              <span className="status-badge pending">Health: PENDING</span>
+              <span className="status-badge pending">Capacity: PENDING</span>
+              <span className="status-badge pending">DR: PENDING</span>
             </div>
           </div>
         </div>
@@ -133,7 +112,7 @@ export default function OperationsPage() {
           <div className="grid">
             <div className="card">
               <h3 className="card-title">Implemented & Validated</h3>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>✓ Kernel outbox event state authoritative</li>
                 <li>✓ Committed-only publish handoff</li>
                 <li>✓ FOR UPDATE SKIP LOCKED worker leasing</li>
@@ -150,7 +129,7 @@ export default function OperationsPage() {
             </div>
             <div className="card">
               <h3 className="card-title">Observability Implemented</h3>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>✓ Structured log contract</li>
                 <li>✓ Claim/lease/refresh/release events</li>
                 <li>✓ Delivery published/retry/dead-letter events</li>
@@ -163,7 +142,7 @@ export default function OperationsPage() {
             </div>
             <div className="card">
               <h3 className="card-title">Deferred</h3>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, opacity: 0.8 }}>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>□ Production outbox worker scheduler</li>
                 <li>□ Operational observability pipeline</li>
                 <li>□ Real-time outbox dashboard</li>

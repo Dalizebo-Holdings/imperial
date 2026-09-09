@@ -1,0 +1,161 @@
+/* Dalizebo Imperial Brand - CSS Custom Properties */
+/* Generated from brand.ts - Do not edit directly */
+
+:root {
+  /* Brand Primary - Deep Navy/Indigo */
+  --color-brand-primary-50: #eef0f8;
+  --color-brand-primary-100: #dce0f1;
+  --color-brand-primary-200: #b9c1e3;
+  --color-brand-primary-300: #8f9ad1;
+  --color-brand-primary-400: #6b7abf;
+  --color-brand-primary-500: #4f5cad;
+  --color-brand-primary-600: #3d4a8a;
+  --color-brand-primary-700: #323d70;
+  --color-brand-primary-800: #2a335a;
+  --color-brand-primary-900: #232c4a;
+  --color-brand-primary-950: #181d33;
+
+  /* Brand Accent - Warm Gold/Amber */
+  --color-brand-accent-50: #fffbf0;
+  --color-brand-accent-100: #fff3cc;
+  --color-brand-accent-200: #ffe799;
+  --color-brand-accent-300: #ffd666;
+  --color-brand-accent-400: #ffc533;
+  --color-brand-accent-500: #ffb300;
+  --color-brand-accent-600: #cc8f00;
+  --color-brand-accent-700: #996d00;
+  --color-brand-accent-800: #735200;
+  --color-brand-accent-900: #5c4100;
+  --color-brand-accent-950: #332600;
+
+  /* Success - Green */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+
+  /* Warning - Amber */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+
+  /* Error - Red */
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+
+  /* Info - Blue */
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+
+  /* Neutral Grays */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  /* Light Theme (default) */
+  --color-background: #fafafa;
+  --color-background-elevated: #ffffff;
+  --color-background-hover: #f5f5f5;
+  
+  --color-text-primary: #171717;
+  --color-text-secondary: #525252;
+  --color-text-muted: #a3a3a3;
+  --color-text-inverse: #ffffff;
+  
+  --color-brand-primary: #3d4a8a;
+  --color-brand-primary-hover: #323d70;
+  --color-brand-primary-light: #dce0f1;
+  --color-brand-accent: #cc8f00;
+  --color-brand-accent-hover: #996d00;
+  --color-brand-accent-light: #fff3cc;
+  
+  --color-border: #e5e5e5;
+  --color-border-strong: #d4d4d4;
+  --color-border-focus: #4f5cad;
+  
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-warning: #d97706;
+  --color-warning-light: #fef3c7;
+  --color-error: #dc2626;
+  --color-error-light: #fee2e2;
+  --color-info: #2563eb;
+  --color-info-light: #dbeafe;
+  
+  --color-status-complete: #16a34a;
+  --color-status-complete-bg: #dcfce7;
+  --color-status-pending: #d97706;
+  --color-status-pending-bg: #fef3c7;
+  --color-status-blocked: #dc2626;
+  --color-status-blocked-bg: #fee2e2;
+  
+  --color-nav-background: rgba(255, 255, 255, 0.9);
+  --color-nav-border: #e5e5e5;
+  --color-nav-link-hover: #eef0f8;
+  --color-nav-link-active: #3d4a8a;
+  --color-nav-link-active-text: #ffffff;
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #181d33;
+    --color-background-elevated: #232c4a;
+    --color-background-hover: #2a335a;
+    
+    --color-text-primary: #fafafa;
+    --color-text-secondary: #d4d4d4;
+    --color-text-muted: #737373;
+    --color-text-inverse: #181d33;
+    
+    --color-brand-primary: #6b7abf;
+    --color-brand-primary-hover: #8f9ad1;
+    --color-brand-primary-light: rgba(107, 122, 191, 0.2);
+    --color-brand-accent: #ffc533;
+    --color-brand-accent-hover: #ffd666;
+    --color-brand-accent-light: rgba(255, 179, 0, 0.15);
+    
+    --color-border: #2a335a;
+    --color-border-strong: #323d70;
+    --color-border-focus: #6b7abf;
+    
+    --color-success: #22c55e;
+    --color-success-light: rgba(34, 197, 94, 0.15);
+    --color-warning: #f59e0b;
+    --color-warning-light: rgba(245, 158, 11, 0.15);
+    --color-error: #ef4444;
+    --color-error-light: rgba(239, 68, 68, 0.15);
+    --color-info: #3b82f6;
+    --color-info-light: rgba(59, 130, 246, 0.15);
+    
+    --color-status-complete: #22c55e;
+    --color-status-complete-bg: rgba(34, 197, 94, 0.15);
+    --color-status-pending: #f59e0b;
+    --color-status-pending-bg: rgba(245, 158, 11, 0.15);
+    --color-status-blocked: #ef4444;
+    --color-status-blocked-bg: rgba(239, 68, 68, 0.15);
+    
+    --color-nav-background: rgba(24, 29, 51, 0.9);
+    --color-nav-border: #2a335a;
+    --color-nav-link-hover: rgba(107, 122, 191, 0.15);
+    --color-nav-link-active: #4f5cad;
+    --color-nav-link-active-text: #ffffff;
+  }
+}
