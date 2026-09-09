@@ -244,6 +244,18 @@
 - [x] No automatic gate PASS claim
 - [ ] First real technical attestation ingested
 
+## Release Gate Readiness Dashboard
+
+- [x] Canonical Gate 1 readiness report
+- [x] Canonical Gate 2 readiness report
+- [x] Canonical unmet-check surfacing
+- [x] Technical-attestation readiness map
+- [x] Gate 1 Discovery dependency visibility
+- [x] PASS-only proof readiness flag
+- [x] No evidence generation
+- [x] No gate override
+- [x] No Phase 8 authorization
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence

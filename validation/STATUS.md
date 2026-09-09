@@ -330,6 +330,24 @@ Automatic gate PASS claim: PROHIBITED
 
 Actual technical attestations: EVIDENCE COLLECTION PENDING
 
+## Release Gate Readiness Dashboard
+
+Canonical Gate 1 readiness reporting: COMPLETE
+
+Canonical Gate 2 readiness reporting: COMPLETE
+
+Missing/failed/expired requirement surfacing: COMPLETE
+
+Gate 1 Discovery blocker surfacing: COMPLETE
+
+PASS-only proof readiness reporting: COMPLETE
+
+Evidence generation by dashboard: PROHIBITED
+
+Gate override by dashboard: PROHIBITED
+
+Phase 8 authorization by dashboard: PROHIBITED
+
 ## Durable Release Gate 1/2 Derivation
 
 REAL_OPERATIONAL technical-attestation reconstruction: COMPLETE
