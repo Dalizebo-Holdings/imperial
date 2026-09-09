@@ -188,6 +188,26 @@ Public MVP 90-day proof binding: COMPLETE
 
 Phase 8 authorization on complete real evidence: COMPLETE
 
+## Real Evidence Operations
+
+Durable evidence ledger: COMPLETE
+
+Filesystem locking + fsync append: COMPLETE
+
+Ledger rebuild + chain verification: COMPLETE
+
+Real evidence ingestion CLI: COMPLETE
+
+Verified evidence export: COMPLETE
+
+Public MVP snapshot evaluator CLI: COMPLETE
+
+PMF proof-manifest evaluator CLI: COMPLETE
+
+Default evidence storage outside Git: COMPLETE
+
+Actual real evidence imported: PENDING
+
 ## Phase 7 Closure State
 
 PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED
@@ -196,7 +216,7 @@ Product-market fit: NOT YET ESTABLISHED
 
 ## Next Work
 
-Collect/import real Phase 7 evidence and run the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
+Use the durable evidence CLI to collect/import real Phase 7 evidence and execute the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
 
 ## Governing Rule
 

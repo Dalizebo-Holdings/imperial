@@ -107,6 +107,21 @@
 - [x] Phase 7 closure proof aggregation
 - [x] Phase 8 authorization only on PHASE7_COMPLETE
 
+## Real Evidence Operations
+
+- [x] Durable JSONL evidence store
+- [x] Owner-only ledger permissions
+- [x] Exclusive append lock
+- [x] fsync evidence append
+- [x] Ledger rebuild/chain verification
+- [x] Evidence ingestion CLI
+- [x] Evidence status/verify CLI
+- [x] Verified evidence export
+- [x] Public MVP 90-day snapshot evaluator CLI
+- [x] PMF proof-manifest evaluator CLI
+- [x] Real evidence stored outside Git by default
+- [ ] Real Phase 7 evidence imported
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
@@ -152,4 +167,4 @@ ACTIVE — CONTROLLED PILOT EVIDENCE COLLECTION
 
 ## Current Next Work
 
-Collect/import real Phase 7 evidence and run the PMF closure gate; Phase 8 remains blocked.
+Use the durable evidence CLI to collect/import real Phase 7 evidence and run the PMF closure gate; Phase 8 remains blocked.
