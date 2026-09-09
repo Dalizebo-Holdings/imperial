@@ -91,6 +91,8 @@ ACK_SQL = """
 UPDATE kernel.outbox_events
 SET outbox_status = 'PUBLISHED',
     published_at = clock_timestamp(),
+    publish_ack_ref = $4,
+    last_error_code = NULL,
     lock_owner = NULL,
     locked_at = NULL,
     lock_expires_at = NULL,
@@ -213,8 +215,13 @@ class PostgresOutboxWorker:
         self.connection.commit()
         return claimed
 
-    def acknowledge(self, *, event_id: str, organization_id: str, worker_id: str) -> None:
-        self._transition(ACK_SQL, (event_id, organization_id, worker_id))
+    def acknowledge(self, *, event_id: str, organization_id: str, worker_id: str, publish_ack_ref: str) -> None:
+        if not publish_ack_ref.strip():
+            raise OutboxWorkerError("publish_ack_ref must not be empty")
+        self._transition(
+            ACK_SQL,
+            (event_id, organization_id, worker_id, publish_ack_ref),
+        )
 
     def fail(self, *, event_id: str, organization_id: str, worker_id: str, error_code: str) -> None:
         if not error_code.strip():

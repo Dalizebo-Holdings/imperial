@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import importlib.util
 import py_compile
 import sys
-import tempfile
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 KERNEL = ROOT / "kernel"
@@ -59,6 +58,7 @@ prod = postgres.PostgresConfig(
 )
 prod.validate()
 
+raw_dsn_rejected = False
 try:
     postgres.PostgresConfig(
         dsn_ref="postgresql://user:password@db/kernel",
@@ -66,12 +66,13 @@ try:
         ssl_mode="verify-full",
     ).validate()
 except postgres.PostgresBoundaryError:
-    pass
-else:
+    raw_dsn_rejected = True
+if not raw_dsn_rejected:
     raise SystemExit(
         "ERROR: raw PostgreSQL DSN credentials were accepted"
     )
 
+weak_tls_rejected = False
 try:
     postgres.PostgresConfig(
         dsn_ref="secret://kernel/prod/postgres",
@@ -79,8 +80,8 @@ try:
         ssl_mode="require",
     ).validate()
 except postgres.PostgresBoundaryError:
-    pass
-else:
+    weak_tls_rejected = True
+if not weak_tls_rejected:
     raise SystemExit(
         "ERROR: production PostgreSQL accepted ssl_mode below verify-full"
     )
@@ -143,14 +144,32 @@ applied = [
     )
 ]
 
-if migrations.plan_migrations(
+remaining = migrations.plan_migrations(
     available=available,
     applied=applied,
-):
+)
+if remaining != available[1:]:
     raise SystemExit(
-        "ERROR: already-applied migration was planned again"
+        "ERROR: remaining migration plan is incorrect"
     )
 
+all_applied = [
+    migrations.AppliedMigration(
+        version=migration.version,
+        name=migration.name,
+        checksum=migration.checksum,
+    )
+    for migration in available
+]
+if migrations.plan_migrations(
+    available=available,
+    applied=all_applied,
+):
+    raise SystemExit(
+        "ERROR: fully-applied migrations were planned again"
+    )
+
+checksum_drift_rejected = False
 try:
     migrations.plan_migrations(
         available=available,
@@ -163,8 +182,8 @@ try:
         ],
     )
 except migrations.MigrationError:
-    pass
-else:
+    checksum_drift_rejected = True
+if not checksum_drift_rejected:
     raise SystemExit(
         "ERROR: migration checksum drift was accepted"
     )
@@ -223,7 +242,7 @@ status = (
 for phrase in [
     "- [x] PostgreSQL persistence boundary",
     "- [x] Migration framework",
-    "- [ ] Commerce primitives",
+    "- [x] Commerce primitives",
 ]:
     if phrase not in status:
         raise SystemExit(

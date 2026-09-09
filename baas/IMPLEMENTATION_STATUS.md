@@ -21,7 +21,11 @@ Phase 5
 - [x] Background Jobs
 - [x] Audit
 - [x] Logging
-- [x] Usage Metering
+- [x] Kernel Structured Logging authority boundary
+- [x] Kernel recursive redaction preservation
+- [x] Tenant-scoped log query
+- [x] Retention cutoff metadata
+- [ ] Usage Metering
 - [x] Subscription Billing
 - [x] Payment Abstraction
 - [x] Secrets

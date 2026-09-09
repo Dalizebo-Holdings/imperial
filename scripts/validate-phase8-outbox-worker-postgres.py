@@ -12,7 +12,11 @@ ROOT = Path(__file__).resolve().parent.parent
 RUNTIME = ROOT / "kernel/outbox/runtime.py"
 MIGRATIONS = "\n".join(
     (ROOT / "kernel/migrations/sql" / name).read_text(encoding="utf-8")
-    for name in ("0001_kernel_foundation.sql", "0004_phase8_outbox_delivery_hardening.sql")
+    for name in (
+        "0001_kernel_foundation.sql",
+        "0004_phase8_outbox_delivery_hardening.sql",
+        "0005_phase8_outbox_publish_acknowledgement.sql",
+    )
 )
 
 spec = importlib.util.spec_from_file_location("kernel_outbox", RUNTIME)
@@ -156,11 +160,11 @@ try:
     acknowledged = execute_prepared(
         "ack_one",
         worker.ACK_SQL,
-        "'evt-ack', 'org-integration', 'worker-ack'",
+        "'evt-ack', 'org-integration', 'worker-ack', 'ack://provider/evt-ack'",
     )
     if acknowledged != "":
         raise SystemExit("ERROR: acknowledgement returned an unexpected row")
-    if psql("SELECT outbox_status FROM kernel.outbox_events WHERE event_id = 'evt-ack';") != "PUBLISHED":
+    if psql("SELECT outbox_status || '|' || publish_ack_ref FROM kernel.outbox_events WHERE event_id = 'evt-ack';") != "PUBLISHED|ack://provider/evt-ack":
         raise SystemExit("ERROR: PostgreSQL publish acknowledgement was not durable")
 
     _ = psql("UPDATE kernel.outbox_events SET next_attempt_at = now() WHERE event_id = 'evt-dead';")

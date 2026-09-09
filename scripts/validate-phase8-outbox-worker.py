@@ -21,6 +21,10 @@ sys.modules[spec.name] = worker
 spec.loader.exec_module(worker)
 RowValue = str | int | datetime | None
 
+
+class WorkerValidationTypeError(TypeError):
+    pass
+
 sql = WORKER_PATH.read_text(encoding="utf-8")
 migration = MIGRATION.read_text(encoding="utf-8")
 for marker in [
@@ -41,14 +45,14 @@ for marker in ["attempt_count", "max_attempts", "next_attempt_at", "lock_owner"]
 def _integer(row: dict[str, RowValue], name: str) -> int:
     value = row[name]
     if not isinstance(value, int):
-        raise TypeError(f"invalid integer field: {name}")
+        raise WorkerValidationTypeError(f"invalid integer field: {name}")
     return value
 
 
 def _timestamp(row: dict[str, RowValue], name: str) -> datetime:
     value = row[name]
     if not isinstance(value, datetime):
-        raise TypeError(f"invalid timestamp field: {name}")
+        raise WorkerValidationTypeError(f"invalid timestamp field: {name}")
     return value
 
 
@@ -71,7 +75,7 @@ class FakeCursor:
             if "FOR UPDATE SKIP LOCKED" in statement:
                 worker_id, lease_seconds, organization_id, limit = parameters
                 if not isinstance(worker_id, str) or not isinstance(lease_seconds, int) or not isinstance(organization_id, str) or not isinstance(limit, int):
-                    raise TypeError("invalid claim parameters")
+                    raise WorkerValidationTypeError("invalid claim parameters")
                 for row in self.connection.rows:
                     if len(self.rows) >= limit:
                         break
@@ -87,9 +91,9 @@ class FakeCursor:
                         self.rows.append(dict(row))
                 return
             if "outbox_status = 'PUBLISHED'" in statement:
-                event_id, organization_id, worker_id = parameters
-                if not isinstance(event_id, str) or not isinstance(organization_id, str) or not isinstance(worker_id, str):
-                    raise TypeError("invalid acknowledgement parameters")
+                event_id, organization_id, worker_id, publish_ack_ref = parameters
+                if not isinstance(event_id, str) or not isinstance(organization_id, str) or not isinstance(worker_id, str) or not isinstance(publish_ack_ref, str):
+                    raise WorkerValidationTypeError("invalid acknowledgement parameters")
                 for row in self.connection.rows:
                     if (
                         row["event_id"] == event_id
@@ -99,6 +103,7 @@ class FakeCursor:
                         row.update(
                             outbox_status="PUBLISHED",
                             published_at=self.connection.now,
+                            publish_ack_ref=publish_ack_ref,
                             lock_owner=None,
                             lock_expires_at=None,
                         )
@@ -106,7 +111,7 @@ class FakeCursor:
                 return
             event_id, organization_id, worker_id, error_code = parameters
             if not isinstance(event_id, str) or not isinstance(organization_id, str) or not isinstance(worker_id, str) or not isinstance(error_code, str):
-                raise TypeError("invalid failure parameters")
+                raise WorkerValidationTypeError("invalid failure parameters")
             for row in self.connection.rows:
                 if (
                     row["event_id"] == event_id
@@ -153,6 +158,7 @@ class FakeConnection:
                 "lock_owner": None,
                 "lock_expires_at": None,
                 "published_at": None,
+                "publish_ack_ref": None,
             }
         ]
 
@@ -199,15 +205,17 @@ owner_index = next(index for index, item in enumerate(claimed) if item)
 if claimed[owner_index] != ("evt-worker",):
     raise SystemExit("ERROR: event was not claimed")
 
+wrong_owner_rejected = False
 try:
     workers[owner_index].acknowledge(
         event_id="evt-worker",
         organization_id="org-worker",
         worker_id="wrong-worker",
+        publish_ack_ref="ack://wrong-worker",
     )
 except worker.OutboxWorkerError:
-    pass
-else:
+    wrong_owner_rejected = True
+if not wrong_owner_rejected:
     raise SystemExit("ERROR: acknowledgement without lease ownership was accepted")
 
 workers[owner_index].fail(
