@@ -14,7 +14,7 @@ Dalizebo Commerce P0: COMPLETE
 
 ## Current Stage
 
-POS P0 Cart + Checkout + Payments + Receipts initialized.
+Dalizebo POS P0 complete.
 
 ## POS
 
@@ -40,58 +40,59 @@ Receipts: COMPLETE
 
 Inventory deduction: COMPLETE
 
-Returns: NEXT
+Returns: COMPLETE
 
-Daily summaries: NEXT
+Daily summaries: COMPLETE
 
-## Cart + Checkout
+## Returns
 
-Kernel Cart/Order/OrderItem authority: COMPLETE
+Kernel Refund authority: COMPLETE
 
-Branch-scoped transient cart lines: COMPLETE
+Cash refund orchestration: COMPLETE
 
-Durable Kernel Cart Item primitive: DEFERRED
+Card refund Payment Abstraction delegation: COMPLETE
 
-Inventory reservation: COMPLETE
+Cumulative refund cap: COMPLETE
 
-Atomic checkout transaction: COMPLETE
+Branch inventory restock: COMPLETE
 
-## Payments
+Full-refund Payment transition: COMPLETE
 
-Cash settlement: COMPLETE
+Atomic return settlement: COMPLETE
 
-Explicit cash Payment lifecycle: COMPLETE
+Return audit metadata: COMPLETE
 
-Card Payment Abstraction delegation: COMPLETE
+## Daily Summaries
 
-Explicit card Payment lifecycle: COMPLETE
+Branch business-day reporting contract: COMPLETE
 
-Inventory deduction after successful settlement: COMPLETE
+Timezone-aware day boundary: COMPLETE
 
-Order completion after successful settlement: COMPLETE
+Currency-specific sales/refund metrics: COMPLETE
 
-Split tender: DEFERRED
+Authoritative reporting database: NONE
 
-Cash drawer reconciliation: DEFERRED TO P1
+## POS P0 Result
 
-## Receipts
+DALIZEBO POS P0: COMPLETE
 
-Deterministic receipt plan: COMPLETE
+## Phase 6
 
-Post-commit rendering boundary: COMPLETE
+Commerce P0: COMPLETE
 
-Physical receipt-printer adapter: DEFERRED TO P1
+POS P0: COMPLETE
+
+MVP acceptance/integration closure: NEXT
 
 ## Next Work
 
-POS P0 — Returns + Daily Summaries.
+Phase 6 — Commerce + POS MVP Acceptance & Integration Closure.
 
 ## Governing Rule
 
-POS transactions reuse shared Kernel Cart, Inventory, Order, Order Item, and
-Payment authority. Checkout reserves branch inventory and places the Order.
-Successful cash/card settlement explicitly captures Payment, converts the
-reservation into sold inventory, completes the Order, and only then enables
-receipt rendering. Card provider work stays behind BaaS Payment Abstraction.
-The current shared domain still lacks durable Cart Item persistence, so POS uses
-transient session lines rather than creating a competing authoritative table.
+POS Returns use the shared Kernel Refund invariant and BaaS Payment Abstraction
+for external card refunds. Returned quantities may not exceed sold quantities,
+cumulative refunds may not exceed captured payment value, inventory restock is
+atomic with Refund recording, and only a full cumulative refund may transition
+Payment CAPTURED→REFUNDED. Daily summaries are branch/currency-scoped read
+projections and never become business-data authority.

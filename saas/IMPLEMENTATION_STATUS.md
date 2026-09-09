@@ -4,13 +4,6 @@
 
 Phase 6 — Commerce + POS
 
-## Prerequisites
-
-- [x] Kernel P0 complete
-- [x] BaaS P0 complete
-- [x] Shared SaaS domain contract
-- [x] Cross-product authority rules
-
 ## Commerce P0
 
 - [x] Store setup
@@ -44,55 +37,64 @@ DALIZEBO COMMERCE P0: COMPLETE
 - [x] Card payment recording
 - [x] Receipts
 - [x] Inventory deduction
-- [ ] Returns
-- [ ] Daily summaries
+- [x] Returns
+- [x] Daily summaries
 
-## POS Cart Components
+## POS Returns Components
 
-- [x] Shared Kernel Cart authority
-- [x] Branch-scoped transient cart session
-- [x] Cart line add/update/remove
-- [x] Exact-tenant Product/Variant/Inventory evidence
-- [x] Integer minor-unit pricing
-- [x] Durable shared Cart Item authority not duplicated
-- [ ] Durable Kernel Cart Item primitive
+- [x] Kernel Refund authority boundary
+- [x] Completed Order / captured Payment prerequisites
+- [x] Returned quantity bounded by sold quantity
+- [x] Deterministic line refund calculation
+- [x] Cumulative refund cap
+- [x] Cash refund orchestration
+- [x] Card refund delegation to BaaS Payment Abstraction
+- [x] Card refund completion evidence matching
+- [x] Branch inventory restock
+- [x] Partial refund preserves CAPTURED Payment
+- [x] Full refund explicitly transitions Payment CAPTURED→REFUNDED
+- [x] Atomic return settlement requirement
+- [x] Return audit metadata
+- [x] Return receipt planning
+- [x] Return idempotency
+- [x] Cross-tenant return rejection
 
-## POS Checkout Components
+## POS Daily Summary Components
 
-- [x] Branch inventory reservation
-- [x] DRAFT Order with branch_id
-- [x] Immutable Order Item snapshots
-- [x] Cart OPEN→CONVERTED
-- [x] Order DRAFT→PLACED
-- [x] Atomic checkout transaction requirement
-- [x] Checkout idempotency
-- [x] Outbox-after-commit requirement
+- [x] Branch-scoped business-day query
+- [x] IANA timezone boundary
+- [x] Currency-specific aggregation contract
+- [x] Gross sales
+- [x] Cash sales
+- [x] Card sales
+- [x] Refund totals
+- [x] Net sales
+- [x] Items sold
+- [x] Items returned
+- [x] Read-only Kernel source plan
+- [x] No authoritative reporting database
 
-## POS Payments Components
+## POS P0 Result
 
-- [x] Full-tender cash settlement
-- [x] Cash change calculation
-- [x] Explicit cash PENDING→AUTHORIZED→CAPTURED
-- [x] Card delegation to BaaS Payment Abstraction
-- [x] Explicit card Payment transitions
-- [x] No raw card/provider credentials in POS metadata
-- [x] Inventory reservation→deduction settlement
-- [x] Order PLACED→CONFIRMED→COMPLETED settlement
-- [x] Atomic settlement requirement
-- [ ] Split tender
+DALIZEBO POS P0: COMPLETE
+
+## Deferred POS P1
+
+- [ ] Offline queue
+- [ ] Receipt printers
 - [ ] Cash drawer reconciliation
+- [ ] Stock transfers
+- [ ] Staff reporting
+- [ ] Purchase history
 
-## POS Receipt Components
+## Phase 6 State
 
-- [x] Deterministic receipt identity
-- [x] Order/Payment/Store/Branch references
-- [x] Integer minor-unit receipt totals
-- [x] Cash tender/change metadata
-- [x] Card provider reference metadata
-- [x] No raw payment credential data
-- [x] Receipt rendering only after commit
-- [ ] Physical receipt-printer adapter
+Commerce P0: COMPLETE
+
+POS P0: COMPLETE
+
+MVP acceptance/integration sweep: NEXT
 
 ## Current Next Work
 
-POS P0 — Returns + Daily Summaries.
+Phase 6 — Commerce + POS MVP Acceptance & Integration Closure.
