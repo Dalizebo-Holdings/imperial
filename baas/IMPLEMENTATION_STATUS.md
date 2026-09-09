@@ -18,6 +18,10 @@ Phase 5
 - [x] API Gateway
 - [x] Events
 - [x] Webhooks
+- [x] HMAC-SHA256 signing contract
+- [x] Bounded timeout/retry policy
+- [x] Replay with linked delivery identity
+- [x] Signing-secret rotation metadata
 - [x] Background Jobs
 - [x] Audit
 - [x] Logging

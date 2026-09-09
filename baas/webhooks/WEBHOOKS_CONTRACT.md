@@ -32,6 +32,9 @@ Security rules:
 - Literal loopback/private/link-local/reserved/multicast addresses are rejected.
 - Production adapters must still defend against DNS rebinding and enforce
   outbound network policy at connect time.
+- Phase 8 adapters must use the connect-time network policy to resolve only
+  globally routable, non-multicast addresses and pin the connected peer to that
+  authorized resolution.
 - Signing secrets are stored as opaque `secret://`, `vault://`, or `kms://`
   references only.
 

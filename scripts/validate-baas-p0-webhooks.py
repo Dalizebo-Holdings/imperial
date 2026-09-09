@@ -310,7 +310,7 @@ for phrase in [
     "- [x] Bounded timeout/retry policy",
     "- [x] Replay with linked delivery identity",
     "- [x] Signing-secret rotation metadata",
-    "- [ ] Background Jobs",
+    "- [x] Background Jobs",
 ]:
     if phrase not in status:
         raise SystemExit(
