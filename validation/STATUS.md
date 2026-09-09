@@ -256,6 +256,24 @@ Real interview evidence auto-generation without interview: PROHIBITED
 
 Actual discovery interviews: EVIDENCE COLLECTION PENDING
 
+## Parallel Validation Execution
+
+Discovery interview target: DEFERRED — NOT WAIVED
+
+Design-partner candidate execution: COMPLETE
+
+Interview-to-partner merchant linkage: COMPLETE
+
+Canonical partner-criteria enforcement: COMPLETE
+
+Candidate pilot status only: ENFORCED
+
+Discovery Gate bypass: PROHIBITED
+
+Phase 8 bypass: PROHIBITED
+
+Actual design-partner commitment: EVIDENCE COLLECTION PENDING
+
 ## Phase 7 Closure State
 
 PHASE 7: NOT COMPLETE — REAL EVIDENCE REQUIRED
@@ -264,7 +282,7 @@ Product-market fit: NOT YET ESTABLISHED
 
 ## Next Work
 
-Conduct real merchant discovery interviews with `scripts/phase7-discovery-interview.py`, ingest validated evidence, and continue until the canonical Discovery Gate is satisfied.
+Continue merchant discovery when practical. In parallel, eligible interviewed merchants may enter the design-partner candidate flow with `scripts/phase7-design-partner.py`; the Discovery target remains deferred, not waived.
 
 Initialize the empty private inbox, create one evidence record at a time with `phase7-evidence-collect.py new`, replace placeholders with real source-backed values, ingest validated records, then execute the PMF closure gate. Phase 8 remains blocked until `PHASE7_COMPLETE`.
 

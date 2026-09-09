@@ -172,6 +172,19 @@
 - [ ] 20+ real discovery interviews recorded
 - [ ] >=80% material-problem confirmation
 
+## Parallel Validation Execution
+
+- [x] Discovery target may be operationally deferred
+- [x] Discovery target cannot be waived by tooling
+- [x] Real interviewed merchant lookup
+- [x] Existing commitment exclusion
+- [x] Canonical six-criterion partner enforcement
+- [x] Linked merchant reference preservation
+- [x] Candidate-only initial pilot status
+- [x] Discovery Gate remains authoritative
+- [x] Phase 8 remains blocked
+- [ ] First real design-partner commitment ingested
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
