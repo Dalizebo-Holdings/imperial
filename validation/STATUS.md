@@ -404,11 +404,39 @@ PASS-only release-gate proof emission: COMPLETE
 
 Gate 1 Discovery dependency: ENFORCED
 
-Gate 3 derivation: DEFERRED — REAL PILOT METRICS REQUIRED
+Gate 3 derivation: COMPLETE — REAL PILOT EVIDENCE REQUIRED FOR PASS
 
 Actual Release Gate 1 proof: PENDING REAL EVIDENCE
 
 Actual Release Gate 2 proof: PENDING REAL EVIDENCE
+
+## Durable Release Gate 3 Derivation
+
+Design-partner current-state replay: COMPLETE
+
+PILOT_STATUS_TRANSITION replay: COMPLETE
+
+PILOT_ONBOARDING reconstruction: COMPLETE
+
+PILOT_ONBOARDING_EVENT reconstruction: COMPLETE
+
+PILOT_METRIC_SNAPSHOT reconstruction: COMPLETE
+
+CAPACITY_SNAPSHOT reconstruction: COMPLETE
+
+Gate 3 technical-attestation reconstruction: COMPLETE
+
+Canonical Pilot Exit reuse: COMPLETE
+
+Canonical Controlled Capacity reuse: COMPLETE
+
+Canonical Release Gate 3 reuse: COMPLETE
+
+TEST_FIXTURE exclusion: COMPLETE
+
+PASS-only release_gate_3 proof emission: COMPLETE
+
+Actual Release Gate 3 proof: PENDING REAL EVIDENCE
 
 ## Phase 7 Closure State
 

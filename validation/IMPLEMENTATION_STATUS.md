@@ -285,6 +285,23 @@
 - [x] No automatic ACTIVE promotion
 - [ ] First real CANDIDATE -> ACTIVE transition ingested
 
+## Durable Release Gate 3 Derivation
+
+- [x] Current design-partner state replay
+- [x] Pilot-status transition replay
+- [x] Active-partner onboarding enforcement
+- [x] Durable onboarding reconstruction
+- [x] Durable onboarding-event reconstruction
+- [x] Durable metric snapshot reconstruction
+- [x] Durable capacity snapshot reconstruction
+- [x] Durable technical-attestation reconstruction
+- [x] Canonical Pilot Exit evaluator reuse
+- [x] Canonical Controlled Capacity evaluator reuse
+- [x] Canonical Release Gate 3 evaluator reuse
+- [x] TEST_FIXTURE exclusion
+- [x] PASS-only release_gate_3 proof emission
+- [ ] Real Release Gate 3 proof ingested
+
 ## Closure Evidence — Not Fabricated
 
 - [ ] Discovery gate PASS with real evidence
