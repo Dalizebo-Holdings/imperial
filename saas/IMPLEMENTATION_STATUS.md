@@ -11,21 +11,6 @@ Phase 6 — Commerce + POS
 - [x] Shared SaaS domain contract
 - [x] Cross-product authority rules
 
-## Phase 6 Foundation
-
-- [x] Commerce/POS product execution context
-- [x] Organization/workspace/project/environment context
-- [x] Kernel authorization evidence requirement
-- [x] Shared authoritative entity registry
-- [x] Derived Kernel/BaaS authority routing
-- [x] Direct product-to-product database coupling prohibited
-- [x] Store/branch operational scope rules
-- [x] Mutation idempotency
-- [x] Idempotency conflict detection
-- [x] Secret-bearing command metadata rejection
-- [x] Platform command audit metadata
-- [x] No duplicate authoritative commerce models
-
 ## Commerce P0
 
 - [x] Store setup
@@ -53,49 +38,61 @@ DALIZEBO COMMERCE P0: COMPLETE
 - [x] Roles
 - [x] Product search
 - [x] Barcode and SKU lookup
-- [ ] Cart
-- [ ] Checkout
-- [ ] Cash payment recording
-- [ ] Card payment recording
-- [ ] Receipts
-- [ ] Inventory deduction
+- [x] Cart
+- [x] Checkout
+- [x] Cash payment recording
+- [x] Card payment recording
+- [x] Receipts
+- [x] Inventory deduction
 - [ ] Returns
 - [ ] Daily summaries
 
-## POS Branch Components
+## POS Cart Components
 
-- [x] Kernel Branch authority boundary
-- [x] Exact-tenant ACTIVE Store prerequisite
-- [x] Branch creation
-- [x] Branch ACTIVE/INACTIVE lifecycle
-- [x] POS store/branch execution context
+- [x] Shared Kernel Cart authority
+- [x] Branch-scoped transient cart session
+- [x] Cart line add/update/remove
+- [x] Exact-tenant Product/Variant/Inventory evidence
+- [x] Integer minor-unit pricing
+- [x] Durable shared Cart Item authority not duplicated
+- [ ] Durable Kernel Cart Item primitive
 
-## POS Staff + Roles Components
+## POS Checkout Components
 
-- [x] BaaS HUMAN_USER identity prerequisite
-- [x] No duplicate POS User authority
-- [x] Kernel PermissionDefinition authority
-- [x] Kernel RoleDefinition authority
-- [x] POS P0 permission catalogue
-- [x] Tenant-scoped Kernel roles
-- [x] Branch-scoped staff assignment relationship
-- [x] Staff role change
-- [x] Staff deactivation
-- [x] Disabled identity rejection
-- [x] Cross-scope staff assignment rejection
-- [ ] Durable production POS staff-assignment adapter
+- [x] Branch inventory reservation
+- [x] DRAFT Order with branch_id
+- [x] Immutable Order Item snapshots
+- [x] Cart OPEN→CONVERTED
+- [x] Order DRAFT→PLACED
+- [x] Atomic checkout transaction requirement
+- [x] Checkout idempotency
+- [x] Outbox-after-commit requirement
 
-## POS Product Search Components
+## POS Payments Components
 
-- [x] Branch-scoped active product search
-- [x] Exact SKU lookup
-- [x] Shared canonical Product Variant barcode extension
-- [x] Exact barcode lookup
-- [x] Organization barcode uniqueness
-- [x] Branch inventory source scope
-- [x] Bounded read plan
-- [x] No POS-owned Product search authority
+- [x] Full-tender cash settlement
+- [x] Cash change calculation
+- [x] Explicit cash PENDING→AUTHORIZED→CAPTURED
+- [x] Card delegation to BaaS Payment Abstraction
+- [x] Explicit card Payment transitions
+- [x] No raw card/provider credentials in POS metadata
+- [x] Inventory reservation→deduction settlement
+- [x] Order PLACED→CONFIRMED→COMPLETED settlement
+- [x] Atomic settlement requirement
+- [ ] Split tender
+- [ ] Cash drawer reconciliation
+
+## POS Receipt Components
+
+- [x] Deterministic receipt identity
+- [x] Order/Payment/Store/Branch references
+- [x] Integer minor-unit receipt totals
+- [x] Cash tender/change metadata
+- [x] Card provider reference metadata
+- [x] No raw payment credential data
+- [x] Receipt rendering only after commit
+- [ ] Physical receipt-printer adapter
 
 ## Current Next Work
 
-POS P0 — Cart + Checkout + Payments + Receipts.
+POS P0 — Returns + Daily Summaries.

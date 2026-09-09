@@ -14,13 +14,13 @@ Dalizebo Commerce P0: COMPLETE
 
 ## Current Stage
 
-POS P0 Branches + Staff + Roles + Product Search initialized.
+POS P0 Cart + Checkout + Payments + Receipts initialized.
 
 ## POS
 
 Branches: COMPLETE
 
-Staff: COMPLETE (P0 control-plane assignment)
+Staff: COMPLETE
 
 Roles: COMPLETE
 
@@ -28,63 +28,70 @@ Product search: COMPLETE
 
 Barcode and SKU lookup: COMPLETE
 
-Cart: NEXT
+Cart: COMPLETE
 
-Checkout: NEXT
+Checkout: COMPLETE
 
-Cash payment recording: NEXT
+Cash payment recording: COMPLETE
 
-Card payment recording: NEXT
+Card payment recording: COMPLETE
 
-Receipts: NEXT
+Receipts: COMPLETE
 
-Inventory deduction: PENDING
+Inventory deduction: COMPLETE
 
-Returns: PENDING
+Returns: NEXT
 
-Daily summaries: PENDING
+Daily summaries: NEXT
 
-## Branches
+## Cart + Checkout
 
-Kernel Branch authority: COMPLETE
+Kernel Cart/Order/OrderItem authority: COMPLETE
 
-ACTIVE Store prerequisite: COMPLETE
+Branch-scoped transient cart lines: COMPLETE
 
-Branch lifecycle: COMPLETE
+Durable Kernel Cart Item primitive: DEFERRED
 
-## Staff + Roles
+Inventory reservation: COMPLETE
 
-BaaS HUMAN_USER identity boundary: COMPLETE
+Atomic checkout transaction: COMPLETE
 
-Kernel RBAC authority: COMPLETE
+## Payments
 
-POS permission catalogue: COMPLETE
+Cash settlement: COMPLETE
 
-Branch staff assignment: COMPLETE
+Explicit cash Payment lifecycle: COMPLETE
 
-Durable production staff-assignment adapter: DEFERRED
+Card Payment Abstraction delegation: COMPLETE
 
-## Product Search
+Explicit card Payment lifecycle: COMPLETE
 
-Branch-scoped read plan: COMPLETE
+Inventory deduction after successful settlement: COMPLETE
 
-SKU lookup: COMPLETE
+Order completion after successful settlement: COMPLETE
 
-Canonical Kernel Variant barcode field: COMPLETE
+Split tender: DEFERRED
 
-Barcode lookup: COMPLETE
+Cash drawer reconciliation: DEFERRED TO P1
 
-POS-owned Product/Variant search authority: NONE
+## Receipts
+
+Deterministic receipt plan: COMPLETE
+
+Post-commit rendering boundary: COMPLETE
+
+Physical receipt-printer adapter: DEFERRED TO P1
 
 ## Next Work
 
-POS P0 — Cart + Checkout + Payments + Receipts.
+POS P0 — Returns + Daily Summaries.
 
 ## Governing Rule
 
-POS reuses shared Branch, User, Role, Product, Product Variant, and Inventory
-authority. Staff assignments bind an existing BaaS HUMAN_USER identity to an
-existing Kernel role and branch without creating a second identity or RBAC
-system. Product lookup is branch-scoped and read-only. Barcode is implemented as
-a shared nullable Product Variant identifier with organization uniqueness, not
-as a POS-owned mapping table.
+POS transactions reuse shared Kernel Cart, Inventory, Order, Order Item, and
+Payment authority. Checkout reserves branch inventory and places the Order.
+Successful cash/card settlement explicitly captures Payment, converts the
+reservation into sold inventory, completes the Order, and only then enables
+receipt rendering. Card provider work stays behind BaaS Payment Abstraction.
+The current shared domain still lacks durable Cart Item persistence, so POS uses
+transient session lines rather than creating a competing authoritative table.
