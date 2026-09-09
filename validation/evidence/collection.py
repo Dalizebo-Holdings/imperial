@@ -18,14 +18,23 @@ from .store import (
 )
 
 
-DEFAULT_INBOX = (
+DEFAULT_VALIDATION_HOME = (
     Path.home()
     / ".local"
     / "share"
     / "dalizebo"
     / "imperial"
     / "validation"
+)
+
+DEFAULT_INBOX = (
+    DEFAULT_VALIDATION_HOME
     / "inbox"
+)
+
+DEFAULT_TEMPLATE_LIBRARY = (
+    DEFAULT_VALIDATION_HOME
+    / "templates"
 )
 
 REQUIRED_PROOF_LABELS = (
@@ -442,28 +451,61 @@ def templates() -> dict[str, dict[str, Any]]:
     }
 
 
-def initialize_inbox(
+def _resolve_inbox(
     path: str | Path | None = None,
-) -> dict[str, Any]:
-    inbox = (
+) -> Path:
+    return (
         Path(path).expanduser().resolve()
         if path is not None
         else DEFAULT_INBOX
+    )
+
+
+def _resolve_template_library(
+    path: str | Path | None = None,
+) -> Path:
+    return (
+        Path(path).expanduser().resolve()
+        if path is not None
+        else DEFAULT_TEMPLATE_LIBRARY
+    )
+
+
+def initialize_inbox(
+    path: str | Path | None = None,
+    *,
+    template_library: str | Path | None = None,
+) -> dict[str, Any]:
+    """
+    Initialize an EMPTY active inbox and a separate template library.
+
+    Templates must never be seeded directly into the active inbox because
+    preflight intentionally rejects placeholder-bearing JSON.
+    """
+    inbox = _resolve_inbox(
+        path
+    )
+    library = _resolve_template_library(
+        template_library
     )
 
     inbox.mkdir(
         parents=True,
         exist_ok=True,
     )
+    library.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
-    created = []
-    skipped = []
+    created_templates = []
+    skipped_templates = []
 
     for name, value in templates().items():
-        target = inbox / f"{name}.json"
+        target = library / f"{name}.json"
 
         if target.exists():
-            skipped.append(
+            skipped_templates.append(
                 str(target)
             )
             continue
@@ -480,14 +522,184 @@ def initialize_inbox(
         target.chmod(
             0o600
         )
-        created.append(
+        created_templates.append(
             str(target)
         )
 
     return {
-        "inbox": str(inbox),
-        "created": created,
-        "skipped": skipped,
+        "inbox": str(
+            inbox
+        ),
+        "template_library": str(
+            library
+        ),
+        "inbox_json_count": len(
+            list(
+                inbox.glob(
+                    "*.json"
+                )
+            )
+        ),
+        "created_templates": (
+            created_templates
+        ),
+        "skipped_templates": (
+            skipped_templates
+        ),
+    }
+
+
+def create_record(
+    *,
+    template_type: str,
+    record_name: str,
+    inbox: str | Path | None = None,
+    template_library: str | Path | None = None,
+) -> Path:
+    available = templates()
+
+    if template_type not in available:
+        raise EvidenceCollectionError(
+            "unsupported evidence template type: "
+            + str(
+                template_type
+            )
+        )
+
+    clean_name = str(
+        record_name
+    ).strip()
+
+    if not clean_name:
+        raise EvidenceCollectionError(
+            "record_name must not be empty"
+        )
+
+    if clean_name.endswith(
+        ".json"
+    ):
+        clean_name = clean_name[:-5]
+
+    if (
+        "/" in clean_name
+        or "\\" in clean_name
+        or clean_name in {
+            ".",
+            "..",
+        }
+    ):
+        raise EvidenceCollectionError(
+            "record_name must be a simple file name"
+        )
+
+    active_inbox = _resolve_inbox(
+        inbox
+    )
+    library = _resolve_template_library(
+        template_library
+    )
+
+    active_inbox.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+    library.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    library_template = (
+        library
+        / f"{template_type}.json"
+    )
+
+    if not library_template.exists():
+        initialize_inbox(
+            active_inbox,
+            template_library=library,
+        )
+
+    value = _read_json(
+        library_template
+    )
+
+    target = (
+        active_inbox
+        / f"{clean_name}.json"
+    )
+
+    if target.exists():
+        raise EvidenceCollectionError(
+            f"evidence record already exists: {target}"
+        )
+
+    target.write_text(
+        json.dumps(
+            value,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    target.chmod(
+        0o600
+    )
+
+    return target
+
+
+def workspace_status(
+    *,
+    inbox: str | Path | None = None,
+    template_library: str | Path | None = None,
+) -> dict[str, Any]:
+    active_inbox = _resolve_inbox(
+        inbox
+    )
+    library = _resolve_template_library(
+        template_library
+    )
+
+    inbox_files = (
+        sorted(
+            path.name
+            for path in active_inbox.glob(
+                "*.json"
+            )
+            if path.is_file()
+        )
+        if active_inbox.exists()
+        else []
+    )
+
+    template_files = (
+        sorted(
+            path.name
+            for path in library.glob(
+                "*.json"
+            )
+            if path.is_file()
+        )
+        if library.exists()
+        else []
+    )
+
+    return {
+        "inbox": str(
+            active_inbox
+        ),
+        "template_library": str(
+            library
+        ),
+        "inbox_files": inbox_files,
+        "template_files": template_files,
+        "inbox_count": len(
+            inbox_files
+        ),
+        "template_count": len(
+            template_files
+        ),
     }
 
 

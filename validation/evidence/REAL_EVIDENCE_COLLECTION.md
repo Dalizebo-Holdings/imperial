@@ -2,62 +2,88 @@
 
 ## Purpose
 
-This kit turns the durable Phase 7 evidence ledger into an operator-facing
-collection workflow.
+This operator workflow keeps the active evidence inbox clean and allows Phase 7
+evidence to be collected incrementally.
 
-It does not fabricate evidence and it does not mark Phase 7 complete.
+It does not fabricate evidence and does not mark Phase 7 complete.
 
-## Default Paths
+## Private Paths
 
-Ledger:
+Default ledger:
 
 `~/.local/share/dalizebo/imperial/validation/evidence-ledger.jsonl`
 
-Evidence inbox:
+Default active inbox:
 
 `~/.local/share/dalizebo/imperial/validation/inbox/`
 
-Both paths can be overridden.
+Default template library:
 
-## Workflow
+`~/.local/share/dalizebo/imperial/validation/templates/`
 
-Initialize the durable ledger:
+The inbox and template library are outside Git.
+
+## Initialize
 
 ```bash
 python scripts/validation-evidence.py init
-```
-
-Create a private evidence inbox with templates:
-
-```bash
 python scripts/phase7-evidence-collect.py init-inbox
 ```
 
-Edit only the copied inbox files outside Git.
+`init-inbox` now creates:
 
-Validate all evidence before writing:
+- an **empty active inbox**
+- a separate private template library containing the 11 evidence templates
+
+Templates no longer poison active preflight with placeholder files.
+
+## Create One Evidence Record
+
+```bash
+python scripts/phase7-evidence-collect.py new   discovery-interview   interview-001
+```
+
+This copies exactly one template into the active inbox as:
+
+`interview-001.json`
+
+The new record intentionally contains `__REPLACE__` placeholders and cannot be
+ingested until real source-backed values replace them.
+
+## Inspect Workspace
+
+```bash
+python scripts/phase7-evidence-collect.py workspace
+```
+
+## Validate Active Inbox
 
 ```bash
 python scripts/phase7-evidence-collect.py validate-inbox
 ```
 
-Ingest replay-safely:
+Preflight scans **only active inbox JSON files**. The separate template library
+is ignored.
+
+An empty inbox is valid and represents zero ready evidence.
+
+## Ingest
 
 ```bash
 python scripts/phase7-evidence-collect.py ingest-inbox
 ```
 
-Review progress:
+Whole-inbox preflight still runs before any append.
+
+Rerunning the same batch remains replay-safe.
+
+## Progress
 
 ```bash
 python scripts/phase7-evidence-collect.py progress
 ```
 
-Run the PMF closure evaluator only when the required gate proofs exist:
-
-```bash
-python scripts/evaluate-phase7-pmf.py proofs.json
-```
+`TEST_FIXTURE` evidence remains excluded from real PMF progress.
 
 ## Template Types
 
@@ -73,61 +99,9 @@ python scripts/evaluate-phase7-pmf.py proofs.json
 - public-mvp-90d
 - gate-proof
 
-The templates contain `__REPLACE__` sentinels. The collection CLI rejects any
-file that still contains a placeholder.
+## Governing Rule
 
-## Provenance
-
-Template origin defaults are conservative:
-
-- merchant interviews/commitments/feedback/onboarding → REAL_MERCHANT
-- operational support/incidents/attestations/capacity → REAL_OPERATIONAL
-- pilot/product metrics → REAL_RELIABILITY
-- public-MVP commercial aggregate → REAL_COMMERCIAL
-- gate proof → operator must set the appropriate real origin
-
-The origin is a declared provenance class. It does not independently prove the
-external event happened.
-
-## Batch Safety
-
-Before any batch is appended, the CLI:
-
-1. parses every JSON file
-2. rejects placeholders
-3. verifies required fields
-4. computes canonical payload SHA-256
-5. validates every EvidenceEnvelope
-6. replays all entries against a reconstructed in-memory ledger
-7. fails the entire preflight on any conflict
-
-After preflight, records are appended using the durable store's lock/fsync path.
-
-A process crash during append can leave a partial batch, but rerunning the same
-batch is replay-safe because envelope IDs and evidence references are
-idempotent.
-
-## Progress
-
-`progress` reports:
-
-- total ledger records
-- decision-eligible records
-- fixture records
-- counts by evidence type
-- discovery interview count
-- design-partner commitment count
-- ACTIVE partner evidence count
-- pilot onboarding evidence count
-- metric snapshot count
-- operational evidence count
-- required PMF proof labels present/missing
-
-Progress is evidence presence only. It does not substitute for the existing
-Discovery, Pilot Exit, Release Gate, Operational Readiness, or Public MVP
-evaluators.
-
-## Phase Rule
+Real Phase 7 outcomes require source-backed evidence.
 
 Phase 8 remains blocked until the PMF decision engine returns:
 
