@@ -15,6 +15,7 @@ const navigation = [
   { href: "/phase9", label: "Phase 9", exact: false },
   { href: "/phase10", label: "Phase 10", exact: false },
   { href: "/phase11", label: "Phase 11", exact: false },
+  { href: "/phase12", label: "Phase 12", exact: false },
   { href: "/realtime", label: "Realtime", exact: false },
 ];
 
@@ -45,6 +46,7 @@ export default function DashboardPage() {
               "/phase9",
               "/phase10",
               "/phase11",
+              "/phase12",
               "/realtime",
             ].includes(item.href);
 
@@ -67,7 +69,7 @@ export default function DashboardPage() {
         <header className="page-header">
           <h1 className="page-title">Dashboard</h1>
           <p className="page-subtitle">
-            Dalizebo Imperial Platform — Phase 11 Development
+            Dalizebo Imperial Platform — Phase 12 Development
           </p>
         </header>
 
@@ -131,13 +133,24 @@ export default function DashboardPage() {
             <div className="card">
               <h3 className="card-title">Phase 11 — Developer Cloud</h3>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+                <span className="status-badge complete">IMPLEMENTED</span>
+              </div>
+              <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
+                All Developer Cloud modules implemented: developer portal, API management, SDK/API documentation, and usage/projects/environments tracking.
+                Backend services and basic UI pages are in place.
+              </p>
+            </div>
+            <div className="card">
+              <h3 className="card-title">Phase 12 — Multi-Product Platform + ERP Foundations</h3>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
                 <span className="status-badge active">ACTIVE</span>
               </div>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Developer portal</li>
-                <li>API management</li>
-                <li>SDK/API documentation</li>
-                <li>Usage and projects/environments</li>
+                <li>Multi-product platform capabilities</li>
+                <li>ERP foundations</li>
+                <li>Product catalog management</li>
+                <li>Inventory synchronization across products</li>
+                <li>Unified commerce operations</li>
               </ul>
             </div>
           </div>
