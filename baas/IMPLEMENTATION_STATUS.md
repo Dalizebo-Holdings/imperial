@@ -90,12 +90,13 @@ Phase 8
 
 ## Currency Conversion
 
-Kernel and existing BaaS surfaces own payment intent state, refund authority,
-invoice line semantics, credit grants, event delivery planning, and background
-job scheduling. Currency Conversion BaaS owns the conversion ledger, settlement
-invariants, conversion-fee caps, escrow feedback ordering, failed-transaction
-recovery orchestration, and apology-credit path metadata.
+Currency Conversion BaaS implements a deterministic multi-currency conversion and
+settlement layer above Payment Abstraction and Subscription Billing. P0 owns the
+conversion ledger, state machine, fee cap enforcement, escrow feedback ordering,
+failed-transaction recovery path, apology-credit path metadata, and an explicit
+invariant-sweep closure rule.
 
+- [x] Currency Conversion
 - [x] Balanced conversion accounting invariant
 - [x] Conversion fee cap enforcement
 - [x] Fee-on-confirmed-only settlement rule
@@ -104,6 +105,7 @@ recovery orchestration, and apology-credit path metadata.
 - [x] Failed transaction recovery path
 - [x] Apology credit path
 - [x] Conversion idempotency
+- [x] Outside-check invariant sweep rule closed
 - [x] Currency Conversion P0 plan/confirm/void/failed-recovery/resolve/reconcile closed
 
 ## Realtime

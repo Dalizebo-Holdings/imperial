@@ -629,7 +629,7 @@ class CurrencyConversionService:
         checks["fee_non_negative"] = fee >= 0
         checks["fee_on_confirmed"] = fee == _conversion_fee_minor(
             conversion["conversion_fee_percentage"],
-            confirmed,
+            destination,
         )
 
         cap = conversion["conversion_fee_cap_percentage"]

@@ -169,3 +169,12 @@ Conversion events emit metadata suitable for Events BaaS/outbox:
 - No settlement callbacks other than confirmation and void mutate conversion state.
 - No fee is charged on unconfirmed amounts.
 - Conversion fee reputation activation is gated until the conversion is RESOLVED.
+
+## Outside-Check Rule
+
+A conversion implementation is not considered closed until it also passes an
+explicit invariant sweep over a nominal path in addition to the nominal path
+itself.
+
+The outside check must exercise the same runtime state after a real transition
+sequence and must verify all settlement invariants, not only the last state.

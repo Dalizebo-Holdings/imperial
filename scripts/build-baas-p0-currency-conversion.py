@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import py_compile
 import sys
+import py_compile
 
 ROOT = Path(__file__).resolve().parent.parent
 BAAS = ROOT / "baas"
+KERNEL_OUTBOX = ROOT / "kernel" / "outbox"
 
 REQUIRED = [
     BAAS / "currency_conversion/CONVERSION_CONTRACT.md",
@@ -17,7 +18,10 @@ for path in REQUIRED:
         print(f"ERROR: missing Currency Conversion artifact: {path}")
         sys.exit(1)
 
-for py_file in [BAAS / "currency_conversion/runtime.py", BAAS / "runtime/request_context.py"]:
+for py_file in [
+    BAAS / "currency_conversion/runtime.py",
+    BAAS / "runtime/request_context.py",
+]:
     try:
         py_compile.compile(str(py_file), doraise=True)
     except py_compile.PyCompileError as e:
@@ -26,4 +30,4 @@ for py_file in [BAAS / "currency_conversion/runtime.py", BAAS / "runtime/request
 
 print("OK: Currency Conversion runtime compiled.")
 print("OK: Currency Conversion contract present.")
-print("NEXT: implement Currency Conversion validator and wire into IMPLEMENTATION_STATUS.md.")
+print("NEXT: python scripts/validate-baas-p0-currency-conversion.py")

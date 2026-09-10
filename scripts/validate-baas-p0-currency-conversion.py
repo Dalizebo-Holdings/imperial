@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-from dataclasses import replace
 from pathlib import Path
 import importlib.util
 import py_compile
 import sys
-from decimal import Decimal, ROUND_HALF_UP
 
 ROOT = Path(__file__).resolve().parent.parent
 BAAS = ROOT / "baas"
@@ -16,7 +14,7 @@ MODULES = {
 
 for path in MODULES.values():
     if not path.exists():
-        raise SystemExit(f"ERROR: missing Currency Conversion runtime file: {path}")
+        raise SystemExit(f"ERROR: missing Currency Conversion artifact: {path}")
     py_compile.compile(str(path), doraise=True)
 
 def load_module(name, path):
@@ -205,6 +203,18 @@ if recovery_credit["apology_credit_plan"]["state"] != "READY_FOR_BILLING_CREDIT_
 if recovery_credit["apology_credit_plan"]["amount_minor"] != 5000:
     raise SystemExit("ERROR: apology credit amount wrong")
 
+# Outside-check artifact: the same runtime must also survive a canonical
+# reconciliation sweep over the conversion contract invariants, not just a
+# single nominal path.
+external_sweep = service.reconcile_conversion(
+    conversion_id="conv-validation",
+    request_context=ctx,
+)
+if not external_sweep["checks"]["fee_on_confirmed"]:
+    raise SystemExit("ERROR: outside-sweep failed to confirm fee-on-confirmed rule")
+if not external_sweep["valid"]:
+    raise SystemExit("ERROR: outside-sweep found latent conversion invariant failure")
+
 status = (BAAS / "IMPLEMENTATION_STATUS.md").read_text(encoding="utf-8")
 for phrase in [
     "- [x] Currency Conversion",
@@ -228,4 +238,5 @@ print("OK: Failed transaction recovery schedules refund and apology credit path.
 print("OK: Apology credit path structurally compatible with Billing credit grants.")
 print("OK: Reconciliation enforces balanced accounting, fee cap, and escrow ordering.")
 print("OK: Conversion idempotency preserved.")
+print("OK: Outside-check sweep confirmed invariants beyond nominal path.")
 print("STATUS: BAAS P0 CURRENCY CONVERSION READY")
