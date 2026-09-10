@@ -11,7 +11,9 @@ export function Logo({ size = "medium", showWordmark = true }: LogoProps) {
   if (showWordmark) {
     return <LogoFull size={size} />;
   }
-  return <LogoMark style={{ width: size === "small" ? 24 : size === "medium" ? 32 : 40, height: size === "small" ? 24 : size === "medium" ? 32 : 40 }} />;
+  const width = size === "small" ? 24 : size === "medium" ? 32 : 40;
+  const height = size === "small" ? 24 : size === "medium" ? 32 : 40;
+  return <LogoMark width={width} height={height} />;
 }
 
 export { LogoMark, LogoWordmark, LogoFull };

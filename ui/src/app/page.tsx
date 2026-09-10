@@ -12,6 +12,7 @@ const navigation = [
   { href: "/operations", label: "Operations", exact: false },
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
+  { href: "/crm", label: "CRM", exact: false },
   { href: "/phase9", label: "Phase 9", exact: false },
   { href: "/realtime", label: "Realtime", exact: false },
 ];
@@ -121,7 +122,9 @@ export default function DashboardPage() {
                     "Logs, metrics, audit, correlation traces, outbox, retries, dead letters, health",
                     "Phase 7 status, evidence inbox, ledger, discovery, pilot, release gates, PMF decision",
                     "Environment, tenant, billing, security, integrations",
+                    "Customers, contacts, activities, pipeline, campaigns, segments, reports",
                     "CRM, Analytics, Automate, Desk, Projects",
+                    "Realtime",
                   ][navigation.indexOf(item) - 1]}
                 </p>
                 <span className="status-badge pending">
