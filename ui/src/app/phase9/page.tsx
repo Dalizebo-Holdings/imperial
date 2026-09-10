@@ -70,11 +70,11 @@ export default function Phase9Page() {
             <div className="card">
               <h3 className="card-title">Phase 9 — CRM + Analytics + Automate + Desk + Projects</h3>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <span className="status-badge pending">PENDING</span>
+                <span className="status-badge implemented">IMPLEMENTED</span>
               </div>
               <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
-                Phase 8 outbox hardening complete. Phase 9 implementation begins
-                with five new product modules built on shared Kernel/BaaS authority.
+                Phase 8 outbox hardening complete. Phase 9 modules implemented:
+                CRM, Analytics, Automate, Desk, and Projects backends and basic UI.
               </p>
             </div>
           </div>
@@ -95,6 +95,7 @@ export default function Phase9Page() {
                 <li>Reports</li>
                 <li>Cross-product customer context</li>
               </ul>
+              <span className="status-badge complete">IMPLEMENTED</span>
             </div>
 
             <div className="card">
@@ -107,6 +108,7 @@ export default function Phase9Page() {
                 <li>Exports</li>
                 <li>Cross-product event ingestion</li>
               </ul>
+              <span className="status-badge complete">IMPLEMENTED</span>
             </div>
 
             <div className="card">
@@ -118,6 +120,7 @@ export default function Phase9Page() {
                 <li>Runs (execution, retry, observability)</li>
                 <li>Templates</li>
               </ul>
+              <span className="status-badge complete">IMPLEMENTED</span>
             </div>
 
             <div className="card">
@@ -129,6 +132,7 @@ export default function Phase9Page() {
                 <li>Reports (volume, SLA, CSAT)</li>
                 <li>Customer context integration</li>
               </ul>
+              <span className="status-badge complete">IMPLEMENTED</span>
             </div>
 
             <div className="card">
@@ -140,6 +144,7 @@ export default function Phase9Page() {
                 <li>Reports (progress, capacity)</li>
                 <li>Timeline (Gantt, milestones)</li>
               </ul>
+              <span className="status-badge complete">IMPLEMENTED</span>
             </div>
           </div>
         </section>

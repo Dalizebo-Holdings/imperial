@@ -16,7 +16,7 @@ const navigation = [
   { href: "/realtime", label: "Realtime", exact: false },
 ];
 
-export default function CRMPage() {
+export default function AutomatePage() {
   const pathname = usePathname();
 
   return (
@@ -61,18 +61,19 @@ export default function CRMPage() {
 
       <main className="container">
         <header className="page-header">
-          <h1 className="page-title">CRM</h1>
+          <h1 className="page-title">Automate</h1>
           <p className="page-subtitle">
-            Customer Relationship Management
+            Workflow Automation and Orchestration
           </p>
         </header>
 
         <section className="section">
-          <h2 className="section-title">CRM Overview</h2>
+          <h2 className="section-title">Automate Overview</h2>
           <div className="card">
             <p>
-              The CRM module manages customer relationships, interactions, and data.
-              It integrates with Commerce and POS to provide a unified customer view.
+              The Automate module enables workflow automation, triggering, and orchestration
+              across the Dalizebo Platform. It provides a scalable engine for building automated
+              workflows that respond to events, schedules, and webhooks.
             </p>
             <p className="status-badge pending">
               PENDING IMPLEMENTATION
@@ -84,20 +85,24 @@ export default function CRMPage() {
           <h2 className="section-title">Features</h2>
           <div className="grid">
             <div className="card">
-              <h3 className="card-title">Customers</h3>
-              <p>Manage customer profiles, contact information, and segmentation.</p>
+              <h3 className="card-title">Triggers</h3>
+              <p>Start workflows based on events, schedules, or webhooks.</p>
             </div>
             <div className="card">
-              <h3 className="card-title">Contacts</h3>
-              <p>Track individual contacts within customer accounts.</p>
+              <h3 className="card-title">Workflows</h3>
+              <p>Define workflow logic using DAG structures with conditional branching.</p>
             </div>
             <div className="card">
-              <h3 className="card-title">Activities</h3>
-              <p>Log calls, meetings, emails, and notes related to customers and deals.</p>
+              <h3 className="card-title">Actions</h3>
+              <p>Perform operations like API calls, function executions, and notifications.</p>
             </div>
             <div className="card">
-              <h3 className="card-title">Pipeline</h3>
-              <p>Manage sales stages, deals, and forecasting.</p>
+              <h3 className="card-title">Runs</h3>
+              <p>Execute, monitor, and manage workflow executions with retry and observability.</p>
+            </div>
+            <div className="card">
+              <h3 className="card-title">Templates</h3>
+              <p>Reuse workflow patterns across teams and organizations.</p>
             </div>
           </div>
         </section>

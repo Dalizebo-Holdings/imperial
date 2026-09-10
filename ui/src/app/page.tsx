@@ -12,7 +12,6 @@ const navigation = [
   { href: "/operations", label: "Operations", exact: false },
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
-  { href: "/crm", label: "CRM", exact: false },
   { href: "/phase9", label: "Phase 9", exact: false },
   { href: "/realtime", label: "Realtime", exact: false },
 ];
@@ -111,27 +110,29 @@ export default function DashboardPage() {
         <section className="section">
           <h2 className="section-title">Beta Navigation Status</h2>
           <div className="grid">
-            {navigation.slice(1).map((item) => (
-              <div key={item.href} className="card">
-                <h3 className="card-title">{item.label}</h3>
-                <p style={{ color: "var(--color-text-secondary)", fontSize: "14px" }}>
-                  {[
-                    "Products, variants, inventory, customers, cart, checkout, orders, refunds",
-                    "Branches, staff, product search, barcode/SKU, cart, payments, receipts, returns, daily summaries",
-                    "Database, storage, functions, API gateway, events, webhooks, jobs, secrets, backups, usage, billing",
-                    "Logs, metrics, audit, correlation traces, outbox, retries, dead letters, health",
-                    "Phase 7 status, evidence inbox, ledger, discovery, pilot, release gates, PMF decision",
-                    "Environment, tenant, billing, security, integrations",
-                    "Customers, contacts, activities, pipeline, campaigns, segments, reports",
-                    "CRM, Analytics, Automate, Desk, Projects",
-                    "Realtime",
-                  ][navigation.indexOf(item) - 1]}
-                </p>
-                <span className="status-badge pending">
-                  PENDING IMPLEMENTATION
-                </span>
-              </div>
-            ))}
+            {navigation.slice(1).map((item) => {
+              const isPhase9 = item.label === "Phase 9";
+              return (
+                <div key={item.href} className="card">
+                  <h3 className="card-title">{item.label}</h3>
+                  <p style={{ color: "var(--color-text-secondary)", fontSize: "14px" }}>
+                    {[
+                      "Products, variants, inventory, customers, cart, checkout, orders, refunds",
+                      "Branches, staff, product search, barcode/SKU, cart, payments, receipts, returns, daily summaries",
+                      "Database, storage, functions, API gateway, events, webhooks, jobs, secrets, backups, usage, billing",
+                      "Logs, metrics, audit, correlation traces, outbox, retries, dead letters, health",
+                      "Phase 7 status, evidence inbox, ledger, discovery, pilot, release gates, PMF decision",
+                      "Environment, tenant, billing, security, integrations",
+                      "CRM, Analytics, Automate, Desk, Projects",
+                      "Realtime",
+                    ][navigation.indexOf(item) - 1]}
+                  </p>
+                  <span className={`status-badge ${isPhase9 ? "complete" : "pending"}`}>
+                    {isPhase9 ? "IMPLEMENTED" : "PENDING IMPLEMENTATION"}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </section>
 

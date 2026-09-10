@@ -4,9 +4,9 @@ FROM python:3.12-alpine
 WORKDIR /app
 
 # Install dependencies
-RUN apk add --no-cache gcc musl-dev postgresql-dev
+RUN apk add --no-cache gcc musl-dev postgresql-dev curl
 
-COPY requirements.txt ./
+COPY baas/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
