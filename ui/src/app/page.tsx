@@ -13,6 +13,8 @@ const navigation = [
   { href: "/validation", label: "Validation", exact: false },
   { href: "/settings", label: "Settings", exact: false },
   { href: "/phase9", label: "Phase 9", exact: false },
+  { href: "/phase10", label: "Phase 10", exact: false },
+  { href: "/phase11", label: "Phase 11", exact: false },
   { href: "/realtime", label: "Realtime", exact: false },
 ];
 
@@ -42,6 +44,7 @@ export default function DashboardPage() {
               "/settings",
               "/phase9",
               "/phase10",
+              "/phase11",
               "/realtime",
             ].includes(item.href);
 
@@ -64,7 +67,7 @@ export default function DashboardPage() {
         <header className="page-header">
           <h1 className="page-title">Dashboard</h1>
           <p className="page-subtitle">
-            Dalizebo Imperial Platform — Phase 10 Development
+            Dalizebo Imperial Platform — Phase 11 Development
           </p>
         </header>
 
@@ -118,13 +121,23 @@ export default function DashboardPage() {
             <div className="card">
               <h3 className="card-title">Phase 10 — AI & Intelligence</h3>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <span className="status-badge complete">ACTIVE</span>
+                <span className="status-badge complete">IMPLEMENTED</span>
+              </div>
+              <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
+                All four AI & Intelligence modules implemented: AI Assistant, Intelligence Dashboards, Analysis, and Recommendations.
+                Backend services (AI primitives and service layer) and UI pages are in place.
+              </p>
+            </div>
+            <div className="card">
+              <h3 className="card-title">Phase 11 — Developer Cloud</h3>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+                <span className="status-badge active">ACTIVE</span>
               </div>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>AI assistant (chatbot, natural language interface)</li>
-                <li>Intelligence dashboards (visualizations, insights)</li>
-                <li>Analysis (data analysis, predictive models)</li>
-                <li>Recommendations (suggestive actions, next best steps)</li>
+                <li>Developer portal</li>
+                <li>API management</li>
+                <li>SDK/API documentation</li>
+                <li>Usage and projects/environments</li>
               </ul>
             </div>
           </div>
@@ -136,6 +149,7 @@ export default function DashboardPage() {
             {navigation.slice(1).map((item) => {
               const isPhase9 = item.label === "Phase 9";
               const isPhase10 = item.label === "Phase 10";
+              const isPhase11 = item.label === "Phase 11";
               return (
                 <div key={item.href} className="card">
                   <h3 className="card-title">{item.label}</h3>
@@ -149,11 +163,12 @@ export default function DashboardPage() {
                       "Environment, tenant, billing, security, integrations",
                       "CRM, Analytics, Automate, Desk, Projects",
                       "AI assistant, intelligence dashboards, analysis, recommendations",
+                      "Developer portal, API management, SDK/API documentation, usage, projects/environments",
                       "Realtime",
                     ][navigation.indexOf(item) - 1]}
                   </p>
-                  <span className={`status-badge ${isPhase9 || isPhase10 ? "complete" : "pending"}`}>
-                    {isPhase9 || isPhase10 ? "IMPLEMENTED" : "PENDING IMPLEMENTATION"}
+                  <span className={`status-badge ${isPhase9 || isPhase10 || isPhase11 ? "complete" : "pending"}`}>
+                    {isPhase9 || isPhase10 || isPhase11 ? "IMPLEMENTED" : "PENDING IMPLEMENTATION"}
                   </span>
                 </div>
               );
@@ -162,27 +177,27 @@ export default function DashboardPage() {
         </section>
 
         <section className="section">
-          <h2 className="section-title">Current Phase 10 Work</h2>
+          <h2 className="section-title">Current Phase 11 Work</h2>
           <div className="grid">
             <div className="card">
               <h3 className="card-title">Completed</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>✓ Phase 9 modules implemented and integrated</li>
-                <li>✓ Beta UI updated to include Phase 9 and Phase 10 navigation</li>
-                <li>✓ Dashboard updated to reflect Phase 10 development</li>
+                <li>✓ Phase 10 modules implemented and integrated</li>
+                <li>✓ Beta UI updated to include Phase 9, Phase 10, and Phase 11 navigation</li>
+                <li>✓ Dashboard updated to reflect Phase 11 development</li>
               </ul>
             </div>
             <div className="card">
               <h3 className="card-title">In Progress / Next</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>□ Define AI primitives in Kernel (Model, Prompt, Inference, Embedding)</li>
-                <li>□ Implement AI service layer in SaaS</li>
-                <li>□ Build AI assistant UI (chat interface)</li>
-                <li>□ Create intelligence dashboards UI</li>
-                <li>□ Implement analysis and recommendation APIs</li>
-                <li>□ Connect AI modules to platform events via outbox</li>
-                <li>□ Add AI-specific health checks and observability</li>
-                <li>□ Write unit and integration tests for AI components</li>
+                <li>□ Define Developer Cloud primitives in Kernel (Project, Environment, SDK, Documentation)</li>
+                <li>□ Implement Developer Cloud service layer in SaaS</li>
+                <li>□ Build developer portal UI</li>
+                <li>□ Create API management UI</li>
+                <li>□ Implement SDK generation and documentation APIs</li>
+                <li>□ Connect Developer Cloud modules to platform events via outbox</li>
+                <li>□ Add Developer Cloud-specific health checks and observability</li>
+                <li>□ Write unit and integration tests for Developer Cloud components</li>
                 <li>□ Update documentation and acceptance tests</li>
               </ul>
             </div>

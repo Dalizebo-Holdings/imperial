@@ -14,10 +14,11 @@ const navigation = [
   { href: "/settings", label: "Settings", exact: false },
   { href: "/phase9", label: "Phase 9", exact: false },
   { href: "/phase10", label: "Phase 10", exact: false },
+  { href: "/phase11", label: "Phase 11", exact: false },
   { href: "/realtime", label: "Realtime", exact: false },
 ];
 
-export default function Phase10Page() {
+export default function Phase11Page() {
   const pathname = usePathname();
 
   return (
@@ -43,6 +44,7 @@ export default function Phase10Page() {
               "/settings",
               "/phase9",
               "/phase10",
+              "/phase11",
               "/realtime",
             ].includes(item.href);
 
@@ -63,9 +65,9 @@ export default function Phase10Page() {
 
       <main className="container">
         <header className="page-header">
-          <h1 className="page-title">Phase 10</h1>
+          <h1 className="page-title">Phase 11</h1>
           <p className="page-subtitle">
-            AI & Intelligence
+            Developer Cloud
           </p>
         </header>
 
@@ -73,58 +75,58 @@ export default function Phase10Page() {
           <h2 className="section-title">Phase Status</h2>
           <div className="grid">
             <div className="card">
-              <h3 className="card-title">Phase 10 — AI & Intelligence</h3>
+              <h3 className="card-title">Phase 11 — Developer Cloud</h3>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <span className="status-badge complete">IMPLEMENTED</span>
+                <span className="status-badge active">ACTIVE</span>
               </div>
               <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
-                All four AI & Intelligence modules implemented: AI Assistant, Intelligence Dashboards, Analysis, and Recommendations.
-                Backend services (AI primitives and service layer) and UI pages are in place.
+                Developer Cloud modules are currently under development. This includes developer portal,
+                API management, SDK/API documentation, and usage/projects/environments tracking.
               </p>
             </div>
           </div>
         </section>
 
         <section className="section">
-          <h2 className="section-title">Phase 10 Modules</h2>
+          <h2 className="section-title">Phase 11 Modules</h2>
           <div className="grid">
             <div className="card">
-              <h3 className="card-title">AI Assistant</h3>
+              <h3 className="card-title">Developer Portal</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Natural language interface</li>
-                <li>Context-aware chatbot</li>
-                <li>Integration with platform data</li>
-                <li>Action execution via AI</li>
+                <li>Central hub for developers</li>
+                <li>Project and environment management</li>
+                <li>API key generation and management</li>
+                <li>Access to SDKs and documentation</li>
               </ul>
             </div>
 
             <div className="card">
-              <h3 className="card-title">Intelligence Dashboards</h3>
+              <h3 className="card-title">API Management</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Pre-built insight dashboards</li>
-                <li>Custom dashboard builder</li>
-                <li>Real-time data visualizations</li>
-                <li>Export and sharing capabilities</li>
+                <li>API discovery and documentation</li>
+                <li>Rate limiting and quota management</li>
+                <li>API versioning and lifecycle</li>
+                <li>Developer analytics and usage metrics</li>
               </ul>
             </div>
 
             <div className="card">
-              <h3 className="card-title">Analysis</h3>
+              <h3 className="card-title">SDK/API Documentation</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Data analysis and processing</li>
-                <li>Predictive modeling</li>
-                <li>Statistical computations</li>
-                <li>Trend and anomaly detection</li>
+                <li>Auto-generated SDKs for multiple languages</li>
+                <li>Interactive API documentation</li>
+                <li>Code samples and tutorials</li>
+                <li>SDK versioning and distribution</li>
               </ul>
             </div>
 
             <div className="card">
-              <h3 className="card-title">Recommendations</h3>
+              <h3 className="card-title">Usage and Projects/Environments</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Suggestive actions based on data</li>
-                <li>Next best step recommendations</li>
-                <li>Personalized user guidance</li>
-                <li>Automated workflow triggers</li>
+                <li>Project creation and organization</li>
+                <li>Environment provisioning (dev, test, prod)</li>
+                <li>Usage tracking and billing integration</li>
+                <li>Resource isolation and security</li>
               </ul>
             </div>
           </div>
@@ -134,23 +136,24 @@ export default function Phase10Page() {
           <h2 className="section-title">Architecture Constraints</h2>
           <div className="grid">
             <div className="card">
-              <h3 className="card-title">AI Authority</h3>
+              <h3 className="card-title">Developer Authority</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>✓ Kernel remains authoritative for AI primitives</li>
-                <li>✓ No duplicate model storage</li>
-                <li>✓ AI services extend without replacing core</li>
-                <li>✓ Tenant isolation for AI resources</li>
-                <li>✓ Idempotency on all AI mutations</li>
+                <li>✓ Kernel remains authoritative for Developer Cloud primitives</li>
+                <li>✓ No duplicate project/environment storage</li>
+                <li>✓ Services extend without replacing core</li>
+                <li>✓ Tenant isolation for developer resources</li>
+                <li>✓ Idempotency on all Developer Cloud mutations</li>
               </ul>
             </div>
             <div className="card">
               <h3 className="card-title">Integration Requirements</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>AI models versioned and tracked</li>
-                <li>Prompt templating system</li>
-                <li>Inference and embedding pipelines</li>
-                <li>Audit trail for AI decisions</li>
+                <li>Projects and environments versioned and tracked</li>
+                <li>SDK generation pipeline</li>
+                <li>Documentation management system</li>
+                <li>Audit trail for developer actions</li>
                 <li>Shared domain contracts with other modules</li>
+                <li>Events emitted via outbox for developer activities</li>
               </ul>
             </div>
           </div>
@@ -160,21 +163,21 @@ export default function Phase10Page() {
           <h2 className="section-title">Acceptance Criteria</h2>
           <div className="grid">
             <div className="card">
-              <h3 className="card-title">AI Adoption</h3>
+              <h3 className="card-title">Developer Adoption</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>□ Organizations use AI assistant</li>
-                <li>□ Intelligence dashboards drive decisions</li>
-                <li>□ Analysis improves operational metrics</li>
-                <li>□ Recommendations increase conversion</li>
+                <li>□ Developers use the portal to manage projects</li>
+                <li>□ SDKs are generated and consumed by external developers</li>
+                <li>□ API management drives internal and external API usage</li>
+                <li>□ Usage tracking informs billing and resource allocation</li>
               </ul>
             </div>
             <div className="card">
               <h3 className="card-title">Target Metrics</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>□ 25%+ orgs use AI features</li>
-                <li>□ AI reduces manual effort by 20%</li>
-                <li>□ Recommendation acceptance rate >15%</li>
-                <li>□ Forecast accuracy improvement >10%</li>
+                <li>□ 50+ active developer projects</li>
+                <li>□ SDK adoption by 25% of projects</li>
+                <li>□ API management reduces integration time by 30%</li>
+                <li>□ Usage tracking accuracy >95%</li>
               </ul>
             </div>
           </div>
