@@ -2,6 +2,7 @@ from fastapi import FastAPI, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 import os
+from baas.marketplace.runtime import MarketplaceService
 
 app = FastAPI(title="Dalizebo BaaS API", version="0.1.0")
 
@@ -202,6 +203,375 @@ async def convert_currency(conversion: dict, auth: KernelAuthRequest = Depends()
     if not verify_kernel_auth(auth):
         raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
     return {"conversion_id": "conv_pending", "status": "planned"}
+
+
+# Marketplace endpoints
+marketplace_service = MarketplaceService()
+
+
+@app.post("/api/v1/marketplace/listings")
+async def create_listing(listing: dict, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    try:
+        result = marketplace_service.create_listing(
+            title=listing.get("title"),
+            description=listing.get("description"),
+            price_amount_minor=listing.get("price_amount_minor"),
+            price_currency=listing.get("price_currency"),
+            vendor_id=listing.get("vendor_id"),
+            product_id=listing.get("product_id")
+        )
+        return {
+            "id": result.resource.id,
+            "title": result.title,
+            "description": result.description,
+            "price": {
+                "amount_minor": result.price.amount_minor,
+                "currency": result.price.currency
+            },
+            "vendor_id": result.vendor_id,
+            "product_id": result.product_id,
+            "is_active": result.is_active,
+            "is_featured": result.is_featured,
+            "created_at": result.resource.created_at,
+            "updated_at": result.resource.updated_at
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/v1/marketplace/listings")
+async def list_listings(auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    listings = marketplace_service.get_listings()
+    return [
+        {
+            "id": l.resource.id,
+            "title": l.title,
+            "description": l.description,
+            "price": {
+                "amount_minor": l.price.amount_minor,
+                "currency": l.price.currency
+            },
+            "vendor_id": l.vendor_id,
+            "product_id": l.product_id,
+            "is_active": l.is_active,
+            "is_featured": l.is_featured,
+            "created_at": l.resource.created_at,
+            "updated_at": l.resource.updated_at
+        }
+        for l in listings
+    ]
+
+
+@app.get("/api/v1/marketplace/listings/{listing_id}")
+async def get_listing(listing_id: str, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    listing = marketplace_service.get_listing(listing_id=listing_id)
+    if not listing:
+        raise HTTPException(status_code=404, detail="Listing not found")
+    return {
+        "id": listing.resource.id,
+        "title": listing.title,
+        "description": listing.description,
+        "price": {
+            "amount_minor": listing.price.amount_minor,
+            "currency": listing.price.currency
+        },
+        "vendor_id": listing.vendor_id,
+        "product_id": listing.product_id,
+        "is_active": listing.is_active,
+        "is_featured": listing.is_featured,
+        "created_at": listing.resource.created_at,
+        "updated_at": listing.resource.updated_at
+    }
+
+
+@app.put("/api/v1/marketplace/listings/{listing_id}")
+async def update_listing(listing_id: str, listing: dict, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    try:
+        result = marketplace_service.update_listing(
+            listing_id=listing_id,
+            title=listing.get("title"),
+            description=listing.get("description"),
+            price_amount_minor=listing.get("price_amount_minor"),
+            price_currency=listing.get("price_currency"),
+            is_active=listing.get("is_active"),
+            is_featured=listing.get("is_featured")
+        )
+        return {
+            "id": result.resource.id,
+            "title": result.title,
+            "description": result.description,
+            "price": {
+                "amount_minor": result.price.amount_minor,
+                "currency": result.price.currency
+            },
+            "vendor_id": result.vendor_id,
+            "product_id": result.product_id,
+            "is_active": result.is_active,
+            "is_featured": result.is_featured,
+            "created_at": result.resource.created_at,
+            "updated_at": result.resource.updated_at
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.delete("/api/v1/marketplace/listings/{listing_id}")
+async def delete_listing(listing_id: str, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    try:
+        marketplace_service.delete_listing(listing_id=listing_id)
+        return {"status": "deleted"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+# Vendor endpoints
+@app.post("/api/v1/marketplace/vendors")
+async def create_vendor(vendor: dict, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    try:
+        result = marketplace_service.create_vendor(
+            name=vendor.get("name"),
+            description=vendor.get("description"),
+            contact_email=vendor.get("contact_email")
+        )
+        return {
+            "id": result.resource.id,
+            "name": result.name,
+            "description": result.description,
+            "contact_email": result.contact_email,
+            "is_active": result.is_active,
+            "is_verified": result.is_verified,
+            "created_at": result.resource.created_at,
+            "updated_at": result.resource.updated_at
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/v1/marketplace/vendors")
+async def list_vendors(auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    vendors = marketplace_service.get_vendors()
+    return [
+        {
+            "id": v.resource.id,
+            "name": v.name,
+            "description": v.description,
+            "contact_email": v.contact_email,
+            "is_active": v.is_active,
+            "is_verified": v.is_verified,
+            "created_at": v.resource.created_at,
+            "updated_at": v.resource.updated_at
+        }
+        for v in vendors
+    ]
+
+
+@app.get("/api/v1/marketplace/vendors/{vendor_id}")
+async def get_vendor(vendor_id: str, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    vendor = marketplace_service.get_vendor(vendor_id=vendor_id)
+    if not vendor:
+        raise HTTPException(status_code=404, detail="Vendor not found")
+    return {
+        "id": vendor.resource.id,
+        "name": vendor.name,
+        "description": vendor.description,
+        "contact_email": vendor.contact_email,
+        "is_active": vendor.is_active,
+        "is_verified": vendor.is_verified,
+        "created_at": vendor.resource.created_at,
+        "updated_at": vendor.resource.updated_at
+    ]
+
+
+# Product endpoints
+@app.post("/api/v1/marketplace/products")
+async def create_product(product: dict, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    try:
+        result = marketplace_service.create_product(
+            name=product.get("name"),
+            description=product.get("description"),
+            sku=product.get("sku")
+        )
+        return {
+            "id": result.resource.id,
+            "name": result.name,
+            "description": result.description,
+            "sku": result.sku,
+            "is_active": result.is_active,
+            "created_at": result.resource.created_at,
+            "updated_at": result.resource.updated_at
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/v1/marketplace/products")
+async def list_products(auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    products = marketplace_service.get_products()
+    return [
+        {
+            "id": p.resource.id,
+            "name": p.name,
+            "description": p.description,
+            "sku": p.sku,
+            "is_active": p.is_active,
+            "created_at": p.resource.created_at,
+            "updated_at": p.resource.updated_at
+        }
+        for p in products
+    ]
+
+
+@app.get("/api/v1/marketplace/products/{product_id}")
+async def get_product(product_id: str, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    product = marketplace_service.get_product(product_id=product_id)
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+    return {
+        "id": product.resource.id,
+        "name": product.name,
+        "description": product.description,
+        "sku": product.sku,
+        "is_active": product.is_active,
+        "created_at": product.resource.created_at,
+        "updated_at": product.resource.updated_at
+    }
+
+
+# Transaction endpoints
+@app.post("/api/v1/marketplace/transactions")
+async def create_transaction(transaction: dict, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    try:
+        result = marketplace_service.create_transaction(
+            listing_id=transaction.get("listing_id"),
+            buyer_tenant_id=transaction.get("buyer_tenant_id"),
+            seller_tenant_id=transaction.get("seller_tenant_id"),
+            amount_minor=transaction.get("amount_minor"),
+            currency=transaction.get("currency")
+        )
+        return {
+            "id": result.resource.id,
+            "listing_id": result.listing_id,
+            "buyer_tenant_id": result.buyer_tenant_id,
+            "seller_tenant_id": result.seller_tenant_id,
+            "amount": {
+                "amount_minor": result.amount.amount_minor,
+                "currency": result.amount.currency
+            },
+            "status": result.status,
+            "initiated_at": result.initiated_at,
+            "completed_at": result.completed_at,
+            "refunded_at": result.refunded_at,
+            "created_at": result.resource.created_at,
+            "updated_at": result.resource.updated_at
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/v1/marketplace/transactions")
+async def list_transactions(auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    transactions = marketplace_service.get_transactions()
+    return [
+        {
+            "id": t.resource.id,
+            "listing_id": t.listing_id,
+            "buyer_tenant_id": t.buyer_tenant_id,
+            "seller_tenant_id": t.seller_tenant_id,
+            "amount": {
+                "amount_minor": t.amount.amount_minor,
+                "currency": t.amount.currency
+            },
+            "status": t.status,
+            "initiated_at": t.initiated_at,
+            "completed_at": t.completed_at,
+            "refunded_at": t.refunded_at,
+            "created_at": t.resource.created_at,
+            "updated_at": t.resource.updated_at
+        }
+        for t in transactions
+    ]
+
+
+@app.get("/api/v1/marketplace/transactions/{transaction_id}")
+async def get_transaction(transaction_id: str, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    transaction = marketplace_service.get_transaction(transaction_id=transaction_id)
+    if not transaction:
+        raise HTTPException(status_code=404, detail="Transaction not found")
+    return {
+        "id": transaction.resource.id,
+        "listing_id": transaction.listing_id,
+        "buyer_tenant_id": transaction.buyer_tenant_id,
+        "seller_tenant_id": transaction.seller_tenant_id,
+        "amount": {
+            "amount_minor": transaction.amount.amount_minor,
+            "currency": transaction.amount.currency
+        },
+        "status": transaction.status,
+        "initiated_at": transaction.initiated_at,
+        "completed_at": transaction.completed_at,
+        "refunded_at": transaction.refunded_at,
+        "created_at": transaction.resource.created_at,
+        "updated_at": transaction.resource.updated_at
+    }
+
+
+@app.put("/api/v1/marketplace/transactions/{transaction_id}")
+async def update_transaction_status(transaction_id: str, transaction: dict, auth: KernelAuthRequest = Depends()):
+    if not verify_kernel_auth(auth):
+        raise HTTPException(status_code=401, detail="Invalid Kernel authorization")
+    try:
+        result = marketplace_service.update_transaction_status(
+            transaction_id=transaction_id,
+            status=transaction.get("status"),
+            completed_at=transaction.get("completed_at"),
+            refunded_at=transaction.get("refunded_at")
+        )
+        return {
+            "id": result.resource.id,
+            "listing_id": result.listing_id,
+            "buyer_tenant_id": result.buyer_tenant_id,
+            "seller_tenant_id": result.seller_tenant_id,
+            "amount": {
+                "amount_minor": result.amount.amount_minor,
+                "currency": result.amount.currency
+            },
+            "status": result.status,
+            "initiated_at": result.initiated_at,
+            "completed_at": result.completed_at,
+            "refunded_at": result.refunded_at,
+            "created_at": result.resource.created_at,
+            "updated_at": result.resource.updated_at
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
 if __name__ == "__main__":
