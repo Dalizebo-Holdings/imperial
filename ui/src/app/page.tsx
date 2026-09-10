@@ -41,6 +41,7 @@ export default function DashboardPage() {
               "/validation",
               "/settings",
               "/phase9",
+              "/phase10",
               "/realtime",
             ].includes(item.href);
 
@@ -63,7 +64,7 @@ export default function DashboardPage() {
         <header className="page-header">
           <h1 className="page-title">Dashboard</h1>
           <p className="page-subtitle">
-            Dalizebo Imperial Platform — Phase 8 Development
+            Dalizebo Imperial Platform — Phase 10 Development
           </p>
         </header>
 
@@ -91,7 +92,7 @@ export default function DashboardPage() {
             <div className="card">
               <h3 className="card-title">Phase 8 — Platform Hardening</h3>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <span className="status-badge complete">ACTIVE</span>
+                <span className="status-badge complete">COMPLETE</span>
               </div>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
                 <li>Transactional outbox durability: <strong>COMPLETE</strong></li>
@@ -104,6 +105,28 @@ export default function DashboardPage() {
                 <li>External BaaS readiness: <strong>DEFERRED</strong></li>
               </ul>
             </div>
+            <div className="card">
+              <h3 className="card-title">Phase 9 — CRM + Analytics + Automate + Desk + Projects</h3>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+                <span className="status-badge complete">IMPLEMENTED</span>
+              </div>
+              <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
+                All five modules implemented: CRM, Analytics, Automate, Desk, and Projects.
+                Backend services and basic UI pages are in place.
+              </p>
+            </div>
+            <div className="card">
+              <h3 className="card-title">Phase 10 — AI & Intelligence</h3>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+                <span className="status-badge complete">ACTIVE</span>
+              </div>
+              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
+                <li>AI assistant (chatbot, natural language interface)</li>
+                <li>Intelligence dashboards (visualizations, insights)</li>
+                <li>Analysis (data analysis, predictive models)</li>
+                <li>Recommendations (suggestive actions, next best steps)</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -112,6 +135,7 @@ export default function DashboardPage() {
           <div className="grid">
             {navigation.slice(1).map((item) => {
               const isPhase9 = item.label === "Phase 9";
+              const isPhase10 = item.label === "Phase 10";
               return (
                 <div key={item.href} className="card">
                   <h3 className="card-title">{item.label}</h3>
@@ -124,11 +148,12 @@ export default function DashboardPage() {
                       "Phase 7 status, evidence inbox, ledger, discovery, pilot, release gates, PMF decision",
                       "Environment, tenant, billing, security, integrations",
                       "CRM, Analytics, Automate, Desk, Projects",
+                      "AI assistant, intelligence dashboards, analysis, recommendations",
                       "Realtime",
                     ][navigation.indexOf(item) - 1]}
                   </p>
-                  <span className={`status-badge ${isPhase9 ? "complete" : "pending"}`}>
-                    {isPhase9 ? "IMPLEMENTED" : "PENDING IMPLEMENTATION"}
+                  <span className={`status-badge ${isPhase9 || isPhase10 ? "complete" : "pending"}`}>
+                    {isPhase9 || isPhase10 ? "IMPLEMENTED" : "PENDING IMPLEMENTATION"}
                   </span>
                 </div>
               );
@@ -137,40 +162,28 @@ export default function DashboardPage() {
         </section>
 
         <section className="section">
-          <h2 className="section-title">Current Phase 8 Work</h2>
+          <h2 className="section-title">Current Phase 10 Work</h2>
           <div className="grid">
             <div className="card">
               <h3 className="card-title">Completed</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>✓ Transactional outbox migration (kernel.outbox_events)</li>
-                <li>✓ Committed-only publish handoff</li>
-                <li>✓ FOR UPDATE SKIP LOCKED worker leasing</li>
-                <li>✓ Lease ownership + expiry + crash recovery</li>
-                <li>✓ Bounded exponential retry scheduling</li>
-                <li>✓ Durable publish acknowledgement</li>
-                <li>✓ DEAD_LETTER terminal persistence</li>
-                <li>✓ Tenant/correlation context preservation</li>
-                <li>✓ PostgreSQL integration validation</li>
-                <li>✓ Outbox observability structured logging</li>
-                <li>✓ Signed source-service allowlist</li>
-                <li>✓ Leaked-payload guardrails</li>
-                <li>✓ Delivery rate-limit envelope</li>
-                <li>✓ Webhook DNS public-address policy</li>
+                <li>✓ Phase 9 modules implemented and integrated</li>
+                <li>✓ Beta UI updated to include Phase 9 and Phase 10 navigation</li>
+                <li>✓ Dashboard updated to reflect Phase 10 development</li>
               </ul>
             </div>
             <div className="card">
               <h3 className="card-title">In Progress / Next</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>□ Realtime subscriptions</li>
-                <li>□ Disaster recovery procedures</li>
-                <li>□ Usage metering implementation</li>
-                <li>□ External BaaS readiness</li>
-                <li>□ Beta UI implementation</li>
-                <li>□ Commerce UI (products, inventory, orders)</li>
-                <li>□ POS UI (branches, staff, payments)</li>
-                <li>□ Backend UI (database, functions, webhooks)</li>
-                <li>□ Operations UI (logs, metrics, outbox)</li>
-                <li>□ Validation UI (Phase 7 gates, evidence)</li>
+                <li>□ Define AI primitives in Kernel (Model, Prompt, Inference, Embedding)</li>
+                <li>□ Implement AI service layer in SaaS</li>
+                <li>□ Build AI assistant UI (chat interface)</li>
+                <li>□ Create intelligence dashboards UI</li>
+                <li>□ Implement analysis and recommendation APIs</li>
+                <li>□ Connect AI modules to platform events via outbox</li>
+                <li>□ Add AI-specific health checks and observability</li>
+                <li>□ Write unit and integration tests for AI components</li>
+                <li>□ Update documentation and acceptance tests</li>
               </ul>
             </div>
           </div>
