@@ -16,6 +16,7 @@ const navigation = [
   { href: "/phase10", label: "Phase 10", exact: false },
   { href: "/phase11", label: "Phase 11", exact: false },
   { href: "/phase12", label: "Phase 12", exact: false },
+  { href: "/phase13", label: "Phase 13", exact: false },
   { href: "/realtime", label: "Realtime", exact: false },
 ];
 
@@ -47,6 +48,7 @@ export default function DashboardPage() {
               "/phase10",
               "/phase11",
               "/phase12",
+              "/phase13",
               "/realtime",
             ].includes(item.href);
 
@@ -69,7 +71,7 @@ export default function DashboardPage() {
         <header className="page-header">
           <h1 className="page-title">Dashboard</h1>
           <p className="page-subtitle">
-            Dalizebo Imperial Platform — Phase 12 Development
+            Dalizebo Imperial Platform — Phase 13 Development
           </p>
         </header>
 
@@ -108,52 +110,7 @@ export default function DashboardPage() {
                 <li>Disaster recovery: <strong>DEFERRED</strong></li>
                 <li>Usage billing: <strong>DEFERRED</strong></li>
                 <li>External BaaS readiness: <strong>DEFERRED</strong></li>
-              </ul>
-            </div>
-            <div className="card">
-              <h3 className="card-title">Phase 9 — CRM + Analytics + Automate + Desk + Projects</h3>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <span className="status-badge complete">IMPLEMENTED</span>
-              </div>
-              <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
-                All five modules implemented: CRM, Analytics, Automate, Desk, and Projects.
-                Backend services and basic UI pages are in place.
-              </p>
-            </div>
-            <div className="card">
-              <h3 className="card-title">Phase 10 — AI & Intelligence</h3>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <span className="status-badge complete">IMPLEMENTED</span>
-              </div>
-              <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
-                All four AI & Intelligence modules implemented: AI Assistant, Intelligence Dashboards, Analysis, and Recommendations.
-                Backend services (AI primitives and service layer) and UI pages are in place.
-              </p>
-            </div>
-            <div className="card">
-              <h3 className="card-title">Phase 11 — Developer Cloud</h3>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <span className="status-badge complete">IMPLEMENTED</span>
-              </div>
-              <p style={{ color: "var(--color-text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
-                All Developer Cloud modules implemented: developer portal, API management, SDK/API documentation, and usage/projects/environments tracking.
-                Backend services and basic UI pages are in place.
-              </p>
-            </div>
-            <div className="card">
-              <h3 className="card-title">Phase 12 — Multi-Product Platform + ERP Foundations</h3>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <span className="status-badge active">ACTIVE</span>
-              </div>
-              <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>Multi-product platform capabilities</li>
-                <li>ERP foundations</li>
-                <li>Product catalog management</li>
-                <li>Inventory synchronization across products</li>
-                <li>Unified commerce operations</li>
-              </ul>
-            </div>
-          </div>
+              </ul
         </section>
 
         <section className="section">
@@ -190,27 +147,28 @@ export default function DashboardPage() {
         </section>
 
         <section className="section">
-          <h2 className="section-title">Current Phase 11 Work</h2>
+          <h2 className="section-title">Current Phase 13 Work</h2>
           <div className="grid">
             <div className="card">
               <h3 className="card-title">Completed</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>✓ Phase 10 modules implemented and integrated</li>
-                <li>✓ Beta UI updated to include Phase 9, Phase 10, and Phase 11 navigation</li>
-                <li>✓ Dashboard updated to reflect Phase 11 development</li>
+                <li>✓ Defined Marketplace primitives in Kernel (Listing, Transaction, Vendor, Product)</li>
+                <li>✓ Implemented Marketplace service layer in SaaS</li>
+                <li>✓ Beta UI updated to include Phase 13 navigation</li>
+                <li>✓ Dashboard updated to reflect Phase 13 development</li>
               </ul>
             </div>
             <div className="card">
               <h3 className="card-title">In Progress / Next</h3>
               <ul style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--color-text-secondary)" }}>
-                <li>□ Define Developer Cloud primitives in Kernel (Project, Environment, SDK, Documentation)</li>
-                <li>□ Implement Developer Cloud service layer in SaaS</li>
-                <li>□ Build developer portal UI</li>
-                <li>□ Create API management UI</li>
-                <li>□ Implement SDK generation and documentation APIs</li>
-                <li>□ Connect Developer Cloud modules to platform events via outbox</li>
-                <li>□ Add Developer Cloud-specific health checks and observability</li>
-                <li>□ Write unit and integration tests for Developer Cloud components</li>
+                <li>□ Build marketplace core UI</li>
+                <li>□ Build vendor management UI</li>
+                <li>□ Build product listing UI</li>
+                <li>□ Build transaction handling UI</li>
+                <li>□ Build marketplace analytics UI</li>
+                <li>□ Connect Marketplace modules to platform events via outbox</li>
+                <li>□ Add Marketplace-specific health checks and observability</li>
+                <li>□ Write unit and integration tests for Marketplace components</li>
                 <li>□ Update documentation and acceptance tests</li>
               </ul>
             </div>
