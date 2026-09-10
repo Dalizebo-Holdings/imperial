@@ -6,6 +6,8 @@ import sys
 import asyncio
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
 BAAS = ROOT / "baas"
 
 MODULES = {
