@@ -25,6 +25,8 @@ jobs:
         run: python scripts/validate-phase8-outbox-hardening.py
       - name: Validate worker leasing
         run: python scripts/validate-phase8-outbox-worker.py
+      - name: Validate PostgreSQL worker integration
+        run: python scripts/validate-phase8-outbox-worker-postgres.py
       - name: Validate processing observability
         run: python scripts/validate-phase8-outbox-processing-observability.py
       - name: Validate observability guardrails
