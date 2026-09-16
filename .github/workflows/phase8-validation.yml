@@ -1,0 +1,43 @@
+name: Phase 8 validation
+
+on:
+  push:
+    branches:
+      - phase8-development
+  pull_request:
+    branches:
+      - phase8-development
+
+permissions:
+  contents: read
+
+jobs:
+  outbox-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate outbox hardening
+        run: python scripts/validate-phase8-outbox-hardening.py
+      - name: Validate worker leasing
+        run: python scripts/validate-phase8-outbox-worker.py
+      - name: Validate processing observability
+        run: python scripts/validate-phase8-outbox-processing-observability.py
+      - name: Validate observability guardrails
+        run: python scripts/validate-phase8-outbox-observability.py
+      - name: Validate rate-limit envelope
+        run: python scripts/validate-phase8-outbox-rate-limit.py
+      - name: Validate scheduler
+        run: python scripts/validate-phase8-outbox-scheduler.py
+      - name: Compile Phase 8 Python modules
+        run: >-
+          python -m py_compile
+          kernel/outbox/processor.py
+          kernel/outbox/runtime.py
+          kernel/outbox/observability.py
+          kernel/outbox/rate_limit.py
+          kernel/outbox/scheduler.py
