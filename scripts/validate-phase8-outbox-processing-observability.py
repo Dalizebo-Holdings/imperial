@@ -235,8 +235,8 @@ try:
         if getattr(fact, "payload", None) is not None:
             _add("OutboxEventLogFact should not carry raw payload; found payload field")
 
-    if published.get("published_at") != "pub-ack-xyz":
-        _add("published_at should equal ack ref: %r" % (published.get("published_at"),))
+    if published.get("published_at") == "pub-ack-xyz":
+        _add("published_at must not contain the provider acknowledgement reference")
 
     # ack calls stored durably
     if len(store.ack_calls) != 1:

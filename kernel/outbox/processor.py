@@ -258,7 +258,7 @@ class OutboxProcessor:
         )
         self.emitter.emit_delivery_published(
             fact=fact,
-            published_at=publish_ack_ref,
+            published_at=None,
         )
 
     def _emit_outcome(

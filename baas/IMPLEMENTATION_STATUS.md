@@ -236,6 +236,8 @@ invariant-sweep closure rule.
 - [x] Tenant and correlation context preservation
 - [x] Out-of-process concurrency validation
 - [x] PostgreSQL integration validation
+- [x] Bounded scheduler adapter with explicit cycle budget
+- [x] Scheduler metrics snapshot for cycle/outcome counters
 
 ## Outbox Observability
 

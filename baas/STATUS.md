@@ -28,6 +28,8 @@ Crash/expired-lease recovery: COMPLETE
 Tenant/correlation preservation: COMPLETE
 Concurrency validation: COMPLETE
 PostgreSQL integration validation: COMPLETE
+Bounded scheduler adapter: COMPLETE
+Scheduler metrics snapshot: COMPLETE
 
 ## Outbox Observability
 
